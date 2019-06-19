@@ -1,15 +1,17 @@
 @import '../../variables';
 
 .navbar {
-  width: calc(100vw - 20px);
+  width: calc(100vw - 100px);
   height: 50px;
   background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 30px;
-  position: relative;
+  position: sticky;
+  top: 0px;
+  transition: 1s;
 }
 
 .navLogo {

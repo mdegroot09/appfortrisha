@@ -1,9 +1,14 @@
 import React, {Component} from 'react'
 
 export default class Navbar extends Component {
+  showMeScroll = ()  => {
+    console.log('scroll:', window.scrollY)
+  }
+
   render(){
+    let scrollPos = window.scrollY
     return(
-      <div className='navbar'>
+      <div className={scrollPos < 20 ? 'navbar' : 'hello'}>
         <div className='navDiv'>
           <button className='navBtn'>Home</button>
           <button className='navBtn'>About</button>
