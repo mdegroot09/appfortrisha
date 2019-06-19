@@ -9,6 +9,20 @@
   align-items: center;
   margin-top: 20px;
   border-radius: 30px;
+  // border: 2px solid $turquoise; 
+  position: sticky;
+  top: 10px;
+  transition: 1s;
+}
+
+.hello {
+  width: 100vw;
+  height: 75px;
+  background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 2px solid $turquoise; 
   position: sticky;
   top: 0px;
   transition: 1s;
