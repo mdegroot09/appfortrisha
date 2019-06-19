@@ -3,7 +3,7 @@
 html, body {
   min-height: 100vh;
   width: 100vw;
-  background-color: $lightgray;
+  background-image: linear-gradient(135deg, $turquoise, rgb(44, 188, 231), rgb(64, 160, 224), rgb(73, 73, 255));
   display: flex;
   justify-content: center;
   align-items: flex-start;
