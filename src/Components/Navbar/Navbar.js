@@ -27,7 +27,8 @@ export default class Navbar extends Component {
             <button onClick={this.showMeScroll} className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
           </div>
-          {scrollY < 20 ? <Dots/> : ''}
+          <Dots/>
+          {/* {scrollY < 20 ? <Dots/> : ''} */}
           {/* <img className='navLogo' src="https://clipartion.com/wp-content/uploads/2015/11/circle-clip-art.png" alt=""/> */}
           <div className='navDivRight'>
             <button className='navBtn'>Register</button>
