@@ -16,7 +16,7 @@
 }
 
 .hello {
-  width: 100vw;
+  width: inherit;
   height: 75px;
   background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
   display: flex;
@@ -32,11 +32,11 @@
   height: 100%;
 }
 
-.navDiv:nth-child(1) {
+.navDivLeft {
   margin-left: 30px;
 }
 
-.navDiv:nth-child(3) {
+.navDivRight {
   margin-right: 30px;
 }
 

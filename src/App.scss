@@ -2,8 +2,8 @@
 
 html, body {
   min-height: 200vh;
-  width: 100vw;
-  background-image: linear-gradient(135deg, $turquoise, rgb(44, 188, 231), rgb(64, 160, 224), rgb(73, 73, 255));
+  width: calc(100vw - (100vw - 100%));
+  // background-image: linear-gradient(135deg, $turquoise, rgb(44, 188, 231), rgb(64, 160, 224), rgb(73, 73, 255));
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -11,10 +11,12 @@ html, body {
 
 #root {
   min-height: inherit;
+  width: inherit;
 }
 
 .App {
   min-height: inherit;
+  width: inherit;
   text-align: center;
   display: flex;
   flex-direction: column;
