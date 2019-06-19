@@ -1,0 +1,408 @@
+.dot {
+  background-color: red;
+  border-radius: 50%;
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  transition: .1s
+}
+
+#dotLeft1 {
+  top: -3px;
+  left: 20px;
+}
+
+#dotLeft2 {
+  top: -2.8px;
+  left: 18px;
+}
+
+#dotLeft3 {
+  top: -2.35px;
+  left: 16px;
+}
+
+#dotLeft4 {
+  top: -1.7px;
+  left: 14.1px;
+}
+
+#dotLeft5 {
+  top: -.8px;
+  left: 12.3px;
+}
+
+#dotLeft6 {
+  top: 0px;
+  left: 10.4px;
+}
+
+#dotLeft7 {
+  top: .9px;
+  left: 8.6px;
+}
+
+#dotLeft8 {
+  top: 1.9px;
+  left: 6.8px;
+}
+
+#dotLeft9 {
+  top: 3.2px;
+  left: 5.2px;
+}
+
+#dotLeft10 {
+  top: 4.7px;
+  left: 3.85px;
+}
+
+#dotLeft11 {
+  top: 3.7px;
+  left: 5px;
+}
+
+#dotLeft12 {
+  top: 4.7px;
+  left: 3.85px;
+}
+
+#dotLeft13 {
+  top: 6.2px;
+  left: 2.5px;
+}
+
+#dotLeft14 {
+  top: 7.8px;
+  left: 1.3px;
+}
+
+#dotLeft15 {
+  top: 9.5px;
+  left: .2px;
+}
+
+#dotLeft16 {
+  top: 11.3px;
+  left: -.8px;
+}
+
+#dotLeft17 {
+  top: 13.2px;
+  left: -1.6px;
+}
+
+#dotLeft18 {
+  top: 15.15px;
+  left: -2.3px;
+}
+
+#dotLeft19 {
+  top: 17.2px;
+  left: -2.9px;
+}
+
+#dotLeft20 {
+  top: 19.2px;
+  left: -3.3px;
+}
+
+#dotLeft21 {
+  top: 21.2px;
+  left: -3.3px;
+}
+
+#dotLeft22 {
+  top: 23.5px;
+  left: -3.3px;
+}
+
+#dotLeft23 {
+  top: 25.8px;
+  left: -3.3px;
+}
+
+#dotLeft24 {
+  top: 27.8px;
+  left: -2.9px;
+}
+
+#dotLeft25 {
+  top: 29.85px;
+  left: -2.3px;
+}
+
+#dotLeft26 {
+  top: 31.8px;
+  left: -1.6px;
+}
+
+#dotLeft27 {
+  top: 33.7px;
+  left: -.8px;
+}
+
+#dotLeft28 {
+  top: 35.5px;
+  left: .2px;
+}
+
+#dotLeft29 {
+  top: 37.2px;
+  left: 1.3px;
+}
+
+#dotLeft30 {
+  top: 38.8px;
+  left: 2.5px;
+}
+
+#dotLeft31 {
+  top: 40.3px;
+  left: 3.85px;
+}
+
+#dotLeft32 {
+  top: 41.8px;
+  left: 5.2px;
+}
+
+#dotLeft33 {
+  top: 43.1px;
+  left: 6.8px;
+}
+
+#dotLeft34 {
+  top: 44.1px;
+  left: 8.6px;
+}
+
+#dotLeft35 {
+  top: 45px;
+  left: 10.4px;
+}
+
+#dotLeft36 {
+  top: 45.8px;
+  left: 12.3px;
+}
+
+#dotLeft37 {
+  top: 46.7px;
+  left: 14.1px;
+}
+
+#dotLeft38 {
+  top: 47.35px;
+  left: 16px;
+}
+
+#dotLeft39 {
+  top: 47.8px;
+  left: 18px;
+}
+
+#dotLeft40 {
+  top: 48px;
+  left: 20px;
+}
+
+#dotRight1 {
+  top: -3px;
+  right: 20px;
+}
+
+#dotRight2 {
+  top: -2.8px;
+  right: 18px;
+}
+
+#dotRight3 {
+  top: -2.35px;
+  right: 16px;
+}
+
+#dotRight4 {
+  top: -1.7px;
+  right: 14.1px;
+}
+
+#dotRight5 {
+  top: -.8px;
+  right: 12.3px;
+}
+
+#dotRight6 {
+  top: 0px;
+  right: 10.4px;
+}
+
+#dotRight7 {
+  top: .9px;
+  right: 8.6px;
+}
+
+#dotRight8 {
+  top: 1.9px;
+  right: 6.8px;
+}
+
+#dotRight9 {
+  top: 3.2px;
+  right: 5.2px;
+}
+
+#dotRight10 {
+  top: 4.7px;
+  right: 3.85px;
+}
+
+#dotRight11 {
+  top: 3.7px;
+  right: 5px;
+}
+
+#dotRight12 {
+  top: 4.7px;
+  right: 3.85px;
+}
+
+#dotRight13 {
+  top: 6.2px;
+  right: 2.5px;
+}
+
+#dotRight14 {
+  top: 7.8px;
+  right: 1.3px;
+}
+
+#dotRight15 {
+  top: 9.5px;
+  right: .2px;
+}
+
+#dotRight16 {
+  top: 11.3px;
+  right: -.8px;
+}
+
+#dotRight17 {
+  top: 13.2px;
+  right: -1.6px;
+}
+
+#dotRight18 {
+  top: 15.15px;
+  right: -2.3px;
+}
+
+#dotRight19 {
+  top: 17.2px;
+  right: -2.9px;
+}
+
+#dotRight20 {
+  top: 19.2px;
+  right: -3.3px;
+}
+
+#dotRight21 {
+  top: 21.2px;
+  right: -3.3px;
+}
+
+#dotRight22 {
+  top: 23.5px;
+  right: -3.3px;
+}
+
+#dotRight23 {
+  top: 25.8px;
+  right: -3.3px;
+}
+
+#dotRight24 {
+  top: 27.8px;
+  right: -2.9px;
+}
+
+#dotRight25 {
+  top: 29.85px;
+  right: -2.3px;
+}
+
+#dotRight26 {
+  top: 31.8px;
+  right: -1.6px;
+}
+
+#dotRight27 {
+  top: 33.7px;
+  right: -.8px;
+}
+
+#dotRight28 {
+  top: 35.5px;
+  right: .2px;
+}
+
+#dotRight29 {
+  top: 37.2px;
+  right: 1.3px;
+}
+
+#dotRight30 {
+  top: 38.8px;
+  right: 2.5px;
+}
+
+#dotRight31 {
+  top: 40.3px;
+  right: 3.85px;
+}
+
+#dotRight32 {
+  top: 41.8px;
+  right: 5.2px;
+}
+
+#dotRight33 {
+  top: 43.1px;
+  right: 6.8px;
+}
+
+#dotRight34 {
+  top: 44.1px;
+  right: 8.6px;
+}
+
+#dotRight35 {
+  top: 45px;
+  right: 10.4px;
+}
+
+#dotRight36 {
+  top: 45.8px;
+  right: 12.3px;
+}
+
+#dotRight37 {
+  top: 46.7px;
+  right: 14.1px;
+}
+
+#dotRight38 {
+  top: 47.35px;
+  right: 16px;
+}
+
+#dotRight39 {
+  top: 47.8px;
+  right: 18px;
+}
+
+#dotRight40 {
+  top: 48px;
+  right: 20px;
+}

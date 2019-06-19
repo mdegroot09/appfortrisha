@@ -2,12 +2,12 @@
 
 .navMainInit {
   width: inherit;
-  height: 75px;
+  height: 80px;
   background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0px;
   transition: .5s;
 }
@@ -19,28 +19,18 @@
 .navbarInit {
   width: calc(100vw - 100px);
   height: 50px;
-  // background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
   border: 2px solid $turquoise; 
-  position: sticky;
-  top: 10px;
   transition: .5s;
+  position: relative;
 }
 
 .navbarScroll {
-  width: calc(100vw - 100px);
-  height: 50px;
   background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 30px;
-  position: sticky;
-  top: 10px;
-  transition: .5s;
+  border: none;
 }
 
 .navLogo {
