@@ -1,11 +1,10 @@
-.dotHide {
+.dot {
   background-color: red;
   border-radius: 50%;
   height: 5px;
   width: 5px;
   position: absolute;
-  transition: .1s;
-  // display: none;
+  transition: .05s;
 }
 
 #dotLeft40 {

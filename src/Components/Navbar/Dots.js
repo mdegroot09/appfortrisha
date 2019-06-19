@@ -6,10 +6,8 @@ export default class Dots extends Component {
     this.state = {
       navTopWidth: 0,
       dotsArr: [
-       'dotLeft40', 'dotLeft39', 'dotLeft38', 'dotLeft37', 'dotLeft36', 'dotLeft35', 'dotLeft34', 'dotLeft33', 'dotLeft32', 'dotLeft31', 'dotLeft30', 'dotLeft29', 'dotLeft28', 'dotLeft27', 'dotLeft26', 'dotLeft25', 'dotLeft24', 'dotLeft23', 'dotLeft22', 'dotLeft21', 'dotLeft20', 'dotLeft19', 'dotLeft18', 'dotLeft17', 'dotLeft16', 'dotLeft15', 'dotLeft14', 'dotLeft13', 'dotLeft12', 'dotLeft11', 'dotLeft10', 'dotLeft9', 'dotLeft8', 'dotLeft7', 'dotLeft6', 'dotLeft5', 'dotLeft4', 'dotLeft3', 'dotLeft2', 'dotLeft1'
-      ],
-      dotsArrTest: [
-        'dotLeft40', 'dotLeft39', 'dotLeft38', 'dotLeft37', 'dotLeft36'
+       'dotLeft1', 'dotLeft2', 'dotLeft3', 'dotLeft4', 'dotLeft5'
+      //, 'dotLeft6', 'dotLeft7', 'dotLeft8', 'dotLeft9', 'dotLeft10', 'dotLeft11', 'dotLeft12', 'dotLeft13', 'dotLeft14', 'dotLeft15', 'dotLeft16', 'dotLeft17', 'dotLeft18', 'dotLeft19', 'dotLeft20', 'dotLeft21', 'dotLeft22', 'dotLeft23', 'dotLeft24', 'dotLeft25', 'dotLeft26', 'dotLeft27', 'dotLeft28', 'dotLeft29', 'dotLeft30', 'dotLeft31', 'dotLeft32', 'dotLeft33', 'dotLeft34', 'dotLeft35', 'dotLeft36', 'dotLeft37', 'dotLeft38', 'dotLeft39', 'dotLeft40'
       ]
     }
   }
@@ -19,17 +17,37 @@ export default class Dots extends Component {
     let navTopWidth = +navbarInit.offsetWidth - ((20 * 2) + 4)
     console.log('navbarBorderWidth:', navTopWidth)
     this.setState({navTopWidth})
-    this.moveDots(navTopWidth)
+    this.animDots(navTopWidth)
   }
 
-  moveDots = (navTopWidth) => {
+  animDots = (navTopWidth) => {
+    // console.log('lastInArr:', lastLeftArr, typeof(lastLeftArr))
+    setInterval(() => { 
+      var {dotsArr} = this.state
+      let lastLeftArr = parseInt(dotsArr[4].split('dotLeft')[1])
+      if (lastLeftArr){
+        if (lastLeftArr < 40){
+          dotsArr.push(`dotLeft${lastLeftArr + 1}`)
+        } else {
+          dotsArr.push(`dotLeft1`)
+        }
+      }
+      dotsArr.shift()
 
+      this.setState({dotsArr})
+    }, 50);
   }
-
+  
   render(){
+    let showingDots = this.state.dotsArr.map((dot, i) => {
+      return (
+        <div key={i} className='dot' id={dot}></div>
+      )
+    })
     return (
       <>
-        <div className='dotHide' id='dotLeft40'></div>
+        {showingDots}
+        {/* <div className='dotHide' id='dotLeft40'></div>
         <div className='dotHide' id='dotLeft39'></div>
         <div className='dotHide' id='dotLeft38'></div>
         <div className='dotHide' id='dotLeft37'></div>
@@ -108,7 +126,7 @@ export default class Dots extends Component {
         <div className='dotHide' id='dotRight37'></div>
         <div className='dotHide' id='dotRight38'></div>
         <div className='dotHide' id='dotRight39'></div>
-        <div className='dotHide' id='dotRight40'></div>
+        <div className='dotHide' id='dotRight40'></div> */}
       </>
     )
   }
