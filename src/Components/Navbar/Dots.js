@@ -10,7 +10,8 @@ export default class Dots extends Component {
       widthDotCount: 0,
       dotsArr: [
        'dotLeft1', 'dotLeft2', 'dotLeft3', 'dotLeft4', 'dotLeft5', 'dotLeft6', 'dotLeft7', 'dotLeft8', 'dotLeft9', 'dotLeft10', 'dotLeft11', 'dotLeft12', 'dotLeft13', 'dotLeft14', 'dotLeft15', 'dotLeft16', 'dotLeft17', 'dotLeft18', 'dotLeft19', 'dotLeft20', 'dotLeft21', 'dotLeft22', 'dotLeft23', 'dotLeft24', 'dotLeft25', 'dotLeft26', 'dotLeft27', 'dotLeft28', 'dotLeft29', 'dotLeft30', 'dotLeft31', 'dotLeft32', 'dotLeft33', 'dotLeft34', 'dotLeft35', 'dotLeft36', 'dotLeft37', 'dotLeft38'
-      ]
+      ],
+      topActive: true
     }
   }
 
@@ -36,11 +37,13 @@ export default class Dots extends Component {
       let lastTopArr = parseInt(dotsArr[37].split('dotTop')[1])
       let lastRightArr = parseInt(dotsArr[37].split('dotRight')[1])
       let lastBottomArr = parseInt(dotsArr[37].split('dotBottom')[1])
-      // console.group('dotsArr:', dotsArr)
+      let lastMidRightArr = parseInt(dotsArr[37].split('dotMidRight')[1])
+      let lastMidLeftArr = parseInt(dotsArr[37].split('dotMidLeft')[1])
       if (lastLeftArr){
         if (lastLeftArr < 38){
           dotsArr.push(`dotLeft${lastLeftArr + 1}`)
         } else {
+          this.setState({topActive: true})
           dotsArr.push(`dotTop1`)
         }
       } else if (lastTopArr) {
@@ -53,6 +56,7 @@ export default class Dots extends Component {
         if (lastRightArr < 38){
           dotsArr.push(`dotRight${lastRightArr + 1}`)
         } else {
+          this.setState({topActive: false})
           dotsArr.push(`dotBottom1`)
         }
       } else if (lastBottomArr){
@@ -60,6 +64,20 @@ export default class Dots extends Component {
           dotsArr.push(`dotBottom${lastBottomArr + 1}`)
         } else {
           dotsArr.push(`dotLeft1`)
+        }
+      } else if (lastMidRightArr){
+        if (lastMidRightArr < 38){
+          dotsArr.push(`dotMidRight${lastMidRightArr + 1}`)
+        } else {
+        this.state.topActive ? 
+          dotsArr.push(`dotMidLeft1`) : dotsArr.push(`dotBottom${widthDotCount/2}`)
+        }
+      } else if (lastMidLeftArr){
+        if (lastMidRightArr < 38){
+          dotsArr.push(`dotMidRight${lastMidRightArr + 1}`)
+        } else {
+          this.state.topActive ? 
+            dotsArr.push(`dotTop${Math.ceil(widthDotCount / 2)}`) : dotsArr.push(`dotMidRight1`)
         }
       } 
       dotsArr.shift()
