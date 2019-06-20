@@ -1,65 +1,56 @@
 .dot {
-  background-color: $turquoise;
+  background: radial-gradient(turquoise, rgba(64, 224, 208, 0.753));
   border-radius: 50%;
   height: 5px;
   width: 5px;
   position: absolute;
-  transition: .05s;
+  // transition: .05s;
+  opacity: .2;
 }
 
-#dotLeft40 {
+#dotLeft38 {
   top: -3px;
   left: 20px;
 }
 
-#dotLeft39 {
+#dotLeft37 {
   top: -2.8px;
   left: 18px;
 }
 
-#dotLeft38 {
+#dotLeft36 {
   top: -2.35px;
   left: 16px;
 }
 
-#dotLeft37 {
+#dotLeft35 {
   top: -1.7px;
   left: 14.1px;
 }
 
-#dotLeft36 {
+#dotLeft34 {
   top: -.8px;
   left: 12.3px;
 }
 
-#dotLeft35 {
+#dotLeft33 {
   top: 0px;
   left: 10.4px;
 }
 
-#dotLeft34 {
+#dotLeft32 {
   top: .9px;
   left: 8.6px;
 }
 
-#dotLeft33 {
+#dotLeft31 {
   top: 1.9px;
   left: 6.8px;
 }
 
-#dotLeft32 {
+#dotLeft30 {
   top: 3.2px;
   left: 5.2px;
-}
-
-#dotLeft31 {
-  top: 4.7px;
-  left: 3.85px;
-}
-
-#dotLeft30 {
-  top: 3.7px;
-  left: 5px;
 }
 
 #dotLeft29 {
@@ -258,151 +249,141 @@
 }
 
 #dotRight11 {
-  top: 3.7px;
-  right: 5px;
-}
-
-#dotRight12 {
-  top: 4.7px;
-  right: 3.85px;
-}
-
-#dotRight13 {
   top: 6.2px;
   right: 2.5px;
 }
 
-#dotRight14 {
+#dotRight12 {
   top: 7.8px;
   right: 1.3px;
 }
 
-#dotRight15 {
+#dotRight13 {
   top: 9.5px;
   right: .2px;
 }
 
-#dotRight16 {
+#dotRight14 {
   top: 11.3px;
   right: -.8px;
 }
 
-#dotRight17 {
+#dotRight15 {
   top: 13.2px;
   right: -1.6px;
 }
 
-#dotRight18 {
+#dotRight16 {
   top: 15.15px;
   right: -2.3px;
 }
 
-#dotRight19 {
+#dotRight17 {
   top: 17.2px;
   right: -2.9px;
 }
 
-#dotRight20 {
+#dotRight18 {
   top: 19.2px;
   right: -3.3px;
 }
 
-#dotRight21 {
+#dotRight19 {
   top: 21.2px;
   right: -3.3px;
 }
 
-#dotRight22 {
+#dotRight20 {
   top: 23.5px;
   right: -3.3px;
 }
 
-#dotRight23 {
+#dotRight21 {
   top: 25.8px;
   right: -3.3px;
 }
 
-#dotRight24 {
+#dotRight22 {
   top: 27.8px;
   right: -2.9px;
 }
 
-#dotRight25 {
+#dotRight23 {
   top: 29.85px;
   right: -2.3px;
 }
 
-#dotRight26 {
+#dotRight24 {
   top: 31.8px;
   right: -1.6px;
 }
 
-#dotRight27 {
+#dotRight25 {
   top: 33.7px;
   right: -.8px;
 }
 
-#dotRight28 {
+#dotRight26 {
   top: 35.5px;
   right: .2px;
 }
 
-#dotRight29 {
+#dotRight27 {
   top: 37.2px;
   right: 1.3px;
 }
 
-#dotRight30 {
+#dotRight28 {
   top: 38.8px;
   right: 2.5px;
 }
 
-#dotRight31 {
+#dotRight29 {
   top: 40.3px;
   right: 3.85px;
 }
 
-#dotRight32 {
+#dotRight30 {
   top: 41.8px;
   right: 5.2px;
 }
 
-#dotRight33 {
+#dotRight31 {
   top: 43.1px;
   right: 6.8px;
 }
 
-#dotRight34 {
+#dotRight32 {
   top: 44.1px;
   right: 8.6px;
 }
 
-#dotRight35 {
+#dotRight33 {
   top: 45px;
   right: 10.4px;
 }
 
-#dotRight36 {
+#dotRight34 {
   top: 45.8px;
   right: 12.3px;
 }
 
-#dotRight37 {
+#dotRight35 {
   top: 46.7px;
   right: 14.1px;
 }
 
-#dotRight38 {
+#dotRight36 {
   top: 47.35px;
   right: 16px;
 }
 
-#dotRight39 {
+#dotRight37 {
   top: 47.8px;
   right: 18px;
 }
 
-#dotRight40 {
+#dotRight38 {
   top: 48px;
   right: 20px;
 }
