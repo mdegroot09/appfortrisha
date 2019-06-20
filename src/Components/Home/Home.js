@@ -4,7 +4,7 @@ export default class Home extends Component {
   render(){
     return(
       <>
-        <h1 style={{marginTop: "100px"}}>SimpleJoys</h1>
+        <h1 style={{marginTop: '100px'}}>SimpleJoys</h1>
       </>
     )
   }
