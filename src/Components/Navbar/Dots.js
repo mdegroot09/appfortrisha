@@ -44,93 +44,50 @@ export default class Dots extends Component {
   
   render(){
     let showingDots = this.state.dotsArr.map((dot, i) => {
-      return (
-        <div key={i} className='dot' id={dot}></div>
-      )
+      if (i === 0){
+        return (<div key={i} className={`dot last1 ${dot}`}></div>)
+      } else if (i === 1){
+        return (<div key={i} className={`dot last2 ${dot}`}></div>)
+      } else if (i === 2){
+        return (<div key={i} className={`dot last3 ${dot}`}></div>)
+      } else if (i === 3){
+        return (<div key={i} className={`dot last4 ${dot}`}></div>)
+      } else if (i === 4){
+        return (<div key={i} className={`dot last5 ${dot}`}></div>)
+      } else if (i === 5){
+        return (<div key={i} className={`dot last6 ${dot}`}></div>)
+      } else if (i === 6){
+        return (<div key={i} className={`dot last7 ${dot}`}></div>)
+      } else if (i === 7){
+        return (<div key={i} className={`dot last8 ${dot}`}></div>)
+      } else if (i === 8){
+        return (<div key={i} className={`dot last9 ${dot}`}></div>)
+      } else if (i === 9){
+        return (<div key={i} className={`dot last10 ${dot}`}></div>)
+      } else if (i === 10){
+        return (<div key={i} className={`dot last11 ${dot}`}></div>)
+      } else if (i === 11){
+        return (<div key={i} className={`dot last12 ${dot}`}></div>)
+      } else if (i === 12){
+        return (<div key={i} className={`dot last13 ${dot}`}></div>)
+      } else if (i === 13){
+        return (<div key={i} className={`dot last14 ${dot}`}></div>)
+      } else if (i === 14){
+        return (<div key={i} className={`dot last15 ${dot}`}></div>)
+      } else if (i === 15){
+        return (<div key={i} className={`dot last16 ${dot}`}></div>)
+      } else if (i === 16){
+        return (<div key={i} className={`dot last17 ${dot}`}></div>)
+      } else if (i === 17){
+        return (<div key={i} className={`dot last18 ${dot}`}></div>)
+      } else {
+        return (<div key={i} className={`dot ${dot}`}></div>)
+      }
     })
+
     return (
       <>
         {showingDots}
-        {/* <div className='dotHide' id='dotLeft40'></div>
-        <div className='dotHide' id='dotLeft39'></div>
-        <div className='dotHide' id='dotLeft38'></div>
-        <div className='dotHide' id='dotLeft37'></div>
-        <div className='dotHide' id='dotLeft36'></div>
-        <div className='dotHide' id='dotLeft35'></div>
-        <div className='dotHide' id='dotLeft34'></div>
-        <div className='dotHide' id='dotLeft33'></div>
-        <div className='dotHide' id='dotLeft32'></div>
-        <div className='dotHide' id='dotLeft31'></div>
-        <div className='dotHide' id='dotLeft30'></div>
-        <div className='dotHide' id='dotLeft29'></div>
-        <div className='dotHide' id='dotLeft28'></div>
-        <div className='dotHide' id='dotLeft27'></div>
-        <div className='dotHide' id='dotLeft26'></div>
-        <div className='dotHide' id='dotLeft25'></div>
-        <div className='dotHide' id='dotLeft24'></div>
-        <div className='dotHide' id='dotLeft23'></div>
-        <div className='dotHide' id='dotLeft22'></div>
-        <div className='dotHide' id='dotLeft21'></div>
-        <div className='dotHide' id='dotLeft20'></div>
-        <div className='dotHide' id='dotLeft19'></div>
-        <div className='dotHide' id='dotLeft18'></div>
-        <div className='dotHide' id='dotLeft17'></div>
-        <div className='dotHide' id='dotLeft16'></div>
-        <div className='dotHide' id='dotLeft15'></div>
-        <div className='dotHide' id='dotLeft14'></div>
-        <div className='dotHide' id='dotLeft13'></div>
-        <div className='dotHide' id='dotLeft12'></div>
-        <div className='dotHide' id='dotLeft11'></div>
-        <div className='dotHide' id='dotLeft10'></div>
-        <div className='dotHide' id='dotLeft9'></div>
-        <div className='dotHide' id='dotLeft8'></div>
-        <div className='dotHide' id='dotLeft7'></div>
-        <div className='dotHide' id='dotLeft6'></div>
-        <div className='dotHide' id='dotLeft5'></div>
-        <div className='dotHide' id='dotLeft4'></div>
-        <div className='dotHide' id='dotLeft3'></div>
-        <div className='dotHide' id='dotLeft2'></div>
-        <div className='dotHide' id='dotLeft1'></div>
-        <div className='dotHide' id='dotRight1'></div>
-        <div className='dotHide' id='dotRight2'></div>
-        <div className='dotHide' id='dotRight3'></div>
-        <div className='dotHide' id='dotRight4'></div>
-        <div className='dotHide' id='dotRight5'></div>
-        <div className='dotHide' id='dotRight6'></div>
-        <div className='dotHide' id='dotRight7'></div>
-        <div className='dotHide' id='dotRight8'></div>
-        <div className='dotHide' id='dotRight9'></div>
-        <div className='dotHide' id='dotRight10'></div>
-        <div className='dotHide' id='dotRight11'></div>
-        <div className='dotHide' id='dotRight12'></div>
-        <div className='dotHide' id='dotRight13'></div>
-        <div className='dotHide' id='dotRight14'></div>
-        <div className='dotHide' id='dotRight15'></div>
-        <div className='dotHide' id='dotRight16'></div>
-        <div className='dotHide' id='dotRight17'></div>
-        <div className='dotHide' id='dotRight18'></div>
-        <div className='dotHide' id='dotRight19'></div>
-        <div className='dotHide' id='dotRight20'></div>
-        <div className='dotHide' id='dotRight21'></div>
-        <div className='dotHide' id='dotRight22'></div>
-        <div className='dotHide' id='dotRight23'></div>
-        <div className='dotHide' id='dotRight24'></div>
-        <div className='dotHide' id='dotRight25'></div>
-        <div className='dotHide' id='dotRight26'></div>
-        <div className='dotHide' id='dotRight27'></div>
-        <div className='dotHide' id='dotRight28'></div>
-        <div className='dotHide' id='dotRight29'></div>
-        <div className='dotHide' id='dotRight30'></div>
-        <div className='dotHide' id='dotRight31'></div>
-        <div className='dotHide' id='dotRight32'></div>
-        <div className='dotHide' id='dotRight33'></div>
-        <div className='dotHide' id='dotRight34'></div>
-        <div className='dotHide' id='dotRight35'></div>
-        <div className='dotHide' id='dotRight36'></div>
-        <div className='dotHide' id='dotRight37'></div>
-        <div className='dotHide' id='dotRight38'></div>
-        <div className='dotHide' id='dotRight39'></div>
-        <div className='dotHide' id='dotRight40'></div> */}
       </>
     )
   }
