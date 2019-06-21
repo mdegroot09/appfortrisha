@@ -16,19 +16,25 @@ export default class ShowingDots extends Component {
       } else if (bottomNum){
         style = {right: `${(bottomNum * 2) + 20}px`, bottom: `-3.2px`}
       } else if (midRightNum) {
-
         const element = document.querySelector(`.${dot}`)
-        var right
-        var styleSelect
+        let right
+        let styleSelect
         if (element){
           styleSelect = getComputedStyle(element)
           // console.log('styleSelect.left:', styleSelect.left)
-          right = (Math.ceil(navStraightWidth / 2)) + 20 + styleSelect.left
+          right = (Math.floor(navStraightWidth / 2)) + 20 + styleSelect.left
         }
-
         style = {right: `${right}px`, top: `${styleSelect.top}`}
       } else if (midLeftNum){
-        style = {left: `${(Math.floor(navStraightWidth / 2)) + 20}px`}
+        const element = document.querySelector(`.${dot}`)
+        let left
+        let styleSelect
+        if (element){
+          styleSelect = getComputedStyle(element)
+          // console.log('styleSelect.left:', styleSelect.left)
+          left = (Math.floor(navStraightWidth / 2)) + 20 + styleSelect.left
+        }
+        style = {left: `${left}px`, top: `${styleSelect.top}`}
       }
 
       if (i < 36){
