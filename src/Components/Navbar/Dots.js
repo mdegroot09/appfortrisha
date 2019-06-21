@@ -90,6 +90,7 @@ export default class Dots extends Component {
       <>
         <ShowingDots 
           dotsArr={this.state.dotsArr}
+          navStraightWidth={this.state.navStraightWidth}
         />
       </>
     )
