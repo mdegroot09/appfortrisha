@@ -18,7 +18,6 @@ export default class Dots extends Component {
   componentDidMount = () => {
     let navbarInit = document.getElementsByClassName('navbarInit')[0]
     let navStraightWidth = +navbarInit.offsetWidth - ((20 * 2) + 6)
-    console.log('navbarBorderWidth:', navStraightWidth)
     this.setState({navStraightWidth})
     this.setWidthDotCount(navStraightWidth)
     this.animDots()
@@ -85,7 +84,20 @@ export default class Dots extends Component {
     }, 10);
   }
   
-  render(){
+  render() {
+    let {navStraightWidth} = this.state
+    if (navStraightWidth > 0){
+      let navbarInit = document.getElementsByClassName('navbarInit')[0]
+      let navStraightWidth = +navbarInit.offsetWidth - ((20 * 2) + 6)
+      if (navStraightWidth !== this.state.navStraightWidth){
+        for (var i = 1; i < 100; i++){
+          window.clearInterval(i);
+        }
+        this.setState({navStraightWidth})
+        this.setWidthDotCount(navStraightWidth)
+        this.animDots()
+      }
+    }
     return (
       <>
         <ShowingDots 
