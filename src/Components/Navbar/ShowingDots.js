@@ -33,7 +33,7 @@ export default class ShowingDots extends Component {
         let top
         if (element){
           styleSelect = getComputedStyle(element)
-          right = (Math.floor(navStraightWidth / 2)) + parseInt(styleSelect.right)
+          right = (Math.floor(navStraightWidth / 2)) + parseInt(styleSelect.right) - 1
           top = styleSelect.top
         }
         style = {right: `${right}px`, top: `${top}`}
@@ -44,7 +44,7 @@ export default class ShowingDots extends Component {
         let top
         if (element){
           styleSelect = getComputedStyle(element)
-          left = (Math.floor(navStraightWidth / 2)) + parseInt(styleSelect.left)
+          left = (Math.floor(navStraightWidth / 2)) + parseInt(styleSelect.left) - 1
           top = styleSelect.top
         }
         style = {left: `${left}px`, top: `${top}`}

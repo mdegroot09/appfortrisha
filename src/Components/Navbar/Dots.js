@@ -64,7 +64,11 @@ export default class Dots extends Component {
           dotsArr.push(`dotBottom1`)
         }
       } else if (lastArrBottom){
-        if (lastArrBottom < widthDotCount){
+        if (lastArrBottom < Math.floor(widthDotCount/2)){
+          dotsArr.push(`dotBottom${lastArrBottom + 1}`)
+        } else if (lastArrBottom === Math.floor(widthDotCount/2)){
+          dotsArr.push(`dotMidLeft1`)
+        }else if (lastArrBottom < widthDotCount){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else {
           dotsArr.push(`dotLeft1`)
@@ -101,13 +105,6 @@ export default class Dots extends Component {
         this.componentDidMount()
       }
     }
-
-    // kill everything --testing
-    setTimeout(() => {
-      for (var i = 1; i < 5000; i++){
-        window.clearInterval(i);
-      }
-    }, 20000);
 
     return (
       <>

@@ -29,7 +29,7 @@ export default class Navbar extends Component {
           </div>
           <Dots/>
           {/* {scrollY < 20 ? <Dots/> : ''} */}
-          <img className='navLogo' src="https://clipartion.com/wp-content/uploads/2015/11/circle-clip-art.png" alt=""/>
+          {/* <img className='navLogo' src="https://clipartion.com/wp-content/uploads/2015/11/circle-clip-art.png" alt=""/> */}
           <div className='navDivRight'>
             <button className='navBtn'>Register</button>
             <button className='navBtn'>Login</button>
