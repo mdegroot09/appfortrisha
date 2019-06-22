@@ -77,8 +77,8 @@ export default class Dots extends Component {
           dotsArr.push(`dotMidLeft1`) : dotsArr.push(`dotBottom${Math.floor(widthDotCount/2) + 1}`)
         }
       } else if (lastArrMidLeft){
-        if (lastArrMidRight < 38){
-          dotsArr.push(`dotMidRight${lastArrMidRight + 1}`)
+        if (lastArrMidLeft < 38){
+          dotsArr.push(`dotMidLeft${lastArrMidLeft + 1}`)
         } else {
           this.state.topActive ? 
             dotsArr.push(`dotTop${Math.floor(widthDotCount / 2) + 1}`) : dotsArr.push(`dotMidRight1`)

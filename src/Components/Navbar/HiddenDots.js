@@ -5,21 +5,13 @@ export default class HiddenDots extends Component {
     super()
     this.state = {
       left: [],
-      top: [],
-      right: [], 
-      bottom: [],
-      midRight: [],
-      midLeft: []
+      right: [] 
     }
   }
   
   componentDidMount = () => {
     let left = []
-    let top = []
     let right = []
-    let bottom = []
-    let midRight = []
-    let midleft = []
     for (let i = 1; i < 39; i++){
       left.push(<div key={i} id={`dotLeft${i}`}></div>)
       right.push(<div key={i} id={`dotRight${i}`}></div>)
