@@ -50,11 +50,7 @@ export default class ShowingDots extends Component {
         style = {left: `${left}px`, top: `${top}`}
       }
 
-      if (i < 36){
-        return <div key={i} style={style} className={`dot last${i + 1}`} id={dot}></div>
-      } else {
-        return <div key={i} style={style} className={`dot`} id={dot}></div>
-      }
+      return <div key={i} style={style} className={`dot last${i + 1}`} id={dot}></div>
     })
 
     return <>{showingDots}</>
