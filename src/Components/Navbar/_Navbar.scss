@@ -3,13 +3,16 @@
 .navMainInit {
   width: inherit;
   height: 80px;
-  background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
+  background-image: linear-gradient(#131313, #000077, rgb(15, 15, 170));
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   top: 0px;
-  transition: .5s;
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
 }
 
 .navMainScroll {
@@ -23,13 +26,15 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 30px;
-  // border: 2px solid $turquoise; 
-  transition: .5s;
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-in-out;
   position: relative;
 }
 
 .navbarScroll {
-  background-image: linear-gradient(180deg, rgba(19, 19, 19, 0.596) 10%, transparent), linear-gradient(180deg, $darkblue, rgb(0, 0, 119));
+  background-image: linear-gradient(#131313, #000077, rgb(15, 15, 170));
   border: none;
 }
 

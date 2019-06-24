@@ -8,10 +8,6 @@ export default class ShowingDots extends Component {
     }
   }
 
-  componentDidMount = () => {
-    
-  }
-
   render() {
     let {dotsArr} = this.props
     let {navStraightWidth} = this.props
