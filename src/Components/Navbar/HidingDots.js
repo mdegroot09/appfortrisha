@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class HiddenDots extends Component {
+export default class HidingDots extends Component {
   constructor(){
     super()
     this.state = {

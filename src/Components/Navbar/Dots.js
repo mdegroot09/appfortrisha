@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ShowingDots from './ShowingDots'
-import HiddenDots from './HiddenDots';
+import HidingDots from './HidingDots';
 
 export default class Dots extends Component {
   constructor(){
@@ -17,6 +17,10 @@ export default class Dots extends Component {
   }
 
   componentDidMount = () => {
+    this.resetNavWidth()
+  }
+
+  resetNavWidth = () => {
     let navbarInit = document.getElementsByClassName('navbarInit')[0]
     let navStraightWidth = Math.floor(+navbarInit.offsetWidth - ((20 * 2) + 6))
     this.setState({navStraightWidth})
@@ -34,11 +38,13 @@ export default class Dots extends Component {
       var {widthDotCount} = this.state
       var {dotsArr} = this.state
       let lastArrLeft = parseInt(dotsArr[37].split('dotLeft')[1])
-      let lastTopArr = parseInt(dotsArr[37].split('dotTop')[1])
+      let lastArrTop = parseInt(dotsArr[37].split('dotTop')[1])
       let lastArrRight = parseInt(dotsArr[37].split('dotRight')[1])
       let lastArrBottom = parseInt(dotsArr[37].split('dotBottom')[1])
       let lastArrMidRight = parseInt(dotsArr[37].split('dotMidRight')[1])
       let lastArrMidLeft = parseInt(dotsArr[37].split('dotMidLeft')[1])
+
+      // add next dot to array depending on previous last dot location
       if (lastArrLeft){
         if (lastArrLeft < 38){
           dotsArr.push(`dotLeft${lastArrLeft + 1}`)
@@ -46,13 +52,13 @@ export default class Dots extends Component {
           this.setState({topActive: true})
           dotsArr.push(`dotTop1`)
         }
-      } else if (lastTopArr) {
-        if (lastTopArr < Math.floor(widthDotCount/2)){
-          dotsArr.push(`dotTop${lastTopArr + 1}`)
-        } else if (lastTopArr === Math.floor(widthDotCount/2)){
+      } else if (lastArrTop) {
+        if (lastArrTop < Math.floor(widthDotCount/2)){
+          dotsArr.push(`dotTop${lastArrTop + 1}`)
+        } else if (lastArrTop === Math.floor(widthDotCount/2)){
           dotsArr.push(`dotMidRight1`)
-        }else if (lastTopArr < widthDotCount){
-          dotsArr.push(`dotTop${lastTopArr + 1}`)
+        }else if (lastArrTop < widthDotCount){
+          dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else {
           dotsArr.push(`dotRight1`)
         }
@@ -88,6 +94,8 @@ export default class Dots extends Component {
             dotsArr.push(`dotTop${Math.floor(widthDotCount / 2) + 1}`) : dotsArr.push(`dotMidRight1`)
         }
       } 
+
+      // remove first dot in array and update state
       dotsArr.shift()
       this.setState({dotsArr})
     }, 10);
@@ -102,13 +110,13 @@ export default class Dots extends Component {
         for (var i = 1; i < 5000; i++){
           window.clearInterval(i);
         }
-        this.componentDidMount()
+        this.resetNavWidth()
       }
     }
 
     return (
       <>
-        <HiddenDots/>
+        <HidingDots/>
         <ShowingDots 
           dotsArr={this.state.dotsArr}
           navStraightWidth={this.state.navStraightWidth}
