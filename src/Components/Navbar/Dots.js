@@ -103,7 +103,7 @@ export default class Dots extends Component {
       // remove first dot in array and update state
       dotsArr.shift()
       this.setState({dotsArr})
-    }, 10);
+    }, 8);
   }
   
   render() {
