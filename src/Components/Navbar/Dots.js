@@ -20,6 +20,7 @@ export default class Dots extends Component {
     this.resetNavWidth()
   }
 
+  // reset navWidth and dots animation anytime window width changes
   resetNavWidth = () => {
     let navbarInit = document.getElementsByClassName('navbarInit')[0]
     let navStraightWidth = Math.floor(+navbarInit.offsetWidth - ((20 * 2) + 6))
@@ -28,15 +29,19 @@ export default class Dots extends Component {
     this.animDots()
   }
 
+  // calculates number of dots for top and bottom based on window width
   setWidthDotCount = (navStraightWidth) => {
     let widthDotCount = (navStraightWidth - 1) / 2
     this.setState({widthDotCount})
   }
 
+  // start an interval for animating dots
   animDots = () => {
     setInterval(() => { 
       var {widthDotCount} = this.state
       var {dotsArr} = this.state
+
+      // whichever of the following is truthy is the current location of the last of dotsArr 
       let lastArrLeft = parseInt(dotsArr[37].split('dotLeft')[1])
       let lastArrTop = parseInt(dotsArr[37].split('dotTop')[1])
       let lastArrRight = parseInt(dotsArr[37].split('dotRight')[1])
@@ -46,13 +51,13 @@ export default class Dots extends Component {
 
       // add next dot to array depending on previous last dot location
       if (lastArrLeft){
-        if (lastArrLeft < 38){
+        if (lastArrLeft < 38){   // left round side
           dotsArr.push(`dotLeft${lastArrLeft + 1}`)
         } else {
           this.setState({topActive: true})
           dotsArr.push(`dotTop1`)
         }
-      } else if (lastArrTop) {
+      } else if (lastArrTop) {  // top straight side
         if (lastArrTop < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else if (lastArrTop === Math.floor(widthDotCount/2)){
@@ -62,14 +67,14 @@ export default class Dots extends Component {
         } else {
           dotsArr.push(`dotRight1`)
         }
-      } else if (lastArrRight){
+      } else if (lastArrRight){   // right round side
         if (lastArrRight < 38){
           dotsArr.push(`dotRight${lastArrRight + 1}`)
         } else {
           this.setState({topActive: false})
           dotsArr.push(`dotBottom1`)
         }
-      } else if (lastArrBottom){
+      } else if (lastArrBottom){    // bottom straight side
         if (lastArrBottom < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else if (lastArrBottom === Math.floor(widthDotCount/2)){
@@ -79,14 +84,14 @@ export default class Dots extends Component {
         } else {
           dotsArr.push(`dotLeft1`)
         }
-      } else if (lastArrMidRight){
+      } else if (lastArrMidRight){    // middle right round side
         if (lastArrMidRight < 38){
           dotsArr.push(`dotMidRight${lastArrMidRight + 1}`)
         } else {
         this.state.topActive ? 
           dotsArr.push(`dotMidLeft1`) : dotsArr.push(`dotBottom${Math.floor(widthDotCount/2) + 1}`)
         }
-      } else if (lastArrMidLeft){
+      } else if (lastArrMidLeft){   // middle left round side
         if (lastArrMidLeft < 38){
           dotsArr.push(`dotMidLeft${lastArrMidLeft + 1}`)
         } else {
@@ -102,11 +107,14 @@ export default class Dots extends Component {
   }
   
   render() {
+    // entire width between left round side and right round side
     let {navStraightWidth} = this.state
-    if (navStraightWidth > 0){
+    if (navStraightWidth > 0){  // need this to avoid first render error
       let navbarInit = document.getElementsByClassName('navbarInit')[0]
       let navStraightWidth = +navbarInit.offsetWidth - ((20 * 2) + 6)
-      if (navStraightWidth !== this.state.navStraightWidth){
+
+      // when window width changes, clear intervals and restart dots animation
+      if (navStraightWidth !== this.state.navStraightWidth){  
         for (var i = 1; i < 5000; i++){
           window.clearInterval(i);
         }
@@ -116,7 +124,8 @@ export default class Dots extends Component {
 
     return (
       <>
-        <HidingDots/>
+        {/* Need HidingDots solely for positioning middle sections */}
+        <HidingDots/> 
         <ShowingDots 
           dotsArr={this.state.dotsArr}
           navStraightWidth={this.state.navStraightWidth}
