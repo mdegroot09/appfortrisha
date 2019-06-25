@@ -5,12 +5,23 @@ export default class Navbar extends Component {
   constructor(){
     super()
     this.state = {
-      scrollY: 0
+      scrollY: 0,
+      opacity: 1
     }
+    this.timerIncrease = null
+    this.timerDecrease = null
   }
 
   componentDidMount = () => {
-    this.setState({scrollY: window.scrollY})
+    let {scrollY} = window
+    let opacity = 0
+    if (scrollY > 0){
+      opacity = 0
+    } else {
+      opacity = 1
+    }
+    document.getElementsByClassName('navMainInit')[0].style.backgroundImage = `linear-gradient(rgba(19,19,19,${opacity}), rgba(0,0,119,${opacity}), rgba(15,15,170,${opacity}))`
+    this.setState({scrollY, opacity})
   }
 
   updateScroll = ()  => {
@@ -24,37 +35,47 @@ export default class Navbar extends Component {
   }
 
   changeBackground = (scrollY) => {
-    console.log('scrollY:', scrollY)
-    if (scrollY === 0){
-      let opacity = 0
+    var opacity = this.state.opacity
+    if (scrollY <= 0){
+      console.log('scrollY === 0')
+      window.clearTimeout(this.timerDecrease)
       let increase = (opacity) => {
-        setTimeout(() => {
-          opacity += .01
+        this.timerIncrease = setTimeout(() => {
+          opacity += .02
           document.getElementsByClassName('navMainInit')[0].style.backgroundImage = `linear-gradient(rgba(19,19,19,${opacity}), rgba(0,0,119,${opacity}), rgba(15,15,170,${opacity}))`
+          this.setState({opacity})
           if(opacity >= 1){return}
-          console.log('opacity:', opacity)
           increase(opacity)
-        }, 5);
+        }, .01);
       }
       increase(opacity)
     } else {
-      document.getElementsByClassName('navMainInit')[0].style.backgroundImage = 'linear-gradient(transparent, transparent)'
+      console.log('scrollY > 0; opacity:', opacity)
+      window.clearTimeout(this.timerIncrease)
+      let decrease = (opacity) => {
+        this.timerDecrease = setTimeout(() => {
+          opacity -= .02
+          document.getElementsByClassName('navMainInit')[0].style.backgroundImage = `linear-gradient(rgba(19,19,19,${opacity}), rgba(0,0,119,${opacity}), rgba(15,15,170,${opacity}))`
+          this.setState({opacity})
+          if(opacity <= 0){return}
+          decrease(opacity)
+        }, .01);
+      }
+      decrease(opacity)
     }
   }
 
   render(){
     let {scrollY} = this.state
     window.onscroll = () => {
-      for (var i = 1; i < 5000; i++){
-        window.clearTimeout(i);
-      }
       this.updateScroll()
     } 
     return(
       <div className={'navMainInit'}>
-        <div className={scrollY === 0 ? 'navbarInit' : 'navbarInit navbarScroll'}>
+        <div className={'navbarInit navbarScroll'}>
+        {/* <div className={scrollY === 0 ? 'navbarInit' : 'navbarInit navbarScroll'}> */}
           <div className='navDivLeft'>
-            <button onClick={this.showMeScroll} className='navBtn'>Home</button>
+            <button onClick={() => console.log('scrollY:', window.scrollY)} className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
           </div>
           <Dots/>
