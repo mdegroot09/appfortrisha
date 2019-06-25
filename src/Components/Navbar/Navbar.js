@@ -37,7 +37,6 @@ export default class Navbar extends Component {
   changeBackground = (scrollY) => {
     var opacity = this.state.opacity
     if (scrollY <= 0){
-      console.log('scrollY === 0')
       window.clearTimeout(this.timerDecrease)
       let increase = (opacity) => {
         this.timerIncrease = setTimeout(() => {
@@ -50,7 +49,6 @@ export default class Navbar extends Component {
       }
       increase(opacity)
     } else {
-      console.log('scrollY > 0; opacity:', opacity)
       window.clearTimeout(this.timerIncrease)
       let decrease = (opacity) => {
         this.timerDecrease = setTimeout(() => {
@@ -66,14 +64,14 @@ export default class Navbar extends Component {
   }
 
   render(){
-    let {scrollY} = this.state
+    let {opacity} = this.state
     window.onscroll = () => {
       this.updateScroll()
     } 
     return(
       <div className={'navMainInit'}>
-        <div className={'navbarInit navbarScroll'}>
-        {/* <div className={scrollY === 0 ? 'navbarInit' : 'navbarInit navbarScroll'}> */}
+        {/* Hide second navbar background if opacity for navMainInit is at 1 */}
+        <div className={'navbarInit navbarScroll'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
           <div className='navDivLeft'>
             <button onClick={() => console.log('scrollY:', window.scrollY)} className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
