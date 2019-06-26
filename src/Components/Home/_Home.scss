@@ -10,6 +10,8 @@
 
 .headerIcon {
   height: 100%;
+  animation: rotation 20s infinite linear;
+  z-index: -1;
 }
 
 .headerTitle {
@@ -19,4 +21,46 @@
   color: rgb(35, 21, 240);
   color: rgb(238, 255, 0);
   text-shadow: 2.5px 2.5px 3px $darkblue;
+}
+
+.homeTrioDiv {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1500px;
+  width: 90vw;
+  min-height: 800px;
+  height: 100%;
+  background-color: white;
+}
+
+.homeLeft {
+  width: 20%;
+  height: 100%;
+  min-height: 500px;
+  background-color: green;
+}
+
+.homeMiddle {
+  width: 60%;
+  height: 100%;
+  min-height: 500px;
+  background-color: purple;
+}
+
+.homeRight {
+  width: 20%;
+  height: 100%;
+  min-height: 500px;
+  background-color: green;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
