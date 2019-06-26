@@ -9,9 +9,9 @@ export default class Home extends Component {
           <h1 className='headerTitle'>Simple Joys</h1>
         </div>
         <div className='tabs'>
-          <button>Family</button>
-          <button>Makeup</button>
-          <button>Food</button>
+          <button className='homeTab homeTabLeft'>Family</button>
+          <button className='homeTab'>Makeup</button>
+          <button className='homeTab homeTabRight'>Food</button>
         </div>
         <div className='homeTrioDiv'>
           <div className='homeLeft'>left</div>
