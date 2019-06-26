@@ -14,9 +14,17 @@ export default class Home extends Component {
           <button className='homeTab homeTabRight'>Food</button>
         </div>
         <div className='homeTrioDiv'>
-          <div className='homeLeft'>left</div>
-          <div className='homeMiddle'>middle</div>
-          <div className='homeRight'>right</div>
+          <div className='homeLeft'>
+            <h3>About</h3>
+          </div>
+          <div className='homeMiddle'>
+            <div className='postsList'>
+              <h3>Posts</h3>
+            </div>
+          </div>
+          <div className='homeRight'>
+            <h3>Search</h3>
+          </div>
         </div>
       </div>
     )
