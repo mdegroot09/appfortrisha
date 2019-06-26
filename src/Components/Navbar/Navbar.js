@@ -71,14 +71,14 @@ export default class Navbar extends Component {
     return(
       <div className={'navMainInit'}>
         {/* Hide second navbar background if opacity for navMainInit is at 1 */}
-        <div className={'navbarInit navbarScroll'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
+        <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
           <div className='navDivLeft'>
-            <button onClick={() => console.log('scrollY:', window.scrollY)} className='navBtn'>Home</button>
+            <button className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
           </div>
           <Dots/>
           {/* {scrollY === 0 ? <Dots/> : ''} */}
-          {/* <img className='navLogo' src="https://clipartion.com/wp-content/uploads/2015/11/circle-clip-art.png" alt=""/> */}
+          <img className='navLogo' src="https://i1.wp.com/www.justpinkaboutit.com/wp-content/uploads/2019/04/kisscc0-half-of-a-yellow-sun-computer-icons-sun-icon-5b3dfe2b88c833.0121921515307894195603-1.png?ssl=1" alt=""/>
           <div className='navDivRight'>
             <button className='navBtn'>Register</button>
             <button className='navBtn'>Login</button>
