@@ -1,11 +1,18 @@
 @import '../../variables';
 
+.homeMainDiv {
+  margin: 100px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .headerDiv {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
-  margin-top: 100px;
 }
 
 .headerIcon {
@@ -23,8 +30,13 @@
   text-shadow: 2.5px 2.5px 3px $darkblue;
 }
 
-.homeTrioDiv {
+.tabs {
   margin-top: 30px;
+  align-self: flex-start;
+}
+
+.homeTrioDiv {
+  margin-top: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
