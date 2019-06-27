@@ -36,7 +36,8 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, harum laudantium magnam natus aliquam, excepturi, cum quaerat asperiores aperiam enim labore. Nobis in dolorum itaque illum odio assumenda nisi aliquid!'
         }
       ],
-      viewMore: false
+      viewMore: false,
+      postsMax: 5
     }
   }
 
@@ -44,7 +45,7 @@ export default class Home extends Component {
     // Loop through posts and display each
     let showPosts = this.state.posts.map((post, i) => {
       // Only display the latest 5 posts 
-      if (i > 4 && this.state.viewMore === false){return}
+      if (i > this.state.postsMax - 1 && this.state.viewMore === false){return}
       let arr = post.text.split('')
       var text
       // Condense post and end with '...' if longer than 226 characters
@@ -67,6 +68,7 @@ export default class Home extends Component {
       )
     })
 
+    let {viewMore} = this.state
     return(
       <div className='homeMainDiv'>
         <div className='headerDiv'>
@@ -85,9 +87,12 @@ export default class Home extends Component {
               <input className='filter' type="text" placeholder='filter'/>
               <div className='showPosts'>
                 {showPosts}
-                {!this.state.viewMore ? 
-                  <button onClick={() => this.setState({viewMore: true})}>View More</button> 
-                  : <button onClick={() => this.setState({viewMore: false})}>View Less</button>}
+                {this.state.posts.length > this.state.postsMax ?
+                  (!this.state.viewMore ? 
+                    <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
+                    : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
+                      : <></>
+                }
               </div>
             </div>
           </div>
