@@ -8,41 +8,63 @@ export default class Home extends Component {
         {
           title: 'Latest Post',
           date: '6/27/19',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero possimus rem, repellendus quas veniam exercitationem repudiandae voluptatum doloribus doloremque mollitia. Rerum vero sunt ad saepe nam aperiam ipsum deserunt quo.'
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero possimus rem, repellendus quas veniam exercitationem repudiandae voluptatum doloribus doloremque mollitia. Rerum vero sunt ad saepe nam aperiam ipsum deserunt quo.',
+          family: true,
+          makeup: true,
+          food: true
         },
         {
           title: 'Sixth Post',
           date: '6/26/19',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid dolorum, quasi natus alias quidem exercitationem quos commodi aperiam tenetur deserunt officia magni itaque voluptates maxime. Commodi eveniet rerum voluptatibus.'
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid dolorum, quasi natus alias quidem exercitationem quos commodi aperiam tenetur deserunt officia magni itaque voluptates maxime. Commodi eveniet rerum voluptatibus.',
+          family: true,
+          makeup: false,
+          food: false
         },{
           title: 'Fifth Post',
           date: '6/25/19',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, dignissimos? Culpa quod officiis at nesciunt similique nemo nam repellat sapiente quos porro harum facere, explicabo omnis sint reiciendis facilis recusandae.'
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, dignissimos? Culpa quod officiis at nesciunt similique nemo nam repellat sapiente quos porro harum facere, explicabo omnis sint reiciendis facilis recusandae.',
+          family: true,
+          makeup: true,
+          food: true
         },
         {
           title: 'Fourth Post',
           date: '6/24/19',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, excepturi dolore fugiat amet perferendis, doloribus quaerat reprehenderit unde a nostrum deserunt maxime. Voluptatum suscipit nisi vero molestias officiis similique animi.'
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, excepturi dolore fugiat amet perferendis, doloribus quaerat reprehenderit unde a nostrum deserunt maxime. Voluptatum suscipit nisi vero molestias officiis similique animi.',
+          family: true,
+          makeup: false,
+          food: true
         },
         {
           title: 'Third Post',
           date: '6/23/19',
-          text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit pariatur, impedit officia ut voluptates modi eos molestiae ducimus corrupti, minima voluptatem quae, repellendus distinctio culpa aliquid in. Labore, hic esse.'
+          text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit pariatur, impedit officia ut voluptates modi eos molestiae ducimus corrupti, minima voluptatem quae, repellendus distinctio culpa aliquid in. Labore, hic esse.',
+          family: true,
+          makeup: true,
+          food: true
         },
         {
           title: 'Second Post',
           date: '6/22/19',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur maiores fugit sapiente doloribus ipsa esse, adipisci ratione quaerat aut incidunt sit asperiores alias, consequatur reiciendis, autem quibusdam iusto dolorum!'
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur maiores fugit sapiente doloribus ipsa esse, adipisci ratione quaerat aut incidunt sit asperiores alias, consequatur reiciendis, autem quibusdam iusto dolorum!',
+          family: true,
+          makeup: false,
+          food: true
         },
         {
           title: 'First Post',
           date: '6/21/19',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, harum laudantium magnam natus aliquam, excepturi, cum quaerat asperiores aperiam enim labore. Nobis in dolorum itaque illum odio assumenda nisi aliquid!'
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, harum laudantium magnam natus aliquam, excepturi, cum quaerat asperiores aperiam enim labore. Nobis in dolorum itaque illum odio assumenda nisi aliquid!',
+          family: true,
+          makeup: false,
+          food: true
         }
       ],
       viewMore: false,
       postsMax: 5,
-      filter: ''
+      filter: '',
+      activeTab: 'family'
     }
   }
 
@@ -56,9 +78,16 @@ export default class Home extends Component {
     }
   }
 
+  updateActiveTab = (name) => {
+    this.setState({activeTab: name})
+  }
+
   render(){
     // Loop through posts and display each
-    let showPosts = this.state.posts.map((post, i) => {
+    let tabSpecific = this.state.posts.filter(post => {
+      return post[this.state.activeTab]
+    })
+    let showPosts = tabSpecific.map((post, i) => {
       if (post.title.toLowerCase().includes(this.state.filter) || post.text.toLowerCase().includes(this.state.filter)){
         // Only display the latest 5 posts 
         if (i > this.state.postsMax - 1 && this.state.viewMore === false){return}
@@ -92,9 +121,9 @@ export default class Home extends Component {
           <h1 className='headerTitle'>Simple Joys</h1>
         </div>
         <div className='tabs'>
-          <button className='homeTab homeTabLeft'>Family</button>
-          <button className='homeTab'>Makeup</button>
-          <button className='homeTab homeTabRight'>Food</button>
+          <button className='homeTab homeTabLeft' onClick={() => this.updateActiveTab('family')}>Family</button>
+          <button className='homeTab' onClick={() => this.updateActiveTab('makeup')}>Makeup</button>
+          <button className='homeTab homeTabRight' onClick={() => this.updateActiveTab('food')}>Food</button>
         </div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
@@ -103,7 +132,7 @@ export default class Home extends Component {
               <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='filter'/>
               <div className='showPosts'>
                 {showPosts}
-                {!this.state.filter && this.state.posts.length > this.state.postsMax?
+                {!this.state.filter && tabSpecific.length > this.state.postsMax?
                   (!this.state.viewMore ? 
                     <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
                     : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
