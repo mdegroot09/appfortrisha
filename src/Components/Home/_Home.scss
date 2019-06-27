@@ -60,7 +60,7 @@
   border-left: 2px solid $turquoise;
 }
 
-.homeTrioDiv {
+.homeDuoDiv {
   margin-top: 0;
   display: flex;
   justify-content: space-evenly;
@@ -109,6 +109,8 @@
 
 .postTitle {
   margin-bottom: 0;
+  cursor: pointer;
+  color: navy;
 }
 
 .postText {

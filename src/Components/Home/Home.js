@@ -11,6 +11,11 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero possimus rem, repellendus quas veniam exercitationem repudiandae voluptatum doloribus doloremque mollitia. Rerum vero sunt ad saepe nam aperiam ipsum deserunt quo.'
         },
         {
+          title: 'Fifth Post',
+          date: '6/26/19',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid dolorum, quasi natus alias quidem exercitationem quos commodi aperiam tenetur deserunt officia magni itaque voluptates maxime. Commodi eveniet rerum voluptatibus.'
+        },
+        {
           title: 'Fourth Post',
           date: '6/26/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, excepturi dolore fugiat amet perferendis, doloribus quaerat reprehenderit unde a nostrum deserunt maxime. Voluptatum suscipit nisi vero molestias officiis similique animi.'
@@ -30,13 +35,16 @@ export default class Home extends Component {
           date: '6/21/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, harum laudantium magnam natus aliquam, excepturi, cum quaerat asperiores aperiam enim labore. Nobis in dolorum itaque illum odio assumenda nisi aliquid!'
         }
-      ]
+      ],
+      viewMore: false
     }
   }
 
   render(){
-    // Loop through posts and display each one
+    // Loop through posts and display each
     let showPosts = this.state.posts.map((post, i) => {
+      // Only display the latest 5 posts 
+      if (i > 4 && this.state.viewMore === false){return}
       let arr = post.text.split('')
       var text
       // Condense post and end with '...' if longer than 226 characters
@@ -53,7 +61,7 @@ export default class Home extends Component {
       }
       return (
         <div className='postDiv' key={i}>
-          <h4 className='postTitle'>{post.title} - {post.date}</h4>
+          <h4 className='postTitle' onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
           <p className='postText'>{text}</p>
         </div>
       )
@@ -70,13 +78,16 @@ export default class Home extends Component {
           <button className='homeTab'>Makeup</button>
           <button className='homeTab homeTabRight'>Food</button>
         </div>
-        <div className='homeTrioDiv'>
+        <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
               <h2>Posts</h2>
               <input className='filter' type="text" placeholder='filter'/>
               <div className='showPosts'>
                 {showPosts}
+                {!this.state.viewMore ? 
+                  <button onClick={() => this.setState({viewMore: true})}>View More</button> 
+                  : <button onClick={() => this.setState({viewMore: false})}>View Less</button>}
               </div>
             </div>
           </div>
