@@ -15,15 +15,13 @@ export default class Home extends Component {
         </div>
         <div className='homeTrioDiv'>
           <div className='homeLeft'>
-            <h3>About</h3>
-          </div>
-          <div className='homeMiddle'>
             <div className='postsList'>
               <h3>Posts</h3>
+              <input className='filter' type="text" placeholder='filter'/>
             </div>
           </div>
           <div className='homeRight'>
-            <h3>Search</h3>
+            <h3>About</h3>
           </div>
         </div>
       </div>
