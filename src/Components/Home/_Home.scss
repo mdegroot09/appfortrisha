@@ -92,6 +92,11 @@
   justify-content: flex-start;
 }
 
+.sectionTitle {
+  color: navy;
+  text-shadow: 1.2px 1.2px 2px rgb(85, 85, 85);
+}
+
 .showPosts {
   display: flex;
   flex-direction: column;

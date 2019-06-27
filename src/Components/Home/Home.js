@@ -11,23 +11,27 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero possimus rem, repellendus quas veniam exercitationem repudiandae voluptatum doloribus doloremque mollitia. Rerum vero sunt ad saepe nam aperiam ipsum deserunt quo.'
         },
         {
-          title: 'Fifth Post',
+          title: 'Sixth Post',
           date: '6/26/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid dolorum, quasi natus alias quidem exercitationem quos commodi aperiam tenetur deserunt officia magni itaque voluptates maxime. Commodi eveniet rerum voluptatibus.'
+        },{
+          title: 'Fifth Post',
+          date: '6/25/19',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, dignissimos? Culpa quod officiis at nesciunt similique nemo nam repellat sapiente quos porro harum facere, explicabo omnis sint reiciendis facilis recusandae.'
         },
         {
           title: 'Fourth Post',
-          date: '6/26/19',
+          date: '6/24/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, excepturi dolore fugiat amet perferendis, doloribus quaerat reprehenderit unde a nostrum deserunt maxime. Voluptatum suscipit nisi vero molestias officiis similique animi.'
         },
         {
           title: 'Third Post',
-          date: '6/24/19',
+          date: '6/23/19',
           text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit pariatur, impedit officia ut voluptates modi eos molestiae ducimus corrupti, minima voluptatem quae, repellendus distinctio culpa aliquid in. Labore, hic esse.'
         },
         {
           title: 'Second Post',
-          date: '6/23/19',
+          date: '6/22/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur maiores fugit sapiente doloribus ipsa esse, adipisci ratione quaerat aut incidunt sit asperiores alias, consequatur reiciendis, autem quibusdam iusto dolorum!'
         },
         {
@@ -37,38 +41,50 @@ export default class Home extends Component {
         }
       ],
       viewMore: false,
-      postsMax: 5
+      postsMax: 5,
+      filter: ''
+    }
+  }
+
+  updateFilter = (value) => {
+    let val = value.toLowerCase()
+    this.setState({filter: val})
+    if (!val){
+      this.setState({viewMore: false})
+    } else {
+      this.setState({viewMore: true})
     }
   }
 
   render(){
     // Loop through posts and display each
     let showPosts = this.state.posts.map((post, i) => {
-      // Only display the latest 5 posts 
-      if (i > this.state.postsMax - 1 && this.state.viewMore === false){return}
-      let arr = post.text.split('')
-      var text
-      // Condense post and end with '...' if longer than 226 characters
-      if (arr.length > 226){
-        let indexStart = 226
-        // If the last item in the array is a space or period, begin '...' one index sooner
-        while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
-          indexStart -= 1
+      if (post.title.toLowerCase().includes(this.state.filter) || post.text.toLowerCase().includes(this.state.filter)){
+        // Only display the latest 5 posts 
+        if (i > this.state.postsMax - 1 && this.state.viewMore === false){return}
+        let arr = post.text.split('')
+        var text
+        // Condense post and end with '...' if longer than 226 characters
+        if (arr.length > 226){
+          let indexStart = 226
+          // If the last item in the array is a space or period, begin '...' one index sooner
+          while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
+            indexStart -= 1
+          }
+          arr.splice(indexStart, arr.length - indexStart, '...')
+          text = arr.join('')
+        } else {
+          text = post.text
         }
-        arr.splice(indexStart, arr.length - indexStart, '...')
-        text = arr.join('')
-      } else {
-        text = post.text
-      }
-      return (
-        <div className='postDiv' key={i}>
-          <h4 className='postTitle' onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
-          <p className='postText'>{text}</p>
-        </div>
-      )
+        return (
+          <div className='postDiv' key={i}>
+            <h4 className='postTitle' onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
+            <p className='postText'>{text}</p>
+          </div>
+        )
+      } else return
     })
 
-    let {viewMore} = this.state
     return(
       <div className='homeMainDiv'>
         <div className='headerDiv'>
@@ -83,11 +99,11 @@ export default class Home extends Component {
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
-              <h2>Posts</h2>
-              <input className='filter' type="text" placeholder='filter'/>
+              <h2 className='sectionTitle'>Posts</h2>
+              <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='filter'/>
               <div className='showPosts'>
                 {showPosts}
-                {this.state.posts.length > this.state.postsMax ?
+                {!this.state.filter && this.state.posts.length > this.state.postsMax?
                   (!this.state.viewMore ? 
                     <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
                     : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
@@ -97,7 +113,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='homeRight'>
-            <h2>About</h2>
+            <h2 className='sectionTitle'>About</h2>
           </div>
         </div>
       </div>
