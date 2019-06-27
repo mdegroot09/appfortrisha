@@ -35,14 +35,30 @@ export default class Home extends Component {
   }
 
   render(){
+    // Loop through posts and display each one
     let showPosts = this.state.posts.map((post, i) => {
+      let arr = post.text.split('')
+      var text
+      // Condense post and end with '...' if longer than 226 characters
+      if (arr.length > 226){
+        let indexStart = 226
+        // If the last item in the array is a space or period, begin '...' one index sooner
+        while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
+          indexStart -= 1
+        }
+        arr.splice(indexStart, arr.length - indexStart, '...')
+        text = arr.join('')
+      } else {
+        text = post.text
+      }
       return (
         <div className='postDiv' key={i}>
           <h4 className='postTitle'>{post.title} - {post.date}</h4>
-          <p className='postText'>{post.text}</p>
+          <p className='postText'>{text}</p>
         </div>
       )
     })
+
     return(
       <div className='homeMainDiv'>
         <div className='headerDiv'>
