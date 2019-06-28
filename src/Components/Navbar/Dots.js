@@ -61,6 +61,7 @@ export default class Dots extends Component {
         if (lastArrTop < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else if (lastArrTop === Math.floor(widthDotCount/2)){
+          this.props.startSpin()
           dotsArr.push(`dotMidRight1`)
         }else if (lastArrTop < widthDotCount){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
@@ -78,6 +79,7 @@ export default class Dots extends Component {
         if (lastArrBottom < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else if (lastArrBottom === Math.floor(widthDotCount/2)){
+          this.props.startSpin()
           dotsArr.push(`dotMidLeft1`)
         }else if (lastArrBottom < widthDotCount){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)

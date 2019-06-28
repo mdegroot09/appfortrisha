@@ -10,7 +10,7 @@ export default class Navbar extends Component {
     }
     this.timerIncrease = null
     this.timerDecrease = null
-    this.spinMiddleImg = null
+    this.spinImg = null
   }
 
   componentDidMount = () => {
@@ -64,16 +64,15 @@ export default class Navbar extends Component {
     }
   }
 
-  startSpinMiddleImg = () => {
-    if (!this.spinMiddleImg){
+  startSpin = () => {
+    if (!this.spinImg){
       let navLogo = document.getElementsByClassName('navLogo')[0]
-      console.log('navLogo.style:', navLogo.style)
       navLogo.style.transition = 'transform 3s'
       navLogo.style.transform = 'rotate(540deg)'
-      this.spinMiddleImg = setTimeout(() => {
+      this.spinImg = setTimeout(() => {
         navLogo.style.transition = ''
         navLogo.style.transform = ''
-        this.spinMiddleImg = null
+        this.spinImg = null
       }, 3000);
     }
   }
@@ -84,14 +83,16 @@ export default class Navbar extends Component {
       this.updateScroll()
     } 
     return(
-      <div className={'navMainInit'} onClick={() => this.startSpinMiddleImg()}>
+      <div className={'navMainInit'}>
         {/* Hide second navbar background if opacity for navMainInit is at 1 */}
         <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
           <div className='navDivLeft'>
             <button className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
           </div>
-          <Dots/>
+          <Dots 
+            startSpin={this.startSpin}
+          />
           <img className='navLogo' 
             style={{height: '200%'}} 
             src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
