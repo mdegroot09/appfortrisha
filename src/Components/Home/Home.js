@@ -90,7 +90,7 @@ export default class Home extends Component {
     let showPosts = tabSpecific.map((post, i) => {
       if (post.title.toLowerCase().includes(this.state.filter) || post.text.toLowerCase().includes(this.state.filter)){
         // Only display the latest 5 posts 
-        if (i > this.state.postsMax - 1 && this.state.viewMore === false){return}
+        if (i > this.state.postsMax - 1 && this.state.viewMore === false){return true}
         let arr = post.text.split('')
         var text
         // Condense post and end with '...' if longer than 226 characters
@@ -111,7 +111,7 @@ export default class Home extends Component {
             <p className='postText'>{text}</p>
           </div>
         )
-      } else return
+      } else return true
     })
 
     return(
