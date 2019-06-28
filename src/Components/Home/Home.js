@@ -71,10 +71,10 @@ export default class Home extends Component {
   updateFilter = (value) => {
     let val = value.toLowerCase()
     this.setState({filter: val})
-    if (!val){
-      this.setState({viewMore: false})
-    } else {
+    if (val || this.state.viewMore === true){
       this.setState({viewMore: true})
+    } else {
+      this.setState({viewMore: false})
     }
   }
 
