@@ -108,6 +108,15 @@ export default class Dots extends Component {
     }, 8);
   }
   
+  clearIntervals = () => {
+    for (var i = 1; i < 5000; i++){
+      window.clearInterval(i);
+      window.clearTimeout(i);
+    }
+    this.resetNavWidth()
+    this.props.resetSpinImg()
+  }
+  
   render() {
     // entire width between left round side and right round side
     let {navStraightWidth} = this.state
@@ -117,10 +126,7 @@ export default class Dots extends Component {
 
       // when window width changes, clear intervals and restart dots animation
       if (navStraightWidth !== this.state.navStraightWidth){  
-        for (var i = 1; i < 5000; i++){
-          window.clearInterval(i);
-        }
-        this.resetNavWidth()
+        this.clearIntervals()
       }
     }
 

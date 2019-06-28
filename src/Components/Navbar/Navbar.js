@@ -27,7 +27,6 @@ export default class Navbar extends Component {
 
   updateScroll = ()  => {
     let {scrollY} = window
-
     // fire change background only when changing to or from scrollY === 0
     if ((scrollY === 0 && this.state.scrollY > 0) || (scrollY > 0 && this.state.scrollY === 0)){
       this.changeBackground(scrollY)
@@ -77,6 +76,13 @@ export default class Navbar extends Component {
     }
   }
 
+  resetSpinImg = () => {
+    let navLogo = document.getElementsByClassName('navLogo')[0]
+    navLogo.style.transition = ''
+    navLogo.style.transform = ''
+    this.spinImg = null
+  }
+
   render(){
     let {opacity} = this.state
     window.onscroll = () => {
@@ -91,6 +97,7 @@ export default class Navbar extends Component {
             <button className='navBtn'>About</button>
           </div>
           <Dots 
+            resetSpinImg={this.resetSpinImg}
             startSpin={this.startSpin}
           />
           <img className='navLogo' 
