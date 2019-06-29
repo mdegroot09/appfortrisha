@@ -80,7 +80,7 @@ export default class Home extends Component {
   }
 
   updateActiveTab = (name) => {
-    
+
     this.setState({activeTab: name})
   }
 
@@ -123,9 +123,12 @@ export default class Home extends Component {
           <h1 className='headerTitle'>Simple Joys</h1>
         </div>
         <div className='tabs'>
-          <button className='homeTab homeTabLeft' onClick={() => this.updateActiveTab('family')}>Family</button>
-          <button className='homeTab' onClick={() => this.updateActiveTab('makeup')}>Makeup</button>
-          <button className='homeTab homeTabRight' onClick={() => this.updateActiveTab('food')}>Food</button>
+          <button className={`homeTab ${this.state.activeTab === 'family' ? 'familyActive' : 'family'}`} 
+            onClick={() => this.updateActiveTab('family')}>Family</button>
+          <button className={`homeTab ${this.state.activeTab === 'makeup' ? 'makeupActive' : (this.state.activeTab === 'family' ? 'makeupFamilyActive' : 'makeupFoodActive')}`} 
+            onClick={() => this.updateActiveTab('makeup')}>Makeup</button>
+          <button className={`homeTab ${this.state.activeTab === 'food' ? 'foodActive' : 'food'}`} 
+            onClick={() => this.updateActiveTab('food')}>Food</button>
         </div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
