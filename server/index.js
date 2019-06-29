@@ -25,15 +25,11 @@ massive(CONNECTION_STRING).then(db => {
   })
 })
 
-// auth
+// Auth Controller
 app.post('/auth/registerUser', authCtrl.registerUser)
-app.post('/auth/registerAdmin', authCtrl.registerAdmin)
 app.post('/auth/loginUser', authCtrl.loginUser)
-app.post('/auth/loginAdmin', authCtrl.loginAdmin)
 app.delete('/auth/logout', authCtrl.logout)
 app.put('/auth/updateUser', authCtrl.updateUser)
-app.put('/auth/updateAdmin', authCtrl.updateAdmin)
 app.put('/auth/reset-pass', authCtrl.resetPass)
 app.get('/api/session', authCtrl.checkForSession)
-app.post('/auth/admin', authCtrl.authenticateAdmin)
 app.post('/auth/user',authCtrl.authenticateUser)

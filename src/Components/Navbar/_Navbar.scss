@@ -74,11 +74,10 @@
   font-family: 'Handlee', cursive;
   font-size: 20px;
   font-weight: 600;
-  // z-index: 1000;
   pointer-events: all;
+  outline: none;
 }
 
 .navBtn:hover{
   cursor: pointer;
-  color: white;
 }
