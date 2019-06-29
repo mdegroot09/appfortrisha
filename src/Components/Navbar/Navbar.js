@@ -88,8 +88,14 @@ export default class Navbar extends Component {
   showHideMenu = () => {
     if (this.state.menuClass === 'hideMenu'){
       this.setState({menuClass: 'showMenu'})
+      let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
+      homeMainDiv.style.zIndex = -2
     } else {
       this.setState({menuClass: 'hideMenu'})
+      setTimeout(() => {
+        let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
+        homeMainDiv.style.zIndex = 0
+      }, 250);
     }
   }
 
