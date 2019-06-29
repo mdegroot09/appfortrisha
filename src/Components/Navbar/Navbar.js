@@ -100,7 +100,7 @@ export default class Navbar extends Component {
       this.updateScroll()
     } 
     return(
-      <>
+      <div className='navMainParent'>
         <div className={'navMainInit'}>
           {/* Hide second navbar background if opacity for navMainInit is at 1 */}
           <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
@@ -129,9 +129,12 @@ export default class Navbar extends Component {
           </div>
         </div>
         <div className={`navMainInit ${this.state.menuClass}`} >
-          <button className='navBtn'>Home</button>
+          <button className='navBtnHB'>Home</button>
+          <button className='navBtnHB'>About</button>
+          <button className='navBtnHB'>Login</button>
+          <button className='navBtnHB'>Register</button>
         </div>
-      </>
+      </div>
     )
   }
 }

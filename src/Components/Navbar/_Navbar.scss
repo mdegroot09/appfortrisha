@@ -1,13 +1,19 @@
 @import '../../variables';
 
-.navMainInit {
+.navMainParent {
   width: inherit;
   height: 80px;
+  position: fixed
+}
+
+.navMainInit {
+  width: inherit;
+  height: inherit;
   background-image: linear-gradient(#131313, #000077, rgb(15, 15, 170));
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   top: 0px;
   -webkit-transition: opacity 3s ease-in-out;
   -moz-transition: opacity 3s ease-in-out;
@@ -79,6 +85,19 @@
   outline: none;
 }
 
+.navBtnHB {
+  margin: 0 10px;
+  color: yellow;
+  background-color: transparent;
+  border-color: transparent;
+  font-family: 'Handlee', cursive;
+  font-size: 20px;
+  font-weight: 600;
+  pointer-events: all;
+  outline: none;
+  justify-self: flex-end;
+}
+
 .hamburgerBtn {
   border: none; 
   background: none; 
@@ -97,25 +116,37 @@
 }
 
 .hideMenu {
-  position: relative;
-  bottom: 100px;
-  transition: 2s;
+  position: absolute;
+  top: -200px;
+  transition: 1s;
   display: none;
   z-index: -1;
   background: navy;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .showMenu {
-  position: relative;
+  position: absolute;
   top: 0;
   display: none;
-  transition: 2s;
-  height: 400px;
+  transition: 1s;
+  height: 230px;
   z-index: -1;
   background: navy;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 15px;
+  padding-bottom: 15px;
 }
 
 .navBtn:hover{
+  cursor: pointer;
+}
+
+.navBtnHB:hover{
   cursor: pointer;
 }
 
@@ -130,7 +161,7 @@
     display: block;
   }
   .hideMenu, .showMenu {
-    display: block;
+    display: flex;
   }
 }
 
