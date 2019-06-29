@@ -6,7 +6,8 @@ export default class Navbar extends Component {
     super()
     this.state = {
       scrollY: 0,
-      opacity: 1
+      opacity: 1,
+      menuClass: 'hideMenu'
     }
     this.timerIncrease = null
     this.timerDecrease = null
@@ -84,39 +85,53 @@ export default class Navbar extends Component {
     this.spinImg = null
   }
 
+  showHideMenu = () => {
+    console.log('you fired')
+    if (this.state.menuClass === 'hideMenu'){
+      this.setState({menuClass: 'showMenu'})
+    } else {
+      this.setState({menuClass: 'hideMenu'})
+    }
+  }
+
   render(){
     let {opacity} = this.state
     window.onscroll = () => {
       this.updateScroll()
     } 
     return(
-      <div className={'navMainInit'}>
-        {/* Hide second navbar background if opacity for navMainInit is at 1 */}
-        <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
-          <div className='navDivLeft'>
-            <button className='navBtn'>Home</button>
-            <button className='navBtn'>About</button>
-            {/* Hamburger Button */}
-            <button className='hamburgerBtn'>
-              <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
-            </button>
-          </div>
-          <Dots 
-            resetSpinImg={this.resetSpinImg}
-            startSpin={this.startSpin}
-          />
-          <img className='navLogo' 
-            style={{height: '200%'}} 
-            src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
-          <div className='navLogo'>
-            <h3 className='navTitle'>Simple Joys</h3>
-          </div>
-          <div className='navDivRight'>
-            <button onClick={() => console.log('yay')} className='navBtn'>Register</button>
-            <button className='navBtn'>Login</button>
+      <>
+        <div className={'navMainInit'}>
+          {/* Hide second navbar background if opacity for navMainInit is at 1 */}
+          <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
+            <div className='navDivLeft'>
+              <button className='navBtn'>Home</button>
+              <button className='navBtn'>About</button>
+              {/* Hamburger Button */}
+              <button onClick={() => this.showHideMenu()} className='hamburgerBtn'>
+                <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
+              </button>
+            </div>
+            <Dots 
+              resetSpinImg={this.resetSpinImg}
+              startSpin={this.startSpin}
+            />
+            <img className='navLogo' 
+              style={{height: '200%'}} 
+              src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
+            <div className='navLogo'>
+              <h3 className='navTitle'>Simple Joys</h3>
+            </div>
+            <div className='navDivRight'>
+              <button onClick={() => console.log('yay')} className='navBtn'>Register</button>
+              <button className='navBtn'>Login</button>
+            </div>
           </div>
         </div>
-      </div>
+        <div className={`navMainInit ${this.state.menuClass}`} >
+          <button className='navBtn'>Home</button>
+        </div>
+      </>
     )
   }
 }
