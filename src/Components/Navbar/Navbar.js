@@ -70,6 +70,7 @@ export default class Navbar extends Component {
       navLogo.style.transform = 'rotate(540deg)'
       this.spinImg = setTimeout(() => {
         navLogo.style.transition = ''
+        
         navLogo.style.transform = ''
         this.spinImg = null
       }, 2000);
