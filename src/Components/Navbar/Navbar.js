@@ -86,7 +86,6 @@ export default class Navbar extends Component {
   }
 
   showHideMenu = () => {
-    console.log('you fired')
     if (this.state.menuClass === 'hideMenu'){
       this.setState({menuClass: 'showMenu'})
     } else {
@@ -123,7 +122,7 @@ export default class Navbar extends Component {
               <h3 className='navTitle'>Simple Joys</h3>
             </div>
             <div className='navDivRight'>
-              <button onClick={() => console.log('yay')} className='navBtn'>Register</button>
+              <button className='navBtn'>Register</button>
               <button className='navBtn'>Login</button>
             </div>
           </div>
