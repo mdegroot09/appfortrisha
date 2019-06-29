@@ -96,13 +96,13 @@
 }
 
 @media(max-width: 800px){
-  .hamburgerBtn{
-    display: block;
+  .navbarInit{
+    width: calc(100vw - 10px);
   }
   .navBtn{
     display: none;
   }
-  .navbarInit{
-    width: calc(100vw - 50px);
+  .hamburgerBtn{
+    display: block;
   }
 }

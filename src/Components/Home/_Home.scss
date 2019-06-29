@@ -23,6 +23,7 @@
 
 .headerTitle {
   margin: 0;
+  margin-right: 15px;
   font-weight: 900; 
   font-size: 60px;
   color: $yellow;
@@ -194,12 +195,25 @@
 }
 
 @media(max-width: 800px){
-  .homeMainDiv, .homeDuoDiv{
+  .headerTitle {
+    font-size: 45px;
+  }
+  .headerIcon{
+    height: 100%;
+  }
+  .homeMainDiv{
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+    margin-top: 80px;
+  }
+  .tabs {
+    margin-top: 0;
   }
   .homeDuoDiv{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     flex-direction: column;
   }
   .homeLeft{
