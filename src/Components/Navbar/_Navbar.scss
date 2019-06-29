@@ -13,6 +13,7 @@
   -moz-transition: opacity 3s ease-in-out;
   -o-transition: opacity 3s ease-in-out;
   transition: opacity 3s ease-in-out;
+  pointer-events: none;
 }
 
 .navMainScroll {
@@ -33,6 +34,7 @@
   position: relative;
   background-image: linear-gradient(#131313, #000077, rgb(15, 15, 170));
   border: none;
+  pointer-events: none;
 }
 
 .navLogo {
@@ -45,6 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .navTitle {
@@ -60,6 +63,7 @@
 
 .navDivRight {
   margin-right: 30px;
+  pointer-events: none;
 }
 
 .navBtn {
@@ -67,8 +71,14 @@
   color: yellow;
   background-color: transparent;
   border-color: transparent;
-  cursor: pointer;
   font-family: 'Handlee', cursive;
   font-size: 20px;
   font-weight: 600;
+  // z-index: 1000;
+  pointer-events: all;
+}
+
+.navBtn:hover{
+  cursor: pointer;
+  color: white;
 }

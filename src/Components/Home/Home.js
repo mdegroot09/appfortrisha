@@ -5,6 +5,7 @@ export default class Home extends Component {
     super()
     this.state = {
       posts: [
+        // testing data
         {
           title: 'Latest Post',
           date: '6/27/19',
@@ -79,6 +80,7 @@ export default class Home extends Component {
   }
 
   updateActiveTab = (name) => {
+    
     this.setState({activeTab: name})
   }
 

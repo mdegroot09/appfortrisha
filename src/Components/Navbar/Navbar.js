@@ -66,13 +66,13 @@ export default class Navbar extends Component {
   startSpin = () => {
     if (!this.spinImg){
       let navLogo = document.getElementsByClassName('navLogo')[0]
-      navLogo.style.transition = 'transform 3s'
+      navLogo.style.transition = 'transform 2s'
       navLogo.style.transform = 'rotate(540deg)'
       this.spinImg = setTimeout(() => {
         navLogo.style.transition = ''
         navLogo.style.transform = ''
         this.spinImg = null
-      }, 3000);
+      }, 2000);
     }
   }
 
@@ -107,7 +107,7 @@ export default class Navbar extends Component {
             <h3 className='navTitle'>Simple Joys</h3>
           </div>
           <div className='navDivRight'>
-            <button className='navBtn'>Register</button>
+            <button onClick={() => console.log('yay')} className='navBtn'>Register</button>
             <button className='navBtn'>Login</button>
           </div>
         </div>

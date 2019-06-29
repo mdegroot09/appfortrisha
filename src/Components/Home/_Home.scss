@@ -17,7 +17,6 @@
 
 .headerIcon {
   height: 100%;
-  animation: rotation 20s infinite linear;
   z-index: -1;
 }
 
@@ -154,13 +153,4 @@
   font-size: 17px;
   font-weight: 600;
   box-shadow: 2px 2px 3px rgb(82, 82, 82);
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
 }
