@@ -70,7 +70,7 @@ export default class Navbar extends Component {
       navLogo.style.transform = 'rotate(540deg)'
       this.spinImg = setTimeout(() => {
         navLogo.style.transition = ''
-        
+
         navLogo.style.transform = ''
         this.spinImg = null
       }, 2000);
@@ -96,6 +96,10 @@ export default class Navbar extends Component {
           <div className='navDivLeft'>
             <button className='navBtn'>Home</button>
             <button className='navBtn'>About</button>
+            {/* Hamburger Button */}
+            <button className='hamburgerBtn'>
+              <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
+            </button>
           </div>
           <Dots 
             resetSpinImg={this.resetSpinImg}
