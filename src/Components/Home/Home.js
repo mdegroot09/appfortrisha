@@ -135,7 +135,7 @@ export default class Home extends Component {
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>Posts</h2>
-              <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='filter'/>
+              <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
               <div className='showPosts'>
                 {showPosts}
                 {!this.state.filter && tabSpecific.length > this.state.postsMax?
