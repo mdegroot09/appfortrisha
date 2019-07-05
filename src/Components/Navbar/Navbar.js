@@ -67,14 +67,14 @@ export default class Navbar extends Component {
   startSpin = () => {
     if (!this.spinImg){
       let navLogo = document.getElementsByClassName('navLogo')[0]
-      navLogo.style.transition = 'transform 2s'
+      navLogo.style.transition = 'transform 2.4s'
       navLogo.style.transform = 'rotate(540deg)'
       this.spinImg = setTimeout(() => {
         navLogo.style.transition = ''
 
         navLogo.style.transform = ''
         this.spinImg = null
-      }, 2000);
+      }, 2400);
     }
   }
 

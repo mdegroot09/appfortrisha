@@ -1,13 +1,6 @@
 import React, {Component} from 'react'
 
 export default class ShowingDots extends Component {
-  constructor(){
-    super()
-    this.state = {
-
-    }
-  }
-
   render() {
     let {dotsArr} = this.props
     let {navStraightWidth} = this.props
@@ -50,6 +43,5 @@ export default class ShowingDots extends Component {
     })
 
     return <>{showingDots}</>
-
   }
 }
