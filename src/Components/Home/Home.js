@@ -62,6 +62,7 @@ export default class Home extends Component {
           food: true
         }
       ],
+      showingPosts: [],
       viewMore: false,
       postsMax: 5,
       filter: '',
@@ -80,7 +81,6 @@ export default class Home extends Component {
   }
 
   updateActiveTab = (name) => {
-
     this.setState({activeTab: name})
   }
 
@@ -96,8 +96,8 @@ export default class Home extends Component {
         let arr = post.text.split('')
         var text
         // Condense post and end with '...' if longer than 226 characters
-        if (arr.length > 226){
-          let indexStart = 226
+        if (arr.length > 80){
+          let indexStart = 80
           // If the last item in the array is a space or period, begin '...' one index sooner
           while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
             indexStart -= 1
@@ -108,9 +108,15 @@ export default class Home extends Component {
           text = post.text
         }
         return (
-          <div className='postDiv' key={i}>
-            <h4 className='postTitle' onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
-            <p className='postText'>{text}</p>
+          <div className='miniPost' key={i}>
+            {i % 2 !== 0 ? <img className='miniPhoto' src="https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg" alt=""/> : <></>}
+            <div className='postDiv'>
+              <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}} onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
+              <div className='postTextDiv'>
+                <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
+              </div>
+            </div>
+            {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src="https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg" alt=""/> : <></>}
           </div>
         )
       } else return true

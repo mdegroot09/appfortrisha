@@ -145,25 +145,52 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
 }
 
 .postDiv {
-  width: calc(100% - 30px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  align-self: center;
 }
 
 .postTitle {
   margin-bottom: 0;
+  margin-top: 0;
   cursor: pointer;
   color: navy;
+}
+
+.postTextDiv {
+  display: flex;
+}
+
+.miniPost {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: calc(100% - 30px);
+  margin-top: 30px;
+}
+
+.miniPhoto {
+  height: 85px;
+  width: 100px;
+  align-self: center;
+  margin-right: 15px;
+}
+
+.miniPhotoRight {
+  margin-right: 0;
+  margin-left: 15px;
 }
 
 .postText {
   text-align: left;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .filter {
@@ -189,6 +216,7 @@
 }
 
 .viewMoreBtn {
+  margin-top: 20px;
   margin-bottom: 20px;
   height: 30px;
   width: 90px;
