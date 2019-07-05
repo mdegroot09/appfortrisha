@@ -138,6 +138,7 @@
 .sectionTitle {
   color: navy;
   text-shadow: 1.2px 1.2px 2px rgb(85, 85, 85);
+  margin: 15px 0 10px 0;
 }
 
 .showPosts {
@@ -157,9 +158,7 @@
 }
 
 .postTitle {
-  margin-bottom: 0;
-  margin-top: 0;
-  cursor: pointer;
+  margin: 0 10px;
   color: navy;
 }
 
@@ -169,28 +168,28 @@
 
 .miniPost {
   display: flex;
-  justify-content: center;
-  height: 100%;
+  justify-content: space-between;
   width: calc(100% - 30px);
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px gray;
+  cursor: pointer;
 }
 
 .miniPhoto {
   height: 85px;
   min-width: 100px;
   align-self: center;
-  margin-right: 15px;
+  margin: 10px 0 10px 10px;
 }
 
 .miniPhotoRight {
-  margin-right: 0;
-  margin-left: 15px;
+  margin: 10px 10px 10px 0;
 }
 
 .postText {
   text-align: left;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 10px;
 }
 
 .filter {
@@ -200,6 +199,7 @@
   border: 1px solid gray;
   padding-left: 10px;
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .filter:hover {
