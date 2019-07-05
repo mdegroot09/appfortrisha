@@ -117,7 +117,7 @@ export default class Dots extends Component {
       // remove first dot in array and update state
       dotsArr.shift()
       this.setState({dotsArr})
-    }, 20);
+    }, 15);
   }
   
   clearIntervals = () => {

@@ -12,7 +12,8 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero possimus rem, repellendus quas veniam exercitationem repudiandae voluptatum doloribus doloremque mollitia. Rerum vero sunt ad saepe nam aperiam ipsum deserunt quo.',
           family: true,
           makeup: true,
-          food: true
+          food: true,
+          images: ['https://lh3.googleusercontent.com/e4nGMKIfZDj4BNQS2-6K2ItTYrc7hXW577n8qoFZ1dTzhgcooAvU7msAJyfA3SHBFyxBdKehwaKlMo8WUgAJCRrbDIJQNqbEtUsqcpK6rjazFJTmUuyZWtntbQXphiS0J5I6w1b90CJkm_errCtUaEL1ryIirTwJS-VB__xNSw7GIlOSu4qUiFY3E6obMPr2gGa4EtXeJUkfdjktAznOY6Xp_iE0AZoqaWiwzXVk6ddHorGNPCOQSw0fB3Sx01PTR2-qhovAUXd9AakHdMyL6ZDcc3hbtB539s78FAKjB-IyaEsv0ubFF63GQLfpw0KZkEt693_gtjQ_2d2sSDALJFCpWZpEaSUTwuidYq4RmHrvZpKun8MjQvEsAEnpnxAlXiTabT19otDjxUyYEFJInkukTLKeYNcJoU4wTycKo8E1tFParnywz2Ym-HW_SkPFX8d_W9LN38Enp-GZlWHkCy1vhwJM5m_bpyh5OalS3tYjwyvmrStqTjKkNnCvdB3Ko5uVD9hRAeYKPUzvxwoSjc8T_Wsh440UffRV9xKxJQP-gmv_yiH6Mw93koaEhJeLnqco4BUUUplvXFaehHKqb4c8WWNJ8jJZ4vYBsVR2Nrmt6Yi0fwbWiVJrNY3yuW9Oue7UnGfaDsNFMfCK5KEgsVRtVBrRQTw9=w1613-h907-no']
         },
         {
           title: 'Sixth Post',
@@ -20,14 +21,16 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aliquid dolorum, quasi natus alias quidem exercitationem quos commodi aperiam tenetur deserunt officia magni itaque voluptates maxime. Commodi eveniet rerum voluptatibus.',
           family: true,
           makeup: false,
-          food: false
+          food: false,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         },{
           title: 'Fifth Post',
           date: '6/25/19',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, dignissimos? Culpa quod officiis at nesciunt similique nemo nam repellat sapiente quos porro harum facere, explicabo omnis sint reiciendis facilis recusandae.',
           family: true,
           makeup: true,
-          food: true
+          food: true,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         },
         {
           title: 'Fourth Post',
@@ -35,7 +38,8 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, excepturi dolore fugiat amet perferendis, doloribus quaerat reprehenderit unde a nostrum deserunt maxime. Voluptatum suscipit nisi vero molestias officiis similique animi.',
           family: true,
           makeup: false,
-          food: true
+          food: true,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         },
         {
           title: 'Third Post',
@@ -43,7 +47,8 @@ export default class Home extends Component {
           text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit pariatur, impedit officia ut voluptates modi eos molestiae ducimus corrupti, minima voluptatem quae, repellendus distinctio culpa aliquid in. Labore, hic esse.',
           family: true,
           makeup: true,
-          food: true
+          food: true,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         },
         {
           title: 'Second Post',
@@ -51,7 +56,8 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur maiores fugit sapiente doloribus ipsa esse, adipisci ratione quaerat aut incidunt sit asperiores alias, consequatur reiciendis, autem quibusdam iusto dolorum!',
           family: true,
           makeup: false,
-          food: true
+          food: true,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         },
         {
           title: 'First Post',
@@ -59,7 +65,8 @@ export default class Home extends Component {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At, harum laudantium magnam natus aliquam, excepturi, cum quaerat asperiores aperiam enim labore. Nobis in dolorum itaque illum odio assumenda nisi aliquid!',
           family: true,
           makeup: false,
-          food: true
+          food: true,
+          images: ['https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg']
         }
       ],
       viewMore: false,
@@ -117,14 +124,16 @@ export default class Home extends Component {
       }
       return (
         <div className='miniPost' key={i}>
-          {i % 2 !== 0 ? <img className='miniPhoto' src="https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg" alt=""/> : <></>}
+          {/* {i % 2 !== 0 ? <img className='miniPhoto' src={post.images[0]} alt=""/> : <></>} */}
+          {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.images[0]}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
           <div className='postDiv'>
             <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}} onClick={() => console.log(`"${post.title}" clicked`)}>{post.title} - {post.date}</h4>
             <div className='postTextDiv'>
               <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
             </div>
           </div>
-          {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src="https://cdn.pixabay.com/photo/2013/11/28/09/57/sky-219769_960_720.jpg" alt=""/> : <></>}
+          {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.images[0]}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+          {/* {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src={post.images[0]} alt=""/> : <></>} */}
         </div>
       )
     })
@@ -135,7 +144,6 @@ export default class Home extends Component {
       <div className='homeMainDiv'>
         <div className='headerDiv'>
           <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
-          {/* <img className='headerIcon' src="https://i1.wp.com/www.justpinkaboutit.com/wp-content/uploads/2019/04/kisscc0-half-of-a-yellow-sun-computer-icons-sun-icon-5b3dfe2b88c833.0121921515307894195603-1.png?ssl=1" alt=""/> */}
           <h1 className='headerTitle'>Simple Joys</h1>
         </div>
         <div className='tabs'>
