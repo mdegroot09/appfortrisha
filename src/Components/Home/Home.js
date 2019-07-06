@@ -13,7 +13,7 @@ export default class Home extends Component {
           family: true,
           makeup: true,
           food: true,
-          images: ['https://lh3.googleusercontent.com/e4nGMKIfZDj4BNQS2-6K2ItTYrc7hXW577n8qoFZ1dTzhgcooAvU7msAJyfA3SHBFyxBdKehwaKlMo8WUgAJCRrbDIJQNqbEtUsqcpK6rjazFJTmUuyZWtntbQXphiS0J5I6w1b90CJkm_errCtUaEL1ryIirTwJS-VB__xNSw7GIlOSu4qUiFY3E6obMPr2gGa4EtXeJUkfdjktAznOY6Xp_iE0AZoqaWiwzXVk6ddHorGNPCOQSw0fB3Sx01PTR2-qhovAUXd9AakHdMyL6ZDcc3hbtB539s78FAKjB-IyaEsv0ubFF63GQLfpw0KZkEt693_gtjQ_2d2sSDALJFCpWZpEaSUTwuidYq4RmHrvZpKun8MjQvEsAEnpnxAlXiTabT19otDjxUyYEFJInkukTLKeYNcJoU4wTycKo8E1tFParnywz2Ym-HW_SkPFX8d_W9LN38Enp-GZlWHkCy1vhwJM5m_bpyh5OalS3tYjwyvmrStqTjKkNnCvdB3Ko5uVD9hRAeYKPUzvxwoSjc8T_Wsh440UffRV9xKxJQP-gmv_yiH6Mw93koaEhJeLnqco4BUUUplvXFaehHKqb4c8WWNJ8jJZ4vYBsVR2Nrmt6Yi0fwbWiVJrNY3yuW9Oue7UnGfaDsNFMfCK5KEgsVRtVBrRQTw9=w1613-h907-no']
+          imageMain: 'https://lh3.googleusercontent.com/e4nGMKIfZDj4BNQS2-6K2ItTYrc7hXW577n8qoFZ1dTzhgcooAvU7msAJyfA3SHBFyxBdKehwaKlMo8WUgAJCRrbDIJQNqbEtUsqcpK6rjazFJTmUuyZWtntbQXphiS0J5I6w1b90CJkm_errCtUaEL1ryIirTwJS-VB__xNSw7GIlOSu4qUiFY3E6obMPr2gGa4EtXeJUkfdjktAznOY6Xp_iE0AZoqaWiwzXVk6ddHorGNPCOQSw0fB3Sx01PTR2-qhovAUXd9AakHdMyL6ZDcc3hbtB539s78FAKjB-IyaEsv0ubFF63GQLfpw0KZkEt693_gtjQ_2d2sSDALJFCpWZpEaSUTwuidYq4RmHrvZpKun8MjQvEsAEnpnxAlXiTabT19otDjxUyYEFJInkukTLKeYNcJoU4wTycKo8E1tFParnywz2Ym-HW_SkPFX8d_W9LN38Enp-GZlWHkCy1vhwJM5m_bpyh5OalS3tYjwyvmrStqTjKkNnCvdB3Ko5uVD9hRAeYKPUzvxwoSjc8T_Wsh440UffRV9xKxJQP-gmv_yiH6Mw93koaEhJeLnqco4BUUUplvXFaehHKqb4c8WWNJ8jJZ4vYBsVR2Nrmt6Yi0fwbWiVJrNY3yuW9Oue7UnGfaDsNFMfCK5KEgsVRtVBrRQTw9=w1613-h907-no'
         },
         {
           title: 'Sixth Post',
@@ -22,7 +22,7 @@ export default class Home extends Component {
           family: true,
           makeup: false,
           food: false,
-          images: ['https://lh3.googleusercontent.com/g2rK5d5AjXpj4ciPXUh8J4L9zlEmP0qleP2RDlAGyDRZs26HDTw9pHp__jkbrT_rdS6bh9Q-DhFFJsfMMcDiMg1XtLuJUbGOa8c3-1Dae1Kti0HrLjV2Oo4M1Q0HXIJ8X3kyW2Yra8BTGMZZCPeBFOYu0vkh_2ZL-wTe9AQs28o_b7OXjGNvbA7f0t4nleto2AAvNQ9tSGHK_do5R742sOvzajrJWp78gSK9W5nY7DQ3l-3Zhq7-m82InuGIp5us0qE3BMGfWif3IOJphbW6LH9OaNlSDGYx72AUy-4HSARYZom1giKvkTTzqpQbugzJC3PnbcvlnCCclYfull1K8B2pS-VLZWXvRweTLyXBDh1qqTxUOnaYdZu9cPJyiSqSIfBg7W99Wfm4dedh3KH83J41LcAhgZ2KG4WzJ3JBzcUIXF2Oru-_OOg4As0pEkyLbUycjUTSqKipXQ4kJaaohFOecm8mBMlt89SNvp_LaekigS23eh0qVo-sVsTx5UkAdafxmBbhi96d4c3_poW8k_34o5k1qg2VIcwdTc_uVECtT3TcLBu40UZcgSgmsQJTzxwu5-CmOxTeZ-kXDoN9O7guebB2qX8PcR56xdnSlNgQ2hfSSlycvIJGadYLLhtXeXJLrB2J5gkQKijbdrusFYAWgPBJ_ro3=w1613-h907-no']
+          imageMain: 'https://lh3.googleusercontent.com/g2rK5d5AjXpj4ciPXUh8J4L9zlEmP0qleP2RDlAGyDRZs26HDTw9pHp__jkbrT_rdS6bh9Q-DhFFJsfMMcDiMg1XtLuJUbGOa8c3-1Dae1Kti0HrLjV2Oo4M1Q0HXIJ8X3kyW2Yra8BTGMZZCPeBFOYu0vkh_2ZL-wTe9AQs28o_b7OXjGNvbA7f0t4nleto2AAvNQ9tSGHK_do5R742sOvzajrJWp78gSK9W5nY7DQ3l-3Zhq7-m82InuGIp5us0qE3BMGfWif3IOJphbW6LH9OaNlSDGYx72AUy-4HSARYZom1giKvkTTzqpQbugzJC3PnbcvlnCCclYfull1K8B2pS-VLZWXvRweTLyXBDh1qqTxUOnaYdZu9cPJyiSqSIfBg7W99Wfm4dedh3KH83J41LcAhgZ2KG4WzJ3JBzcUIXF2Oru-_OOg4As0pEkyLbUycjUTSqKipXQ4kJaaohFOecm8mBMlt89SNvp_LaekigS23eh0qVo-sVsTx5UkAdafxmBbhi96d4c3_poW8k_34o5k1qg2VIcwdTc_uVECtT3TcLBu40UZcgSgmsQJTzxwu5-CmOxTeZ-kXDoN9O7guebB2qX8PcR56xdnSlNgQ2hfSSlycvIJGadYLLhtXeXJLrB2J5gkQKijbdrusFYAWgPBJ_ro3=w1613-h907-no'
         },{
           title: 'Fifth Post',
           date: '6/25/19',
@@ -30,7 +30,7 @@ export default class Home extends Component {
           family: true,
           makeup: true,
           food: true,
-          images: ['https://lh3.googleusercontent.com/rmxW8WS7BNXpCEG1If1M2HeXQcSA4_2CJBfVySRdXJAimjD1DXEnBSBl7OX2hQ5moHdZwZkD2PZ3udmJWIYI4PCbKkaRyLKBBQXMG01b91k4oUNCobVJ6ma5apdwnRtrxHH39T3gNQbOeIQzCGdrAjXbg6ez-cJnxHkhBgsQ_91ZRF-VTbYpasl8XxpwEE5RzZpvpc0w85iCQg22_76WGfsH-IVSKR6DGPVvTovzmGvBZkmZjIEYc_tvGTBrOm8GdMRYKOrMOu1mHou_gjQ-ZzK0M-jTZeCedB0M6rUJZqGKGABiAqkzummhqdKHC8m9DQ59UZ5Dc391YlVhH6c9lUWhkZnTIEabZVHCFoAEPTmiW3cHIadC1bqDWSeFdX9DpZ4QZXEf9xWyZl5YqKMuah53G14Zk_IQ54geJxXZ72eDTDe7C3z-KmkLxkWe12AjzFkTpwNH7YWiaIOLtvTzUpFSjG3JlXZQIWDzYdGuL-DyUMnKRqkC7dTf-d12c4_8oXLf5LtAgWh93f_b7jqh0Jb9Ltx4nQ55-Oxv_rmHYMwsYMStCN4954gTdxrF4StsQ4t0R-fkx_OSbyIKnECpWkpKihKRNos3Z2SXtpKNTE01g8QY1dsGECxg72oUMggbYzHxwN8vkXPHjyjcN7CIwyMtC4ImZ1yF=w1612-h908-no']
+          imageMain: 'https://lh3.googleusercontent.com/rmxW8WS7BNXpCEG1If1M2HeXQcSA4_2CJBfVySRdXJAimjD1DXEnBSBl7OX2hQ5moHdZwZkD2PZ3udmJWIYI4PCbKkaRyLKBBQXMG01b91k4oUNCobVJ6ma5apdwnRtrxHH39T3gNQbOeIQzCGdrAjXbg6ez-cJnxHkhBgsQ_91ZRF-VTbYpasl8XxpwEE5RzZpvpc0w85iCQg22_76WGfsH-IVSKR6DGPVvTovzmGvBZkmZjIEYc_tvGTBrOm8GdMRYKOrMOu1mHou_gjQ-ZzK0M-jTZeCedB0M6rUJZqGKGABiAqkzummhqdKHC8m9DQ59UZ5Dc391YlVhH6c9lUWhkZnTIEabZVHCFoAEPTmiW3cHIadC1bqDWSeFdX9DpZ4QZXEf9xWyZl5YqKMuah53G14Zk_IQ54geJxXZ72eDTDe7C3z-KmkLxkWe12AjzFkTpwNH7YWiaIOLtvTzUpFSjG3JlXZQIWDzYdGuL-DyUMnKRqkC7dTf-d12c4_8oXLf5LtAgWh93f_b7jqh0Jb9Ltx4nQ55-Oxv_rmHYMwsYMStCN4954gTdxrF4StsQ4t0R-fkx_OSbyIKnECpWkpKihKRNos3Z2SXtpKNTE01g8QY1dsGECxg72oUMggbYzHxwN8vkXPHjyjcN7CIwyMtC4ImZ1yF=w1612-h908-no'
         },
         {
           title: 'Fourth Post',
@@ -39,7 +39,7 @@ export default class Home extends Component {
           family: true,
           makeup: false,
           food: true,
-          images: ['https://lh3.googleusercontent.com/-sfNtB0xmRtSYEt7pGGDpBZXabGa8LEewv1xigXbVwAUz0wcgYKOb4zeCoSlHpRStvC079-D3k1p5fR1QUj1fARcBGQkhdcg1_am_TY8AOCDlDYKeUBAxhKuyWAz2I-SV4jqzEoWMlcaxX9QbEXFSfBi0HVTEACau3tMXqv16il_a-iDFIUmbR1e83F7hllNhWKIQAq2_1RvmOnRMWeB8npo6p6gcfMBmH5aHQzjE5bbzilLXEaabVQn-wBvNdYead1BB95tGUWVZtNB-sTlK8XLIfked05rzNypzWm8J1X5MNcbo8F9Rz_vtQqWzlaMIADGpCXOJcdN7GSiJhvAu0S-Hxc-I89FVlppkFwL9I_TvF9_7VZeCU5UtrJ6_aelvAURrTLS9SspDMZO7X5HiOygbZOoh41TeiJVAjnTs6OMzQuI_uedXHZvBTiENR_tIuKsl2Aw1yWEXuNSjuOsAQUpAUbL7c-vdw_rassO9qNoIPlWq_lWRLv_4g41oVd3ieS0tvudoXu0gE69lYoxBaUDjDrpeLFxmJQ1PymL_Ok38RrY_NV7rUwo9_GjgBRenm58i0SrJrL6ab3akHWp4CcufH-V7EhHi91T0sQshhPhbrNaZ5PC68JiLnh68pe0BBuf4xMMCHf6ojX2zRkbIAuvaJ_s40DU=w1613-h907-no']
+          imageMain: 'https://lh3.googleusercontent.com/-sfNtB0xmRtSYEt7pGGDpBZXabGa8LEewv1xigXbVwAUz0wcgYKOb4zeCoSlHpRStvC079-D3k1p5fR1QUj1fARcBGQkhdcg1_am_TY8AOCDlDYKeUBAxhKuyWAz2I-SV4jqzEoWMlcaxX9QbEXFSfBi0HVTEACau3tMXqv16il_a-iDFIUmbR1e83F7hllNhWKIQAq2_1RvmOnRMWeB8npo6p6gcfMBmH5aHQzjE5bbzilLXEaabVQn-wBvNdYead1BB95tGUWVZtNB-sTlK8XLIfked05rzNypzWm8J1X5MNcbo8F9Rz_vtQqWzlaMIADGpCXOJcdN7GSiJhvAu0S-Hxc-I89FVlppkFwL9I_TvF9_7VZeCU5UtrJ6_aelvAURrTLS9SspDMZO7X5HiOygbZOoh41TeiJVAjnTs6OMzQuI_uedXHZvBTiENR_tIuKsl2Aw1yWEXuNSjuOsAQUpAUbL7c-vdw_rassO9qNoIPlWq_lWRLv_4g41oVd3ieS0tvudoXu0gE69lYoxBaUDjDrpeLFxmJQ1PymL_Ok38RrY_NV7rUwo9_GjgBRenm58i0SrJrL6ab3akHWp4CcufH-V7EhHi91T0sQshhPhbrNaZ5PC68JiLnh68pe0BBuf4xMMCHf6ojX2zRkbIAuvaJ_s40DU=w1613-h907-no'
         },
         {
           title: 'Third Post',
@@ -48,7 +48,7 @@ export default class Home extends Component {
           family: true,
           makeup: true,
           food: true,
-          images: ['https://lh3.googleusercontent.com/UW5urVZFsGiOPQy96_gkWX944tJITnrDufyOJAvNSzl1GmF4WhXhvjIy2hefgzNaKtBnweX_ssFBcsziiSx4ege_kFrXVb676Lwi1tqYgmkO1c1jCHFsKE6YooWntv6EXplIRPy8wn3QBwoxpGs0F30DzZ7XpzN67Y3jnkMb9vDAGTc4d6_q2hrKmNPo7dGh_FC6vBwkRcnrd8Oh9hNhiYjb2GzQJMULwSlcmyXHmwFNHqnLcuN9Jha0ivZrYRiRDM6G7QykAKN6_PEOcNGljXHlOCO6ZOa16LHH9nw4gbqRoiYg_otqMLOklDcJZn4oV7qcQbubfo_sjIHurYEiIV-w6ke5fd0WDvoT_Y7QHhMDXEDb-LszJ5kjmmFvuiPBrkyoF2xRr7_p2ZeqYakRbiFi6OGa8gTz9YXVJOAjQXiYUOBM3yF4xjT-HgpRestkWnqJ9XPX_7iB9I89UVTcBlWT1GDWz1Z3gUDgKfNhOv2E4TSrTK0Th-HztLzAXGJzRiPkyS3J9ev-r4ZSWRAMHFWcq5NQoHEQgDM9ltrD_hkvhIPhSek0V-6kwdGaV53UxDn0EYO-bgBy12BAu9-9caItyIhZu4Lw8cO-SN83gBNV4gR_gc9vXlPqNKzKJHzyYyVK-33IUOKLF2X1-BxO1o56cU1KB6WR=w1612-h908-no']
+          imageMain: 'https://lh3.googleusercontent.com/UW5urVZFsGiOPQy96_gkWX944tJITnrDufyOJAvNSzl1GmF4WhXhvjIy2hefgzNaKtBnweX_ssFBcsziiSx4ege_kFrXVb676Lwi1tqYgmkO1c1jCHFsKE6YooWntv6EXplIRPy8wn3QBwoxpGs0F30DzZ7XpzN67Y3jnkMb9vDAGTc4d6_q2hrKmNPo7dGh_FC6vBwkRcnrd8Oh9hNhiYjb2GzQJMULwSlcmyXHmwFNHqnLcuN9Jha0ivZrYRiRDM6G7QykAKN6_PEOcNGljXHlOCO6ZOa16LHH9nw4gbqRoiYg_otqMLOklDcJZn4oV7qcQbubfo_sjIHurYEiIV-w6ke5fd0WDvoT_Y7QHhMDXEDb-LszJ5kjmmFvuiPBrkyoF2xRr7_p2ZeqYakRbiFi6OGa8gTz9YXVJOAjQXiYUOBM3yF4xjT-HgpRestkWnqJ9XPX_7iB9I89UVTcBlWT1GDWz1Z3gUDgKfNhOv2E4TSrTK0Th-HztLzAXGJzRiPkyS3J9ev-r4ZSWRAMHFWcq5NQoHEQgDM9ltrD_hkvhIPhSek0V-6kwdGaV53UxDn0EYO-bgBy12BAu9-9caItyIhZu4Lw8cO-SN83gBNV4gR_gc9vXlPqNKzKJHzyYyVK-33IUOKLF2X1-BxO1o56cU1KB6WR=w1612-h908-no'
         },
         {
           title: 'Second Post',
@@ -57,7 +57,7 @@ export default class Home extends Component {
           family: true,
           makeup: false,
           food: true,
-          images: ['https://lh3.googleusercontent.com/vr9-CWzsX4Y2VTy9pQ8beul89m1hFCzuQm8_x3PlKtGMo0gkLffpQk0GvMhPYn9AgxlZXzy7NpEpPcEjJRi0-94bruO2hGInEHgjYvwqnHre9-xLorXW11cfPxW-lvZl8wrBSaDLzoXivxySW_L_EvIZ4lupnHQpQvSGyFsMFz0V47wOiKd22lgshwtUd48F-0vX2aOG6NAGGouspTF1UBitIxf_Kmiy-1krKZ6YZZY1o1H1aYK-rLKb_1P_6VTI4sML5-mkB2dh0rX3His15S2EikqgQ3dfgZGJD8VtFSXwCDFaK0auWGVY2WaEbf3CwfaXMbVt4tVv9tPLTbFXrLeNVHo__CYqx9wiYXxgYca6WV3EH884QeaIx-oo5EwQdAp1pvtKrm9lZZEA9GVcqDq8qnmlr5v5sGR1Z-1hliSUtOmoUWeW-4FXDNF8BLr54lSWbXbjAdkqCN1iQ-0telQfL4UGNi3UMP8sbA0NjeVpu0ujSBc9KONL3vQdKr3HXJaIf9x3qcE1GfqUo-6UzYk2jPb3OJzdAW8ERtlvTXqvcAMhpoVGk4VJoRz8zlxCC4aHyElui3Sh92YaBnrnZIKV1aP9Sw2xUyp65W3fvH6sB746EHlUxi-dsLxfNT3XehY9joNWpsp76ZI4_roAtxbf-68DEKgT=w1613-h907-no']
+          imageMain: 'https://lh3.googleusercontent.com/vr9-CWzsX4Y2VTy9pQ8beul89m1hFCzuQm8_x3PlKtGMo0gkLffpQk0GvMhPYn9AgxlZXzy7NpEpPcEjJRi0-94bruO2hGInEHgjYvwqnHre9-xLorXW11cfPxW-lvZl8wrBSaDLzoXivxySW_L_EvIZ4lupnHQpQvSGyFsMFz0V47wOiKd22lgshwtUd48F-0vX2aOG6NAGGouspTF1UBitIxf_Kmiy-1krKZ6YZZY1o1H1aYK-rLKb_1P_6VTI4sML5-mkB2dh0rX3His15S2EikqgQ3dfgZGJD8VtFSXwCDFaK0auWGVY2WaEbf3CwfaXMbVt4tVv9tPLTbFXrLeNVHo__CYqx9wiYXxgYca6WV3EH884QeaIx-oo5EwQdAp1pvtKrm9lZZEA9GVcqDq8qnmlr5v5sGR1Z-1hliSUtOmoUWeW-4FXDNF8BLr54lSWbXbjAdkqCN1iQ-0telQfL4UGNi3UMP8sbA0NjeVpu0ujSBc9KONL3vQdKr3HXJaIf9x3qcE1GfqUo-6UzYk2jPb3OJzdAW8ERtlvTXqvcAMhpoVGk4VJoRz8zlxCC4aHyElui3Sh92YaBnrnZIKV1aP9Sw2xUyp65W3fvH6sB746EHlUxi-dsLxfNT3XehY9joNWpsp76ZI4_roAtxbf-68DEKgT=w1613-h907-no'
         },
         {
           title: 'First Post',
@@ -66,14 +66,25 @@ export default class Home extends Component {
           family: true,
           makeup: false,
           food: true,
-          images: ['https://lh3.googleusercontent.com/Zc4Oa1RdwsJ2oDJxl8O0rJ0K4-umYnr9Thm0OyiAAvdBhWDd9UVnapMQZn1dhtdy3Yvvu-pFhc2Ja9iubQpXHDfEnGt7EleB-ebuoqeH_dmq6HtmeZ52MnFoceA_I-1Ynj8A7XaUAWu6Q_iC6jFW5TgVJfDFO0TXgDZ1MZjIlehvLElQyt3mLR3oQ6wtWUZCnCZse7XUxPlk7Zrbc2vHTF8IMjbH6QqQ-Q6tjvoibrQ0GIdJnaf3UCexYEFuE9mDO197YZId3vYy3HMZckoKp24VsuIuUHE7DE9MuqdbpbpntwMGuAmCstt-rXY7Evc2RiztsDN1guktdftGt_1AYeVa1BvPbUl2E8QNc--dUrJgRd64j0zK_ITjYyQvvZ2Rm8nd4tnnoM33YqvZDo3IUHTeXvKSJRUYHvKQ1_jQyZ_p2plabYfc0-PO0KhIUcrAS3Tn4v9ZSjAQxVVu_gyyGI3zJtPJ9M_MeTS2xM8bbRC5O0MA9VLe4eoCoboYZBOf0O2l3C5Lk7Ador1gDkneKgKU_q6iSu09rKD9AzbZf7Y3V8oO0m-8DzuVgCU1bQQyHOBAVjshvyi4q9SbG1FoxiFmn0Hp6f1zOt7rz3jW1Jxtu2NelMUBcmOdeZKgCBrwQHAqbRxqJ2Q-qiutp8ZN__LogGqG3oM1=w1613-h907-no']
+          imageMain: 'https://lh3.googleusercontent.com/Zc4Oa1RdwsJ2oDJxl8O0rJ0K4-umYnr9Thm0OyiAAvdBhWDd9UVnapMQZn1dhtdy3Yvvu-pFhc2Ja9iubQpXHDfEnGt7EleB-ebuoqeH_dmq6HtmeZ52MnFoceA_I-1Ynj8A7XaUAWu6Q_iC6jFW5TgVJfDFO0TXgDZ1MZjIlehvLElQyt3mLR3oQ6wtWUZCnCZse7XUxPlk7Zrbc2vHTF8IMjbH6QqQ-Q6tjvoibrQ0GIdJnaf3UCexYEFuE9mDO197YZId3vYy3HMZckoKp24VsuIuUHE7DE9MuqdbpbpntwMGuAmCstt-rXY7Evc2RiztsDN1guktdftGt_1AYeVa1BvPbUl2E8QNc--dUrJgRd64j0zK_ITjYyQvvZ2Rm8nd4tnnoM33YqvZDo3IUHTeXvKSJRUYHvKQ1_jQyZ_p2plabYfc0-PO0KhIUcrAS3Tn4v9ZSjAQxVVu_gyyGI3zJtPJ9M_MeTS2xM8bbRC5O0MA9VLe4eoCoboYZBOf0O2l3C5Lk7Ador1gDkneKgKU_q6iSu09rKD9AzbZf7Y3V8oO0m-8DzuVgCU1bQQyHOBAVjshvyi4q9SbG1FoxiFmn0Hp6f1zOt7rz3jW1Jxtu2NelMUBcmOdeZKgCBrwQHAqbRxqJ2Q-qiutp8ZN__LogGqG3oM1=w1613-h907-no'
         }
       ],
       viewMore: false,
       postsMax: 5,
       filter: '',
-      activeTab: 'family'
+      activeTab: 'family',
+      miniPostsList: 0
     }
+  }
+
+  componentDidMount = () => {
+    this.updatePostsList()
+  }
+
+  updatePostsList = () => {
+    let postsList = document.getElementsByClassName('postsList')[0]
+    let miniPostsList = +postsList.offsetWidth
+    this.setState({miniPostsList})
   }
 
   updateFilter = (value) => {
@@ -91,6 +102,19 @@ export default class Home extends Component {
   }
 
   render(){
+    // entire width of postsList
+    let {miniPostsList} = this.state
+    if (miniPostsList > 0){  // need this to avoid first render error
+      let postsList = document.getElementsByClassName('postsList')[0]
+      let miniPostsList = +postsList.offsetWidth * .7
+      
+      // when window width changes, reset miniPostsList
+      if (miniPostsList !== this.state.miniPostsList){  
+        this.setState({miniPostsList})
+        // this.updatePostWidth()
+      }
+    }
+
     // Loop through posts and display each
     let tabSpecific = this.state.posts.filter(post => {
       return post[this.state.activeTab]
@@ -103,16 +127,14 @@ export default class Home extends Component {
       // } else return
     })
 
-    console.log('showPostsArr:', showPostsArr)
-    
     let showPosts = showPostsArr.map((post, i) => {
       // Only display the latest 5 posts 
       if (i > this.state.postsMax - 1 && this.state.viewMore === false){return false}
       let arr = post.text.split('')
       var text
       // Condense post and end with '...' if longer than 226 characters
-      if (arr.length > 80){
-        let indexStart = 80
+      if (arr.length > miniPostsList / 3){
+        let indexStart = miniPostsList / 3
         // If the last item in the array is a space or period, begin '...' one index sooner
         while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
           indexStart -= 1
@@ -124,21 +146,19 @@ export default class Home extends Component {
       }
       return (
         <div className='miniPost' key={i} onClick={() => console.log(`"${post.title}" clicked`)}>
-          {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.images[0]}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-          {/* {i % 2 !== 0 ? <img className='miniPhoto' src={post.images[0]} alt=""/> : <></>} */}
+          {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+          {/* {i % 2 !== 0 ? <img className='miniPhoto' src={post.imageMain} alt=""/> : <></>} */}
           <div className='postDiv'>
             <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
             <div className='postTextDiv'>
               <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
             </div>
           </div>
-          {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.images[0]}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-          {/* {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src={post.images[0]} alt=""/> : <></>} */}
+          {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+          {/* {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src={post.imageMain} alt=""/> : <></>} */}
         </div>
       )
     })
-
-    console.log('showPosts:', showPosts)
 
     return(
       <div className='homeMainDiv'>
