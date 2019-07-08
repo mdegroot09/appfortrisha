@@ -61,14 +61,8 @@ export default class Dots extends Component {
         if (lastArrTop < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else if (lastArrTop === Math.floor(widthDotCount/2)){
-          // Continue straight on top if middle logo img is still spinning
-          // let navLogo = document.getElementsByClassName('navLogo')[0]
-          // if (!navLogo.style.transition){
-            this.props.startSpin()
-            dotsArr.push(`dotMidRight1`)
-          // } else {
-            // dotsArr.push(`dotTop${Math.floor(widthDotCount / 2) + 1}`)
-          // }
+          this.props.startSpin()
+          dotsArr.push(`dotMidRight1`)
         }else if (lastArrTop < widthDotCount){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else {
@@ -85,14 +79,8 @@ export default class Dots extends Component {
         if (lastArrBottom < Math.floor(widthDotCount/2)){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else if (lastArrBottom === Math.floor(widthDotCount/2)){
-          // Continue straight on bottom if middle logo img is still spinning
-          // let navLogo = document.getElementsByClassName('navLogo')[0]
-          // if (!navLogo.style.transition){
-            this.props.startSpin()
-            dotsArr.push(`dotMidLeft1`)
-          // } else {
-            // dotsArr.push(`dotBottom${Math.floor(widthDotCount / 2) + 1}`)
-          // }
+          this.props.startSpin()
+          dotsArr.push(`dotMidLeft1`)
         }else if (lastArrBottom < widthDotCount){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else {
@@ -121,6 +109,7 @@ export default class Dots extends Component {
   }
   
   clearIntervals = () => {
+    // Clear all timeouts and intervals and reset img to original position
     for (var i = 1; i < 5000; i++){
       window.clearInterval(i);
       window.clearTimeout(i);

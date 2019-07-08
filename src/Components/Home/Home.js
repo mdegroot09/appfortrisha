@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ShowPosts from './ShowPosts'
 
 export default class Home extends Component {
   constructor(){
@@ -69,7 +70,7 @@ export default class Home extends Component {
           imageMain: 'https://lh3.googleusercontent.com/Zc4Oa1RdwsJ2oDJxl8O0rJ0K4-umYnr9Thm0OyiAAvdBhWDd9UVnapMQZn1dhtdy3Yvvu-pFhc2Ja9iubQpXHDfEnGt7EleB-ebuoqeH_dmq6HtmeZ52MnFoceA_I-1Ynj8A7XaUAWu6Q_iC6jFW5TgVJfDFO0TXgDZ1MZjIlehvLElQyt3mLR3oQ6wtWUZCnCZse7XUxPlk7Zrbc2vHTF8IMjbH6QqQ-Q6tjvoibrQ0GIdJnaf3UCexYEFuE9mDO197YZId3vYy3HMZckoKp24VsuIuUHE7DE9MuqdbpbpntwMGuAmCstt-rXY7Evc2RiztsDN1guktdftGt_1AYeVa1BvPbUl2E8QNc--dUrJgRd64j0zK_ITjYyQvvZ2Rm8nd4tnnoM33YqvZDo3IUHTeXvKSJRUYHvKQ1_jQyZ_p2plabYfc0-PO0KhIUcrAS3Tn4v9ZSjAQxVVu_gyyGI3zJtPJ9M_MeTS2xM8bbRC5O0MA9VLe4eoCoboYZBOf0O2l3C5Lk7Ador1gDkneKgKU_q6iSu09rKD9AzbZf7Y3V8oO0m-8DzuVgCU1bQQyHOBAVjshvyi4q9SbG1FoxiFmn0Hp6f1zOt7rz3jW1Jxtu2NelMUBcmOdeZKgCBrwQHAqbRxqJ2Q-qiutp8ZN__LogGqG3oM1=w1613-h907-no'
         }
       ],
-      viewMore: false,
+      viewMore: true,
       postsMax: 5,
       filter: '',
       activeTab: 'family',
@@ -122,42 +123,6 @@ export default class Home extends Component {
 
     let showPostsArr = tabSpecific.filter(post => {
       return (post.title.toLowerCase().includes(this.state.filter) || post.text.toLowerCase().includes(this.state.filter))
-      // {
-      //   return post
-      // } else return
-    })
-
-    let showPosts = showPostsArr.map((post, i) => {
-      // Only display the latest 5 posts 
-      if (i > this.state.postsMax - 1 && this.state.viewMore === false){return false}
-      let arr = post.text.split('')
-      var text
-      // Condense post and end with '...' if longer than 226 characters
-      if (arr.length > miniPostsList / 3){
-        let indexStart = miniPostsList / 3
-        // If the last item in the array is a space or period, begin '...' one index sooner
-        while (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
-          indexStart -= 1
-        }
-        arr.splice(indexStart, arr.length - indexStart, '...')
-        text = arr.join('')
-      } else {
-        text = post.text
-      }
-      return (
-        <div className='miniPost' key={i} onClick={() => console.log(`"${post.title}" clicked`)}>
-          {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-          {/* {i % 2 !== 0 ? <img className='miniPhoto' src={post.imageMain} alt=""/> : <></>} */}
-          <div className='postDiv'>
-            <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
-            <div className='postTextDiv'>
-              <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
-            </div>
-          </div>
-          {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-          {/* {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src={post.imageMain} alt=""/> : <></>} */}
-        </div>
-      )
     })
 
     return(
@@ -180,7 +145,12 @@ export default class Home extends Component {
               <h2 className='sectionTitle'>Posts</h2>
               <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
               <div className='showPosts'>
-                {showPosts}
+                <ShowPosts
+                  showPostsArr={showPostsArr}
+                  miniPostsList={miniPostsList}
+                  postsMax={this.state.postsMax}
+                  viewMore={this.state.viewMore}
+                />
                 {!this.state.filter && tabSpecific.length > this.state.postsMax?
                   (!this.state.viewMore ? 
                     <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
@@ -192,7 +162,9 @@ export default class Home extends Component {
           </div>
           <div className='homeRight'>
             <h2 className='sectionTitle'>About Me</h2>
-            <div className='miniPhoto' style={{backgroundImage: `url('https://lh3.googleusercontent.com/hU-u-15dtt_-0YpdFrNXA6TtUluY1q83v1osN0cpQUDIdbdQcJswgO8y8NK52ejN1k5yOU_AoGuJEsm8iWDuSS2QI5J1wcSQ3zenDK_qx9FpCNayLiJiekMz6-CkiYC4ZSF7rf-JIqI4sn4NoAYUVdY_eiWGYdP-3k1pbow1iSAtFXbgoH9MjpRimUyxuXBaq47YGoZxe8bvgAwEVwHD2qU7Ab6G7ONtfubu5KaH25T-EPX3o5x8oXYxfsGQClNLoc7YqlNVvyYb2IEbbOE3rAzAOjSdKTUuA2Bo22a6fpZBXhVrJ5ODHVAqVEqoz6EZQFc1B5zY4mWjn1YSYAlts9A5vniDxaQfGyZfEDWMJj1_Rwj2r6fEPcEd7utGQuOHdG-mj-jDtSnSFCUH2t1fkslNryjHd3igMrPxPF-TPsdMlX0xAqgqim0Tpc19AfrwkBJJe6FX7a6i4qqrdLBkKMnQGNs05WVl8KfLMv9r2wCrBAdhftWOhJw_PAm-TQUIxFIM9dw2zq_NBkIxWIZEqgTE-tlIV703v_1O7bjR1e-OBxfJ6wwXEU3N6ShUMpVZWBz3-hbHRjA3KSCt8V40-LQaV-CdzV2PepcMG0kzvbn1O_DjUmSqPyqNz7OMdWMCirlZaOV0WcTp8McSeqSeUos164m3fhgj=w1734-h867-no')`, backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px'}} alt=""></div>
+            <div className='miniPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
+              backgroundImage: `url('https://lh3.googleusercontent.com/hU-u-15dtt_-0YpdFrNXA6TtUluY1q83v1osN0cpQUDIdbdQcJswgO8y8NK52ejN1k5yOU_AoGuJEsm8iWDuSS2QI5J1wcSQ3zenDK_qx9FpCNayLiJiekMz6-CkiYC4ZSF7rf-JIqI4sn4NoAYUVdY_eiWGYdP-3k1pbow1iSAtFXbgoH9MjpRimUyxuXBaq47YGoZxe8bvgAwEVwHD2qU7Ab6G7ONtfubu5KaH25T-EPX3o5x8oXYxfsGQClNLoc7YqlNVvyYb2IEbbOE3rAzAOjSdKTUuA2Bo22a6fpZBXhVrJ5ODHVAqVEqoz6EZQFc1B5zY4mWjn1YSYAlts9A5vniDxaQfGyZfEDWMJj1_Rwj2r6fEPcEd7utGQuOHdG-mj-jDtSnSFCUH2t1fkslNryjHd3igMrPxPF-TPsdMlX0xAqgqim0Tpc19AfrwkBJJe6FX7a6i4qqrdLBkKMnQGNs05WVl8KfLMv9r2wCrBAdhftWOhJw_PAm-TQUIxFIM9dw2zq_NBkIxWIZEqgTE-tlIV703v_1O7bjR1e-OBxfJ6wwXEU3N6ShUMpVZWBz3-hbHRjA3KSCt8V40-LQaV-CdzV2PepcMG0kzvbn1O_DjUmSqPyqNz7OMdWMCirlZaOV0WcTp8McSeqSeUos164m3fhgj=w1734-h867-no')`}}>
+            </div>
           </div>
         </div>
       </div>
