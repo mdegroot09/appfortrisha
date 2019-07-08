@@ -62,13 +62,13 @@ export default class Dots extends Component {
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else if (lastArrTop === Math.floor(widthDotCount/2)){
           // Continue straight on top if middle logo img is still spinning
-          let navLogo = document.getElementsByClassName('navLogo')[0]
-          if (!navLogo.style.transition){
+          // let navLogo = document.getElementsByClassName('navLogo')[0]
+          // if (!navLogo.style.transition){
             this.props.startSpin()
             dotsArr.push(`dotMidRight1`)
-          } else {
-            dotsArr.push(`dotTop${Math.floor(widthDotCount / 2) + 1}`)
-          }
+          // } else {
+            // dotsArr.push(`dotTop${Math.floor(widthDotCount / 2) + 1}`)
+          // }
         }else if (lastArrTop < widthDotCount){
           dotsArr.push(`dotTop${lastArrTop + 1}`)
         } else {
@@ -86,13 +86,13 @@ export default class Dots extends Component {
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else if (lastArrBottom === Math.floor(widthDotCount/2)){
           // Continue straight on bottom if middle logo img is still spinning
-          let navLogo = document.getElementsByClassName('navLogo')[0]
-          if (!navLogo.style.transition){
+          // let navLogo = document.getElementsByClassName('navLogo')[0]
+          // if (!navLogo.style.transition){
             this.props.startSpin()
             dotsArr.push(`dotMidLeft1`)
-          } else {
-            dotsArr.push(`dotBottom${Math.floor(widthDotCount / 2) + 1}`)
-          }
+          // } else {
+            // dotsArr.push(`dotBottom${Math.floor(widthDotCount / 2) + 1}`)
+          // }
         }else if (lastArrBottom < widthDotCount){
           dotsArr.push(`dotBottom${lastArrBottom + 1}`)
         } else {
