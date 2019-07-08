@@ -18,9 +18,8 @@ export default function ShowPosts (props){
     }
   
     return (
-      <div className='miniPost' key={i} onClick={() => console.log(`"${post.title}" clicked`)}>
+      <div className='miniPost' key={i} onClick={() => props.updatePostShow(post.id)}>
         {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-        {/* {i % 2 !== 0 ? <img className='miniPhoto' src={post.imageMain} alt=""/> : <></>} */}
         <div className='postDiv'>
           <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
           <div className='postTextDiv'>
@@ -28,7 +27,6 @@ export default function ShowPosts (props){
           </div>
         </div>
         {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-        {/* {i % 2 === 0 ? <img className='miniPhoto miniPhotoRight' src={post.imageMain} alt=""/> : <></>} */}
       </div>
     )
   })
