@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-export default function Post (props) {
-  let index = props.posts.findIndex(post => {
-    return post.id === props.postID
-  })
-
-  return (
-    <div><h1>{props.posts[index].title}</h1></div>
-  )
+export default class Post extends Component {
+  render(){
+    // let index = props.posts.findIndex(post => {
+    //   return post.id === props.postID
+    // })
+  
+    return (
+      <div><h1 style={{marginTop: '300px'}}>Hello</h1></div>
+    )
+  }
 }

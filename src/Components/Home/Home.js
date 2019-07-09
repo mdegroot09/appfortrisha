@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import ShowPosts from './ShowPosts'
-import Post from '../PostShow/Post'
+import {updatePosts} from '../../redux/reducer'
+import {connect} from 'react-redux'
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(){
     super()
     this.state = {
@@ -91,6 +92,10 @@ export default class Home extends Component {
 
   componentDidMount = () => {
     this.updatePostsList()
+    let {posts} = this.state
+    // setTimeout(() => {
+      this.props.updatePosts(posts)
+    // }, 2000);
   }
 
   updatePostsList = () => {
@@ -120,6 +125,8 @@ export default class Home extends Component {
   }
 
   render(){
+    console.log('props:', this.props)
+
     // entire width of postsList
     let {miniPostsList} = this.state
     if (miniPostsList > 0){  // need this to avoid first render error
@@ -143,54 +150,61 @@ export default class Home extends Component {
 
     return(
       <div className='homeMainDiv'>
-        {!this.state.postShow ? <>
-          <div className='headerDiv'>
-            <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
-            <h1 className='headerTitle'>Simple Joys</h1>
-          </div>
-          <div className='tabs'>
-            <button className={`homeTab ${this.state.activeTab === 'family' ? 'familyActive' : 'family'}`} 
-              onClick={() => this.updateActiveTab('family')}>Family</button>
-            <button className={`homeTab ${this.state.activeTab === 'makeup' ? 'makeupActive' : (this.state.activeTab === 'family' ? 'makeupFamilyActive' : 'makeupFoodActive')}`} 
-              onClick={() => this.updateActiveTab('makeup')}>Makeup</button>
-            <button className={`homeTab ${this.state.activeTab === 'food' ? 'foodActive' : 'food'}`} 
-              onClick={() => this.updateActiveTab('food')}>Food</button>
-          </div>
-          <div className='homeDuoDiv'>
-            <div className='homeLeft'>
-              <div className='postsList'>
-                <h2 className='sectionTitle'>Posts</h2>
-                <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
-                <div className='showPosts'>
-                  <ShowPosts
-                    showPostsArr={showPostsArr}
-                    miniPostsList={miniPostsList}
-                    postsMax={this.state.postsMax}
-                    viewMore={this.state.viewMore}
-                    updatePostShow={this.updatePostShow}
-                  />
-                  {!this.state.filter && tabSpecific.length > this.state.postsMax?
-                    (!this.state.viewMore ? 
-                      <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
-                      : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
-                        : <></>
-                  }
-                </div>
-              </div>
-            </div>
-            <div className='homeRight'>
-              <h2 className='sectionTitle'>About Me</h2>
-              <div className='miniPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
-                backgroundImage: `url('https://lh3.googleusercontent.com/hU-u-15dtt_-0YpdFrNXA6TtUluY1q83v1osN0cpQUDIdbdQcJswgO8y8NK52ejN1k5yOU_AoGuJEsm8iWDuSS2QI5J1wcSQ3zenDK_qx9FpCNayLiJiekMz6-CkiYC4ZSF7rf-JIqI4sn4NoAYUVdY_eiWGYdP-3k1pbow1iSAtFXbgoH9MjpRimUyxuXBaq47YGoZxe8bvgAwEVwHD2qU7Ab6G7ONtfubu5KaH25T-EPX3o5x8oXYxfsGQClNLoc7YqlNVvyYb2IEbbOE3rAzAOjSdKTUuA2Bo22a6fpZBXhVrJ5ODHVAqVEqoz6EZQFc1B5zY4mWjn1YSYAlts9A5vniDxaQfGyZfEDWMJj1_Rwj2r6fEPcEd7utGQuOHdG-mj-jDtSnSFCUH2t1fkslNryjHd3igMrPxPF-TPsdMlX0xAqgqim0Tpc19AfrwkBJJe6FX7a6i4qqrdLBkKMnQGNs05WVl8KfLMv9r2wCrBAdhftWOhJw_PAm-TQUIxFIM9dw2zq_NBkIxWIZEqgTE-tlIV703v_1O7bjR1e-OBxfJ6wwXEU3N6ShUMpVZWBz3-hbHRjA3KSCt8V40-LQaV-CdzV2PepcMG0kzvbn1O_DjUmSqPyqNz7OMdWMCirlZaOV0WcTp8McSeqSeUos164m3fhgj=w1734-h867-no')`}}>
+        <div className='headerDiv'>
+          <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
+          <h1 className='headerTitle'>Simple Joys</h1>
+        </div>
+        <div className='tabs'>
+          <button className={`homeTab ${this.state.activeTab === 'family' ? 'familyActive' : 'family'}`} 
+            onClick={() => this.updateActiveTab('family')}>Family</button>
+          <button className={`homeTab ${this.state.activeTab === 'makeup' ? 'makeupActive' : (this.state.activeTab === 'family' ? 'makeupFamilyActive' : 'makeupFoodActive')}`} 
+            onClick={() => this.updateActiveTab('makeup')}>Makeup</button>
+          <button className={`homeTab ${this.state.activeTab === 'food' ? 'foodActive' : 'food'}`} 
+            onClick={() => this.updateActiveTab('food')}>Food</button>
+        </div>
+        <div className='homeDuoDiv'>
+          <div className='homeLeft'>
+            <div className='postsList'>
+              <h2 className='sectionTitle'>Posts</h2>
+              <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
+              <div className='showPosts'>
+                <ShowPosts
+                  showPostsArr={showPostsArr}
+                  miniPostsList={miniPostsList}
+                  postsMax={this.state.postsMax}
+                  viewMore={this.state.viewMore}
+                  updatePostShow={this.updatePostShow}
+                />
+                {!this.state.filter && tabSpecific.length > this.state.postsMax?
+                  (!this.state.viewMore ? 
+                    <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
+                    : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
+                      : <></>
+                }
               </div>
             </div>
           </div>
-        </> :
-        <Post
-          posts={this.state.posts}
-          postID={this.state.postID}
-        />}
+          <div className='homeRight'>
+            <h2 className='sectionTitle'>About Me</h2>
+            <div className='miniPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
+              backgroundImage: `url('https://lh3.googleusercontent.com/hU-u-15dtt_-0YpdFrNXA6TtUluY1q83v1osN0cpQUDIdbdQcJswgO8y8NK52ejN1k5yOU_AoGuJEsm8iWDuSS2QI5J1wcSQ3zenDK_qx9FpCNayLiJiekMz6-CkiYC4ZSF7rf-JIqI4sn4NoAYUVdY_eiWGYdP-3k1pbow1iSAtFXbgoH9MjpRimUyxuXBaq47YGoZxe8bvgAwEVwHD2qU7Ab6G7ONtfubu5KaH25T-EPX3o5x8oXYxfsGQClNLoc7YqlNVvyYb2IEbbOE3rAzAOjSdKTUuA2Bo22a6fpZBXhVrJ5ODHVAqVEqoz6EZQFc1B5zY4mWjn1YSYAlts9A5vniDxaQfGyZfEDWMJj1_Rwj2r6fEPcEd7utGQuOHdG-mj-jDtSnSFCUH2t1fkslNryjHd3igMrPxPF-TPsdMlX0xAqgqim0Tpc19AfrwkBJJe6FX7a6i4qqrdLBkKMnQGNs05WVl8KfLMv9r2wCrBAdhftWOhJw_PAm-TQUIxFIM9dw2zq_NBkIxWIZEqgTE-tlIV703v_1O7bjR1e-OBxfJ6wwXEU3N6ShUMpVZWBz3-hbHRjA3KSCt8V40-LQaV-CdzV2PepcMG0kzvbn1O_DjUmSqPyqNz7OMdWMCirlZaOV0WcTp8McSeqSeUos164m3fhgj=w1734-h867-no')`}}>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  const {posts} = state
+  return {
+    posts
+  }
+}
+
+const mapDispatchToProps = {
+  updatePosts
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

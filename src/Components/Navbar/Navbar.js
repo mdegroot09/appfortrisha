@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Dots from './Dots'
+import {Link} from 'react-router-dom'
 
 export default class Navbar extends Component {
   constructor(){
@@ -109,8 +110,12 @@ export default class Navbar extends Component {
           {/* Hide second navbar background if opacity for navMainInit is at 1 */}
           <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
             <div className='navDivLeft'>
-              <button className='navBtn'>Home</button>
-              <button className='navBtn'>About</button>
+              <Link to='/'>
+                <button className='navBtn'>Home</button>
+              </Link>
+              <Link to='/about'>
+                <button className='navBtn'>About</button>
+              </Link>
               {/* Hamburger Button */}
               <button onClick={() => this.showHideMenu()} className='hamburgerBtn'>
                 <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
@@ -127,16 +132,28 @@ export default class Navbar extends Component {
               <h3 className='navTitle'>Simple Joys</h3>
             </div>
             <div className='navDivRight'>
-              <button className='navBtn'>Register</button>
-              <button className='navBtn'>Login</button>
+              <Link to='/register'>
+                <button className='navBtn'>Register</button>
+              </Link>
+              <Link to='/login'>
+                <button className='navBtn'>Login</button>
+              </Link>
             </div>
           </div>
         </div>
         <div className={`navMainInit ${this.state.menuClass}`} >
-          <button className='navBtnHB'>Home</button>
-          <button className='navBtnHB'>About</button>
-          <button className='navBtnHB'>Login</button>
-          <button className='navBtnHB'>Register</button>
+          <Link to='/'>
+            <button className='navBtnHB'>Home</button>
+          </Link>
+          <Link to='/about'>
+            <button className='navBtnHB'>About</button>
+          </Link>
+          <Link to='/login'>
+            <button className='navBtnHB'>Login</button>
+          </Link>
+          <Link to='/register'>
+            <button className='navBtnHB'>Register</button>
+          </Link>
         </div>
       </div>
     )

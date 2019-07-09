@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function ShowPosts (props){
   let showPosts = props.showPostsArr.map((post, i) => {
@@ -16,18 +17,20 @@ export default function ShowPosts (props){
       arr.splice(indexStart, arr.length - indexStart + 1, '...')
       text = arr.join('')
     }
-  
+    console.log('props:', props)
     return (
-      <div className='miniPost' key={i} onClick={() => props.updatePostShow(post.id)}>
-        {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-        <div className='postDiv'>
-          <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
-          <div className='postTextDiv'>
-            <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
+      <Link to={`/post/${post.id}`}>
+        <div className='miniPost' key={i}>
+          {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+          <div className='postDiv'>
+            <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
+            <div className='postTextDiv'>
+              <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
+            </div>
           </div>
+          {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
         </div>
-        {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
-      </div>
+      </Link>
     )
   })
 
