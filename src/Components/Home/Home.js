@@ -145,7 +145,7 @@ class Home extends Component {
     })
 
     return(
-      <div className='homeMainDiv' onClick={() => {}}>
+      <div className='homeMainDiv'>
         <div className='headerDiv'>
           <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
           <h1 className='headerTitle'>Simple Joys</h1>

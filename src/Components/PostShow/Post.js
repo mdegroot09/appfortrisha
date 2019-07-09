@@ -3,6 +3,11 @@ import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
 
 class Post extends Component {
+  componentDidMount = () => {
+    // Bring the scroll to the top of the page on initial render
+    window.scrollTo(0, 0)
+  }
+
   render(){
     let index = this.props.posts.findIndex(post => {
       return post.id === +this.props.match.params.id
