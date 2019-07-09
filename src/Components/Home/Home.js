@@ -93,9 +93,7 @@ class Home extends Component {
   componentDidMount = () => {
     this.updatePostsList()
     let {posts} = this.state
-    // setTimeout(() => {
-      this.props.updatePosts(posts)
-    // }, 2000);
+    this.props.updatePosts(posts)
   }
 
   updatePostsList = () => {
@@ -125,8 +123,6 @@ class Home extends Component {
   }
 
   render(){
-    console.log('props:', this.props)
-
     // entire width of postsList
     let {miniPostsList} = this.state
     if (miniPostsList > 0){  // need this to avoid first render error
@@ -149,7 +145,7 @@ class Home extends Component {
     })
 
     return(
-      <div className='homeMainDiv'>
+      <div className='homeMainDiv' onClick={() => {}}>
         <div className='headerDiv'>
           <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
           <h1 className='headerTitle'>Simple Joys</h1>
