@@ -7,8 +7,7 @@ export default class Navbar extends Component {
     super()
     this.state = {
       scrollY: 0,
-      opacity: 1,
-      menuClass: 'hideMenu'
+      opacity: 1
     }
     this.timerIncrease = null
     this.timerDecrease = null
@@ -86,20 +85,22 @@ export default class Navbar extends Component {
   }
 
   showHideMenu = () => {
-    if (this.state.menuClass === 'hideMenu'){
-      this.setState({menuClass: 'showMenu'})
-      let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
+    let hideMenu = document.getElementsByClassName('hideMenu')[0]
+    let showMenu = document.getElementsByClassName('showMenu')[0]
+    let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
+    if (hideMenu){
+      hideMenu.className = 'navMainInit showMenu'
       homeMainDiv.style.zIndex = -2
     } else {
-      this.setState({menuClass: 'hideMenu'})
+      showMenu.className = 'navMainInit hideMenu'
       setTimeout(() => {
-        let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
         homeMainDiv.style.zIndex = 0
       }, 250);
     }
   }
 
   render(){
+
     let {opacity} = this.state
     window.onscroll = () => {
       this.updateScroll()
@@ -117,7 +118,7 @@ export default class Navbar extends Component {
                 <button className='navBtn'>About</button>
               </Link>
               {/* Hamburger Button */}
-              <button onClick={() => this.showHideMenu()} className='hamburgerBtn'>
+              <button onClick={this.showHideMenu} className='hamburgerBtn'>
                 <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
               </button>
             </div>
@@ -141,18 +142,19 @@ export default class Navbar extends Component {
             </div>
           </div>
         </div>
-        <div className={`navMainInit ${this.state.menuClass}`} >
+        {/* <div className={`navMainInit ${this.state.menuClass}`} > */}
+        <div className={`navMainInit hideMenu`} >
           <Link to='/'>
-            <button className='navBtnHB'>Home</button>
+            <button className='navBtnHB' onClick={this.showHideMenu}>Home</button>
           </Link>
           <Link to='/about'>
-            <button className='navBtnHB'>About</button>
+            <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
           <Link to='/login'>
-            <button className='navBtnHB'>Login</button>
+            <button className='navBtnHB' onClick={this.showHideMenu}>Login</button>
           </Link>
           <Link to='/register'>
-            <button className='navBtnHB'>Register</button>
+            <button className='navBtnHB' onClick={this.showHideMenu}>Register</button>
           </Link>
         </div>
       </div>

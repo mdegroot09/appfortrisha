@@ -120,7 +120,7 @@
   position: absolute;
   top: -200px;
   transition: 1s;
-  display: none;
+  display: flex;
   z-index: -1;
   background: linear-gradient(#131313, #000077, rgb(15, 15, 170));
   flex-direction: column;
@@ -131,8 +131,8 @@
 .showMenu {
   position: absolute;
   top: 0;
-  display: none;
-  transition: 1s;
+  display: flex;
+  transition: .5s;
   height: 230px;
   z-index: -1;
   background: navy;

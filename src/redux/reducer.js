@@ -1,5 +1,5 @@
 const initialState = {
-  posts: [{}]
+  posts: []
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
