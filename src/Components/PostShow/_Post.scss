@@ -20,8 +20,8 @@
 }
 
 .mainPhoto {
-  // width: calc(100% - 20px);
-  height: calc(min-width);
+  // min-width: calc(100% - 20px);
+  height: calc(width);
   align-self: center;
   margin: 10px 0;
   border-radius: 3px;
