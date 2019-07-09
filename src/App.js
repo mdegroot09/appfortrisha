@@ -24,7 +24,7 @@ function App() {
       <HashRouter>
         <div className="App">
           <Navbar/>
-          <div className='App' onClick={() => showHideMenu()}>
+          <div className='App' onClick={() => showHideMenu()} onTouchMove={() => showHideMenu()}>
             {router}
           </div>
         </div>
