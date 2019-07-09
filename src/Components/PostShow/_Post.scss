@@ -1,0 +1,29 @@
+.showPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.fullPostTextDiv {
+  margin: 10px;
+  margin-top: 0;
+  height: 150px;
+}
+
+.fullPostText {
+  margin: 0;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+}
+
+.mainPhoto {
+  min-width: calc(100% - 20px);
+  height: calc(min-width);
+  align-self: center;
+  margin: 10px 0;
+  border-radius: 3px;
+  padding-bottom: calc(100% - 200px);
+}
