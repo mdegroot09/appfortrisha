@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Header from '../Header/Header'
 import ShowPosts from './ShowPosts'
 import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
@@ -173,16 +174,7 @@ class Home extends Component {
 
     return(
       <div className='homeMainDiv'>
-        <div className='headerDiv'>
-          <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
-          {/* <div> */}
-            <div className='headerTitle'>Simple Joys
-              <span id='headerSubTitle1'>Celebrating the</span>
-              <span id='headerSubTitle2'>little things</span>
-            </div>
-            {/* <h3>Celebrating the little things</h3> */}
-          {/* </div> */}
-        </div>
+        <Header/>
         <div className='tabs'>
           <button className={`homeTab ${this.state.activeTab === 'family' ? 'familyActive' : 'family'}`} 
             onClick={() => this.updateActiveTab('family')}>Family</button>

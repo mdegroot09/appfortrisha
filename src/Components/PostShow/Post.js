@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
+import Header from '../Header/Header'
 import Comments from '../Comments/Comments';
 
 class Post extends Component {
@@ -17,10 +18,8 @@ class Post extends Component {
   
     return(
       <div className='homeMainDiv'>
-        <div className='headerDiv'>
-          <img className='headerIcon' src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
-          <h1 className='headerTitle'>Simple Joys</h1>
-        </div>
+        <Header/>
+        <div className='postBuffer'></div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>

@@ -1,3 +1,8 @@
+.postBuffer {
+  height: 40px;
+  width: 100%;
+}
+
 .showPost {
   display: flex;
   flex-direction: column;
@@ -27,4 +32,16 @@
   border-radius: 3px;
   padding-bottom: calc(100% - 200px);
   padding-left: calc(100% - 170px);
+}
+
+@media(max-width: 1200px){
+  .postBuffer {
+    height: 20px;
+  }
+}
+
+@media(max-width: 800px){
+  .postBuffer {
+    height: 10px;
+  }
 }
