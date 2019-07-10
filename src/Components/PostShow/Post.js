@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
-import AboutMini from '../About/AboutMini';
+import Comments from '../Comments/Comments';
 
 class Post extends Component {
   componentDidMount = () => {
@@ -13,7 +13,6 @@ class Post extends Component {
     let index = this.props.posts.findIndex(post => {
       return post.id === +this.props.match.params.id
     })
-    console.log('Post props:', this.props)
     let post = this.props.posts[index]
   
     return(
@@ -37,7 +36,7 @@ class Post extends Component {
               </div>
             </div>
           </div>
-          <AboutMini/>
+          <Comments comments={post.comments}/>
         </div>
       </div>
     )

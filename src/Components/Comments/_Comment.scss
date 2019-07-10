@@ -1,0 +1,24 @@
+.comment {
+  width: calc(100% - 40px);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: gray;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.reply {
+  width: calc(100% - 60px);
+  max-width: 380px;
+  margin-left: 20px;
+  // position: relative;
+}
+
+.replyName {
+  // margin-left: 20px;
+}
