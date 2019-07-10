@@ -29,11 +29,33 @@
 .headerTitle {
   margin: 0;
   margin-right: 15px;
+  margin-bottom: 25px;
   font-weight: 900; 
   font-size: 60px;
-  color: $yellow;
+  color: $lightblue;
+  // color: $yellow;
   text-shadow: 2.5px 2.5px 3px $darkblue;
   z-index: -1;
+  display: flex;
+  flex-direction: column;
+}
+
+#headerSubTitle1 {
+  font-size: 20px;
+  position: absolute;
+  top: 50px;
+  color: $yellow;
+  // color: $lightblue;
+  align-self: center;
+}
+
+#headerSubTitle2 {
+  font-size: 20px;
+  position: absolute;
+  top: 70px;
+  color: $yellow;
+  // color: $lightblue;
+  align-self: flex-end;
 }
 
 .tabs {
@@ -242,10 +264,6 @@
   outline: none;
 }
 
-.aboutPhoto {
-
-}
-
 @media(max-width: 1200px){
   .headerDiv {
     position: static;
@@ -255,6 +273,12 @@
 @media(max-width: 800px){
   .headerTitle {
     font-size: 45px;
+  }
+  .headerSubTitle1 {
+    align-self: flex-start;
+  }
+  .headerSubTitle1.headerSubTitle2 {
+    font-size: 30px;
   }
   .headerIcon{
     height: 100%;
@@ -295,5 +319,11 @@
 @media(max-width: 330px){
   .headerTitle{
     font-size: 40px;  
+  }  
+  .headerSubTitle1 {
+    align-self: flex-start;
+  }
+  .headerSubTitle1.headerSubTitle2 {
+    font-size: 15px;
   }
 }

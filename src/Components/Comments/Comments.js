@@ -1,7 +1,19 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
 
-export default class Comments extends Component {
-  render(){
+class Comments extends Component {
+  constructor(){
+    super()
+    this.state = {
+      comments: ''
+    }
+  }
+
+  componentDidMount = () => {
+    this.renderComments()
+  }
+
+  renderComments = () => {
     let commentsInit = [...this.props.comments]
     let commentsParents = commentsInit.filter((comment, i) => {
       if (!comment.parentComment){
@@ -11,12 +23,10 @@ export default class Comments extends Component {
     })
     // Reverse array to get reverse chronological order
     commentsInit.reverse()
-    commentsInit.map((comment, i) => {
-      let index = commentsParents.findIndex(comment => comment.id === comment.id)
-      commentsParents.splice(index + 1, 0, comment)
-      i -= 1
-      return
-    })
+    for (let i = 0; i < commentsInit.length; i++){
+        let index = commentsParents.findIndex(comment => comment.id === commentsInit[i].parentComment)
+        commentsParents.splice(index + 1, 0, commentsInit[i])
+    }
     let comments = commentsParents.map((comment, i) => {
       return (
         <div key={i} className={`${!comment.parentComment ? 'comment' : 'comment reply'}`}>
@@ -29,6 +39,11 @@ export default class Comments extends Component {
         </div>
       )
     })
+    this.setState({comments})
+  }
+  
+  render(){
+    let {comments} = this.state
 
     return (
       <div className='homeRight'>
@@ -38,3 +53,5 @@ export default class Comments extends Component {
     )
   }
 }
+
+export default withRouter(Comments)
