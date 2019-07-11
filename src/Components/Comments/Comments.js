@@ -1,21 +1,47 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
+import { isDate } from 'util';
 
 class Comments extends Component {
   constructor(){
     super()
     this.state = {
-      comments: ''
+      comments: '',
+      commentElements: '',
+      newComment: ''
     }
   }
 
   componentDidMount = () => {
-    this.renderComments()
+    this.setState({comments: this.props.comments})
+    setTimeout(() => {
+      this.renderComments()
+    }, 1);
+  }
+
+  addComment = () => {
+    let {comments, newComment} = this.state
+    let comment = {
+      id: null,
+      firstName: 'User',
+      lastName: 'Name',
+      text: newComment,
+      date: 'Today'
+    }
+    comments.push(comment)
+    this.setState({comments})
+    this.setState({newComment: ''})
+    setTimeout(() => {
+      this.renderComments()
+    }, 1);
+  }
+
+  updateNewComment = (input) => {
+    this.setState({newComment: input})
   }
 
   renderComments = () => {
-    let commentsInit = [...this.props.comments]
-    let comments = commentsInit.map((comment, i) => {
+    let commentElements = this.state.comments.map((comment, i) => {
       return (
         <div key={i} className='comment'>
           <b className='commentName'>
@@ -27,22 +53,26 @@ class Comments extends Component {
         </div>
       )
     })
-    this.setState({comments})
+    this.setState({commentElements})
   }
   
   render(){
-    let {comments} = this.state
+    let {commentElements} = this.state
+    console.log('commentElements:', commentElements)
 
     return (
       <div className='homeRight'>
         <h2 className='sectionTitle'>Comments</h2>
-        {comments}
+        {commentElements}
         <div className='comment'>
           <b className='commentName'>
             {`Username - Today`}
           </b>
-          <div style={{marginLeft: `20px`}}>
-            <input className='filter' style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
+          <div className='commentInputDiv'>
+            <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
+            <div className='commentBtnDiv'>
+              <button className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</button>
+            </div>
           </div>
         </div>
       </div>
