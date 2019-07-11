@@ -20,7 +20,7 @@ class Post extends Component {
     return(
       <div className='homeMainDiv'>
         <Header/>
-        <div className='postBuffer'></div>
+        <div className='postDivider'></div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
@@ -34,9 +34,9 @@ class Post extends Component {
                   <p className='fullPostText'>{post.text}</p>
                   <div className='reactions'>
                     <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
-                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
-                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
-                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                    <img className='reaction makeGray1' src="https://png.pngtree.com/svg/20170321/laugh_and_cry_703820.png" alt=""/>
+                    <img className='reaction makeGray1' src="https://static.thenounproject.com/png/2345410-200.png" alt=""/>
+                    <img className='reaction makeGray2' src="http://cdn.onlinewebfonts.com/svg/img_506076.png" alt=""/>
                   </div>
                 </div>
               </div>

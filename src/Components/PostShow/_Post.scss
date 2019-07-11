@@ -1,4 +1,4 @@
-.postBuffer {
+.postDivider {
   height: 40px;
   width: 100%;
 }
@@ -32,14 +32,36 @@
   padding-left: calc(100% - 170px);
 }
 
+.reactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 350px;
+  margin: 5px auto;
+}
+
+.reaction {
+  height: 30px;
+  width: 30px;
+}
+
+.makeGray1 {
+  filter: invert(25%);
+}
+
+.makeGray2 {
+  filter: invert(40%);
+}
+
 @media(max-width: 1200px){
-  .postBuffer {
+  .postDivider {
     height: 20px;
   }
 }
 
 @media(max-width: 800px){
-  .postBuffer {
+  .postDivider {
     height: 10px;
   }
 }
