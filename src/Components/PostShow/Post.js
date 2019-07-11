@@ -33,7 +33,7 @@ class Post extends Component {
                 <div className='fullPostTextDiv'>
                   <p className='fullPostText'>{post.text}</p>
                   <div className='reactions'>
-                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                    <img className='reaction makeGray2' src="https://www.searchpng.com/wp-content/uploads/2019/02/Heart-icon-PNG-715x715.png" alt=""/>
                     <img className='reaction makeGray1' src="https://png.pngtree.com/svg/20170321/laugh_and_cry_703820.png" alt=""/>
                     <img className='reaction makeGray1' src="https://static.thenounproject.com/png/2345410-200.png" alt=""/>
                     <img className='reaction makeGray2' src="http://cdn.onlinewebfonts.com/svg/img_506076.png" alt=""/>
