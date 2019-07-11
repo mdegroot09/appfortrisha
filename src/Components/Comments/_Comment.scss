@@ -1,6 +1,7 @@
 .comment {
   width: calc(100% - 40px);
   max-width: 400px;
+  min-height: 65px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -12,13 +13,19 @@
   justify-content: start;
 }
 
-.reply {
-  width: calc(100% - 60px);
-  max-width: 380px;
-  margin-left: 20px;
-  // position: relative;
+.commentText {
+  margin: 5px 20px;
 }
 
-.replyName {
-  // margin-left: 20px;
+.reactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.reaction {
+  height: 30px;
+  width: 30px;
 }

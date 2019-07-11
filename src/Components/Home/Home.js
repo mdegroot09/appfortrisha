@@ -26,32 +26,28 @@ class Home extends Component {
               firstName: 'Bob',
               lastName: 'Ross',
               text: 'This is super cute!',
-              date: '7/08/19',
-              parentComment: null
+              date: '7/08/19'
             },
             {
               id: 2,
               firstName: 'Ginger',
               lastName: 'Bread',
               text: 'I know, right?',
-              date: '7/09/19',
-              parentComment: 1
+              date: '7/09/19'
             },
             {
               id: 3,
               firstName: 'Chuck',
               lastName: 'Norris',
               text: 'Super neat.',
-              date: '7/09/19',
-              parentComment: null
+              date: '7/09/19'
             },
             {
               id: 4,
               firstName: 'Bob',
               lastName: 'Wiley',
               text: 'Dr. Marvin! Dr. Leo Marvin!',
-              date: '7/10/19',
-              parentComment: 1
+              date: '7/10/19'
             }
           ]
         },

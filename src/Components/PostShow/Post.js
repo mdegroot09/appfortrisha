@@ -3,6 +3,7 @@ import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
 import Header from '../Header/Header'
 import Comments from '../Comments/Comments';
+import {withRouter} from 'react-router-dom';
 
 class Post extends Component {
   componentDidMount = () => {
@@ -31,6 +32,12 @@ class Post extends Component {
                 </div>                
                 <div className='fullPostTextDiv'>
                   <p className='fullPostText'>{post.text}</p>
+                  <div className='reactions'>
+                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                    <img className='reaction' src="http://chittagongit.com/download/123130" alt=""/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -53,4 +60,4 @@ const mapDispatchToProps = {
   updatePosts
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Post))
