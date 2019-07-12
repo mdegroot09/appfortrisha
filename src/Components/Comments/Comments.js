@@ -33,6 +33,9 @@ class Comments extends Component {
     this.setState({newComment: ''})
     setTimeout(() => {
       this.renderComments()
+      let commentInput = document.getElementsByClassName('commentInput')[0]
+      commentInput.value = ''
+      this.setState({newComment: ''})
     }, 1);
   }
 
@@ -58,7 +61,6 @@ class Comments extends Component {
   
   render(){
     let {commentElements} = this.state
-    console.log('commentElements:', commentElements)
 
     return (
       <div className='homeRight'>
