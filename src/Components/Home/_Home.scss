@@ -210,6 +210,10 @@
   border-radius: 5px;
 }
 
+.miniPost:active {
+  background-color: rgba(46, 176, 216, 0.315);
+}
+
 .miniPhoto {
   height: 85px;
   min-width: 100px;

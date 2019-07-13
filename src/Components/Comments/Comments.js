@@ -23,8 +23,8 @@ class Comments extends Component {
     let {comments, newComment} = this.state
     let comment = {
       id: null,
-      firstName: 'User',
-      lastName: 'Name',
+      firstName: 'Username',
+      lastName: '',
       text: newComment,
       date: 'Today'
     }
