@@ -1,7 +1,7 @@
 update users 
 set email = ${email},
-first_name = ${firstName},
-last_name = ${lastName},
+firstname = ${firstName},
+lastname = ${lastName},
 hash = ${hash},
 resume = ${resume},
 picture = ${picture}

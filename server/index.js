@@ -29,6 +29,6 @@ massive(CONNECTION_STRING).then(db => {
 app.post('/auth/registerUser', authCtrl.registerUser)
 app.post('/auth/loginUser', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logout)
-app.put('/auth/updateUser', authCtrl.updateUser)
 app.get('/api/session', authCtrl.checkForSession)
+app.put('/auth/updateUser', authCtrl.updateUser)
 app.post('/auth/user',authCtrl.authenticateUser)

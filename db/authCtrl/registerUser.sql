@@ -1,7 +1,7 @@
 insert into users (
   email,
-  first_name,
-  last_name, 
+  firstname,
+  lastname, 
   hash
 ) values (
   ${email},
