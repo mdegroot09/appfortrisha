@@ -46,7 +46,7 @@ class Auths extends Component{
 
           (<div className='auths'>
             <div className='authImg' style={{opacity: `${opacity}`}}></div>
-            <div className='authBox' style={{opacity: `${opacity}`}}>
+            <div className='authBox'>
               <h1>Login</h1>
               <div className='viewMoreBtn' onClick={this.hideLogin} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
             </div>
@@ -56,7 +56,7 @@ class Auths extends Component{
 
           (<div className='auths'>
             <div className='authImg' style={{opacity: `${opacity}`}}></div>
-            <div className='authBox' style={{opacity: `${opacity}`}}>
+            <div className='authBox'>
               <h1>Register</h1>
               <div className='viewMoreBtn' onClick={this.hideRegister} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
             </div>
