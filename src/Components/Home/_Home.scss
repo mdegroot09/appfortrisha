@@ -281,9 +281,8 @@
   align-items: center;
 }
 
-.btnText {
-  // align-self: center;
-  // justify-self: center;
+.viewMoreBtn:active {
+  transform: scale(.95);
 }
 
 @media(max-width: 1200px){
