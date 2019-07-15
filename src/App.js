@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from './Components/Navbar/Navbar'
+import Auth from './Components/Auths/Auths'
 import './App.scss'
 import {Provider} from 'react-redux'
 import store from './redux/store'
 import {HashRouter} from 'react-router-dom'
 import router from './router'
 
-function App() {
+export default function App() {
   // Hide showing dropdown navbar menu on any non-navbar button click
   let showHideMenu = () => {
     let showMenu = document.getElementsByClassName('showMenu')[0]
@@ -24,6 +25,7 @@ function App() {
       <HashRouter>
         <div className="App">
           <Navbar/>
+          <Auth/>
           <div className='App' onClick={() => showHideMenu()} onTouchMove={() => showHideMenu()}>
             {router}
           </div>
@@ -32,5 +34,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;

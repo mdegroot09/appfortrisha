@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import Dots from './Dots'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {updateUserID, updateShowLogin, updateShowRegister} from '../../redux/reducer';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(){
     super()
     this.state = {
@@ -99,6 +101,18 @@ export default class Navbar extends Component {
     }
   }
 
+  showHideLogin = (bool) => {
+    this.showHideMenu()
+    this.props.updateShowLogin(bool)
+    this.props.updateShowRegister(!bool)
+  }
+
+  showHideRegister = (bool) => {
+    this.showHideMenu()
+    this.props.updateShowRegister(bool)
+    this.props.updateShowLogin(!bool)
+  }
+
   render(){
 
     let {opacity} = this.state
@@ -108,6 +122,7 @@ export default class Navbar extends Component {
     return(
       <div className='navMainParent'>
         <div className={'navMainInit'}>
+
           {/* Hide second navbar background if opacity for navMainInit is at 1 */}
           <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
             <div className='navDivLeft'>
@@ -117,6 +132,7 @@ export default class Navbar extends Component {
               <Link to='/about'>
                 <button className='navBtn'>About</button>
               </Link>
+              
               {/* Hamburger Button */}
               <button onClick={this.showHideMenu} className='hamburgerBtn'>
                 <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
@@ -142,7 +158,6 @@ export default class Navbar extends Component {
             </div>
           </div>
         </div>
-        {/* <div className={`navMainInit ${this.state.menuClass}`} > */}
         <div className={`navMainInit hideMenu`} >
           <Link to='/'>
             <button className='navBtnHB' onClick={this.showHideMenu}>Home</button>
@@ -150,14 +165,21 @@ export default class Navbar extends Component {
           <Link to='/about'>
             <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
-          <Link to='/login'>
-            <button className='navBtnHB' onClick={this.showHideMenu}>Login</button>
-          </Link>
-          <Link to='/register'>
-            <button className='navBtnHB' onClick={this.showHideMenu}>Register</button>
-          </Link>
+          <button className='navBtnHB' onClick={() => this.showHideLogin(true)}>Login</button>
+          <button className='navBtnHB' onClick={() => this.showHideRegister(true)}>Register</button>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  const {userID} = state
+  return {userID}
+}
+
+const mapDispatchToProps = {
+  updateUserID, updateShowLogin, updateShowRegister
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

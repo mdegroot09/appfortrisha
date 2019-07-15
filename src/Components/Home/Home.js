@@ -191,6 +191,8 @@ class Home extends Component {
                   postsMax={this.state.postsMax}
                   viewMore={this.state.viewMore}
                 />
+
+                {/* Show either 'View All' or 'View Less' button */}
                 {!this.state.filter && tabSpecific.length > this.state.postsMax?
                   (!this.state.viewMore ? 
                     <div className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}><span>View All</span></div> 

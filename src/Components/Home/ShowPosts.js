@@ -8,7 +8,7 @@ export default function ShowPosts (props) {
     let arr = post.text.split('')
     var text = post.text
     // Condense post and end with '...' if arr > indexStart
-    let indexStart = props.miniPostsList / 3
+    let indexStart = (props.miniPostsList - 40) / 3
     if (arr.length > indexStart){
       // If the last item in the array is a space or period, begin '...' one index sooner
       if (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
