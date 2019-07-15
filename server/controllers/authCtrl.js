@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
   registerUser: async (req, res) => {
-    let {email, firstName, lastName, password} = req.body
+    let {email, firstName, lastName, password, image} = req.body
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
     let existingUser = userArr[0]
@@ -14,14 +14,15 @@ module.exports = {
     const salt = bcrypt.genSaltSync(10)
     const hash = bcrypt.hashSync(password, salt)
 
-    let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash})
+    let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash, image})
     let user = registeredUser[0]
 
     req.session.user = {
       id: user.id,
       email: user.email,
-      firstName: user.first_name,
-      lastName: user.last_name
+      firstName: user.firstname,
+      lastName: user.lastname,
+      image: user.image
     }
 
     res.status(201).send(req.session.user)
@@ -45,9 +46,9 @@ module.exports = {
     req.session.user = {
       id: user.id,
       email: user.email,
-      firstName: user.first_name,
-      lastName: user.last_name,
-      resume: user.resume
+      firstName: user.firstname,
+      lastName: user.lastname,
+      image: user.image
     }
     res.status(200).send(req.session.user)
   },
@@ -62,45 +63,28 @@ module.exports = {
   },
 
   updateUser: async (req, res) => {
-    let {email, firstName, lastName, password, resume, picture} = req.body
+    let {email, firstName, lastName, password, image} = req.body
     let {id} = req.session.user
     const db = req.app.get('db')
 
     const salt = bcrypt.genSaltSync(10)
     const hash = bcrypt.hashSync(password, salt)
     
-    let updatedUser = await db.authCtrl.updateUser({email, firstName, lastName, hash, id, resume, picture})
+    let updatedUser = await db.authCtrl.updateUser({email, firstName, lastName, hash, id, image})
     let user = updatedUser[0]
     
     try {
       req.session.user = {
         id: user.id,
         email: user.email,
-        firstName: user.first_name,
-        lastName: user.last_name
+        firstName: user.firstname,
+        lastName: user.lastname,
+        image: user.image
       }
-      res.status(201).send(req.session.user)
+      res.status(200).send(req.session.user)
     }
     catch {
       res.status(500).send('Internal server error')
     }
-  },
-
-  authenticateUser: async (req,res)=>{
-    let { password} = req.body
-    const db = req.app.get('db')
-    let email = req.session.user.email
-    let foundUser = await db.authCtrl.getUser({email})
-    let user = foundUser[0]
-    
-    if (!user) {
-      return res.status(401).send('User not found. Please register as a new user before logging in.')
-    }
-
-    const isAuthenticated = bcrypt.compareSync(password, user.hash)
-    if (!isAuthenticated){
-      return res.status(403).send('Incorrect password')
-    }
-    res.sendStatus(200)
   }
 }

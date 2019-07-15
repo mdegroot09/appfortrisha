@@ -2,12 +2,14 @@ insert into users (
   email,
   firstname,
   lastname, 
-  hash
+  hash,
+  image
 ) values (
   ${email},
   ${firstName},
   ${lastName},
-  ${hash}
+  ${hash},
+  ${image}
 )
 
 returning *;

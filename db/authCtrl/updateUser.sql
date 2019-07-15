@@ -3,8 +3,7 @@ set email = ${email},
 firstname = ${firstName},
 lastname = ${lastName},
 hash = ${hash},
-resume = ${resume},
-picture = ${picture}
+image = ${image}
 where id = ${id}
 
 returning *;
