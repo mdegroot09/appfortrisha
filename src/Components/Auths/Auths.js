@@ -18,9 +18,9 @@ class Auths extends Component{
     let {opacity} = this.state
     let opacInterval = setInterval(() => {
       if (opacity >= .75){clearInterval(opacInterval)}
-      opacity += .01
+      opacity += .025
       this.setState({opacity})
-    }, 8);
+    }, 50);
   }
   
   hideLogin = () => {
