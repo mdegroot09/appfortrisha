@@ -42,16 +42,12 @@ export default function reducer(state=initialState, action) {
   const {type, payload} = action
   switch(type) {
     case UPDATE_POSTS: 
-      console.log('new redux state:', {...state, posts: payload})
       return {...state, posts: payload}
     case UPDATE_USERID:
-      console.log('new redux state:', {...state, userID: payload})
       return {...state, userID: payload}
     case UPDATE_SHOWLOGIN:
-      console.log('new redux state:', {...state, showLogin: payload})
       return {...state, showLogin: payload}
     case UPDATE_SHOWREGISTER:
-      console.log('new redux state:', {...state, showRegister: payload})
       return {...state, showRegister: payload}
     default :
       return state

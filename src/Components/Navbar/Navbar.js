@@ -101,14 +101,18 @@ class Navbar extends Component {
     }
   }
 
-  showHideLogin = (bool) => {
-    this.showHideMenu()
+  showHideLogin = (bool, showHideMenu) => {
+    if (showHideMenu){
+      this.showHideMenu()
+    }
     this.props.updateShowLogin(bool)
     this.props.updateShowRegister(!bool)
   }
 
-  showHideRegister = (bool) => {
-    this.showHideMenu()
+  showHideRegister = (bool, showHideMenu) => {
+    if (showHideMenu){
+      this.showHideMenu()
+    }
     this.props.updateShowRegister(bool)
     this.props.updateShowLogin(!bool)
   }
@@ -149,12 +153,8 @@ class Navbar extends Component {
               <h3 className='navTitle'>Simple Joys</h3>
             </div>
             <div className='navDivRight'>
-              <Link to='/register'>
-                <button className='navBtn'>Register</button>
-              </Link>
-              <Link to='/login'>
-                <button className='navBtn'>Login</button>
-              </Link>
+              <button className='navBtn' onClick={() => this.showHideLogin(true, false)}>Login</button>
+              <button className='navBtn' onClick={() => this.showHideRegister(true, false)}>Register</button>
             </div>
           </div>
         </div>
@@ -165,8 +165,8 @@ class Navbar extends Component {
           <Link to='/about'>
             <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
-          <button className='navBtnHB' onClick={() => this.showHideLogin(true)}>Login</button>
-          <button className='navBtnHB' onClick={() => this.showHideRegister(true)}>Register</button>
+          <button className='navBtnHB' onClick={() => this.showHideLogin(true, true)}>Login</button>
+          <button className='navBtnHB' onClick={() => this.showHideRegister(true, true)}>Register</button>
         </div>
       </div>
     )

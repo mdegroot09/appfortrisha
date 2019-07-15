@@ -8,8 +8,6 @@ export default (
     <Route exact path = '/' component={Home} />
     <Route path = '/post/:id' component={Post} />
     {/* <Route path='/about' component={About}/> */}
-    {/* <Route path='/login' component={Login}/> */}
-    {/* <Route path='/register' component={Register}/> */}
     {/* <Route path='/newpost' component={NewPost}/> */}
   </Switch>
 )

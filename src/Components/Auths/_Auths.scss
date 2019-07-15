@@ -3,10 +3,33 @@
   width: 100vw;
   position: fixed;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  background-image: '';
+}
+
+.authImg {
+  // background-image: url('http://www.lernerco.com/wp-content/uploads/2016/08/the-lerner-company-tempered-glass-window.jpg');
+  background-image: url('https://www.photohdx.com/images/2016/11/clean-white-paper-texture-background.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  height: inherit;
+  width: inherit;
+  position: fixed;
+}
+
+.authBox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  max-height: 400px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
 }
 
