@@ -1,19 +1,20 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
-import { isDate } from 'util';
 
 class Comments extends Component {
   constructor(){
     super()
     this.state = {
-      comments: '',
+      comments: [],
       commentElements: '',
       newComment: ''
     }
   }
 
   componentDidMount = () => {
-    this.setState({comments: this.props.comments})
+    if (this.props.comments){
+      this.setState({comments: this.props.comments})
+    }
     setTimeout(() => {
       this.renderComments()
     }, 1);
@@ -44,19 +45,23 @@ class Comments extends Component {
   }
 
   renderComments = () => {
-    let commentElements = this.state.comments.map((comment, i) => {
-      return (
-        <div key={i} className='comment'>
-          <b className='commentName'>
-            {`${comment.firstName} ${comment.lastName} - ${comment.date}`}
-          </b>
-          <div className='commentText'>
-            {comment.text}
+    // Skip mapping if comments don't exist for a post
+    try {
+      let commentElements = this.state.comments.map((comment, i) => {
+        return (
+          <div key={i} className='comment'>
+            <b className='commentName'>
+              {`${comment.firstName} ${comment.lastName} - ${comment.date}`}
+            </b>
+            <div className='commentText'>
+              {comment.text}
+            </div>
           </div>
-        </div>
-      )
-    })
-    this.setState({commentElements})
+        )
+      })
+      this.setState({commentElements})
+    }
+    catch {return}
   }
   
   render(){
@@ -65,7 +70,7 @@ class Comments extends Component {
     return (
       <div className='homeRight'>
         <h2 className='sectionTitle'>Comments</h2>
-        {commentElements}
+        {commentElements[0] ? commentElements : ''}
         <div className='comment'>
           <b className='commentName'>
             {`Username - Today`}
