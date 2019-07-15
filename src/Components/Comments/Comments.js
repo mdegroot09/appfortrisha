@@ -78,7 +78,7 @@ class Comments extends Component {
           <div className='commentInputDiv'>
             <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
             <div className='commentBtnDiv'>
-              <button className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</button>
+              <div className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</div>
             </div>
           </div>
         </div>

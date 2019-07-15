@@ -193,8 +193,8 @@ class Home extends Component {
                 />
                 {!this.state.filter && tabSpecific.length > this.state.postsMax?
                   (!this.state.viewMore ? 
-                    <button className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}>View All</button> 
-                    : <button className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}>View Less</button>)
+                    <div className='viewMoreBtn' onClick={() => this.setState({viewMore: true})}><span>View All</span></div> 
+                    : <div className='viewMoreBtn' onClick={() => this.setState({viewMore: false})}><span>View Less</span></div>)
                       : <></>
                 }
               </div>

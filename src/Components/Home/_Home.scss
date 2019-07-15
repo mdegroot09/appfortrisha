@@ -276,6 +276,14 @@
   font-weight: 600;
   box-shadow: 2px 2px 3px rgb(82, 82, 82);
   outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnText {
+  // align-self: center;
+  // justify-self: center;
 }
 
 @media(max-width: 1200px){
