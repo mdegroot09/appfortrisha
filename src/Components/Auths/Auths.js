@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {updateShowLogin, updateShowRegister} from '../../redux/reducer'
+import GoogleLogin from 'react-google-login';
 
 class Auths extends Component{
   constructor(){
@@ -40,6 +41,10 @@ class Auths extends Component{
       this.setState({opacity: 0})
     }
 
+    const responseGoogle = (response) => {
+      console.log(response);
+    }
+
     return (
       <>
         {this.props.showLogin ? 
@@ -48,6 +53,13 @@ class Auths extends Component{
             <div className='authImg' style={{opacity: `${opacity}`}}></div>
             <div className='authBox'>
               <h1>Login</h1>
+              <GoogleLogin
+                clientId="559541228663-ejf0eno7ppa01v2ao1iseb7vspgv5i29.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
               <div className='viewMoreBtn' onClick={this.hideLogin} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
             </div>
           </div>)

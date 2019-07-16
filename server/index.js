@@ -4,7 +4,7 @@ const app = express()
 const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./controllers/authCtrl')
-const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env
+const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, GOOGLE_CLIENT_ID} = process.env
 
 app.use(express.static(`${__dirname}/../build`))
 
