@@ -2,13 +2,31 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
   registerUser: async (req, res) => {
+    console.log('registerUser accessed')
     let {email, firstName, lastName, password, image} = req.body
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
     let existingUser = userArr[0]
 
     if (existingUser) {
-      return this.loginUser(email, password)
+      console.log('loginUser accessed')
+      const db = req.app.get('db')
+      let foundUser = await db.authCtrl.getUser({email})
+      let user = foundUser[0]
+  
+      const isAuthenticated = bcrypt.compareSync(password, user.hash)
+      if (!isAuthenticated){
+        return res.status(403).send('Incorrect password')
+      }
+  
+      req.session.user = {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstname,
+        lastName: user.lastname,
+        image: user.image
+      }
+      return res.status(200).send(req.session.user)
     } 
 
     const salt = bcrypt.genSaltSync(10)
@@ -25,10 +43,11 @@ module.exports = {
       image: user.image
     }
 
-    res.status(201).send(req.session.user)
+    return res.status(201).send(req.session.user)
   }, 
 
   loginUser: async (email, password) => {
+    console.log('loginUser accessed')
     const db = req.app.get('db')
     let foundUser = await db.authCtrl.getUser({email})
     let user = foundUser[0]

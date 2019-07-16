@@ -13,7 +13,11 @@ class Auths extends Component{
   }
   
   // componentDidMount = () => {
-  //   this.increaseOpacity()
+  //   setTimeout(() => {
+  //     axios.post('/auth/register', {email: 'mdegroot09@gmail.com', firstName: '', lastName: '', password: '112442799524983760430', image: ''})
+  //     .then(res => console.log('res:', res))
+  //     .catch(err => console.log('err:', err));
+  //   }, 5000)
   // }
 
   increaseOpacity = () => {
