@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import Dots from './Dots'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister} from '../../redux/reducer';
+import {updateShowLogin, updateShowRegister, updateUsername} from '../../redux/reducer';
+import axios from 'axios'
 
 class Navbar extends Component {
   constructor(){
@@ -117,6 +118,13 @@ class Navbar extends Component {
     this.props.updateShowLogin(!bool)
   }
 
+  logout = () => {
+    axios.delete('/auth/logout')
+    .then(res => {
+      this.props.updateUsername('')
+    })
+  }
+
   render(){
 
     let {opacity} = this.state
@@ -157,7 +165,7 @@ class Navbar extends Component {
                 ? 
                   <>
                     <button className='navBtn'>Welcome, {this.props.username}</button>
-                    <button className='navBtn'>Logout</button>
+                    <button className='navBtn' onClick={this.logout}>Logout</button>
                   </>
                 : 
                   <>
@@ -179,7 +187,7 @@ class Navbar extends Component {
             ? 
               <>
                 <button className='navBtnHB'>Welcome, {this.props.username}</button>
-                <button className='navBtnHB'>Logout</button>
+                <button className='navBtnHB' onClick={this.logout}>Logout</button>
               </>
             : 
               <>
@@ -199,7 +207,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister
+  updateShowLogin, updateShowRegister, updateUsername
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
