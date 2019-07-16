@@ -39,6 +39,8 @@ class Auths extends Component{
 
   responseGoogle = (response) => {
     console.log(response);
+    this.hideLogin()
+    this.hideRegister()
     let user = {
       firstName: response.w3.ofa, 
       lastName: response.w3.wea, 
