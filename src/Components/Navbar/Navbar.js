@@ -153,8 +153,18 @@ class Navbar extends Component {
               <h3 className='navTitle'>Simple Joys</h3>
             </div>
             <div className='navDivRight'>
-              <button className='navBtn' onClick={() => this.showHideLogin(true, false)}>Login</button>
-              <button className='navBtn' onClick={() => this.showHideRegister(true, false)}>Register</button>
+              {this.props.username 
+                ? 
+                  <>
+                    <button className='navBtnHB'>Welcome, {this.props.username}</button>
+                    <button className='navBtnHB'>Logout</button>
+                  </>
+                : 
+                  <>
+                    <button className='navBtnHB' onClick={() => this.showHideLogin(true, true)}>Login</button>
+                    <button className='navBtnHB' onClick={() => this.showHideRegister(true, true)}>Register</button>
+                  </>
+              }
             </div>
           </div>
         </div>
@@ -168,8 +178,8 @@ class Navbar extends Component {
           {this.props.username 
             ? 
               <>
-                <button className='navBtnHB'></button>
                 <button className='navBtnHB'>Welcome, {this.props.username}</button>
+                <button className='navBtnHB'>Logout</button>
               </>
             : 
               <>
