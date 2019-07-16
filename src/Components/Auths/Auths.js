@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {updateShowLogin, updateShowRegister, updateUsername} from '../../redux/reducer'
 import GoogleLogin from 'react-google-login';
+import axios from 'axios'
 
 class Auths extends Component{
   constructor(){
@@ -34,6 +35,18 @@ class Auths extends Component{
 
   responseGoogle = (response) => {
     console.log(response);
+    let user = {
+      firstName: response.w3.ofa, 
+      lastName: response.w3.wea, 
+      email: response.w3.U3,
+      password: response.googleId,
+      image: response.w3.Paa
+    }
+    axios.post(`/auth/register`, user)
+    .then(res => {
+      console.log('res:', res)
+    })
+    .catch(err => console.log('err:', err))
     this.props.updateUsername(response.w3.ig)
   }
   
