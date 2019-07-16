@@ -165,8 +165,18 @@ class Navbar extends Component {
           <Link to='/about'>
             <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
-          <button className='navBtnHB' onClick={() => this.showHideLogin(true, true)}>Login</button>
-          <button className='navBtnHB' onClick={() => this.showHideRegister(true, true)}>Register</button>
+          {this.props.username 
+            ? 
+              <>
+                <button className='navBtnHB'></button>
+                <button className='navBtnHB'>Welcome, {this.props.username}</button>
+              </>
+            : 
+              <>
+                <button className='navBtnHB' onClick={() => this.showHideLogin(true, true)}>Login</button>
+                <button className='navBtnHB' onClick={() => this.showHideRegister(true, true)}>Register</button>
+              </>
+          }
         </div>
       </div>
     )
@@ -174,8 +184,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  const {userID} = state
-  return {userID}
+  const {username} = state
+  return {username}
 }
 
 const mapDispatchToProps = {
