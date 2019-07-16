@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Dots from './Dots'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {updateUserID, updateShowLogin, updateShowRegister} from '../../redux/reducer';
+import {updateShowLogin, updateShowRegister} from '../../redux/reducer';
 
 class Navbar extends Component {
   constructor(){
@@ -179,7 +179,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updateUserID, updateShowLogin, updateShowRegister
+  updateShowLogin, updateShowRegister
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -1,12 +1,12 @@
 const initialState = {
   posts: [],
-  userID: '',
+  username: '',
   showLogin: false,
   showRegister: false
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
-const UPDATE_USERID = 'UPDATE_USERID';
+const UPDATE_USERNAME = 'UPDATE_USERNAME';
 const UPDATE_SHOWLOGIN = 'UPDATE_SHOWLOGIN';
 const UPDATE_SHOWREGISTER = 'UPDATE_SHOWREGISTER';
 
@@ -17,10 +17,10 @@ export function updatePosts(posts){
   }
 }
 
-export function updateUserID(id){
+export function updateUsername(username){
   return {
-      type: UPDATE_USERID,
-      payload: id
+      type: UPDATE_USERNAME,
+      payload: username
   }
 }
 
@@ -43,8 +43,8 @@ export default function reducer(state=initialState, action) {
   switch(type) {
     case UPDATE_POSTS: 
       return {...state, posts: payload}
-    case UPDATE_USERID:
-      return {...state, userID: payload}
+    case UPDATE_USERNAME:
+      return {...state, username: payload}
     case UPDATE_SHOWLOGIN:
       return {...state, showLogin: payload}
     case UPDATE_SHOWREGISTER:

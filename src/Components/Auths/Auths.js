@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister} from '../../redux/reducer'
+import {updateShowLogin, updateShowRegister, updateUsername} from '../../redux/reducer'
 import GoogleLogin from 'react-google-login';
 
 class Auths extends Component{
@@ -31,6 +31,11 @@ class Auths extends Component{
   hideRegister = () => {
     this.props.updateShowRegister(false)
   }
+
+  responseGoogle = (response) => {
+    console.log(response);
+    this.props.updateUsername(response.w3.ig)
+  }
   
   render(){
     let {opacity} = this.state
@@ -39,10 +44,6 @@ class Auths extends Component{
       this.increaseOpacity()
     } else if (!showLogin && !showRegister && opacity > 0){
       this.setState({opacity: 0})
-    }
-
-    const responseGoogle = (response) => {
-      console.log(response);
     }
 
     return (
@@ -56,8 +57,8 @@ class Auths extends Component{
               <GoogleLogin
                 clientId="559541228663-ejf0eno7ppa01v2ao1iseb7vspgv5i29.apps.googleusercontent.com"
                 buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}
                 cookiePolicy={'single_host_origin'}
               />
               <div className='viewMoreBtn' onClick={this.hideLogin} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
@@ -82,12 +83,12 @@ class Auths extends Component{
 }
 
 const mapStateToProps = state => {
-  const {userID, showLogin, showRegister} = state
-  return {userID, showLogin, showRegister}
+  const {userID, showLogin, showRegister, username} = state
+  return {userID, showLogin, showRegister, username}
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister
+  updateShowLogin, updateShowRegister, updateUsername
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auths);
