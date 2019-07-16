@@ -38,6 +38,7 @@ class Auths extends Component{
   }
   
   render(){
+    console.log('Auth this.props:', this.props)
     let {opacity} = this.state
     let {showLogin, showRegister} = this.props
     if (opacity === 0 && (showLogin || showRegister)){
