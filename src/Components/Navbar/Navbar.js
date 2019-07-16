@@ -156,13 +156,13 @@ class Navbar extends Component {
               {this.props.username 
                 ? 
                   <>
-                    <button className='navBtnHB'>Welcome, {this.props.username}</button>
+                    <button className='navBtnHB'>{this.props.username}</button>
                     <button className='navBtnHB'>Logout</button>
                   </>
                 : 
                   <>
-                    <button className='navBtnHB' onClick={() => this.showHideLogin(true, true)}>Login</button>
-                    <button className='navBtnHB' onClick={() => this.showHideRegister(true, true)}>Register</button>
+                    <button className='navBtnHB' onClick={() => this.showHideLogin(true, false)}>Login</button>
+                    <button className='navBtnHB' onClick={() => this.showHideRegister(true, false)}>Register</button>
                   </>
               }
             </div>

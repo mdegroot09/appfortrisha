@@ -53,7 +53,7 @@ class Auths extends Component{
       console.log('res:', res)
     })
     .catch(err => console.log('err:', err))
-    this.props.updateUsername(response.w3.ig)
+    this.props.updateUsername(response.w3.ofa)
   }
   
   render(){
