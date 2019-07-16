@@ -8,7 +8,7 @@ module.exports = {
     let existingUser = userArr[0]
 
     if (existingUser) {
-      return res.status(409).send('Email already registered')
+      return this.loginUser(email, password)
     } 
 
     const salt = bcrypt.genSaltSync(10)
@@ -28,15 +28,10 @@ module.exports = {
     res.status(201).send(req.session.user)
   }, 
 
-  loginUser: async (req, res) => {
-    let {email, password} = req.body
+  loginUser: async (email, password) => {
     const db = req.app.get('db')
     let foundUser = await db.authCtrl.getUser({email})
     let user = foundUser[0]
-    
-    if (!user) {
-      return res.status(401).send('User not found. Please register as a new user before logging in.')
-    }
 
     const isAuthenticated = bcrypt.compareSync(password, user.hash)
     if (!isAuthenticated){
