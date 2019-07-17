@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs')
 module.exports = {
   registerUser: async (req, res) => {
     let {email, firstName, lastName, password, image} = req.body
+    return res.status(500).send(req.body)
     const db = req.app.get('db')
-    return res.status(500).send('accessed')
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
     
