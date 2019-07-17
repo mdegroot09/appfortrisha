@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {updateShowLogin} from '../../redux/reducer'
 
 class Comments extends Component {
   constructor(){
@@ -63,6 +65,10 @@ class Comments extends Component {
     }
     catch {return}
   }
+
+  login = () => {
+    this.props.updateShowLogin(true)
+  }
   
   render(){
     let {commentElements} = this.state
@@ -72,19 +78,34 @@ class Comments extends Component {
         <h2 className='sectionTitle'>Comments</h2>
         {commentElements[0] ? commentElements : ''}
         <div className='comment'>
-          <b className='commentName'>
-            {`Username - Today`}
-          </b>
-          <div className='commentInputDiv'>
-            <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
-            <div className='commentBtnDiv'>
-              <div className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</div>
-            </div>
-          </div>
+          {this.props.username ?
+            <>
+              <b className='commentName'>
+                {`Username - Today`}
+              </b>
+              <div className='commentInputDiv'>
+                <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
+                <div className='commentBtnDiv'>
+                  <div className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</div>
+                </div>
+              </div>
+            </>
+            :
+            <div className='viewMoreBtn commentBtnAuth' onClick={this.login}>Login to Comment</div>
+          }
         </div>
       </div>
     )
   }
 }
 
-export default withRouter(Comments)
+const mapStateToProps = state => {
+  const {username} = state
+  return {username}
+}
+
+const mapDispatchToProps = {
+  updateShowLogin
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Comments))
