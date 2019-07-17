@@ -6,13 +6,10 @@ module.exports = {
     let {email, firstName, lastName, password, image} = req.body
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
-    let existingUser = userArr[0]
+    let user = userArr[0]
 
-    if (existingUser) {
+    if (user) {
       console.log('loginUser accessed')
-      const db = req.app.get('db')
-      let foundUser = await db.authCtrl.getUser({email})
-      let user = foundUser[0]
   
       const isAuthenticated = bcrypt.compareSync(password, user.hash)
       if (!isAuthenticated){
@@ -33,7 +30,7 @@ module.exports = {
     const hash = bcrypt.hashSync(password, salt)
 
     let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash, image})
-    let user = registeredUser[0]
+    user = registeredUser[0]
 
     req.session.user = {
       id: user.id,
