@@ -45,7 +45,7 @@ class Auths extends Component{
       password: response.googleId,
       image: response.w3.Paa
     }
-    this.props.updateUserImg(user.img)
+    this.props.updateUserImg(user.image)
     axios.post(`/auth/register`, user)
     .then(res => {
       console.log('res:', res)
