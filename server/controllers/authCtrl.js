@@ -28,20 +28,17 @@ module.exports = {
 
     console.log('loginUser accessed')
     const isAuthenticated = bcrypt.compareSync(password, user.hash)
+    res.status(500).send(isAuthenticated)
     if (!isAuthenticated){
       return res.status(403).send('Incorrect password')
     }
 
-    try{
-      req.session.user = {
-        id: user.id,
-        email: user.email,
-        firstName: user.firstname,
-        lastName: user.lastname,
-        image: user.image
-      }
-    } catch {
-      res.status(500).send('check user')
+    req.session.user = {
+      id: user.id,
+      email: user.email,
+      firstName: user.firstname,
+      lastName: user.lastname,
+      image: user.image
     }
 
     return res.status(200).send(req.session.user)
