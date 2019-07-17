@@ -8,7 +8,7 @@ module.exports = {
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
 
-    if (user) {
+    if (user.hash) {
       console.log('loginUser accessed')
   
       const isAuthenticated = bcrypt.compareSync(password, user.hash)
