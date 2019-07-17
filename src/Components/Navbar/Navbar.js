@@ -166,7 +166,7 @@ class Navbar extends Component {
                   <>
                     <div className='navBtn'>
                       {/* <div className='userImg' style={{backgroundImage: `url(${this.props.userImg})`}}></div>  */}
-                      <div className='userImg' style={{backgroundImage: (this.props.userImg ? `url(${this.props.userImg}` : '')}}></div> 
+                      <div className='userImg' style={{backgroundImage: this.props.userImg ? `url(${this.props.userImg}` : ''}}></div> 
                       <button className='navBtn' style={{marginLeft: '0'}}>{this.props.username}</button>
                     </div>
                     <button className='navBtn' onClick={this.logout}>Logout</button>
@@ -191,7 +191,7 @@ class Navbar extends Component {
             ? 
               <>
                 <div className='navBtnHB'>
-                  <div className='userImg' style={{backgroundImage: (this.props.userImg ? `url(${this.props.userImg}` : '')}}></div> 
+                  <div className='userImg' style={{backgroundImage: this.props.userImg ? `url(${this.props.userImg}` : ''}}></div> 
                   <button className='navBtnHB' style={{marginLeft: '0'}}>{this.props.username}</button>
                 </div>
                 {/* <button className='navBtnHB'>{this.props.username}</button> */}
