@@ -2,19 +2,18 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
   registerUser: async (req, res) => {
-    console.log('registerUser accessed')
     let {email, firstName, lastName, password, image} = req.body
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
-
-    if (user.hash) {
-      console.log('loginUser accessed')
+    
+    if (!user) {
+      console.log('registerUser accessed')
+      const salt = bcrypt.genSaltSync(10)
+      const hash = bcrypt.hashSync(password, salt)
   
-      const isAuthenticated = bcrypt.compareSync(password, user.hash)
-      if (!isAuthenticated){
-        return res.status(403).send('Incorrect password')
-      }
+      let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash, image})
+      user = registeredUser[0]
   
       req.session.user = {
         id: user.id,
@@ -23,14 +22,15 @@ module.exports = {
         lastName: user.lastname,
         image: user.image
       }
-      return res.status(200).send(req.session.user)
+  
+      return res.status(201).send(req.session.user)
     } 
 
-    const salt = bcrypt.genSaltSync(10)
-    const hash = bcrypt.hashSync(password, salt)
-
-    let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash, image})
-    user = registeredUser[0]
+    console.log('loginUser accessed')
+    const isAuthenticated = bcrypt.compareSync(password, user.hash)
+    if (!isAuthenticated){
+      return res.status(403).send('Incorrect password')
+    }
 
     req.session.user = {
       id: user.id,
@@ -39,8 +39,7 @@ module.exports = {
       lastName: user.lastname,
       image: user.image
     }
-
-    return res.status(201).send(req.session.user)
+    return res.status(200).send(req.session.user)
   }, 
 
   loginUser: async (email, password) => {
