@@ -4,6 +4,7 @@ module.exports = {
   registerUser: async (req, res) => {
     let {email, firstName, lastName, password, image} = req.body
     const db = req.app.get('db')
+    return res.status(500).send('accessed')
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
     
@@ -27,7 +28,6 @@ module.exports = {
     } 
 
     console.log('loginUser accessed')
-    return res.status(500).send('loginUser accessed')
     const isAuthenticated = bcrypt.compareSync(password, user.hash)
     if (!isAuthenticated){
       return res.status(403).send('Incorrect password')
