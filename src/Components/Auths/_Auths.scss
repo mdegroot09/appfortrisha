@@ -41,11 +41,18 @@
   margin-bottom: 10px;
 }
 
-.googleAuth div {
-  margin-right: 0;
+.googleAuth span {
+  font-size: 20px;
 }
 
-.googleAuth span {
-  // margin-right: 30px;
-  font-size: 20px;
+.switchAuth {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: blue;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-family: 'Handlee', cursive;
+  font-weight: 600;
 }

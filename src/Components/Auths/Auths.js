@@ -26,6 +26,16 @@ class Auths extends Component{
     this.props.updateShowRegister(false)
   }
 
+  switchToLogin = () => {
+    this.props.updateShowLogin(true)
+    this.props.updateShowRegister(false)
+  }
+  
+  switchToRegister = () => {
+    this.props.updateShowRegister(true)
+    this.props.updateShowLogin(false)
+  }
+
   responseGoogle = (response) => {
     this.hideAuth()
     let user = {
@@ -72,6 +82,11 @@ class Auths extends Component{
                 buttonText={'Sign in with Google'}
               />
               <div className='viewMoreBtn' onClick={() => this.hideAuth()} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
+              {this.props.showLogin ?
+                <button className='switchAuth' onClick={this.switchToRegister}>Switch to Register</button>
+                :
+                <button className='switchAuth' onClick={this.switchToLogin}>Switch to Login</button>
+              }
             </div>
           </div>)
             : <></>
