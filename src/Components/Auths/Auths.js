@@ -12,13 +12,13 @@ class Auths extends Component{
     }
   }
   
-  // componentDidMount = () => {
-  //   setTimeout(() => {
-  //     axios.post('/auth/register', {email: 'mdegroot09@gmail.com', firstName: '', lastName: '', password: '112442799524983760430', image: ''})
-  //     .then(res => console.log('res:', res))
-  //     .catch(err => console.log('err:', err));
-  //   }, 5000)
-  // }
+  componentDidMount = () => {
+    setTimeout(() => {
+      axios.post('/auth/register', {email: 'mdegroot09@gmail.com', firstName: '', lastName: '', password: '112442799524983760430', image: ''})
+      .then(res => console.log('res:', res))
+      .catch(err => console.log('err:', err));
+    }, 5000)
+  }
 
   increaseOpacity = () => {
     let {opacity} = this.state
@@ -43,6 +43,7 @@ class Auths extends Component{
       password: response.googleId,
       image: response.w3.Paa
     }
+    console.log('user:', user)
     axios.post(`/auth/register`, user)
     .then(res => {
       console.log('res:', res)
@@ -79,17 +80,6 @@ class Auths extends Component{
               <div className='viewMoreBtn' onClick={() => this.hideAuth()} style={{backgroundColor: 'rgb(195, 195, 195)'}}><p>Cancel</p></div>
             </div>
           </div>)
-
-          // : this.props.showRegister ?
-
-          // (<div className='auths'>
-          //   <div className='authImg' style={{opacity: `${opacity}`}}></div>
-          //   <div className='authBox'>
-          //     <h1>Register</h1>
-          //     <div className='viewMoreBtn' onClick={this.hideRegister} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
-          //   </div>
-          // </div>)
-
             : <></>
         }
       </>
