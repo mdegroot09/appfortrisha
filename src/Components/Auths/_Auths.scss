@@ -9,7 +9,6 @@
 }
 
 .authImg {
-  // background-image: url('http://www.lernerco.com/wp-content/uploads/2016/08/the-lerner-company-tempered-glass-window.jpg');
   background-image: url('https://www.photohdx.com/images/2016/11/clean-white-paper-texture-background.jpg');
   background-position: center;
   background-size: cover;
@@ -34,3 +33,19 @@
   box-shadow: 2px 2px 5px rgb(110, 110, 110);
 }
 
+.googleAuth {
+  width: 235px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.googleAuth div {
+  margin-right: 0;
+}
+
+.googleAuth span {
+  // margin-right: 30px;
+  font-size: 20px;
+}

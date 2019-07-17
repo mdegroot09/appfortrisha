@@ -110,7 +110,7 @@ class Navbar extends Component {
     this.props.updateShowRegister(false)
   }
 
-  showHideRegister = (bool, showHideMenu) => {
+  showHideRegister = (showHideMenu) => {
     if (showHideMenu){
       this.showHideMenu()
     }

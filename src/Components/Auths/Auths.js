@@ -11,14 +11,6 @@ class Auths extends Component{
       opacity: 0
     }
   }
-  
-  componentDidMount = () => {
-    setTimeout(() => {
-      axios.post('/auth/register', {email: 'mdegroot09@gmail.com', firstName: '', lastName: '', password: '112442799524983760430', image: ''})
-      .then(res => console.log('res:', res))
-      .catch(err => console.log('err:', err));
-    }, 5000)
-  }
 
   increaseOpacity = () => {
     let {opacity} = this.state
@@ -68,15 +60,18 @@ class Auths extends Component{
           (<div className='auths'>
             <div className='authImg' style={{opacity: `${opacity}`}}></div>
             <div className='authBox'>
-              {this.props.showLogin ? <h1>Login</h1> : <h1>Register</h1>}
+              {this.props.showLogin ? <h1 style={{marginBottom: '0'}}>Login</h1> : <h1 style={{marginBottom: '0'}}>Register</h1>}
+              <h3 style={{margin: '5px 0 25px 0'}}>via Google Sign In</h3>
               <GoogleLogin
                 clientId="559541228663-ejf0eno7ppa01v2ao1iseb7vspgv5i29.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogle}
                 cookiePolicy={'single_host_origin'}
+                className='googleAuth'
+                buttonText={'Sign in with Google'}
               />
-              <div className='viewMoreBtn' onClick={() => this.hideAuth()} style={{backgroundColor: 'rgb(195, 195, 195)'}}><p>Cancel</p></div>
+              <div className='viewMoreBtn' onClick={() => this.hideAuth()} style={{backgroundColor: 'rgb(195, 195, 195)'}}><span>Cancel</span></div>
             </div>
           </div>)
             : <></>
