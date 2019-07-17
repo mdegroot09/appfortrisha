@@ -126,6 +126,7 @@ class Navbar extends Component {
   }
 
   render(){
+    console.log('props:', this.props)
 
     let {opacity} = this.state
     window.onscroll = () => {
