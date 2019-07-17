@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister, updateUsername} from '../../redux/reducer'
+import {updateShowLogin, updateShowRegister, updateUsername, updateUserImg} from '../../redux/reducer'
 import GoogleLogin from 'react-google-login';
 import axios from 'axios'
 
@@ -45,7 +45,7 @@ class Auths extends Component{
       password: response.googleId,
       image: response.w3.Paa
     }
-    console.log('user:', user)
+    this.props.updateUserImg(user.img)
     axios.post(`/auth/register`, user)
     .then(res => {
       console.log('res:', res)
@@ -71,7 +71,7 @@ class Auths extends Component{
             <div className='authImg' style={{opacity: `${opacity}`}}></div>
             <div className='authBox'>
               {this.props.showLogin ? <h1 style={{marginBottom: '0'}}>Login</h1> : <h1 style={{marginBottom: '0'}}>Register</h1>}
-              <h3 style={{margin: '5px 0 25px 0'}}>via Google Sign In</h3>
+              <h3 style={{margin: '5px 0 25px 0'}}>via Google Sign-In</h3>
               <GoogleLogin
                 clientId="559541228663-ejf0eno7ppa01v2ao1iseb7vspgv5i29.apps.googleusercontent.com"
                 buttonText="Login"
@@ -102,7 +102,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister, updateUsername
+  updateShowLogin, updateShowRegister, updateUsername, updateUserImg
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auths);

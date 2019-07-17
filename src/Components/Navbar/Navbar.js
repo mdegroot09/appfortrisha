@@ -138,10 +138,10 @@ class Navbar extends Component {
           {/* Hide second navbar background if opacity for navMainInit is at 1 */}
           <div className={'navbarInit'} style={opacity >= 1 ? {backgroundImage: 'linear-gradient(transparent, transparent)'} : {backgroundImage: 'linear-gradient(#131313, #000077, rgb(15, 15, 170))'}}>
             <div className='navDivLeft'>
-              <Link to='/'>
+              <Link to='/' style={{textDecoration: 'none', alignItems: 'center'}}>
                 <button className='navBtn'>Home</button>
               </Link>
-              <Link to='/about'>
+              <Link to='/about' style={{textDecoration: 'none', alignItems: 'center'}}>
                 <button className='navBtn'>About</button>
               </Link>
               
@@ -164,7 +164,10 @@ class Navbar extends Component {
               {this.props.username 
                 ? 
                   <>
-                    <button className='navBtn'>Welcome, {this.props.username}</button>
+                    <div className='navBtn'>
+                      <div className='userImg' style={{backgroundImage: `url(${this.props.userImg})`}}></div> 
+                      <button className='navBtn' style={{marginLeft: '0'}}>{this.props.username}</button>
+                    </div>
                     <button className='navBtn' onClick={this.logout}>Logout</button>
                   </>
                 : 
@@ -177,16 +180,20 @@ class Navbar extends Component {
           </div>
         </div>
         <div className={`navMainInit hideMenu`} >
-          <Link to='/'>
+          <Link to='/' style={{textDecoration: 'none'}}>
             <button className='navBtnHB' onClick={this.showHideMenu}>Home</button>
           </Link>
-          <Link to='/about'>
+          <Link to='/about' style={{textDecoration: 'none'}}>
             <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
           {this.props.username 
             ? 
               <>
-                <button className='navBtnHB'>Welcome, {this.props.username}</button>
+                <div className='navBtnHB'>
+                  <div className='userImg' style={{backgroundImage: `url(${this.props.userImg})`}}></div> 
+                  <button className='navBtnHB' style={{marginLeft: '0'}}>{this.props.username}</button>
+                </div>
+                {/* <button className='navBtnHB'>{this.props.username}</button> */}
                 <button className='navBtnHB' onClick={this.logout}>Logout</button>
               </>
             : 
@@ -202,8 +209,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  const {username} = state
-  return {username}
+  const {username, userImg} = state
+  return {username, userImg}
 }
 
 const mapDispatchToProps = {

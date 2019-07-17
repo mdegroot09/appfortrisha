@@ -67,11 +67,15 @@
 
 .navDivLeft {
   margin-left: 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .navDivRight {
   margin-right: 30px;
   pointer-events: none;
+  display: flex;
 }
 
 .navBtn {
@@ -84,6 +88,16 @@
   font-weight: 600;
   pointer-events: all;
   outline: none;
+  display: flex;
+}
+
+.userImg {
+  height: 27px;
+  width: 27px;
+  align-self: center;
+  border-radius: 1px;
+  background-position: center center; 
+  background-size: cover;
 }
 
 .navBtnHB {
@@ -97,6 +111,7 @@
   pointer-events: all;
   outline: none;
   justify-self: flex-end;
+  display: flex;
 }
 
 .hamburgerBtn {
