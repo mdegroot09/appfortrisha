@@ -10,7 +10,7 @@ const initialState = {
     imageMain: '',
     comments: []
   }],
-  userFirstName: '',
+  userFirstName: 'Mike',
   userLastName: '',
   // userImg: 'https://lh4.googleusercontent.com/-lfM1xoFNRgs/AAAAAAAAAAI/AAAAAAAACGU/ahaBO1Z22gM/s96-c/photo.jpg',
   userImg: '',
@@ -65,7 +65,6 @@ export default function reducer(state=initialState, action) {
     case UPDATE_POSTS: 
       return {...state, posts: payload}
     case UPDATE_USERNAME:
-      console.log('new state:', {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName})
       return {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName}
     case UPDATE_USERIMG: 
       return {...state, userImg: payload}

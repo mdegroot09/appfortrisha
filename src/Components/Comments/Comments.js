@@ -25,8 +25,11 @@ class Comments extends Component {
   addComment = () => {
     let {comments, newComment} = this.state
     let date = new Date().toString()
-    date.split(' (')
-    date = date[0].join('')
+  
+    let dateArr = date.split(' (')
+    let dateSQL = dateArr[0]
+    console.log('dateSQL:', dateSQL)
+  
     let comment = {
       id: null,
       firstName: this.props.userFirstName,
@@ -34,7 +37,6 @@ class Comments extends Component {
       text: newComment,
       date: date
     }
-    console.log('comment:', comment)
     comments.push(comment)
     this.setState({comments})
     this.setState({newComment: ''})
@@ -77,7 +79,6 @@ class Comments extends Component {
 
   
   render(){
-    console.log('props:', this.props)
     let {commentElements} = this.state
 
     return (
