@@ -10,7 +10,7 @@ const initialState = {
     imageMain: '',
     comments: []
   }],
-  userFirstName: 'Mike',
+  userFirstName: '',
   userLastName: '',
   // userImg: 'https://lh4.googleusercontent.com/-lfM1xoFNRgs/AAAAAAAAAAI/AAAAAAAACGU/ahaBO1Z22gM/s96-c/photo.jpg',
   userImg: '',
