@@ -74,8 +74,10 @@ class Comments extends Component {
   login = () => {
     this.props.updateShowLogin(true)
   }
+
   
   render(){
+    console.log('props:', this.props)
     let {commentElements} = this.state
 
     return (

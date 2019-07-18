@@ -46,10 +46,10 @@ class Auths extends Component{
       image: response.w3.Paa
     }
     this.props.updateUserImg(user.image)
+    this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
     axios.post(`/auth/register`, user)
     .then(res => {
       console.log('res:', res)
-      this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
     })
     .catch(err => console.log('err:', err))
   }
