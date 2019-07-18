@@ -49,9 +49,9 @@ class Auths extends Component{
     axios.post(`/auth/register`, user)
     .then(res => {
       console.log('res:', res)
+      this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
     })
     .catch(err => console.log('err:', err))
-    this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
   }
   
   render(){
