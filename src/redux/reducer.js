@@ -10,7 +10,8 @@ const initialState = {
     imageMain: '',
     comments: []
   }],
-  username: '',
+  userFirstName: '',
+  userLastName: '',
   // userImg: 'https://lh4.googleusercontent.com/-lfM1xoFNRgs/AAAAAAAAAAI/AAAAAAAACGU/ahaBO1Z22gM/s96-c/photo.jpg',
   userImg: '',
   showLogin: false,
@@ -18,7 +19,8 @@ const initialState = {
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
-const UPDATE_USERNAME = 'UPDATE_USERNAME';
+const UPDATE_USERFIRSTNAME = 'UPDATE_USERFIRSTNAME';
+const UPDATE_USERLASTNAME = 'UPDATE_USERLASTNAME';
 const UPDATE_USERIMG = 'UPDATE_USERIMG'
 const UPDATE_SHOWLOGIN = 'UPDATE_SHOWLOGIN';
 const UPDATE_SHOWREGISTER = 'UPDATE_SHOWREGISTER';
@@ -30,10 +32,17 @@ export function updatePosts(posts){
   }
 }
 
-export function updateUsername(username){
+export function updateUserFirstName(userFirstName){
   return {
-    type: UPDATE_USERNAME,
-    payload: username
+    type: UPDATE_USERFIRSTNAME,
+    payload: userFirstName
+  }
+}
+
+export function updateUserLastName(userLastName){
+  return {
+    type: UPDATE_USERLASTNAME,
+    payload: userLastName
   }
 }
 
@@ -63,8 +72,10 @@ export default function reducer(state=initialState, action) {
   switch(type) {
     case UPDATE_POSTS: 
       return {...state, posts: payload}
-    case UPDATE_USERNAME:
-      return {...state, username: payload}
+    case UPDATE_USERFIRSTNAME:
+      return {...state, userFirstName: payload}
+    case UPDATE_USERLASTNAME:
+      return {...state, userLastName: payload}
     case UPDATE_USERIMG: 
       return {...state, userImg: payload}
     case UPDATE_SHOWLOGIN:

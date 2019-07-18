@@ -24,13 +24,17 @@ class Comments extends Component {
 
   addComment = () => {
     let {comments, newComment} = this.state
+    let date = new Date().toString()
+    date.split(' (')
+    date = date[0].join('')
     let comment = {
       id: null,
-      firstName: 'Username',
-      lastName: '',
+      firstName: this.props.userFirstName,
+      lastName: this.props.userLastName,
       text: newComment,
-      date: 'Today'
+      date: date
     }
+    console.log('comment:', comment)
     comments.push(comment)
     this.setState({comments})
     this.setState({newComment: ''})
@@ -101,8 +105,8 @@ class Comments extends Component {
 }
 
 const mapStateToProps = state => {
-  const {username} = state
-  return {username}
+  const {userFirstName, userLastname} = state
+  return {userFirstName, userLastname}
 }
 
 const mapDispatchToProps = {

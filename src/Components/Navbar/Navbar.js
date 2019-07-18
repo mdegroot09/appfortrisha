@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Dots from './Dots'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister, updateUsername} from '../../redux/reducer';
+import {updateShowLogin, updateShowRegister, updateUserFirstName, updateUserLastName} from '../../redux/reducer';
 import axios from 'axios'
 
 class Navbar extends Component {
@@ -121,7 +121,8 @@ class Navbar extends Component {
   logout = () => {
     axios.delete('/auth/logout')
     .then(res => {
-      this.props.updateUsername('')
+      this.props.updateUserFirstName('')
+      this.props.updateUserLastName('')
     })
   }
 
@@ -209,12 +210,12 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  const {username, userImg} = state
-  return {username, userImg}
+  const {userFirstName, userLastName, userImg} = state
+  return {userFirstName, userLastName, userImg}
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister, updateUsername
+  updateShowLogin, updateShowRegister, updateUserFirstName, updateUserLastName
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
