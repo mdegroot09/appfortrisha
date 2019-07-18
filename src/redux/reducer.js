@@ -66,7 +66,7 @@ export default function reducer(state=initialState, action) {
       return {...state, posts: payload}
     case UPDATE_USERNAME:
       console.log('new state:', {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName})
-      return {...state, userFirstName: payload.userFirstname, userLastName: payload.userLastName}
+      return {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName}
     case UPDATE_USERIMG: 
       return {...state, userImg: payload}
     case UPDATE_SHOWLOGIN:
