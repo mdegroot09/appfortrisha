@@ -19,7 +19,7 @@ const initialState = {
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
-const UPDATE_USERNAME = 'UPDATE_USERFIRSTNAME';
+const UPDATE_USERNAME = 'UPDATE_USERNAME';
 const UPDATE_USERIMG = 'UPDATE_USERIMG'
 const UPDATE_SHOWLOGIN = 'UPDATE_SHOWLOGIN';
 const UPDATE_SHOWREGISTER = 'UPDATE_SHOWREGISTER';
@@ -66,7 +66,7 @@ export default function reducer(state=initialState, action) {
     case UPDATE_POSTS: 
       return {...state, posts: payload}
     case UPDATE_USERNAME:
-      return {...state, userFirstName: payload.firstname, userLastName: payload.userLastName}
+      return {...state, userFirstName: payload.userFirstname, userLastName: payload.userLastName}
     case UPDATE_USERIMG: 
       return {...state, userImg: payload}
     case UPDATE_SHOWLOGIN:
