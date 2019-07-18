@@ -193,10 +193,17 @@
 .postTitle {
   margin: 0 10px;
   color: navy;
+  font-weight: 700;
+}
+
+.postSubTitle {
+  margin: 0 10px;
+  color: navy;
 }
 
 .postTextDiv {
   display: flex;
+  overflow: auto;
 }
 
 .miniPost {

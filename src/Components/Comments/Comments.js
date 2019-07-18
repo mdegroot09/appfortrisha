@@ -50,10 +50,11 @@ class Comments extends Component {
     // Skip mapping if comments don't exist for a post
     try {
       let commentElements = this.state.comments.map((comment, i) => {
+        let date = new Date(comment.date.replace(' ', 'T'))
         return (
           <div key={i} className='comment'>
             <b className='commentName'>
-              {`${comment.firstName} ${comment.lastName} - ${comment.date}`}
+              {`${comment.firstName} ${comment.lastName} - ${date.toDateString()}`}
             </b>
             <div className='commentText'>
               {comment.text}

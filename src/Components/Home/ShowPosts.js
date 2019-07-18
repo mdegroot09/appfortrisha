@@ -8,7 +8,7 @@ export default function ShowPosts (props) {
     let arr = post.text.split('')
     var text = post.text
     // Condense post and end with '...' if arr > indexStart
-    let indexStart = (props.miniPostsList - 40) / 3
+    let indexStart = (props.miniPostsList - 100) / 3
     if (arr.length > indexStart){
       // If the last item in the array is a space or period, begin '...' one index sooner
       if (arr[indexStart - 1] === ' ' || arr[indexStart - 1] === '.') {
@@ -17,12 +17,14 @@ export default function ShowPosts (props) {
       arr.splice(indexStart, arr.length - indexStart + 1, '...')
       text = arr.join('')
     }
+    let date = new Date(post.date.replace(' ', 'T'))
 
     return (
       <Link to={`/post/${post.id}`} key={i} style={{textDecoration: 'none'}} className='miniPost'>
         {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
         <div className='postDiv'>
-          <h4 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title} - {post.date}</h4>
+          <h3 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title}</h3>
+          <p className='postSubTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{date.toDateString()}</p>
           <div className='postTextDiv'>
             <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
           </div>
