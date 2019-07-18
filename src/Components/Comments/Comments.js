@@ -83,10 +83,10 @@ class Comments extends Component {
         <h2 className='sectionTitle'>Comments</h2>
         {commentElements[0] ? commentElements : ''}
         <div className='comment'>
-          {this.props.username ?
+          {this.props.userFirstName ?
             <>
               <b className='commentName'>
-                {`Username - Today`}
+                {`${this.props.userFirstName} ${this.props.userLastName} - ${new Date().toDateString()}`}
               </b>
               <div className='commentInputDiv'>
                 <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>

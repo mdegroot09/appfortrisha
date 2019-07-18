@@ -161,13 +161,13 @@ class Navbar extends Component {
               <h3 className='navTitle'>Simple Joys</h3>
             </div>
             <div className='navDivRight'>
-              {this.props.username 
+              {this.props.userFirstName 
                 ? 
                   <>
                     <div className='navBtn'>
                       {/* <div className='userImg' style={{backgroundImage: `url(${this.props.userImg})`}}></div>  */}
                       <div className='userImg' style={{backgroundImage: this.props.userImg ? `url(${this.props.userImg}` : ''}}></div> 
-                      <button className='navBtn' style={{marginLeft: '0'}}>{this.props.username}</button>
+                      <button className='navBtn' style={{marginLeft: '0'}}>{this.props.userFirstName}</button>
                     </div>
                     <button className='navBtn' onClick={this.logout}>Logout</button>
                   </>
@@ -187,14 +187,14 @@ class Navbar extends Component {
           <Link to='/about' style={{textDecoration: 'none'}}>
             <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
           </Link>
-          {this.props.username 
+          {this.props.userFirstName 
             ? 
               <>
                 <div className='navBtnHB'>
                   <div className='userImg' style={{backgroundImage: this.props.userImg ? `url(${this.props.userImg}` : ''}}></div> 
-                  <button className='navBtnHB' style={{marginLeft: '0'}}>{this.props.username}</button>
+                  <button className='navBtnHB' style={{marginLeft: '0'}}>{this.props.userFirstName}</button>
                 </div>
-                {/* <button className='navBtnHB'>{this.props.username}</button> */}
+                {/* <button className='navBtnHB'>{this.props.userFirstName}</button> */}
                 <button className='navBtnHB' onClick={this.logout}>Logout</button>
               </>
             : 
