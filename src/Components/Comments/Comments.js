@@ -107,8 +107,8 @@ class Comments extends Component {
 }
 
 const mapStateToProps = state => {
-  const {userFirstName, userLastname} = state
-  return {userFirstName, userLastname}
+  const {userFirstName, userLastName} = state
+  return {userFirstName, userLastName}
 }
 
 const mapDispatchToProps = {
