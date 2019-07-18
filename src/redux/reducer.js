@@ -68,6 +68,7 @@ export function updateShowRegister(bool){
 }
 
 export default function reducer(state=initialState, action) {
+  console.log('state:', state, 'action:', action)
   const {type, payload} = action
   switch(type) {
     case UPDATE_POSTS: 
