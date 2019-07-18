@@ -51,8 +51,8 @@ class Auths extends Component{
       console.log('res:', res)
     })
     .catch(err => console.log('err:', err))
-    this.props.updateUserFirstName(response.w3.ofa)
-    this.props.updateUserLastName(response.w3.wea)
+    this.props.updateUserFirstName(user.firstName)
+    this.props.updateUserLastName(user.lastName)
   }
   
   render(){
