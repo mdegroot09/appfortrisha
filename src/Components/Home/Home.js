@@ -125,12 +125,51 @@ class Home extends Component {
     this.getPosts()
     this.updatePostsList()
     let {posts} = this.state
-    this.props.updatePosts(posts)
+    // this.props.updatePosts(posts)
   }
 
   getPosts = () => {
     axios.get('/api/getposts')
-    .then(res => console.log('res:', res.data))
+    .then(res => {
+      let {data} = res
+      console.log('res.data:', data)
+      let posts = []
+      for (let i = 0; i < data.length; i++){
+        if (!posts.map(item => item.id).includes(data[i].postid)){
+          posts.push({
+            id: data[i].postid,
+            title: data[i].title,
+            date: data[i].postdatetime,
+            text: data[i].posttext,
+            family: data[i].family,
+            makeup: data[i].makeup,
+            food: data[i].food,
+            imageMain: data[i].imagemain,
+            comments: 
+              data[i].commentid ?
+              [{
+                id: data[i].commentid,
+                firstName: data[i].firstname,
+                lastName: data[i].lastname,
+                text: data[i].commenttext,
+                date: data[i].commentdatetime
+              }] : []
+          })
+        } else {
+          let index = posts.map(item => item.id).indexOf(data[i].postid)
+          posts[index].comments.push({
+            id: data[i].commentid,
+            firstName: data[i].firstname,
+            lastName: data[i].lastname,
+            text: data[i].commenttext,
+            date: data[i].commentdatetime
+          })
+        }
+      }
+      console.log('posts:', posts)
+      this.setState({posts})
+      this.props.updatePosts(posts)
+    })
     .catch(err => console.log('err:', err))
   }
 
@@ -168,7 +207,7 @@ class Home extends Component {
     }
 
     // Loop through posts and display each
-    let tabSpecific = this.state.posts.filter(post => {
+    let tabSpecific = this.props.posts.filter(post => {
       return post[this.state.activeTab]
     })
 

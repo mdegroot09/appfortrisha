@@ -9,7 +9,10 @@ select
   posts.title, 
   posts.family, 
   posts.makeup, 
-  posts.food 
+  posts.food,
+  users.firstname,
+  users.lastname
 from posts
 left join comments on comments.post_id = posts.id
-order by posts.datetime asc, comments.datetime desc;
+left join users on comments.user_id = users.id
+order by posts.datetime desc, comments.datetime asc;

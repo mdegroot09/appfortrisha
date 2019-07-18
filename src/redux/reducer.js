@@ -1,5 +1,15 @@
 const initialState = {
-  posts: [],
+  posts: [{
+    id: '',
+    title: '',
+    date: '',
+    text: '',
+    family: '',
+    makeup: '',
+    food: '',
+    imageMain: '',
+    comments: []
+  }],
   username: '',
   // userImg: 'https://lh4.googleusercontent.com/-lfM1xoFNRgs/AAAAAAAAAAI/AAAAAAAACGU/ahaBO1Z22gM/s96-c/photo.jpg',
   userImg: '',
