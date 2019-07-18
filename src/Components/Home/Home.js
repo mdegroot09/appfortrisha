@@ -4,6 +4,7 @@ import ShowPosts from './ShowPosts'
 import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
 import AboutMini from '../About/AboutMini';
+import axios from 'axios';
 
 class Home extends Component {
   constructor(){
@@ -121,9 +122,16 @@ class Home extends Component {
   }
 
   componentDidMount = () => {
+    this.getPosts()
     this.updatePostsList()
     let {posts} = this.state
     this.props.updatePosts(posts)
+  }
+
+  getPosts = () => {
+    axios.get('/api/getposts')
+    .then(res => console.log('res:', res.data))
+    .catch(err => console.log('err:', err))
   }
 
   updatePostsList = () => {

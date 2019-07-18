@@ -4,6 +4,7 @@ const app = express()
 const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./controllers/authCtrl')
+const postCtrl = require('./controllers/postCtrl')
 const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, GOOGLE_CLIENT_ID} = process.env
 
 app.use(express.static(`${__dirname}/../build`))
@@ -31,3 +32,6 @@ app.post('/auth/login', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logout)
 app.get('/auth/session', authCtrl.checkForSession)
 app.put('/auth/update', authCtrl.updateUser)
+
+// Posts Controller
+app.get('/api/getposts', postCtrl.getPosts)
