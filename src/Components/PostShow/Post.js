@@ -17,7 +17,7 @@ class Post extends Component {
       return post.id === +this.props.match.params.id
     })
     let post = this.props.posts[index]
-    var date = new Date(post.date.replace(' ', 'T'))
+    var date = new Date(+post.date)
   
     return(
       <div className='homeMainDiv'>
@@ -27,7 +27,7 @@ class Post extends Component {
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
-              <h3 className='sectionTitle' style={{margin: '0'}}>{moment(moment(+date).utc()).fromNow()}</h3>
+              <h3 className='sectionTitle' style={{margin: '0'}}>{moment(date).fromNow()}</h3>
               <div className='showPost'>
                 <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
                   backgroundImage: `url(${post.imageMain})`}}>
