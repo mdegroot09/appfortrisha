@@ -25,9 +25,8 @@ class Comments extends Component {
 
   addComment = () => {
     let {comments, newComment} = this.state
-    let date = new Date().toString()
-  
-    let dateArr = date.split(' (')
+    let date = new Date()
+    let dateArr = date.toString().split(' (')
     let dateSQL = dateArr[0]
     console.log('dateSQL:', dateSQL)
   
@@ -36,7 +35,7 @@ class Comments extends Component {
       firstName: this.props.userFirstName,
       lastName: this.props.userLastName,
       text: newComment,
-      date: date
+      date: dateSQL
     }
     comments.push(comment)
     this.setState({comments})
@@ -77,7 +76,6 @@ class Comments extends Component {
   login = () => {
     this.props.updateShowLogin(true)
   }
-
   
   render(){
     let {commentElements} = this.state
@@ -90,7 +88,7 @@ class Comments extends Component {
           {this.props.userFirstName ?
             <>
               <b className='commentName'>
-                {`${this.props.userFirstName} ${this.props.userLastName} - ${new Date().toDateString()}`}
+                {`${this.props.userFirstName} ${this.props.userLastName}`}
               </b>
               <div className='commentInputDiv'>
                 <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
