@@ -26,7 +26,7 @@ class Comments extends Component {
 
   addComment = () => {
     // Get the current date and time
-    let date = moment().format()
+    let date = Date.parse(new Date())
 
     let {comments, newComment} = this.state
     this.addCommentToDB(newComment, date)
@@ -68,7 +68,7 @@ class Comments extends Component {
         return (
           <div key={i} className='comment'>
             <b className='commentName'>
-              {`${comment.firstName} ${comment.lastName} - ${moment(moment(date).utc()).fromNow()}`}
+              {`${comment.firstName} ${comment.lastName} - ${moment(moment(+date).utc()).fromNow()}`}
             </b>
             <div className='commentText'>
               {comment.text}
