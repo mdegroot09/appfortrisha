@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {updateShowLogin} from '../../redux/reducer'
+import moment from 'moment'
 
 class Comments extends Component {
   constructor(){
@@ -29,6 +30,8 @@ class Comments extends Component {
     let dateArr = date.split(' (')
     let dateSQL = dateArr[0]
     console.log('dateSQL:', dateSQL)
+    console.log('moment:', moment(dateSQL).fromNow())
+
   
     let comment = {
       id: null,
