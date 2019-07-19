@@ -42,11 +42,11 @@ class Auths extends Component{
       firstName: response.w3.ofa, 
       lastName: response.w3.wea, 
       email: response.w3.U3,
-      password: response.googleId,
+      googleID: response.googleId,
       image: response.w3.Paa
     }
     this.props.updateUserImg(user.image)
-    this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
+    this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName, googleID: user.googleID})
     axios.post(`/auth/register`, user)
     .then(res => console.log('res:', res))
     .catch(err => console.log('err:', err))

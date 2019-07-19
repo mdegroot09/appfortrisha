@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
   registerUser: async (req, res) => {
-    let {email, firstName, lastName, password, image} = req.body
+    let {email, firstName, lastName, googleID, image} = req.body
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
@@ -10,7 +10,7 @@ module.exports = {
     if (!user) {
       console.log('registerUser accessed')
       const salt = bcrypt.genSaltSync(10)
-      const hash = bcrypt.hashSync(password, salt)
+      const hash = bcrypt.hashSync(googleID, salt)
   
       let registeredUser = await db.authCtrl.registerUser({email, firstName, lastName, hash, image})
       user = registeredUser[0]
@@ -27,7 +27,7 @@ module.exports = {
     } 
 
     console.log('loginUser accessed')
-    const isAuthenticated = bcrypt.compareSync(password, user.hash)
+    const isAuthenticated = bcrypt.compareSync(googleID, user.hash)
     if (!isAuthenticated){
       return res.status(403).send('Incorrect password')
     }
@@ -43,13 +43,13 @@ module.exports = {
     return res.status(200).send(req.session.user)
   }, 
 
-  loginUser: async (email, password) => {
+  loginUser: async (email, googleID) => {
     console.log('loginUser accessed')
     const db = req.app.get('db')
     let foundUser = await db.authCtrl.getUser({email})
     let user = foundUser[0]
 
-    const isAuthenticated = bcrypt.compareSync(password, user.hash)
+    const isAuthenticated = bcrypt.compareSync(googleID, user.hash)
     if (!isAuthenticated){
       return res.status(403).send('Incorrect password')
     }
@@ -75,12 +75,12 @@ module.exports = {
   },
 
   updateUser: async (req, res) => {
-    let {email, firstName, lastName, password, image} = req.body
+    let {email, firstName, lastName, googleID, image} = req.body
     let {id} = req.session.user
     const db = req.app.get('db')
 
     const salt = bcrypt.genSaltSync(10)
-    const hash = bcrypt.hashSync(password, salt)
+    const hash = bcrypt.hashSync(googleID, salt)
     
     let updatedUser = await db.authCtrl.updateUser({email, firstName, lastName, hash, id, image})
     let user = updatedUser[0]

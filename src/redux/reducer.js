@@ -15,7 +15,8 @@ const initialState = {
   // userImg: 'https://lh4.googleusercontent.com/-lfM1xoFNRgs/AAAAAAAAAAI/AAAAAAAACGU/ahaBO1Z22gM/s96-c/photo.jpg',
   userImg: '',
   showLogin: false,
-  showRegister: false
+  showRegister: false,
+  googleID: ''
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
@@ -65,7 +66,7 @@ export default function reducer(state=initialState, action) {
     case UPDATE_POSTS: 
       return {...state, posts: payload}
     case UPDATE_USERNAME:
-      return {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName}
+      return {...state, userFirstName: payload.userFirstName, userLastName: payload.userLastName, googleID: payload.googleID}
     case UPDATE_USERIMG: 
       return {...state, userImg: payload}
     case UPDATE_SHOWLOGIN:
