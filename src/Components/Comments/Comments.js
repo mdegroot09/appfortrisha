@@ -29,7 +29,7 @@ class Comments extends Component {
     // let dateArr = date.toString().split(' (')
     // let dateSQL = dateArr[0]
     // console.log('dateSQL:', dateSQL)
-    let date = Date.now()
+    let date = moment().format()
   
     let comment = {
       id: null,

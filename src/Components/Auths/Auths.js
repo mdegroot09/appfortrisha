@@ -74,7 +74,6 @@ class Auths extends Component{
               <h3 style={{margin: '5px 0 25px 0'}}>via Google Sign-In</h3>
               <GoogleLogin
                 clientId="559541228663-ejf0eno7ppa01v2ao1iseb7vspgv5i29.apps.googleusercontent.com"
-                buttonText="Login"
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogle}
                 cookiePolicy={'single_host_origin'}
