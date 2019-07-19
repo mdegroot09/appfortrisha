@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {updateShowLogin} from '../../redux/reducer'
 import moment from 'moment'
+import axios from 'axios'
 
 class Comments extends Component {
   constructor(){
@@ -24,12 +25,11 @@ class Comments extends Component {
   }
 
   addComment = () => {
-    let {comments, newComment} = this.state
-    // let date = new Date()
-    // let dateArr = date.toString().split(' (')
-    // let dateSQL = dateArr[0]
-    // console.log('dateSQL:', dateSQL)
+    // Get the current date and time
     let date = moment().format()
+
+    let {comments, newComment} = this.state
+    this.addCommentToDB(newComment, date)
   
     let comment = {
       id: null,
@@ -49,7 +49,14 @@ class Comments extends Component {
     }, 1);
   }
 
-  updateNewComment = (input) => {
+  addCommentToDB = (text, date) => {
+    let post_id = this.props.match.params.id
+    axios.post('/api/createcomment', {text, date, post_id})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
+  updateNewCommentState = (input) => {
     this.setState({newComment: input})
   }
 
@@ -92,7 +99,7 @@ class Comments extends Component {
                 {`${this.props.userFirstName} ${this.props.userLastName}`}
               </b>
               <div className='commentInputDiv'>
-                <input className='filter commentInput' onChange={(e) => this.updateNewComment(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
+                <input className='filter commentInput' onChange={(e) => this.updateNewCommentState(e.target.value)} style={{backgroundColor: 'rgb(224, 224, 224)'}} type="text" placeholder={`comment`}/>
                 <div className='commentBtnDiv'>
                   <div className='viewMoreBtn commentBtn' onClick={this.addComment}>Post</div>
                 </div>

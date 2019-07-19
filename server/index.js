@@ -5,6 +5,7 @@ const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./controllers/authCtrl')
 const postCtrl = require('./controllers/postCtrl')
+const commentCtrl = require('./controllers/commentCtrl')
 const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, GOOGLE_CLIENT_ID} = process.env
 
 app.use(express.static(`${__dirname}/../build`))
@@ -35,3 +36,6 @@ app.put('/auth/update', authCtrl.updateUser)
 
 // Posts Controller
 app.get('/api/getposts', postCtrl.getPosts)
+
+// Comments Controller
+app.post('/api/createcomment', commentCtrl.createComment)
