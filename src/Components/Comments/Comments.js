@@ -30,8 +30,6 @@ class Comments extends Component {
     let dateArr = date.split(' (')
     let dateSQL = dateArr[0]
     console.log('dateSQL:', dateSQL)
-    console.log('moment:', moment(dateSQL).fromNow())
-
   
     let comment = {
       id: null,
@@ -63,7 +61,7 @@ class Comments extends Component {
         return (
           <div key={i} className='comment'>
             <b className='commentName'>
-              {`${comment.firstName} ${comment.lastName} - ${date.toDateString()}`}
+              {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
             </b>
             <div className='commentText'>
               {comment.text}

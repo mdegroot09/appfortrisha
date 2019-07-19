@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Header from '../Header/Header'
 import Comments from '../Comments/Comments';
 import {withRouter} from 'react-router-dom';
+import moment from 'moment'
 
 class Post extends Component {
   componentDidMount = () => {
@@ -26,7 +27,7 @@ class Post extends Component {
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
-              <h3 className='sectionTitle' style={{margin: '0'}}>{date.toDateString()}</h3>
+              <h3 className='sectionTitle' style={{margin: '0'}}>{moment(date).fromNow()}</h3>
               <div className='showPost'>
                 <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
                   backgroundImage: `url(${post.imageMain})`}}>

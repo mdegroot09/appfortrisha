@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import moment from 'moment'
 
 export default function ShowPosts (props) {
   let showPosts = props.showPostsArr.map((post, i) => {
@@ -24,7 +25,7 @@ export default function ShowPosts (props) {
         {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
         <div className='postDiv'>
           <h3 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title}</h3>
-          <p className='postSubTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{date.toDateString()}</p>
+          <p className='postSubTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{moment(date).fromNow()}</p>
           <div className='postTextDiv'>
             <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
           </div>
