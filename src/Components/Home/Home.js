@@ -157,10 +157,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  const {posts} = state
-  return {
-    posts
-  }
+  const {posts, googleID} = state
+  return {posts, googleID}
 }
 
 const mapDispatchToProps = {
