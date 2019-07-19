@@ -27,7 +27,6 @@ class Home extends Component {
     axios.get('/api/getposts')
     .then(res => {
       this.organizePosts(res.data)
-      console.log('posts:', res.data)
     })
     .catch(err => console.log('err:', err))
   }

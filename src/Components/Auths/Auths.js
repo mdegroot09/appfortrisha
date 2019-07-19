@@ -48,9 +48,7 @@ class Auths extends Component{
     this.props.updateUserImg(user.image)
     this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
     axios.post(`/auth/register`, user)
-    .then(res => {
-      console.log('res:', res)
-    })
+    .then(res => console.log('res:', res))
     .catch(err => console.log('err:', err))
   }
   
