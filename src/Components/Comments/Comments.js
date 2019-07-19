@@ -68,7 +68,7 @@ class Comments extends Component {
         return (
           <div key={i} className='comment'>
             <b className='commentName'>
-              {`${comment.firstName} ${comment.lastName} - ${moment(date).utc().fromNow()}`}
+              {`${comment.firstName} ${comment.lastName} - ${moment(moment(date).utc()).fromNow()}`}
             </b>
             <div className='commentText'>
               {comment.text}
