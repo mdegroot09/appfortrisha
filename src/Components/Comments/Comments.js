@@ -25,17 +25,18 @@ class Comments extends Component {
 
   addComment = () => {
     let {comments, newComment} = this.state
-    let date = new Date()
-    let dateArr = date.toString().split(' (')
-    let dateSQL = dateArr[0]
-    console.log('dateSQL:', dateSQL)
+    // let date = new Date()
+    // let dateArr = date.toString().split(' (')
+    // let dateSQL = dateArr[0]
+    // console.log('dateSQL:', dateSQL)
+    let date = Date.now()
   
     let comment = {
       id: null,
       firstName: this.props.userFirstName,
       lastName: this.props.userLastName,
       text: newComment,
-      date: dateSQL
+      date: date
     }
     comments.push(comment)
     this.setState({comments})
