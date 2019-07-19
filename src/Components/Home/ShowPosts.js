@@ -22,7 +22,7 @@ export default function ShowPosts (props) {
 
     return (
       <Link to={`/post/${post.id}`} key={i} style={{textDecoration: 'none'}} className='miniPost'>
-        {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+        {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain})`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
         <div className='postDiv'>
           <h3 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title}</h3>
           <p className='postSubTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{moment(date).fromNow()}</p>
@@ -30,7 +30,7 @@ export default function ShowPosts (props) {
             <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
           </div>
         </div>
-        {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain}`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
+        {i % 2 === 0 ? <div className='miniPhoto miniPhotoRight' style={{backgroundImage: `url(${post.imageMain})`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
       </Link>
     )
   })

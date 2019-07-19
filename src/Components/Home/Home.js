@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from '../Header/Header'
+import NewPostLink from './NewPostLink'
 import ShowPosts from './ShowPosts'
 import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
@@ -130,6 +131,7 @@ class Home extends Component {
               <h2 className='sectionTitle'>Posts</h2>
               <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
               <div className='showPosts'>
+                <NewPostLink/>
                 <ShowPosts
                   showPostsArr={showPostsArr}
                   miniPostsList={miniPostsList}
