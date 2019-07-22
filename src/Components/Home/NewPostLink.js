@@ -13,10 +13,9 @@ class NewPostLink extends Component {
   render(){
     return(
       // {this.props.googleID === }
-      <div className='miniPost'>
+      <div className='miniPost' style={{justifyContent: 'center'}}>
         <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div>
-        <h3 className='postTitle'>New Post</h3>
-        <p className='postSubTitle'>{new Date().toDateString()}</p>
+        {/* <h3 className='postTitle' style={{alignSelf: 'center'}}>New Post</h3> */}
       </div>
     )
   }
