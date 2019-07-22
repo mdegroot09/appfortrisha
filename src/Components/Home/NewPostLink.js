@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 class NewPostLink extends Component {
   constructor(){
@@ -13,10 +13,10 @@ class NewPostLink extends Component {
   render(){
     return(
       // {this.props.googleID === }
-      <div className='miniPost' style={{justifyContent: 'center'}}>
+      <Link to='/newpost' className='miniPost' style={{justifyContent: 'center'}}>
         <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div>
         {/* <h3 className='postTitle' style={{alignSelf: 'center'}}>New Post</h3> */}
-      </div>
+      </Link>
     )
   }
 }
