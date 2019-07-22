@@ -8,7 +8,6 @@ module.exports = {
     let user = userArr[0]
     
     if (!user) {
-      console.log('registerUser accessed')
       const salt = bcrypt.genSaltSync(10)
       const hash = bcrypt.hashSync(googleID, salt)
   
@@ -26,7 +25,6 @@ module.exports = {
       return res.status(201).send(req.session.user)
     } 
 
-    console.log('loginUser accessed')
     const isAuthenticated = bcrypt.compareSync(googleID, user.hash)
     if (!isAuthenticated){
       return res.status(403).send('Incorrect password')
@@ -44,7 +42,6 @@ module.exports = {
   }, 
 
   loginUser: async (email, googleID) => {
-    console.log('loginUser accessed')
     const db = req.app.get('db')
     let foundUser = await db.authCtrl.getUser({email})
     let user = foundUser[0]

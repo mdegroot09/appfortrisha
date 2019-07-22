@@ -91,8 +91,6 @@ class Home extends Component {
   }
 
   render(){
-    console.log('props:', this.props)
-
     // entire width of postsList
     let {miniPostsList} = this.state
     if (miniPostsList > 0){  // need this to avoid first render error
