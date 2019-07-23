@@ -6,7 +6,7 @@ const massive = require('massive')
 const authCtrl = require('./controllers/authCtrl')
 const postCtrl = require('./controllers/postCtrl')
 const commentCtrl = require('./controllers/commentCtrl')
-const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, GOOGLE_CLIENT_ID} = process.env
+const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env
 
 app.use(express.static(`${__dirname}/../build`))
 
@@ -33,6 +33,7 @@ app.post('/auth/login', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logout)
 app.get('/auth/session', authCtrl.checkForSession)
 app.put('/auth/update', authCtrl.updateUser)
+app.post('/auth/checkID', authCtrl.isAdmin)
 
 // Posts Controller
 app.get('/api/getposts', postCtrl.getPosts)

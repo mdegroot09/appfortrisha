@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+const {ADMIN_GOOGLEID} = process.env
 
 module.exports = {
   registerUser: async (req, res) => {
@@ -94,6 +95,17 @@ module.exports = {
     }
     catch {
       res.status(500).send('Internal server error')
+    }
+  },
+
+  isAdmin: async (req, res) => {
+    let {googleID} = req.body.user
+    if (+googleID === ADMIN_GOOGLEID){
+      console.log('match')
+      res.sendStatus(200)
+    } else {
+      console.log('not a match')
+      res.sendStatus(500)
     }
   }
 }
