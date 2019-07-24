@@ -11,7 +11,7 @@ class Home extends Component {
   constructor(){
     super()
     this.state = {
-      viewMore: true,
+      viewMore: false,
       postsMax: 5,
       filter: '',
       activeTab: 'family',

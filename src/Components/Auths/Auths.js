@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister, updateUsername, updateUserImg} from '../../redux/reducer'
+import {updateShowLogin, updateShowRegister, updateUsername, updateUserImg, updateIsAdmin} from '../../redux/reducer'
 import GoogleLogin from 'react-google-login';
 import axios from 'axios'
 
@@ -51,7 +51,10 @@ class Auths extends Component{
     .then(res => {
       console.log('res:', res)
       axios.post('/auth/checkID', user)
-      .then(response => console.log('isAdmin TRUE.', response))
+      .then(response => {
+        console.log('isAdmin TRUE.', response)
+        this.props.updateIsAdmin(true)
+      })
       .catch(error => console.log('isAdmin FALSE.', error))
     })
     .catch(err => console.log('err:', err))
@@ -104,7 +107,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister, updateUsername, updateUserImg
+  updateShowLogin, updateShowRegister, updateUsername, updateUserImg, updateIsAdmin
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auths);
