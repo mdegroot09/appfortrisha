@@ -101,11 +101,16 @@ module.exports = {
     let {ADMIN_GOOGLEID} = process.env
     let {googleID} = req.body
     if (googleID === ADMIN_GOOGLEID){
-      console.log('match')
-      res.sendStatus(200)
+      try {
+        req.session.user.isAdmin = true
+        console.log('match')
+        res.sendStatus(200)
+      } catch {
+        res.status(401).send('Please log in first.')
+      }
     } else {
       console.log('not a match')
-      res.sendStatus(500)
+      res.status(401).send('Logged in user is not an admin.')
     }
   }
 }
