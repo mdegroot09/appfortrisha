@@ -99,7 +99,7 @@ module.exports = {
   },
 
   isAdmin: async (req, res) => {
-    let {googleID} = req.body.user
+    let {googleID} = req.body
     if (+googleID === ADMIN_GOOGLEID){
       console.log('match')
       res.sendStatus(200)
