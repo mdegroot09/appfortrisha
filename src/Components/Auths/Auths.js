@@ -51,6 +51,8 @@ class Auths extends Component{
     .then(res => {
       console.log('res:', res)
       axios.post('/auth/checkID', user)
+      .then(response => console.log('isAdmin TRUE.', response))
+      .catch(error => console.log('isAdmin FALSE.', error))
     })
     .catch(err => console.log('err:', err))
   }
