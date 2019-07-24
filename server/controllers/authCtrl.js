@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs')
-const {ADMIN_GOOGLEID} = process.env
 
 module.exports = {
   registerUser: async (req, res) => {
@@ -99,8 +98,9 @@ module.exports = {
   },
 
   isAdmin: async (req, res) => {
+    let {ADMIN_GOOGLEID} = process.env
     let {googleID} = req.body
-    if (+googleID === ADMIN_GOOGLEID){
+    if (googleID === ADMIN_GOOGLEID){
       console.log('match')
       res.sendStatus(200)
     } else {
