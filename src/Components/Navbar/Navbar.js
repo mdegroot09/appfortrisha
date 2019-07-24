@@ -119,12 +119,21 @@ class Navbar extends Component {
   }
 
   logout = () => {
-    this.showHideMenu()
     axios.delete('/auth/logout')
     .then(res => {
       this.props.updateUsername({userFirstName: '', userLastName: ''})
       this.props.updateIsAdmin(false)
     })
+
+    // Hide dropdown menu if showing
+    let showMenu = document.getElementsByClassName('showMenu')[0]
+    let homeMainDiv = document.getElementsByClassName('homeMainDiv')[0]
+    if (showMenu){
+      showMenu.className = 'navMainInit hideMenu'
+      setTimeout(() => {
+        homeMainDiv.style.zIndex = 0
+      }, 250);
+    }
   }
 
   render(){
