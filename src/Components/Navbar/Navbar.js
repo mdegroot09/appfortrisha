@@ -119,6 +119,7 @@ class Navbar extends Component {
   }
 
   logout = () => {
+    this.showHideMenu()
     axios.delete('/auth/logout')
     .then(res => {
       this.props.updateUsername({userFirstName: '', userLastName: ''})
@@ -131,6 +132,7 @@ class Navbar extends Component {
     window.onscroll = () => {
       this.updateScroll()
     } 
+
     return(
       <div className='navMainParent'>
         <div className={'navMainInit'}>
