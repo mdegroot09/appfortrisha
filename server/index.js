@@ -1,6 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const path = require('path')
 const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./controllers/authCtrl')
@@ -10,6 +12,8 @@ const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env
 
 app.use(express.static(`${__dirname}/../build`))
 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 app.use(express.json())
 
 // Initiate user session

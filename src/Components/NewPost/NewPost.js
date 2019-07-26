@@ -28,8 +28,8 @@ class NewPost extends Component {
         <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
           NewPost
           <input id="image-file" type="file"/>
-          <button onClick={this.submitImg}>Submit</button>
           <textarea type="text" style={{width: 'calc(100%-20px)', height: '200px', margin: '10px'}} onChange={(e) => this.updateNewText(e.target.value)}/>
+          <button onClick={this.submitImg}>Submit</button>
         </div>
       </div>
     )
