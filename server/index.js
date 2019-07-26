@@ -1,14 +1,72 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const aws = require('aws-sdk')
 const bodyParser = require('body-parser')
-const path = require('path')
-const session = require('express-session')
 const massive = require('massive')
+const multer = require('multer')
+const multerS3 = require('multer-s3')
+const path = require('path')
+const router = express.Router()
+const session = require('express-session')
 const authCtrl = require('./controllers/authCtrl')
 const postCtrl = require('./controllers/postCtrl')
 const commentCtrl = require('./controllers/commentCtrl')
-const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env
+const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, AMAZONID, AMAZONSECRET} = process.env
+
+const s3 = new aws.S3({
+  accessKeyId: AMAZONID,
+  secretAccessKey: AMAZONSECRET,
+  Bucket: 'simplejoys'
+})
+
+const profileImgUpload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: '',
+    acl: 'public-read',
+    key: function (req, file, cb) {
+      cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
+    }
+  }),
+  limits: {fileSize: 20000000}, // In bytes: 20000000 bytes = 20 MB
+  fileFilter: function(req, file, cb){
+    checkFileType(file, cb)
+  } 
+}).single('profileImage')
+
+function checkFileType(file, cb){
+  const filetypes = /jpeg|jpg|png|gif/;
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
+  const mimetype = filetypes.test(file.mimetype)
+
+  if(mimetype && extname){
+    return cb(null, true)
+  } else {
+    cb('Error: Images Only!')
+  }
+}
+
+router.post('/profile-img-upload', (req, res) => {
+  profileImgUpload(req, res, (error) => {
+    if (error) {
+      console.log('errors:', error)
+      res.json({error: error})
+    } else {
+      if (req.file === undefined){
+        console.log('Error: No File Selected')
+        res.json('Error: No File Selected')
+      } else {
+        const imageName = req.file.key
+        const imageLocation = req.file.location
+        res.json({
+          image: imageName,
+          location: imageLocation
+        })
+      }
+    }
+  })
+})
 
 app.use(express.static(`${__dirname}/../build`))
 
