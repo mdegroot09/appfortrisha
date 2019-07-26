@@ -25,11 +25,11 @@ class NewPost extends Component {
   render(){
     return(
       <div className='homeMainDiv'>
-        <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
           NewPost
-          <input id="image-file" type="file" />
+          <input id="image-file" type="file"/>
           <button onClick={this.submitImg}>Submit</button>
-          <textarea type="text" style={{width: 'calc(100%-20px)', height: '200px'}} onChange={(e) => this.updateNewText(e.target.value)}/>
+          <textarea type="text" style={{width: 'calc(100%-20px)', height: '200px', margin: '10px'}} onChange={(e) => this.updateNewText(e.target.value)}/>
         </div>
       </div>
     )
