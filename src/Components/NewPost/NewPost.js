@@ -25,7 +25,7 @@ class NewPost extends Component {
   render(){
     return(
       <div className='homeMainDiv'>
-        <div style={{backgroundColor: 'white'}}>
+        <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           NewPost
           <input id="image-file" type="file" />
           <button onClick={this.submitImg}>Submit</button>
