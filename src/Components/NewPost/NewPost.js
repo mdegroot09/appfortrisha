@@ -25,10 +25,12 @@ class NewPost extends Component {
   render(){
     return(
       <div className='homeMainDiv'>
-        NewPost
-        <input id="image-file" type="file" />
-        <button onClick={this.submitImg}>Submit</button>
-        <input type="text" style={{width: 'calc(100%-20px)', height: '200px'}} onChange={(e) => this.updateNewText(e.target.value)}/>
+        <div style={{backgroundColor: 'white'}}>
+          NewPost
+          <input id="image-file" type="file" />
+          <button onClick={this.submitImg}>Submit</button>
+          <textarea type="text" style={{width: 'calc(100%-20px)', height: '200px'}} onChange={(e) => this.updateNewText(e.target.value)}/>
+        </div>
       </div>
     )
   }
