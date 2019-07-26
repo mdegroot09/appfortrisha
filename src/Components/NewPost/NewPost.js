@@ -7,7 +7,8 @@ class NewPost extends Component {
     super( props );
     this.state = {
      selectedFile: null,
-     selectedFiles: null
+     selectedFiles: null,
+     imgURL: ''
     }
    }
 
@@ -29,7 +30,7 @@ class NewPost extends Component {
   // If file selected
     if ( this.state.selectedFile ) {
       data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
-      axios.post( '/api/profile/profile-img-upload', data, {
+      axios.post( '/profile-img-upload', data, {
         headers: {
         'accept': 'application/json',
         'Accept-Language': 'en-US,en;q=0.8',
@@ -50,6 +51,7 @@ class NewPost extends Component {
           } else {
             // Success
             let fileName = response.data;
+            this.setState({imgURL: fileName.location})
             console.log( 'fileName', fileName );
             this.ocShowAlert( 'File Uploaded', '#3089cf' );
           }
@@ -72,7 +74,7 @@ class NewPost extends Component {
       for ( let i = 0; i < selectedFiles.length; i++ ) {
         data.append( 'galleryImage', selectedFiles[ i ], selectedFiles[ i ].name );
       }
-      axios.post( '/api/profile/multiple-file-upload', data, {
+      axios.post( '/multiple-file-upload', data, {
         headers: {
         'accept': 'application/json',
         'Accept-Language': 'en-US,en;q=0.8',
@@ -160,6 +162,7 @@ class NewPost extends Component {
             </div>
           </div>
         </div>
+        {this.state.imgURL ? <img src={this.state.imgURL}/> : <></>}
       </div>
     );
    }

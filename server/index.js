@@ -23,7 +23,7 @@ const s3 = new aws.S3({
 const profileImgUpload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: '',
+    bucket: 'simplejoys',
     acl: 'public-read',
     key: function (req, file, cb) {
       cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
@@ -47,7 +47,8 @@ function checkFileType(file, cb){
   }
 }
 
-router.post('/profile-img-upload', (req, res) => {
+// router.post('/profile-img-upload', (req, res) => {
+app.post('/profile-img-upload', (req, res) => {
   profileImgUpload(req, res, (error) => {
     if (error) {
       console.log('errors:', error)
