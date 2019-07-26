@@ -93,7 +93,7 @@ class NewPost extends Component {
             </div>
           </div>
         </div>
-        {this.state.imgURL ? <img src={this.state.imgURL}/> : <></>}
+        {this.state.imgURL ? <img className='newPostImg' src={this.state.imgURL}/> : <></>}
       </div>
     );
    }
