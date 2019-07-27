@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import $ from 'jquery'
+import NewPostElements from '../NewPostElements/NewPostElements'
 
 class NewPost extends Component {
   constructor( props ) {
@@ -94,6 +95,7 @@ class NewPost extends Component {
           </div>
         </div>
         {this.state.imgURL ? <img className='newPostImg' src={this.state.imgURL}/> : <></>}
+        <NewPostElements/>
       </div>
     );
    }

@@ -71,7 +71,7 @@ app.post('/profile-img-upload', (req, res) => {
 
 app.use(express.static(`${__dirname}/../build`))
 
-app.use(bodyParser({limit: '5000mb'}))
+// app.use(bodyParser({limit: '5000mb'}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json())
