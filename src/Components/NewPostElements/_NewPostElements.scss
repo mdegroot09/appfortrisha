@@ -1,0 +1,17 @@
+.postElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid gray;
+  width: 100vw;
+}
+
+.quotePerson {
+  align-self: center;
+  margin-left: 10px;
+}
+
+.quoteInput {
+  display: flex;
+}

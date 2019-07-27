@@ -18,8 +18,16 @@ class NewPostElements extends Component {
         )
       } else if (element.type === 'quote'){
         return (
-          <div>
-            <textarea type='text' style={{textDecoration: 'italic'}}/>
+          <div className='postElement'>
+            <div className='quoteInput'>
+              <h3>Quote: "</h3>
+              <textarea type='text' style={{fontStyle: 'italic'}}/>
+              <h3>"</h3>
+            </div>
+            <div className='quoteInput'>
+              <h3>By:</h3>
+              <input className='filter quotePerson' type="text" placeholder='person'/>
+            </div>
           </div>
         )
       }
