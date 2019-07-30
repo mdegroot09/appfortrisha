@@ -89,7 +89,7 @@ class NewPostElements extends Component {
     })
 
     return(
-      <div>
+      <div style={{width: 'inherit'}}>
         NewPostElements
         {displayElements}
       </div>
