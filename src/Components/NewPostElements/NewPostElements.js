@@ -4,7 +4,7 @@ class NewPostElements extends Component {
   constructor(){
     super()
     this.state = {
-      elements: [{type: 'text'}, {type: 'quote', quote: '', person: ''}]
+      elements: [{type: 'text', text: ''}, {type: 'quote', quote: '', person: ''}]
     }
   }
 
@@ -38,8 +38,23 @@ class NewPostElements extends Component {
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'text'){
         return (
-          <div key={i}>
-          <textarea type='text' id={`text${i}`}/>
+          <div className='postElement' key={i}>
+            <div className='quoteInput'>
+              <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
+              <textarea type='text' className='textArea' id={`text${i}`}/>
+            </div>
+            <div style={{display: 'flex'}}>
+              <button 
+                className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
+                onClick={() => {this.deleteElement(i)}}>
+                  Delete
+              </button>
+              <button 
+                className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                onClick={() => {this.viewDraft(i)}}>
+                  View Draft
+              </button>
+            </div>
           </div>
         )
       } else if (element.type === 'quote'){
@@ -56,10 +71,10 @@ class NewPostElements extends Component {
         } else {
           return (
             <div className='postElement' key={i}>
-              <div className='quoteInput' style={{marginTop: '0'}}>
+              <div className='quoteInput'>
                 <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Quote:</h3>
                 <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px'}}>"</h3>
-                <textarea type='text' className='textArea' id={`quoteInput${i}`}
+                <textarea type='text' className='quoteText' id={`quoteInput${i}`}
                   onChange={(e) => this.handleChange(i, 'quote', e.target.value)} value={element.quote}/>
                 <h3 className='newPostHeader' style={{alignSelf: 'flex-end', fontStyle: 'italic'}}>"</h3>
               </div>
@@ -84,7 +99,7 @@ class NewPostElements extends Component {
           )
         }
       } else {
-        return <div></div>
+        return <></>
       }
     })
 

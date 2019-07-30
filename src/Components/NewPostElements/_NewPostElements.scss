@@ -15,7 +15,6 @@
 
 .quoteInput {
   display: flex;
-  margin-top: 10px;
 }
 
 .newPostHeader {
@@ -23,7 +22,14 @@
 }
 
 .textArea {
+  height: 200px;
+  overflow: auto;
+  width: 200px;
+}
+
+.quoteText {
   font-style: italic;
   height: 100px;
+  width: 200px;
   overflow: auto;
 }
