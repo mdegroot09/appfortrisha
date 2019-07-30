@@ -37,26 +37,37 @@ class NewPostElements extends Component {
   render(){
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'text'){
-        return (
-          <div className='postElement' key={i}>
-            <div className='quoteInput'>
-              <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
-              <textarea type='text' className='textArea' id={`text${i}`}/>
+        if (element.viewDraft){
+          return (            
+          <div className='postElement' key={i} style={{cursor: 'pointer'}} 
+            onClick={() => this.editElement(i)}>
+            <div className='quoteInput' style={{flexDirection: 'column'}}>
+              <h3 className='newPostHeader'>{element.text}</h3>
             </div>
-            <div style={{display: 'flex'}}>
-              <button 
-                className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
-                onClick={() => {this.deleteElement(i)}}>
-                  Delete
-              </button>
-              <button 
-                className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
-                onClick={() => {this.viewDraft(i)}}>
-                  View Draft
-              </button>
+          </div>)
+        } else {
+          return (
+            <div className='postElement' key={i}>
+              <div className='quoteInput'>
+                <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
+                <textarea type='text' className='textArea' id={`text${i}`}
+                  onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
+              </div>
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    View Draft
+                </button>
+              </div>
             </div>
-          </div>
-        )
+          )
+        }
       } else if (element.type === 'quote'){
         if(element.viewDraft){
           return(
