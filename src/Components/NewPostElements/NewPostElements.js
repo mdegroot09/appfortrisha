@@ -26,6 +26,14 @@ class NewPostElements extends Component {
     this.setState({elements})
   }
 
+  deleteElement = (i) => {
+    if (window.confirm('Are you sure you want to delete this?')){
+      let {elements} = this.state
+      elements.splice(i, 1)
+      this.setState({elements})
+    }
+  }
+
   render(){
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'text'){
@@ -37,7 +45,8 @@ class NewPostElements extends Component {
       } else if (element.type === 'quote'){
         if(element.viewDraft){
           return(
-            <div className='postElement' key={i} onClick={() => this.editElement(i)}>
+            <div className='postElement' key={i} style={{cursor: 'pointer'}} 
+              onClick={() => this.editElement(i)}>
               <div className='quoteInput' style={{flexDirection: 'column'}}>
                 <h3 className='newPostHeader' style={{fontSize: '40px'}}>"{element.quote}"</h3>
                 <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>- {element.person}</h3>
@@ -59,11 +68,18 @@ class NewPostElements extends Component {
                 <input id={`quotePerson${i}`} className='filter quotePerson' type="text" placeholder='person'
                   onChange={(e) => this.handleChange(i, 'person', e.target.value)} value={element.person}/>
               </div>
-              <button 
-                className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
-                onClick={() => {this.viewDraft(i)}}>
-                  View Draft
-              </button>
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    View Draft
+                </button>
+              </div>
             </div>
           )
         }
