@@ -19,13 +19,14 @@ class NewPostElements extends Component {
       } else if (element.type === 'quote'){
         return (
           <div className='postElement'>
-            <div className='quoteInput'>
-              <h3>Quote: "</h3>
-              <textarea type='text' style={{fontStyle: 'italic'}}/>
-              <h3>"</h3>
+            <div className='quoteInput' style={{marginTop: '0'}}>
+              <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Quote:</h3>
+              <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px'}}>"</h3>
+              <textarea type='text' className='textArea'/>
+              <h3 className='newPostHeader' style={{alignSelf: 'flex-end', fontStyle: 'italic'}}>"</h3>
             </div>
             <div className='quoteInput'>
-              <h3>By:</h3>
+              <h3 className='newPostHeader'>By:</h3>
               <input className='filter quotePerson' type="text" placeholder='person'/>
             </div>
           </div>

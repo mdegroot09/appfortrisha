@@ -5,13 +5,25 @@
   justify-content: flex-start;
   border: 1px solid gray;
   width: 100vw;
+  padding: 10px;
 }
 
 .quotePerson {
   align-self: center;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
 }
 
 .quoteInput {
   display: flex;
+  margin-top: 10px;
+}
+
+.newPostHeader {
+  margin: 0;
+}
+
+.textArea {
+  font-style: italic;
+  height: 100px;
+  overflow: auto;
 }
