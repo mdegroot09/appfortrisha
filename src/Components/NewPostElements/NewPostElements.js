@@ -7,6 +7,8 @@ class NewPostElements extends Component {
       elements: [
         {type: 'text', text: ''}, 
         {type: 'quote', quote: '', person: ''}
+        // 
+        // {type: 'imageLeft', url: '', }
       ]
     }
   }
