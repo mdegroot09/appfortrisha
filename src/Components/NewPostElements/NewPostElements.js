@@ -50,7 +50,7 @@ class NewPostElements extends Component {
             <div className='postElement' key={i}>
               <div className='quoteInput'>
                 <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
-                <textarea type='text' className='textArea' id={`text${i}`}
+                <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
                   onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
               </div>
               <div style={{display: 'flex'}}>
