@@ -4,7 +4,10 @@ class NewPostElements extends Component {
   constructor(){
     super()
     this.state = {
-      elements: [{type: 'text', text: ''}, {type: 'quote', quote: '', person: ''}]
+      elements: [
+        {type: 'text', text: ''}, 
+        {type: 'quote', quote: '', person: ''}
+      ]
     }
   }
 
@@ -55,14 +58,14 @@ class NewPostElements extends Component {
               </div>
               <div style={{display: 'flex'}}>
                 <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
                   onClick={() => {this.viewDraft(i)}}>
                     View Draft
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
                 </button>
               </div>
             </div>
@@ -84,26 +87,26 @@ class NewPostElements extends Component {
             <div className='postElement' key={i}>
               <div className='quoteInput'>
                 <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Quote:</h3>
-                <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px'}}>"</h3>
+                <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px', marginLeft: '0'}}>"</h3>
                 <textarea type='text' className='quoteText' id={`quoteInput${i}`}
                   onChange={(e) => this.handleChange(i, 'quote', e.target.value)} value={element.quote}/>
-                <h3 className='newPostHeader' style={{alignSelf: 'flex-end', fontStyle: 'italic'}}>"</h3>
+                <h3 className='newPostHeader' style={{alignSelf: 'flex-end', fontStyle: 'italic', marginLeft: '0'}}>"</h3>
               </div>
-              <div className='quoteInput'>
-                <h3 className='newPostHeader'>By:</h3>
-                <input id={`quotePerson${i}`} className='filter quotePerson' type="text" placeholder='person'
+              <div className='quoteInput' style={{marginTop: '10px'}}>
+                <h3 className='newPostHeader'>Name:</h3>
+                <input id={`quotePerson${i}`} className='filter quotePerson' type="text"
                   onChange={(e) => this.handleChange(i, 'person', e.target.value)} value={element.person}/>
               </div>
               <div style={{display: 'flex'}}>
                 <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
                   onClick={() => {this.viewDraft(i)}}>
                     View Draft
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
                 </button>
               </div>
             </div>
@@ -115,10 +118,10 @@ class NewPostElements extends Component {
     })
 
     return(
-      <div style={{width: 'inherit'}}>
+      <>
         NewPostElements
         {displayElements}
-      </div>
+      </>
     )
   }
 }
