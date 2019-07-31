@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import $ from 'jquery'
 import NewPostElements from '../NewPostElements/NewPostElements'
 
 class NewPost extends Component {
@@ -9,12 +8,10 @@ class NewPost extends Component {
     this.state = {
       postTitle: {title: ''},
       selectedFile: null,
-      selectedFiles: null,
       imageMain: ''
     }
    }
 
-  
   updateTitle = (val) => {
     let {postTitle} = this.state
     postTitle.title = val
@@ -30,17 +27,19 @@ class NewPost extends Component {
     this.setState({postTitle})
   }
 
-  singleFileChangedHandler = ( event ) => {
+  singleFileChangedHandler = (event) => {
     this.setState({
      selectedFile: event.target.files[0]
     });
    };
 
-  singleFileUploadHandler = (  ) => {
+  singleFileUploadHandler = (stateName, btnID) => {
     const data = new FormData();
   // If file selected
     if ( this.state.selectedFile ) {
       data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
+      let element = document.getElementById(btnID)
+      element.style.display = 'none'
       axios.post( '/profile-img-upload', data, {
         headers: {
         'accept': 'application/json',
@@ -49,11 +48,13 @@ class NewPost extends Component {
         }
       })
       .then( ( response ) => {
+        element.style.display = 'static'
         if ( 200 === response.status ) {
           // If file size is larger than expected.
           if( response.data.error ) {
             if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
               // this.ocShowAlert( 'Max size: 2MB', 'red' );
+              console.log('File is too large. Must be under 10MB')
             } else {
               console.log( response.data );
               // If not the given file type
@@ -62,7 +63,7 @@ class NewPost extends Component {
           } else {
             // Success
             let fileName = response.data;
-            this.setState({imageMain: fileName.location})
+            this.setState({[stateName]: fileName.location})
             console.log( 'fileName', fileName );
             // this.ocShowAlert( 'File Uploaded', '#3089cf' );
           }
@@ -70,27 +71,29 @@ class NewPost extends Component {
       }).catch( ( error ) => {
         // If another error
         // this.ocShowAlert( error, 'red' );
+        console.log('error:', error)
       });
     } else {
       // if file not selected throw error
       // this.ocShowAlert( 'Please upload file', 'red' );
+      console.log('No file uploaded. Please upload a file.')
     }
   }
 
   // ShowAlert Function
-  ocShowAlert = ( message, background = '#3089cf' ) => {
-    let alertContainer = document.querySelector( '#uploadSuccess' )
-    let alertEl = document.createElement( 'div' )
-    let textNode = document.createTextNode( message );
-    alertEl.setAttribute( 'class', 'alert-pop-up' );
-    $( alertEl ).css( 'background', background );
-    alertEl.appendChild( textNode );
-    alertContainer.appendChild( alertEl );
-    setTimeout( function () {
-      $( alertEl ).fadeOut( 'slow' );
-      $( alertEl ).remove();
-    }, 3000 );
-   };
+  // ocShowAlert = ( message, background = '#3089cf' ) => {
+  //   let alertContainer = document.querySelector( '#uploadSuccess' )
+  //   let alertEl = document.createElement( 'div' )
+  //   let textNode = document.createTextNode( message );
+  //   alertEl.setAttribute( 'class', 'alert-pop-up' );
+  //   $( alertEl ).css( 'background', background );
+  //   alertEl.appendChild( textNode );
+  //   alertContainer.appendChild( alertEl );
+  //   setTimeout( function () {
+  //     $( alertEl ).fadeOut( 'slow' );
+  //     $( alertEl ).remove();
+  //   }, 3000 );
+  //  };
 
   render() {
     let {title} = this.state.postTitle
@@ -121,7 +124,14 @@ class NewPost extends Component {
         {/* Show either a picture or picture uploader */}
         {this.state.imageMain 
           ? 
-          <img className='newPostImg' src={this.state.imageMain} alt='new post'/> 
+          <>
+            <img className='newPostImg' src={this.state.imageMain} alt='new post'/> 
+            <button 
+              className='viewMoreBtn' style={{margin: '0', backgroundColor: 'red'}}
+              onClick={() => this.setState({imageMain: ''})}>
+              Remove
+            </button>
+          </>
           :         
           <div className="postElement">
             {/* Alert box*/}
@@ -132,7 +142,7 @@ class NewPost extends Component {
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <input type="file" onChange={this.singleFileChangedHandler} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
-              <button className="viewMoreBtn" onClick={this.singleFileUploadHandler} style={{margin: '0'}}>Upload</button>
+              <button className="viewMoreBtn" id='uploadMain' onClick={() => this.singleFileUploadHandler('imageMain', 'uploadMain')} style={{margin: '0'}}>Upload</button>
             </div>
           </div>
         }
