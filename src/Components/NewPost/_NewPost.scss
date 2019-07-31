@@ -2,10 +2,16 @@
   background-color: white;
   width: inherit;
   padding: 5px 0;
+  display: relative;
 }
 
 .newPostImg {
   max-height: 150px;
   max-width: calc(100vw - 20px);
-  margin-top: 20px;
+}
+
+.uploadSuccess {
+  position: absolute;
+  top: 0px;
+  z-index: 15;
 }

@@ -116,7 +116,7 @@ class NewPostElements extends Component {
         return <></>
       }
     })
-
+ 
     return(
       <>
         {displayElements}
