@@ -9,7 +9,7 @@ class NewPost extends Component {
     this.state = {
      selectedFile: null,
      selectedFiles: null,
-     imgURL: ''
+     imageMain: ''
     }
    }
 
@@ -45,7 +45,7 @@ class NewPost extends Component {
           } else {
             // Success
             let fileName = response.data;
-            this.setState({imgURL: fileName.location})
+            this.setState({imageMain: fileName.location})
             console.log( 'fileName', fileName );
             this.ocShowAlert( 'File Uploaded', '#3089cf' );
           }
@@ -62,10 +62,10 @@ class NewPost extends Component {
 
   // ShowAlert Function
   ocShowAlert = ( message, background = '#3089cf' ) => {
-    let alertContainer = document.querySelector( '#oc-alert-container' )
+    let alertContainer = document.querySelector( '#upload-alert' )
     let alertEl = document.createElement( 'div' )
     let textNode = document.createTextNode( message );
-    alertEl.setAttribute( 'class', 'oc-alert-pop-up' );
+    alertEl.setAttribute( 'class', 'alert-pop-up' );
     $( alertEl ).css( 'background', background );
     alertEl.appendChild( textNode );
     alertContainer.appendChild( alertEl );
@@ -78,23 +78,21 @@ class NewPost extends Component {
   render() {
     return(
       <div className='homeMainDiv'>
-        <div className="container">
+        <div className="imageMainUpload">
           {/* Alert box*/}
-          <div id="oc-alert-container"></div>
-          <div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
-            <div className="card-header">
-              <h3 style={{ color: '#555', marginLeft: '12px' }}>Image Upload</h3>
-              <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size Limit: 10MB</p>
-            </div>
-            <div className="card-body">
-              <input type="file" onChange={this.singleFileChangedHandler}/>
-              <div className="mt-5">
-                <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload</button>
-              </div>
+          <div id="upload-alert"></div>
+          <div className="card-header">
+            <h3 className='newPostHeader'>Image Upload</h3>
+            <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size Limit: 10MB</p>
+          </div>
+          <div className="card-body">
+            <input type="file" onChange={this.singleFileChangedHandler}/>
+            <div className="mt-5">
+              <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload</button>
             </div>
           </div>
         </div>
-        {this.state.imgURL ? <img className='newPostImg' src={this.state.imgURL} alt='new post'/> : <></>}
+        {this.state.imageMain ? <img className='newPostImg' src={this.state.imageMain} alt='new post'/> : <></>}
         <NewPostElements/>
       </div>
     );
