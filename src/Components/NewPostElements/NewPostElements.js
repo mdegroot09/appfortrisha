@@ -4,7 +4,6 @@ class NewPostElements extends Component {
   constructor(){
     super()
     this.state = {
-      postTitle: {title: ''},
       elements: [
         {type: 'text', text: ''}, 
         {type: 'quote', quote: '', person: ''}
@@ -16,21 +15,6 @@ class NewPostElements extends Component {
     let {elements} = this.state
     elements[i][keyName] = val
     this.setState({elements})
-  }
-
-  updateTitle = (val) => {
-    let {postTitle} = this.state
-    postTitle.title = val
-    this.setState({postTitle})
-  }
-
-  updateTitleView = (bool) => {
-    let {postTitle} = this.state
-    postTitle.editDraft = bool
-    if (!bool) {
-      postTitle.title = postTitle.title.trim()
-    }
-    this.setState({postTitle})
   }
 
   viewDraft = (i) => {
@@ -133,31 +117,8 @@ class NewPostElements extends Component {
       }
     })
 
-    let {title} = this.state.postTitle
-
     return(
       <>
-        <div className='postElement'>
-          {!this.state.postTitle.editDraft 
-            ?
-            <h2 className='sectionTitle' onClick={() => this.updateTitleView(true)}>{title ? title : 'Untitled Post'}</h2>
-            :
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <input 
-                onChange={(e) => this.updateTitle(e.target.value)}
-                value={title}
-                placeholder='title'
-                className='filter'
-                style={{margin: '0'}}
-              />
-              <button 
-                className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
-                onClick={() => {this.updateTitleView(false)}}>
-                  View
-              </button>
-            </div>
-          }
-        </div>
         {displayElements}
       </>
     )

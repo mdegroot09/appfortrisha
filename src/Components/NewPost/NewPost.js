@@ -7,11 +7,28 @@ class NewPost extends Component {
   constructor( props ) {
     super( props );
     this.state = {
-     selectedFile: null,
-     selectedFiles: null,
-     imageMain: ''
+      postTitle: {title: ''},
+      selectedFile: null,
+      selectedFiles: null,
+      imageMain: ''
     }
    }
+
+  
+  updateTitle = (val) => {
+    let {postTitle} = this.state
+    postTitle.title = val
+    this.setState({postTitle})
+  }
+
+  updateTitleView = (bool) => {
+    let {postTitle} = this.state
+    postTitle.editDraft = bool
+    if (!bool) {
+      postTitle.title = postTitle.title.trim()
+    }
+    this.setState({postTitle})
+  }
 
   singleFileChangedHandler = ( event ) => {
     this.setState({
@@ -76,8 +93,31 @@ class NewPost extends Component {
    };
 
   render() {
+    let {title} = this.state.postTitle
+
     return(
       <div className='homeMainDiv'>
+        <div className='postElement'>
+          {!this.state.postTitle.editDraft 
+            ?
+            <h2 className='sectionTitle' onClick={() => this.updateTitleView(true)}>{title ? title : 'Untitled Post'}</h2>
+            :
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <input 
+                onChange={(e) => this.updateTitle(e.target.value)}
+                value={title}
+                placeholder='title'
+                className='filter'
+                style={{margin: '0'}}
+              />
+              <button 
+                className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
+                onClick={() => {this.updateTitleView(false)}}>
+                  View
+              </button>
+            </div>
+          }
+        </div>
         <div className="imageMainUpload">
           {/* Alert box*/}
           <div id="upload-alert"></div>
