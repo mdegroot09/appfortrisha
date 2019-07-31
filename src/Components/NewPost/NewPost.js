@@ -123,18 +123,16 @@ class NewPost extends Component {
           ? 
           <img className='newPostImg' src={this.state.imageMain} alt='new post'/> 
           :         
-          <div className="imageMainUpload">
+          <div className="postElement">
             {/* Alert box*/}
             <div id="uploadSuccess"></div>
-            <div className="card-header">
+            <div>
               <h3 className='newPostHeader'>Main Image Upload</h3>
-              <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size Limit: 10MB</p>
+              <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
             </div>
-            <div className="card-body">
-              <input type="file" onChange={this.singleFileChangedHandler}/>
-              <div className="mt-5">
-                <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload</button>
-              </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <input type="file" onChange={this.singleFileChangedHandler} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
+              <button className="viewMoreBtn" onClick={this.singleFileUploadHandler} style={{margin: '0'}}>Upload</button>
             </div>
           </div>
         }

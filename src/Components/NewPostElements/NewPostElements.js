@@ -44,8 +44,8 @@ class NewPostElements extends Component {
           return (            
           <div className='postElement' key={i} style={{cursor: 'pointer'}} 
             onClick={() => this.editElement(i)}>
-            <div className='quoteInput' style={{flexDirection: 'column'}}>
-              <h3 className='newPostHeader'>{element.text}</h3>
+            <div className='paragraph'>
+              <h3 className='newPostHeader' style={{textAlign: 'start'}}>{element.text}</h3>
             </div>
           </div>)
         } else {
