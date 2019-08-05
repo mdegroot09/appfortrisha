@@ -195,8 +195,8 @@ class Navbar extends Component {
           <Link to='/' style={{textDecoration: 'none'}}>
             <button className='navBtnHB' onClick={this.showHideMenu}>Home</button>
           </Link>
-          <Link to='/about' style={{textDecoration: 'none'}}>
-            <button className='navBtnHB' onClick={this.showHideMenu}>About</button>
+          <Link to={this.props.isAdmin ? '/newpost' : '/about'} style={{textDecoration: 'none'}}>
+            <button className='navBtnHB' onClick={this.showHideMenu}>{this.props.isAdmin ? 'New Post' : 'About'}</button>
           </Link>
           {this.props.userFirstName 
             ? 
@@ -221,8 +221,8 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  const {userFirstName, userLastName, userImg} = state
-  return {userFirstName, userLastName, userImg}
+  const {userFirstName, userLastName, userImg, isAdmin} = state
+  return {userFirstName, userLastName, userImg, isAdmin}
 }
 
 const mapDispatchToProps = {
