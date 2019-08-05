@@ -103,7 +103,9 @@ class NewPost extends Component {
         <div className='postElement'>
           {!this.state.postTitle.editDraft 
             ?
-            <h2 className='sectionTitle' style={{cursor: 'pointer'}} onClick={() => this.updateTitleView(true)}>{title ? title : 'Untitled Post'}</h2>
+            <h2 className='sectionTitle' style={{cursor: 'pointer'}} onClick={() => this.updateTitleView(true)}>
+              {title ? title : 'Untitled Post'}
+            </h2>
             :
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <input 
@@ -116,7 +118,7 @@ class NewPost extends Component {
               <button 
                 className='viewMoreBtn' style={{margin: '10px 0 0 0'}}
                 onClick={() => {this.updateTitleView(false)}}>
-                  View
+                  Preview
               </button>
             </div>
           }

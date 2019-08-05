@@ -47,7 +47,9 @@ class NewPostElements extends Component {
           <div className='postElement' key={i} style={{cursor: 'pointer'}} 
             onClick={() => this.editElement(i)}>
             <div className='paragraph'>
-              <h3 className='newPostHeader' style={{textAlign: 'start'}}>{element.text}</h3>
+              <h3 className='newPostHeader' style={{textAlign: 'start'}}>
+                {element.text ? element.text : `When I grow up, I want to be a paragraph.`}
+              </h3>
             </div>
           </div>)
         } else {
@@ -62,7 +64,7 @@ class NewPostElements extends Component {
                 <button 
                   className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
                   onClick={() => {this.viewDraft(i)}}>
-                    View
+                    Preview
                 </button>
                 <button 
                   className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
@@ -79,8 +81,12 @@ class NewPostElements extends Component {
             <div className='postElement' key={i} style={{cursor: 'pointer'}} 
               onClick={() => this.editElement(i)}>
               <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                <h3 className='newPostHeader' style={{fontSize: '40px'}}>"{element.quote}"</h3>
-                <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>- {element.person}</h3>
+                <h3 className='newPostHeader' style={{fontSize: '40px'}}>
+                  "{element.quote ? element.quote : `Broccoli is the best.`}"
+                </h3>
+                <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
+                  - {element.person ? element.person : `No one ever`}
+                </h3>
               </div>
             </div>
           )
@@ -103,7 +109,7 @@ class NewPostElements extends Component {
                 <button 
                   className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
                   onClick={() => {this.viewDraft(i)}}>
-                    View
+                    Preview
                 </button>
                 <button 
                   className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
