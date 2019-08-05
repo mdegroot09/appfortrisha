@@ -6,9 +6,8 @@ class NewPostElements extends Component {
     this.state = {
       elements: [
         {type: 'text', text: ''}, 
-        {type: 'quote', quote: '', person: ''}
-        // 
-        // {type: 'imageLeft', url: '', }
+        {type: 'quote', quote: '', person: ''},        
+        {type: 'imageLeft', url: '', }
       ]
     }
   }
@@ -38,6 +37,10 @@ class NewPostElements extends Component {
       this.setState({elements})
     }
   }
+
+  singleFileChangedHandler = (e, stateName) => {
+    this.setState({[stateName]: e.target.files[0]});
+   };
 
   render(){
     let displayElements = this.state.elements.map((element, i) => {
@@ -104,6 +107,67 @@ class NewPostElements extends Component {
                 <h3 className='newPostHeader'>Name:</h3>
                 <input id={`quotePerson${i}`} className='filter quotePerson' type="text"
                   onChange={(e) => this.handleChange(i, 'person', e.target.value)} value={element.person}/>
+              </div>
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    Preview
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+              </div>
+            </div>
+          )
+        }
+      } else if (element.type === 'imageLeft'){
+        if (element.viewDraft){
+          return(
+            <div className='postElement' style={{cursor: 'pointer'}} key={i}
+              onClick={() => this.editElement(i)}>
+              <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
+                <h3 className='newPostHeader'>
+                  viewDraft
+                </h3>
+              </div>
+            </div>
+          )
+        } else {
+          return (
+            <div className='postElement' key={i}>
+              <div style={{display: 'flex'}}>
+                {this.props.state[`image${i}`] 
+                  ?
+                  <div className='postElement'>
+                    <img className='newPostImg' style={{marginBottom: '10px'}} src={this.props.state[`image${i}`]} alt='new post'/> 
+                    <button 
+                      className='viewMoreBtn' style={{margin: '0', backgroundColor: 'red'}}
+                      onClick={() => this.props.removeImg(`image${i}`)}>
+                      Remove
+                    </button>
+                  </div>
+                  :
+                  <div>
+                    <div>
+                      <h3 className='newPostHeader'>Image Upload</h3>
+                      <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                      <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
+                      <button className="viewMoreBtn" id={`upload${i}`} 
+                        onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
+                        style={{margin: '0'}}>
+                          Upload
+                      </button>
+                    </div>
+                  </div>
+                }
+                <div>
+                  paragraph input
+                </div>
               </div>
               <div style={{display: 'flex'}}>
                 <button 

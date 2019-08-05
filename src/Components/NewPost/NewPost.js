@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import NewPostElements from '../NewPostElements/NewPostElements'
+import { thisTypeAnnotation } from '@babel/types';
 
 class NewPost extends Component {
   constructor( props ) {
@@ -27,17 +28,19 @@ class NewPost extends Component {
     this.setState({postTitle})
   }
 
+  removeImg = (stateName) => {
+    this.setState({[stateName]: ''})
+  }
+
   singleFileChangedHandler = (event) => {
-    this.setState({
-     selectedFile: event.target.files[0]
-    });
+    this.setState({selectedFile: event.target.files[0]});
    };
 
-  singleFileUploadHandler = (stateName, btnID) => {
+  singleFileUploadHandler = (stateName, btnID, selectedFile) => {
     const data = new FormData();
   // If file selected
-    if ( this.state.selectedFile ) {
-      data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
+    if ( selectedFile ) {
+      data.append( 'profileImage', selectedFile, selectedFile.name );
       let element = document.getElementById(btnID)
       element.style.display = 'none'
       axios.post( '/profile-img-upload', data, {
@@ -144,11 +147,15 @@ class NewPost extends Component {
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <input type="file" onChange={this.singleFileChangedHandler} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
-              <button className="viewMoreBtn" id='uploadMain' onClick={() => this.singleFileUploadHandler('imageMain', 'uploadMain')} style={{margin: '0'}}>Upload</button>
+              <button className="viewMoreBtn" id='uploadMain' onClick={() => this.singleFileUploadHandler('imageMain', 'uploadMain', this.state.selectedFile)} style={{margin: '0'}}>Upload</button>
             </div>
           </div>
         }
-        <NewPostElements/>
+        <NewPostElements
+          singleFileUploadHandler={this.singleFileUploadHandler}
+          state={this.state}
+          removeImg={this.removeImg}
+        />
       </div>
     );
    }
