@@ -7,7 +7,8 @@ class NewPostElements extends Component {
       elements: [
         {type: 'text', text: ''}, 
         {type: 'quote', quote: '', person: ''},        
-        {type: 'imageLeft', url: '', text: ''}
+        {type: 'imageLeft', url: '', text: ''},
+        {type: 'imageRight', url: '', text: ''}
       ]
     }
   }
@@ -175,6 +176,81 @@ class NewPostElements extends Component {
                     <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
                       onChange={(e) => this.handleChange(i, 'text', e.target.value)}
                       style={{width: '100%'}}/>
+                  </div>
+                </div>
+              }
+            </div>
+            {element.viewDraft
+              ?
+              <></>
+              :
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    Preview
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+              </div>
+            }
+          </div>
+        )
+      } else if (element.type === 'imageRight'){
+        return(
+          <div className='postElement' style={{cursor: 'pointer'}} key={i}>
+            <div style={{display: 'flex', alignItems: 'center'}} >
+              {element.viewDraft 
+                ?
+                <div style={{width: '50%', display: 'flex', alignItems: 'center'}}
+                  onClick={() => this.editElement(i)}>
+                  <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
+                    <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '10px', marginRight: '10px'}}>
+                      {element.text}
+                    </h3>
+                  </div>
+                </div>
+                :
+                <div style={{width: '50%'}}>
+                  <h3 className='newPostHeader' style={{alignSelf: 'center', margin: '0', maxWidth: 'calc(100%-20px)'}}>Paragraph:</h3>
+                  <div className='quoteInput' style={{maxWidth: 'calc(100%-20px)'}}>
+                    <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
+                      onChange={(e) => this.handleChange(i, 'text', e.target.value)}
+                      style={{width: '100%'}}/>
+                  </div>
+                </div>
+              }
+              {this.props.state[`image${i}`] 
+                ?
+                <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
+                  <img className='newPostImg' style={{width: '100%'}} src={this.props.state[`image${i}`]} alt='new post'/> 
+                  {element.viewDraft 
+                    ?
+                    <></>
+                    :
+                    <button 
+                      className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                      onClick={() => this.props.removeImg(`image${i}`)}>
+                      Remove
+                    </button>
+                  }
+                </div>
+                :
+                <div style={{width: '50%', marginLeft: '10px'}}>
+                  <div>
+                    <h3 className='newPostHeader'>Image Upload</h3>
+                    <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
+                  </div>
+                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
+                    <button className="viewMoreBtn" id={`upload${i}`} 
+                      onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
+                      style={{margin: '0'}}>
+                        Upload
+                    </button>
                   </div>
                 </div>
               }
