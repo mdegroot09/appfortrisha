@@ -103,7 +103,7 @@ class NewPost extends Component {
         <div className='postElement'>
           {!this.state.postTitle.editDraft 
             ?
-            <h2 className='sectionTitle' onClick={() => this.updateTitleView(true)}>{title ? title : 'Untitled Post'}</h2>
+            <h2 className='sectionTitle' style={{cursor: 'pointer'}} onClick={() => this.updateTitleView(true)}>{title ? title : 'Untitled Post'}</h2>
             :
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <input 
@@ -124,14 +124,14 @@ class NewPost extends Component {
         {/* Show either a picture or picture uploader */}
         {this.state.imageMain 
           ? 
-          <>
-            <img className='newPostImg' src={this.state.imageMain} alt='new post'/> 
+          <div className='postElement'>
+            <img className='newPostImg' style={{marginBottom: '10px'}} src={this.state.imageMain} alt='new post'/> 
             <button 
               className='viewMoreBtn' style={{margin: '0', backgroundColor: 'red'}}
               onClick={() => this.setState({imageMain: ''})}>
               Remove
             </button>
-          </>
+          </div>
           :         
           <div className="postElement">
             {/* Alert box*/}
