@@ -126,16 +126,21 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageLeft'){
         return(
           <div className='postElement' style={{cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex'}} >
+            <div style={{display: 'flex', alignItems: 'center'}} >
               {this.props.state[`image${i}`] 
                 ?
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <img className='newPostImg' style={{marginBottom: '10px', width: '100%'}} src={this.props.state[`image${i}`]} alt='new post'/> 
-                  <button 
-                    className='viewMoreBtn' style={{margin: '0', backgroundColor: 'red'}}
-                    onClick={() => this.props.removeImg(`image${i}`)}>
-                    Remove
-                  </button>
+                  <img className='newPostImg' style={{width: '100%'}} src={this.props.state[`image${i}`]} alt='new post'/> 
+                  {element.viewDraft 
+                    ?
+                    <></>
+                    :
+                    <button 
+                      className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                      onClick={() => this.props.removeImg(`image${i}`)}>
+                      Remove
+                    </button>
+                  }
                 </div>
                 :
                 <div style={{width: '50%'}}>

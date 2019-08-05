@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import NewPostElements from '../NewPostElements/NewPostElements'
-import { thisTypeAnnotation } from '@babel/types';
 
 class NewPost extends Component {
   constructor( props ) {
