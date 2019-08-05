@@ -146,7 +146,7 @@ class NewPost extends Component {
               <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <input type="file" onChange={this.singleFileChangedHandler} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
+              <input type="file" onChange={this.singleFileChangedHandler} style={{width: '200px', marginBottom: '10px'}}/>
               <button className="viewMoreBtn" id='uploadMain' onClick={() => this.singleFileUploadHandler('imageMain', 'uploadMain', this.state.selectedFile)} style={{margin: '0'}}>Upload</button>
             </div>
           </div>

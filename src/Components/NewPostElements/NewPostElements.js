@@ -141,7 +141,7 @@ class NewPostElements extends Component {
               <div style={{display: 'flex'}}>
                 {this.props.state[`image${i}`] 
                   ?
-                  <div className='postElement'>
+                  <div className='postElement' style={{width: '50%'}}>
                     <img className='newPostImg' style={{marginBottom: '10px'}} src={this.props.state[`image${i}`]} alt='new post'/> 
                     <button 
                       className='viewMoreBtn' style={{margin: '0', backgroundColor: 'red'}}
@@ -150,13 +150,13 @@ class NewPostElements extends Component {
                     </button>
                   </div>
                   :
-                  <div>
+                  <div style={{width: '50%'}}>
                     <div>
                       <h3 className='newPostHeader'>Image Upload</h3>
                       <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                      <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{paddingLeft: '70px', marginBottom: '10px'}}/>
+                      <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
                       <button className="viewMoreBtn" id={`upload${i}`} 
                         onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
                         style={{margin: '0'}}>
@@ -165,8 +165,13 @@ class NewPostElements extends Component {
                     </div>
                   </div>
                 }
-                <div>
-                  paragraph input
+                <div style={{width: '50%', marginLeft: '10px'}}>
+                  <h3 className='newPostHeader' style={{alignSelf: 'center', margin: 0, maxWidth: 'calc(100%-20px)'}}>Paragraph:</h3>
+                  <div className='quoteInput' style={{maxWidth: 'calc(100%-20px)'}}>
+                    <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
+                      onChange={(e) => this.handleChange(i, 'text', e.target.value)}
+                      style={{width: '100%'}}/>
+                  </div>
                 </div>
               </div>
               <div style={{display: 'flex'}}>
