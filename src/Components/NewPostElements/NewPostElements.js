@@ -158,14 +158,14 @@ class NewPostElements extends Component {
                 <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}
                   onClick={() => this.editElement(i)}>
                   <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                    <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left'}}>
+                    <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '0'}}>
                       {element.text}
                     </h3>
                   </div>
                 </div>
                 :
                 <div style={{width: '50%', marginLeft: '10px'}}>
-                  <h3 className='newPostHeader' style={{alignSelf: 'center', margin: 0, maxWidth: 'calc(100%-20px)'}}>Paragraph:</h3>
+                  <h3 className='newPostHeader' style={{alignSelf: 'center', margin: '0', maxWidth: 'calc(100%-20px)'}}>Paragraph:</h3>
                   <div className='quoteInput' style={{maxWidth: 'calc(100%-20px)'}}>
                     <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
                       onChange={(e) => this.handleChange(i, 'text', e.target.value)}
