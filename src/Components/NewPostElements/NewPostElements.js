@@ -8,7 +8,8 @@ class NewPostElements extends Component {
         {type: 'text', text: ''}, 
         {type: 'quote', quote: '', person: ''},        
         {type: 'imageLeft', url: '', text: ''},
-        {type: 'imageRight', url: '', text: ''}
+        {type: 'imageRight', url: '', text: ''},
+        {type: 'imageSingle', url: ''}
       ]
     }
   }
@@ -165,7 +166,7 @@ class NewPostElements extends Component {
                   onClick={() => this.editElement(i)}>
                   <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
                     <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '0'}}>
-                      {element.text}
+                      {element.text ? element.text : 'Edit me.'}
                     </h3>
                   </div>
                 </div>
@@ -209,7 +210,7 @@ class NewPostElements extends Component {
                   onClick={() => this.editElement(i)}>
                   <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
                     <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '10px', marginRight: '10px'}}>
-                      {element.text}
+                      {element.text ? element.text : 'Edit me.'}
                     </h3>
                   </div>
                 </div>
@@ -255,6 +256,60 @@ class NewPostElements extends Component {
                 </div>
               }
             </div>
+            {element.viewDraft
+              ?
+              <></>
+              :
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    Preview
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+              </div>
+            }
+          </div>
+        )
+      } else if (element.type === 'imageSingle'){
+        return (
+          <div className='postElement' key={i}>
+            {this.props.state[`image${i}`] 
+              ?
+              <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
+              onClick={this.viewDraft ? () => this.editElement(i) : {}}>
+                <img className='newPostImg' src={this.props.state[`image${i}`]} alt='new post'/> 
+                {element.viewDraft 
+                  ?
+                  <></>
+                  :
+                  <button 
+                    className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                    onClick={() => this.props.removeImg(`image${i}`)}>
+                    Remove
+                  </button>
+                }
+              </div>
+              :
+              <div style={{maxWidth: '100%'}}>
+                <div>
+                  <h3 className='newPostHeader'>Image Upload</h3>
+                  <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
+                </div>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                  <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
+                  <button className="viewMoreBtn" id={`upload${i}`} 
+                    onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
+                    style={{margin: '0'}}>
+                      Upload
+                  </button>
+                </div>
+              </div>
+            }
             {element.viewDraft
               ?
               <></>
