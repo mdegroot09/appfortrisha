@@ -88,7 +88,7 @@ class NewPostElements extends Component {
             <div className='postElement' key={i} style={{cursor: 'pointer'}} 
               onClick={() => this.editElement(i)}>
               <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                <h3 className='newPostHeader' style={{fontSize: '40px'}}>
+                <h3 className='newPostHeader' style={{fontSize: '30px'}}>
                   "{element.quote ? element.quote : `Broccoli is the best.`}"
                 </h3>
                 <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
