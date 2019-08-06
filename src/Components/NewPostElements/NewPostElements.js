@@ -423,10 +423,34 @@ class NewPostElements extends Component {
         return (
           <div className='postElement'>
             <div className='paragraph'>
-              <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontWeight: '900'}}>
-                {element.text ? element.text : 'Edit me.'}
-              </h3>
+              {element.viewDraft 
+                ?
+                <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '30px', fontWeight: '100'}}
+                onClick={() => this.editElement(i)}>
+                  {element.text ? element.text : 'Edit me.'}
+                </h3>
+                :
+                <input type='text' placeholder='section title' className='filter quotePerson' style={{width: '100%', margin: '0'}}
+                onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
+              }
             </div>
+            {element.viewDraft
+              ?
+              <></>
+              :
+              <div style={{display: 'flex'}}>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
+                  onClick={() => {this.viewDraft(i)}}>
+                    Preview
+                </button>
+                <button 
+                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+                  onClick={() => {this.deleteElement(i)}}>
+                    Delete
+                </button>
+              </div>
+            }
           </div>
         )
       }
