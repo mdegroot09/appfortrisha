@@ -425,7 +425,7 @@ class NewPostElements extends Component {
             <div className='paragraph'>
               {element.viewDraft 
                 ?
-                <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '30px', fontWeight: '100'}}
+                <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '28px', fontWeight: '100'}}
                 onClick={() => this.editElement(i)}>
                   {element.text ? element.text : 'Edit me.'}
                 </h3>

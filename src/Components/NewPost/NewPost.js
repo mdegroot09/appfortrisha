@@ -105,9 +105,9 @@ class NewPost extends Component {
         <div className='postElement'>
           {!this.state.postTitle.editDraft 
             ?
-            <h2 className='sectionTitle' style={{cursor: 'pointer'}} onClick={() => this.updateTitleView(true)}>
+            <h1 className='sectionTitle' style={{cursor: 'pointer'}} onClick={() => this.updateTitleView(true)}>
               {title ? title : 'Untitled Post'}
-            </h2>
+            </h1>
             :
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <input 
