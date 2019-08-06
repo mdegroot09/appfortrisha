@@ -100,7 +100,7 @@ class NewPostElements extends Component {
           return (
             <div className='postElement' key={i}>
               <div className='quoteInput'>
-                <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Quote:</h3>
+                <h3 className='newPostHeader' style={{alignSelf: 'center', margin: '0 10px 0 0'}}>Quote:</h3>
                 <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px', marginLeft: '0'}}>"</h3>
                 <textarea type='text' className='quoteText' id={`quoteInput${i}`}
                   onChange={(e) => this.handleChange(i, 'quote', e.target.value)} value={element.quote}/>
@@ -152,7 +152,7 @@ class NewPostElements extends Component {
                     <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
+                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
                     <button className="viewMoreBtn" id={`upload${i}`} 
                       onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
                       style={{margin: '0'}}>
@@ -247,7 +247,7 @@ class NewPostElements extends Component {
                     <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
+                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
                     <button className="viewMoreBtn" id={`upload${i}`} 
                       onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
                       style={{margin: '0'}}>
@@ -357,7 +357,7 @@ class NewPostElements extends Component {
                     <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}a`)} style={{marginBottom: '10px', width: '190px'}}/>
+                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}a`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
                     <button className="viewMoreBtn" id={`upload${i}a`} 
                       onClick={() => this.props.singleFileUploadHandler(`image${i}a`, `upload${i}a`, this.state[`selectedFile${i}a`])} 
                       style={{margin: '0'}}>
@@ -389,7 +389,7 @@ class NewPostElements extends Component {
                     <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
                   </div>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}b`)} style={{marginBottom: '10px', width: '190px'}}/>
+                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}b`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
                     <button className="viewMoreBtn" id={`upload${i}b`} 
                       onClick={() => this.props.singleFileUploadHandler(`image${i}b`, `upload${i}b`, this.state[`selectedFile${i}b`])} 
                       style={{margin: '0'}}>
