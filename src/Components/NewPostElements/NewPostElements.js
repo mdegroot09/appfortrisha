@@ -5,6 +5,7 @@ class NewPostElements extends Component {
     super()
     this.state = {
       elements: [
+        {type: 'sectionHeader', text: ''},
         {type: 'text', text: ''}, 
         {type: 'quote', quote: '', person: ''},        
         {type: 'imageLeft', url: '', text: ''},
@@ -53,7 +54,7 @@ class NewPostElements extends Component {
           <div className='postElement' key={i} style={{cursor: 'pointer'}} 
             onClick={() => this.editElement(i)}>
             <div className='paragraph'>
-              <h3 className='newPostHeader' style={{textAlign: 'start'}}>
+              <h3 className='newPostHeader' style={{textAlign: 'start', marginLeft: '0'}}>
                 {element.text ? element.text : `When I grow up, I want to be a paragraph.`}
               </h3>
             </div>
@@ -129,7 +130,7 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageLeft'){
         return(
           <div className='postElement' style={{cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex', alignItems: 'center'}} >
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
               {this.props.state[`image${i}`] 
                 ?
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -204,7 +205,7 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageRight'){
         return(
           <div className='postElement' style={{cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex', alignItems: 'center'}} >
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
               {element.viewDraft 
                 ?
                 <div style={{width: '50%', display: 'flex', alignItems: 'center'}}
@@ -418,7 +419,18 @@ class NewPostElements extends Component {
             }
           </div>
         )
-      } else {
+      } else if (element.type === 'sectionHeader'){
+        return (
+          <div className='postElement'>
+            <div className='paragraph'>
+              <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontWeight: '900'}}>
+                {element.text ? element.text : 'Edit me.'}
+              </h3>
+            </div>
+          </div>
+        )
+      }
+      else {
         return <></>
       }
     })
