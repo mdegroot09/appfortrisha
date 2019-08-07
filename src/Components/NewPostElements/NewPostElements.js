@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import SectionHeader from '../SectionHeader/SectionHeader'
 import ImageDouble from '../ImageDouble/ImageDouble';
+import ImageSingle from '../ImageSingle/ImageSingle';
 
 class NewPostElements extends Component {
   constructor(){
@@ -285,55 +286,18 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageSingle'){
         return (
           <div className='postElement' key={i}>
-            {this.props.state[`image${i}`] 
-              ?
-              <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
-              onClick={this.viewDraft ? () => this.editElement(i) : {}}>
-                <img className='newPostImg' src={this.props.state[`image${i}`]} alt='new post'/> 
-                {element.viewDraft 
-                  ?
-                  <></>
-                  :
-                  <button 
-                    className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                    onClick={() => this.props.removeImg(`image${i}`)}>
-                    Remove
-                  </button>
-                }
-              </div>
-              :
-              <div style={{maxWidth: '100%'}}>
-                <div>
-                  <h3 className='newPostHeader'>Image Upload</h3>
-                  <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
-                </div>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', width: '190px'}}/>
-                  <button className="viewMoreBtn" id={`upload${i}`} 
-                    onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
-                    style={{margin: '0'}}>
-                      Upload
-                  </button>
-                </div>
-              </div>
-            }
-            {element.viewDraft
-              ?
-              <></>
-              :
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            }
+            <ImageSingle
+              element={element}
+              i={i}
+              state={this.props.state}
+              singleFileChangedHandler={this.singleFileChangedHandler}
+              singleFileUploadHandler={this.props.singleFileUploadHandler}
+              selectedFile={this.state[`selectedFile${i}`]}
+              editElement={this.editElement}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+              removeImg={this.props.removeImg}
+            />
           </div>
         )
       } else if (element.type === 'imageDouble'){

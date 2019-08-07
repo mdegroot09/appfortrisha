@@ -7,7 +7,7 @@ export default function ImageDouble (props) {
         {props.state[`image${props.i}a`] 
           ?
           <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
-          onClick={props.viewDraft ? () => props.editElement(props.i) : {}}>
+          onClick={props.element.viewDraft ? () => props.editElement(props.i) : () => {}}>
             <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.state[`image${props.i}a`]} alt='new post'/> 
             {props.element.viewDraft 
               ?
@@ -39,7 +39,7 @@ export default function ImageDouble (props) {
         {props.state[`image${props.i}b`] 
           ?
           <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
-          onClick={props.viewDraft ? () => props.editElement(props.i) : {}}>
+          onClick={props.element.viewDraft ? () => props.editElement(props.i) : () => {}}>
             <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.state[`image${props.i}b`]} alt='new post'/> 
             {props.element.viewDraft 
               ?
