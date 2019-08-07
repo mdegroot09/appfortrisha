@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import SectionHeader from '../SectionHeader/SectionHeader'
+import ImageDouble from '../ImageDouble/ImageDouble';
 
 class NewPostElements extends Component {
   constructor(){
@@ -338,125 +339,22 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageDouble'){
         return (
           <div className='postElement' key={i}>
-            <div style={{width: 'inherit', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              {this.props.state[`image${i}a`] 
-                ?
-                <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
-                onClick={this.viewDraft ? () => this.editElement(i) : {}}>
-                  <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={this.props.state[`image${i}a`]} alt='new post'/> 
-                  {element.viewDraft 
-                    ?
-                    <></>
-                    :
-                    <button 
-                      className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                      onClick={() => this.props.removeImg(`image${i}a`)}>
-                      Remove
-                    </button>
-                  }
-                </div>
-                :
-                <div style={{maxWidth: '50%'}}>
-                  <div>
-                    <h3 className='newPostHeader'>Image Upload</h3>
-                    <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
-                  </div>
-                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}a`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
-                    <button className="viewMoreBtn" id={`upload${i}a`} 
-                      onClick={() => this.props.singleFileUploadHandler(`image${i}a`, `upload${i}a`, this.state[`selectedFile${i}a`])} 
-                      style={{margin: '0'}}>
-                        Upload
-                    </button>
-                  </div>
-                </div>
-              }
-              {this.props.state[`image${i}b`] 
-                ?
-                <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
-                onClick={this.viewDraft ? () => this.editElement(i) : {}}>
-                  <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={this.props.state[`image${i}b`]} alt='new post'/> 
-                  {element.viewDraft 
-                    ?
-                    <></>
-                    :
-                    <button 
-                      className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                      onClick={() => this.props.removeImg(`image${i}b`)}>
-                      Remove
-                    </button>
-                  }
-                </div>
-                :
-                <div style={{maxWidth: '50%'}}>
-                  <div>
-                    <h3 className='newPostHeader'>Image Upload</h3>
-                    <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
-                  </div>
-                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}b`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
-                    <button className="viewMoreBtn" id={`upload${i}b`} 
-                      onClick={() => this.props.singleFileUploadHandler(`image${i}b`, `upload${i}b`, this.state[`selectedFile${i}b`])} 
-                      style={{margin: '0'}}>
-                        Upload
-                    </button>
-                  </div>
-                </div>
-              }
-            </div>
-            {element.viewDraft
-              ?
-              <></>
-              :
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            }
+            <ImageDouble
+              element={element}
+              i={i}
+              state={this.props.state}
+              singleFileChangedHandler={this.singleFileChangedHandler}
+              singleFileUploadHandler={this.props.singleFileUploadHandler}
+              selectedFileA={this.state[`selectedFile${i}a`]}
+              selectedFileB={this.state[`selectedFile${i}b`]}
+              editElement={this.editElement}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+              removeImg={this.props.removeImg}
+            />
           </div>
         )
       } else if (element.type === 'sectionHeader'){
-        // return (
-        //   <div className='postElement' key={i}>
-        //     <div className='paragraph'>
-        //       {element.viewDraft 
-        //         ?
-        //         <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '28px', fontWeight: '100'}}
-        //         onClick={() => this.editElement(i)}>
-        //           {element.text ? element.text : 'Edit me.'}
-        //         </h3>
-        //         :
-        //         <input type='text' placeholder='section title' className='filter quotePerson' style={{width: '100%', margin: '0'}}
-        //         onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
-        //       }
-        //     </div>
-        //     {element.viewDraft
-        //       ?
-        //       <></>
-        //       :
-        //       <div style={{display: 'flex'}}>
-        //         <button 
-        //           className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-        //           onClick={() => {this.viewDraft(i)}}>
-        //             Preview
-        //         </button>
-        //         <button 
-        //           className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-        //           onClick={() => {this.deleteElement(i)}}>
-        //             Delete
-        //         </button>
-        //       </div>
-        //     }
-        //   </div>
-        // )
         return (
           <div className='postElement' key={i}>
             <SectionHeader
