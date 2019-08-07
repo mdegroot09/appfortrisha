@@ -6,6 +6,7 @@ import ImageRight from '../ImageRight/ImageRight';
 import ImageLeft from '../ImageLeft/ImageLeft';
 import Quote from '../Quote/Quote'
 import Paragraph from '../Paragraph/Paragraph';
+import NewElement from '../NewElement/NewElement';
 
 class NewPostElements extends Component {
   constructor(){
@@ -215,6 +216,7 @@ class NewPostElements extends Component {
     return(
       <>
         {displayElements}
+        <NewElement/>
       </>
     )
   }
