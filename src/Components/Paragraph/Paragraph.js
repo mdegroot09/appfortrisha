@@ -3,17 +3,25 @@ import React from 'react'
 export default function Paragraph (props) {
   let {element, i} = props
   if (element.viewDraft){
-    return (            
-      <div className='paragraph' style={{cursor: 'pointer'}}
-      onClick={() => props.editElement(i)}>
-        <h3 className='newPostHeader' style={{textAlign: 'start', marginLeft: '0'}}>
-          {element.text ? element.text : `When I grow up, I want to be a paragraph.`}
-        </h3>
-      </div>
+    return (
+      <>    
+        <div className='paragraph' style={{cursor: 'pointer'}}
+        onClick={() => props.editElement(i)}>
+          <h3 className='newPostHeader' style={{textAlign: 'start', marginLeft: '0'}}>
+            {element.text ? element.text : `When I grow up, I want to be a paragraph.`}
+          </h3>
+        </div>
+      </>
     )
   } else {
     return (
       <>
+        <div style={{display: 'flex', justifyContent: 'center', margin: '5px 0 10px 0'}}>
+          <img style={{height: '50px', transform: 'rotate(90deg)'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+            onClick={() => props.moveUp(i)}/>
+          <img style={{height: '50px', transform: 'rotate(-90deg)', marginLeft: '100px'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+            onClick={() => props.moveDown(i)}/>
+        </div>  
         <div className='quoteInput'>
           <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
           <textarea type='text' className='textArea' id={`text${i}`} value={element.text}

@@ -54,7 +54,31 @@ class NewPostElements extends Component {
 
   singleFileChangedHandler = (e, stateName) => {
     this.setState({[stateName]: e.target.files[0]});
-   };
+  }
+
+  moveUp = (i) => {
+    let {elements} = this.state
+    let element = elements.slice(i, i + 1)
+    elements.splice(i, 1)
+    if (i - 1 < 0) {
+      elements.splice(elements.length, 0, element[0])
+    } else {
+      elements.splice(i - 1, 0, element[0])
+    }
+    this.setState({elements})
+  }
+
+  moveDown = (i) => {
+    let {elements} = this.state
+    let element = elements.slice(i, i + 1)
+    elements.splice(i, 1)
+    if (i >= elements.length) {
+      elements.splice(0, 0, element[0])
+    } else {
+      elements.splice(i + 1, 0, element[0])
+    }
+    this.setState({elements})
+  }
 
   render(){
     let displayElements = this.state.elements.map((element, i) => {
@@ -68,6 +92,8 @@ class NewPostElements extends Component {
               editElement={this.editElement}
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
@@ -81,6 +107,8 @@ class NewPostElements extends Component {
               editElement={this.editElement}
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
