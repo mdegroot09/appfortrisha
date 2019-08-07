@@ -4,6 +4,7 @@ import ImageDouble from '../ImageDouble/ImageDouble';
 import ImageSingle from '../ImageSingle/ImageSingle';
 import ImageRight from '../ImageRight/ImageRight';
 import ImageLeft from '../ImageLeft/ImageLeft';
+import Quote from '../Quote/Quote'
 
 class NewPostElements extends Component {
   constructor(){
@@ -91,50 +92,18 @@ class NewPostElements extends Component {
           )
         }
       } else if (element.type === 'quote'){
-        if(element.viewDraft){
-          return(
-            <div className='postElement' key={i} style={{cursor: 'pointer'}} 
-              onClick={() => this.editElement(i)}>
-              <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                <h3 className='newPostHeader' style={{fontSize: '30px'}}>
-                  "{element.quote ? element.quote : `Broccoli is the best.`}"
-                </h3>
-                <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
-                  - {element.person ? element.person : `No one ever`}
-                </h3>
-              </div>
-            </div>
-          )
-        } else {
-          return (
-            <div className='postElement' key={i}>
-              <div className='quoteInput'>
-                <h3 className='newPostHeader' style={{alignSelf: 'center', margin: '0 10px 0 0'}}>Quote:</h3>
-                <h3 className='newPostHeader' style={{fontStyle: 'italic', marginRight: '7px', marginLeft: '0'}}>"</h3>
-                <textarea type='text' className='quoteText' id={`quoteInput${i}`}
-                  onChange={(e) => this.handleChange(i, 'quote', e.target.value)} value={element.quote}/>
-                <h3 className='newPostHeader' style={{alignSelf: 'flex-end', fontStyle: 'italic', marginLeft: '0'}}>"</h3>
-              </div>
-              <div className='quoteInput' style={{marginTop: '10px'}}>
-                <h3 className='newPostHeader'>Name:</h3>
-                <input id={`quotePerson${i}`} className='filter quotePerson' type="text"
-                  onChange={(e) => this.handleChange(i, 'person', e.target.value)} value={element.person}/>
-              </div>
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            </div>
-          )
-        }
+        return(
+          <div className='postElement' key={i}>
+            <Quote
+              element={element}
+              i={i}
+              editElement={this.editElement}
+              handleChange={this.handleChange}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+            />
+          </div>
+        )
       } else if (element.type === 'imageLeft'){
         return(
           <div className='postElement' style={{cursor: 'pointer'}} key={i}>
