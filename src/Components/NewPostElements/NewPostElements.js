@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import SectionHeader from '../SectionHeader/SectionHeader'
 
 class NewPostElements extends Component {
   constructor(){
@@ -25,6 +26,9 @@ class NewPostElements extends Component {
   viewDraft = (i) => {
     let {elements} = this.state
     elements[i].viewDraft = true
+    if (elements[i].text) {
+      elements[i].text = elements[i].text.trim()
+    }
     this.setState({elements})
   }
 
@@ -420,37 +424,49 @@ class NewPostElements extends Component {
           </div>
         )
       } else if (element.type === 'sectionHeader'){
+        // return (
+        //   <div className='postElement' key={i}>
+        //     <div className='paragraph'>
+        //       {element.viewDraft 
+        //         ?
+        //         <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '28px', fontWeight: '100'}}
+        //         onClick={() => this.editElement(i)}>
+        //           {element.text ? element.text : 'Edit me.'}
+        //         </h3>
+        //         :
+        //         <input type='text' placeholder='section title' className='filter quotePerson' style={{width: '100%', margin: '0'}}
+        //         onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
+        //       }
+        //     </div>
+        //     {element.viewDraft
+        //       ?
+        //       <></>
+        //       :
+        //       <div style={{display: 'flex'}}>
+        //         <button 
+        //           className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
+        //           onClick={() => {this.viewDraft(i)}}>
+        //             Preview
+        //         </button>
+        //         <button 
+        //           className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
+        //           onClick={() => {this.deleteElement(i)}}>
+        //             Delete
+        //         </button>
+        //       </div>
+        //     }
+        //   </div>
+        // )
         return (
-          <div className='postElement'>
-            <div className='paragraph'>
-              {element.viewDraft 
-                ?
-                <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '28px', fontWeight: '100'}}
-                onClick={() => this.editElement(i)}>
-                  {element.text ? element.text : 'Edit me.'}
-                </h3>
-                :
-                <input type='text' placeholder='section title' className='filter quotePerson' style={{width: '100%', margin: '0'}}
-                onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
-              }
-            </div>
-            {element.viewDraft
-              ?
-              <></>
-              :
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            }
+          <div className='postElement' key={i}>
+            <SectionHeader
+              element={element}
+              i={i}
+              editElement={this.editElement}
+              handleChange={this.handleChange}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+            />
           </div>
         )
       }
