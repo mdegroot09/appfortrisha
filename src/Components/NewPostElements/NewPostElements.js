@@ -5,6 +5,7 @@ import ImageSingle from '../ImageSingle/ImageSingle';
 import ImageRight from '../ImageRight/ImageRight';
 import ImageLeft from '../ImageLeft/ImageLeft';
 import Quote from '../Quote/Quote'
+import Paragraph from '../Paragraph/Paragraph';
 
 class NewPostElements extends Component {
   constructor(){
@@ -58,47 +59,26 @@ class NewPostElements extends Component {
   render(){
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'paragraph'){
-        if (element.viewDraft){
-          return (            
-          <div className='postElement' key={i} style={{cursor: 'pointer'}} 
-            onClick={() => this.editElement(i)}>
-            <div className='paragraph'>
-              <h3 className='newPostHeader' style={{textAlign: 'start', marginLeft: '0'}}>
-                {element.text ? element.text : `When I grow up, I want to be a paragraph.`}
-              </h3>
-            </div>
-          </div>)
-        } else {
-          return (
-            <div className='postElement' key={i}>
-              <div className='quoteInput'>
-                <h3 className='newPostHeader' style={{alignSelf: 'center', marginRight: '10px'}}>Paragraph:</h3>
-                <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
-                  onChange={(e) => this.handleChange(i, 'text', e.target.value)}/>
-              </div>
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            </div>
-          )
-        }
+        return(
+          <div className='postElement' key={i}>
+            <Paragraph
+              element={element}
+              i={i}
+              handleChange={this.handleChange}
+              editElement={this.editElement}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+            />
+          </div>
+        )
       } else if (element.type === 'quote'){
         return(
           <div className='postElement' key={i}>
             <Quote
               element={element}
               i={i}
-              editElement={this.editElement}
               handleChange={this.handleChange}
+              editElement={this.editElement}
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
             />
