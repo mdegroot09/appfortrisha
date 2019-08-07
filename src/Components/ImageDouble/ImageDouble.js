@@ -3,6 +3,17 @@ import React from 'react'
 export default function ImageDouble (props) {
   return (
     <>
+      {props.element.viewDraft 
+        ? 
+        <></>
+        : 
+        <div style={{display: 'flex', justifyContent: 'center', margin: '5px 0 10px 0'}}>
+          <img style={{height: '50px', transform: 'rotate(90deg)'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+            onClick={() => props.moveUp(props.i)}/>
+          <img style={{height: '50px', transform: 'rotate(-90deg)', marginLeft: '100px'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+            onClick={() => props.moveDown(props.i)}/>
+        </div>
+      }
       <div style={{width: 'inherit', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
         {props.state[`image${props.i}a`] 
           ?

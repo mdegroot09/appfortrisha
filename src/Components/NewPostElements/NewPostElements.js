@@ -127,6 +127,8 @@ class NewPostElements extends Component {
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
               removeImg={this.props.removeImg}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
@@ -145,6 +147,8 @@ class NewPostElements extends Component {
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
               removeImg={this.props.removeImg}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />  
           </div>
         )
@@ -162,6 +166,8 @@ class NewPostElements extends Component {
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
               removeImg={this.props.removeImg}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
@@ -180,6 +186,8 @@ class NewPostElements extends Component {
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
               removeImg={this.props.removeImg}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
@@ -193,6 +201,8 @@ class NewPostElements extends Component {
               handleChange={this.handleChange}
               viewDraft={this.viewDraft}
               deleteElement={this.deleteElement}
+              moveUp={this.moveUp}
+              moveDown={this.moveDown}
             />
           </div>
         )
