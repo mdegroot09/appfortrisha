@@ -3,6 +3,7 @@ import SectionHeader from '../SectionHeader/SectionHeader'
 import ImageDouble from '../ImageDouble/ImageDouble';
 import ImageSingle from '../ImageSingle/ImageSingle';
 import ImageRight from '../ImageRight/ImageRight';
+import ImageLeft from '../ImageLeft/ImageLeft';
 
 class NewPostElements extends Component {
   constructor(){
@@ -137,76 +138,19 @@ class NewPostElements extends Component {
       } else if (element.type === 'imageLeft'){
         return(
           <div className='postElement' style={{cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
-              {this.props.state[`image${i}`] 
-                ?
-                <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <img className='newPostImg' style={{width: '100%'}} src={this.props.state[`image${i}`]} alt='new post'/> 
-                  {element.viewDraft 
-                    ?
-                    <></>
-                    :
-                    <button 
-                      className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                      onClick={() => this.props.removeImg(`image${i}`)}>
-                      Remove
-                    </button>
-                  }
-                </div>
-                :
-                <div style={{width: '50%'}}>
-                  <div>
-                    <h3 className='newPostHeader'>Image Upload</h3>
-                    <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>
-                  </div>
-                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <input type="file" onChange={(e) => this.singleFileChangedHandler(e, `selectedFile${i}`)} style={{marginBottom: '10px', maxWidth: '190px', width: '100%'}}/>
-                    <button className="viewMoreBtn" id={`upload${i}`} 
-                      onClick={() => this.props.singleFileUploadHandler(`image${i}`, `upload${i}`, this.state[`selectedFile${i}`])} 
-                      style={{margin: '0'}}>
-                        Upload
-                    </button>
-                  </div>
-                </div>
-              }
-              {element.viewDraft 
-                ?
-                <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}
-                  onClick={() => this.editElement(i)}>
-                  <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                    <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '0'}}>
-                      {element.text ? element.text : 'Edit me.'}
-                    </h3>
-                  </div>
-                </div>
-                :
-                <div style={{width: '50%', marginLeft: '10px'}}>
-                  <h3 className='newPostHeader' style={{alignSelf: 'center', margin: '0', maxWidth: 'calc(100%-20px)'}}>Paragraph:</h3>
-                  <div className='quoteInput' style={{maxWidth: 'calc(100%-20px)'}}>
-                    <textarea type='text' className='textArea' id={`text${i}`} value={element.text}
-                      onChange={(e) => this.handleChange(i, 'text', e.target.value)}
-                      style={{width: '100%'}}/>
-                  </div>
-                </div>
-              }
-            </div>
-            {element.viewDraft
-              ?
-              <></>
-              :
-              <div style={{display: 'flex'}}>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 50px 0 0'}}
-                  onClick={() => {this.viewDraft(i)}}>
-                    Preview
-                </button>
-                <button 
-                  className='viewMoreBtn' style={{margin: '10px 0 0 0', backgroundColor: 'red'}}
-                  onClick={() => {this.deleteElement(i)}}>
-                    Delete
-                </button>
-              </div>
-            }
+            <ImageLeft
+              element={element}
+              i={i}
+              handleChange={this.handleChange}
+              state={this.props.state}
+              singleFileChangedHandler={this.singleFileChangedHandler}
+              singleFileUploadHandler={this.props.singleFileUploadHandler}
+              selectedFile={this.state[`selectedFile${i}`]}
+              editElement={this.editElement}
+              viewDraft={this.viewDraft}
+              deleteElement={this.deleteElement}
+              removeImg={this.props.removeImg}
+            />
           </div>
         )
       } else if (element.type === 'imageRight'){
