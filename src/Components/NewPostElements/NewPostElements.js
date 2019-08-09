@@ -13,13 +13,13 @@ class NewPostElements extends Component {
     super()
     this.state = {
       elements: [
-        {type: 'sectionHeader', text: ''},
-        {type: 'paragraph', text: ''}, 
-        {type: 'quote', quote: '', person: ''},        
-        {type: 'imageLeft', url: '', text: ''},
-        {type: 'imageRight', url: '', text: ''},
-        {type: 'imageSingle', url: ''},
-        {type: 'imageDouble', url1: '', url2: ''}
+        // {type: 'sectionHeader', text: ''},
+        // {type: 'paragraph', text: ''}, 
+        // {type: 'quote', quote: '', person: ''},        
+        // {type: 'imageLeft', url: '', text: ''},
+        // {type: 'imageRight', url: '', text: ''},
+        // {type: 'imageSingle', url: ''},
+        // {type: 'imageDouble', url1: '', url2: ''}
       ]
     }
   }
@@ -78,6 +78,12 @@ class NewPostElements extends Component {
     } else {
       elements.splice(i + 1, 0, element[0])
     }
+    this.setState({elements})
+  }
+
+  addElement = (element) => {
+    let {elements} = this.state
+    elements.push(element)
     this.setState({elements})
   }
 
@@ -216,7 +222,7 @@ class NewPostElements extends Component {
     return(
       <>
         {displayElements}
-        <NewElement/>
+        <NewElement addElement={this.addElement}/>
       </>
     )
   }
