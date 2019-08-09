@@ -12,15 +12,7 @@ class NewPostElements extends Component {
   constructor(){
     super()
     this.state = {
-      elements: [
-        // {type: 'sectionHeader', text: ''},
-        // {type: 'paragraph', text: ''}, 
-        // {type: 'quote', quote: '', person: ''},        
-        // {type: 'imageLeft', url: '', text: ''},
-        // {type: 'imageRight', url: '', text: ''},
-        // {type: 'imageSingle', url: ''},
-        // {type: 'imageDouble', url1: '', url2: ''}
-      ]
+      elements: []
     }
   }
 

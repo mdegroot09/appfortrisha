@@ -43,6 +43,15 @@ export default class NewElement extends Component {
     }
   }
 
+  showHideDropdown = () => {
+    let element = document.getElementsByClassName('showOptions')[0]
+    if (element.style.display === 'inline') {
+      element.style.display = 'none'
+    } else {
+      element.style.display = 'inline'
+    }
+  }
+
   render(){
     let showOptions = this.state.options.map((option, i) => {
       return (
@@ -54,9 +63,14 @@ export default class NewElement extends Component {
     })
 
     return (
-      <div className='showOptions'>
-        {showOptions}
-      </div>
+      <>
+        <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""
+          onClick={this.showHideDropdown}>
+        </div>
+        <div className='showOptions'>
+          {showOptions}
+        </div>
+      </>
     )
   }
 }

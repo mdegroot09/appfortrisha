@@ -1,5 +1,6 @@
 .showOptions {
   width: 200px;
+  display: none;
 }
 
 .newElement {
@@ -9,7 +10,9 @@
   justify-content: flex-start;
   width: calc(100% - 2px);
   margin: 0 1px;
-  border: 1px solid white;
+  border: 2px solid white;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
 }
 
 .dropdownImg {
