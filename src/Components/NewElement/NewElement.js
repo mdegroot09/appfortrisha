@@ -16,6 +16,11 @@ export default class NewElement extends Component {
     }
   }
 
+  componentDidMount = () => {
+    let element = document.getElementsByClassName('showOptions')[0]
+    element.style.display = 'none'
+  }
+
   addElement = (type) => {
     let obj = {}
     switch (type){
@@ -45,10 +50,19 @@ export default class NewElement extends Component {
 
   showHideDropdown = () => {
     let element = document.getElementsByClassName('showOptions')[0]
-    if (element.style.display === 'inline') {
-      element.style.display = 'none'
-    } else {
+    // if (element.style.display === 'inline') {
+    //   element.style.display = 'none'
+    // } else {
+    //   element.style.display = 'inline'
+    // }
+    if (element.style.display === 'none'){
+      console.log('true')
+      console.log('element.style:', element.style)
       element.style.display = 'inline'
+    } else {
+      console.log('element.style:', element.style)
+      console.log('false')
+      element.style.display = 'none'
     }
   }
 
@@ -64,8 +78,9 @@ export default class NewElement extends Component {
 
     return (
       <>
-        <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""
+        <div className='postElement' style={{zIndex: '1'}}
           onClick={this.showHideDropdown}>
+            <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div>
         </div>
         <div className='showOptions'>
           {showOptions}
