@@ -12,7 +12,8 @@ export default class NewElement extends Component {
         {type: 'imageRight', imgURL: 'https://simplejoys.s3.amazonaws.com/imageRight-1565388315323.jpg'},
         {type: 'imageSingle', imgURL: 'https://simplejoys.s3.amazonaws.com/imageSingle-1565388334636.jpg'},
         {type: 'imageDouble', imgURL: 'https://simplejoys.s3.amazonaws.com/imageDouble-1565388353233.jpg'}
-      ]
+      ],
+      showOptions: false
     }
   }
 
@@ -52,31 +53,30 @@ export default class NewElement extends Component {
     let element = document.getElementsByClassName('showOptions')[0]
     if (element.style.display === 'none'){
       element.style.display = 'inline'
+      this.setState({showOptions: true})
     } else {
       element.style.display = 'none'
+      this.setState({showOptions: false})
     }
   }
 
   render(){
     let showOptions = this.state.options.map((option, i) => {
       return (
-        <div className='newElement' key={i}
-          onClick={() => this.addElement(option.type)}>
-            <img className='dropdownImg' src={option.imgURL} alt="element preview"/>
+        <div className='newElement' key={i} onClick={() => this.addElement(option.type)}>
+          <img className='dropdownImg' src={option.imgURL} alt="element preview"/>
         </div>
       )
     })
 
     return (
-      <>
-        <div className='postElement' style={{zIndex: '1'}}
-          onClick={this.showHideDropdown}>
-            <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div>
-        </div>
+      <div className='postElement' style={{zIndex: '1'}} onClick={this.showHideDropdown} style={{borderBottom: 'none'}}>
+        {/* <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}}></div> */}
+        <button className='showMoreBtn'>{!this.state.showOptions ? 'Show Options' : 'Hide'}</button>
         <div className='showOptions'>
           {showOptions}
         </div>
-      </>
+      </div>
     )
   }
 }

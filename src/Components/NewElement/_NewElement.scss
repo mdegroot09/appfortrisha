@@ -1,6 +1,5 @@
 .showOptions {
   width: 200px;
-  margin-bottom: 30px;
 }
 
 .newElement {
@@ -17,4 +16,17 @@
 
 .dropdownImg {
   width: 100%;
+}
+
+.showMoreBtn {
+  width: 206px;
+  margin-left: 8px;
+  border: navy 1px solid;
+  height: 30px;
+  outline: none;
+  background: rgb(228, 228, 228);
+}
+
+.showMoreBtn:active {
+  background: rgb(204, 204, 204);
 }
