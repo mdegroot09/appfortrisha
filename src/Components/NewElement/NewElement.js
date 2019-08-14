@@ -76,6 +76,7 @@ export default class NewElement extends Component {
         <div className='showOptions'>
           {showOptions}
         </div>
+        <button className='viewMoreBtn'>Publish</button>
       </div>
     )
   }
