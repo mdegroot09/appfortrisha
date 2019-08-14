@@ -50,18 +50,9 @@ export default class NewElement extends Component {
 
   showHideDropdown = () => {
     let element = document.getElementsByClassName('showOptions')[0]
-    // if (element.style.display === 'inline') {
-    //   element.style.display = 'none'
-    // } else {
-    //   element.style.display = 'inline'
-    // }
     if (element.style.display === 'none'){
-      console.log('true')
-      console.log('element.style:', element.style)
       element.style.display = 'inline'
     } else {
-      console.log('element.style:', element.style)
-      console.log('false')
       element.style.display = 'none'
     }
   }
