@@ -63,9 +63,9 @@ export default class NewElement extends Component {
   render(){
     let showOptions = this.state.options.map((option, i) => {
       return (
-        <div className='newElement' key={i} onClick={() => this.addElement(option.type)}>
+        <button className='newElement' key={i} onClick={() => this.addElement(option.type)}>
           <img className='dropdownImg' src={option.imgURL} alt="element preview"/>
-        </div>
+        </button>
       )
     })
 
