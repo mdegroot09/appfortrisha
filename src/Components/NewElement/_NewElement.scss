@@ -29,13 +29,15 @@
 
 .showMoreBtn {
   width: 204px;
-  border: navy 1px solid;
-  height: 30px;
+  height: 40px;
+  border: none;
   outline: none;
-  background: rgb(228, 228, 228);
+  background: navy;
   padding: 0;
+  color: white;
+  font-size: 20px;
 }
 
 .showMoreBtn:active {
-  background: rgb(204, 204, 204);
+  background: rgb(0, 0, 78);
 }

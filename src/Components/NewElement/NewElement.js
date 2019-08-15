@@ -70,9 +70,10 @@ export default class NewElement extends Component {
     })
 
     return (
-      <div className='postElement' style={{zIndex: '1'}} onClick={this.showHideDropdown} style={{borderBottom: 'none'}}>
-        {/* <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}}></div> */}
-        <button className='showMoreBtn'>{!this.state.showOptions ? 'Show Options' : 'Hide'}</button>
+      <div className='postElement' style={{zIndex: '1'}} style={{borderBottom: 'none'}}>
+        <button className='showMoreBtn' onClick={this.showHideDropdown}>
+          {!this.state.showOptions ? '+' : '-'}
+        </button>
         <div className='showOptions'>
           {showOptions}
         </div>
