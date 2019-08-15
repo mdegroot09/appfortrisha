@@ -53,11 +53,11 @@ export default function ImageDouble (props) {
             </div>
           </div>
         }
-        {props.state[`image${props.i}b`] 
+        {props.element.url2
           ?
           <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
           onClick={props.element.viewDraft ? () => props.editElement(props.i) : () => {}}>
-            <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.state[`image${props.i}b`]} alt='new post'/> 
+            <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.element.url2} alt='new post'/> 
             {props.element.viewDraft 
               ?
               <></>
