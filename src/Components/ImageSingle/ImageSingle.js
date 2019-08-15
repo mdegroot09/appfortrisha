@@ -2,9 +2,14 @@ import React from 'react'
 
 export default function ImageSingle (props) {
   let {element, i} = props
+
+  if (props.state[`image${i}`] && !props.element.url){
+    props.updateURL(i, 'url', props.state[`image${i}`])
+  } 
+
   return (
     <>
-      {element.viewDraft 
+      {element.viewDraft
         ? 
         <></>
         : 
@@ -15,11 +20,11 @@ export default function ImageSingle (props) {
             onClick={() => props.moveDown(i)}/>
         </div>
       }
-      {props.state[`image${i}`] 
+      {props.element.url 
         ?
         <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
         onClick={element.viewDraft ? () => props.editElement(i) : () => {}}>
-          <img className='newPostImg' src={props.state[`image${i}`]} alt='new post'/> 
+          <img className='newPostImg' src={props.element.url} alt='new post'/> 
           {element.viewDraft 
             ?
             <></>
