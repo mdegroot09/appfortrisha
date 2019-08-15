@@ -9,9 +9,9 @@ export default function ImageSingle (props) {
         <></>
         : 
         <div style={{display: 'flex', justifyContent: 'center', margin: '5px 0 10px 0'}}>
-          <img style={{height: '50px', transform: 'rotate(90deg)'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+          <img style={{height: '50px', transform: 'rotate(90deg)'}} src="https://simplejoys.s3.amazonaws.com/left-28998_1280-1565889638819.png" alt="arrow"
             onClick={() => props.moveUp(i)}/>
-          <img style={{height: '50px', transform: 'rotate(-90deg)', marginLeft: '100px'}} src="https://storage.needpix.com/rsynced_images/left-28998_1280.png" alt="arrow"
+          <img style={{height: '50px', transform: 'rotate(-90deg)', marginLeft: '100px'}} src="https://simplejoys.s3.amazonaws.com/left-28998_1280-1565889638819.png" alt="arrow"
             onClick={() => props.moveDown(i)}/>
         </div>
       }
