@@ -134,6 +134,7 @@ class NewPostElements extends Component {
               removeImg={this.props.removeImg}
               moveUp={this.moveUp}
               moveDown={this.moveDown}
+              updateURL={this.updateURL}
             />
           </div>
         )

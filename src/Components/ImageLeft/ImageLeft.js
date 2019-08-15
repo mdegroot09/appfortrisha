@@ -2,6 +2,11 @@ import React from 'react'
 
 export default function ImageLeft (props) {
   let {element, i} = props
+
+  if (props.state[`image${i}`] && !props.element.url){
+    props.updateURL(i, 'url', props.state[`image${i}`])
+  } 
+  
   return (
     <>
       {element.viewDraft 
@@ -16,10 +21,10 @@ export default function ImageLeft (props) {
         </div>
       }
       <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
-        {props.state[`image${i}`] 
+        {props.element.url 
           ?
           <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <img className='newPostImg' style={{width: '100%'}} src={props.state[`image${i}`]} alt='new post'/> 
+            <img className='newPostImg' style={{width: '100%'}} src={props.element.url} alt='new post'/> 
             {element.viewDraft 
               ?
               <></>
