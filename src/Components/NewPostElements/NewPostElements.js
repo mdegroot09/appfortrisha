@@ -49,6 +49,12 @@ class NewPostElements extends Component {
     this.setState({[stateName]: e.target.files[0]});
   }
 
+  updateURL = (i, urlKey, url) => {
+    let {elements} = this.state
+    elements[i][urlKey] = url
+    this.setState({elements})
+  } 
+
   moveUp = (i) => {
     let {elements} = this.state
     let element = elements.slice(i, i + 1)
@@ -187,6 +193,7 @@ class NewPostElements extends Component {
               removeImg={this.props.removeImg}
               moveUp={this.moveUp}
               moveDown={this.moveDown}
+              updateURL={this.updateURL}
             />
           </div>
         )
