@@ -1,5 +1,6 @@
 .showOptions {
-  width: 200px;
+  width: calc(100% - 50px);
+  max-width: 300px;
   border: 2px solid white;
   padding: 0;
 }
@@ -24,11 +25,12 @@
 }
 
 .dropdownImg {
-  width: 100%;
+  width: inherit;
 }
 
 .showMoreBtn {
-  width: 204px;
+  width: calc(100% - 46px);
+  max-width: 304px;
   height: 40px;
   border: none;
   outline: none;
