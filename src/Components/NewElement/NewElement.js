@@ -23,6 +23,7 @@ export default class NewElement extends Component {
   }
 
   addElement = (type) => {
+    this.showHideDropdown()
     let obj = {}
     switch (type){
       case 'sectionHeader':
