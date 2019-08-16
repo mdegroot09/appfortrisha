@@ -8,6 +8,8 @@ module.exports = {
 
   createPost: async (req, res) => {
     console.log('req.body:', req.body)
+    const db = req.app.get('db')
+    // let postsArr = await db.postCtrl.createPost()
     res.sendStatus(200)
   }
 }

@@ -78,6 +78,14 @@ export default class NewElement extends Component {
         <div className='showOptions'>
           {showOptions}
         </div>
+        <div>
+          <input type="checkbox" id='familyTab' onChange={() => this.props.updateTab('family', 'familyTab')}/>
+          <label htmlFor="familyTab">Family</label>
+          <input type="checkbox" id='makeupTab' onChange={() => this.props.updateTab('makeup', 'makeupTab')}/>
+          <label htmlFor="makeupTab">Makeup</label>
+          <input type="checkbox" id='foodTab' onChange={() => this.props.updateTab('food', 'foodTab')}/>
+          <label htmlFor="foodTab">Food</label>
+        </div>
         <button className='viewMoreBtn'
           onClick={this.props.publishPost}>
             Publish

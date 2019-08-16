@@ -12,7 +12,10 @@ class NewPostElements extends Component {
   constructor(){
     super()
     this.state = {
-      elements: []
+      elements: [], 
+      family: false,
+      makeup: false,
+      food: false
     }
   }
 
@@ -88,6 +91,11 @@ class NewPostElements extends Component {
   publishPost = () => {
     let {elements} = this.state
     this.props.publishPost(elements)
+  }
+
+  updateTab = (name, id) => {
+    let element = document.getElementById(id)
+    this.setState({[name]: element.checked})
   }
 
   render(){
@@ -232,6 +240,7 @@ class NewPostElements extends Component {
         <NewElement 
           addElement={this.addElement}
           publishPost={this.publishPost}
+          updateTab={this.updateTab}
         />
       </>
     )
