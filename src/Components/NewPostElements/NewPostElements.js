@@ -85,6 +85,11 @@ class NewPostElements extends Component {
     this.setState({elements})
   }
 
+  publishPost = () => {
+    let {elements} = this.state
+    this.props.publishPost(elements)
+  }
+
   render(){
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'paragraph'){
@@ -224,7 +229,10 @@ class NewPostElements extends Component {
     return(
       <>
         {displayElements}
-        <NewElement addElement={this.addElement}/>
+        <NewElement 
+          addElement={this.addElement}
+          publishPost={this.publishPost}
+        />
       </>
     )
   }

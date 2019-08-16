@@ -82,6 +82,19 @@ class NewPost extends Component {
     }
   }
 
+  publishPost = (elements) => {
+    let date = Date.parse(new Date())
+    let obj = {
+      elements: elements, 
+      postTitle: this.state.postTitle.title, 
+      imageMain: this.state.imageMain,
+      date: `${date}`
+    }
+    axios.post('/api/createpost', obj)
+    .then(res => console.log('res:', res))
+    .catch(err => console.log('err:', err))
+  }
+
   // ShowAlert Function
   // ocShowAlert = ( message, background = '#3089cf' ) => {
   //   let alertContainer = document.querySelector( '#uploadSuccess' )
@@ -154,6 +167,7 @@ class NewPost extends Component {
           singleFileUploadHandler={this.singleFileUploadHandler}
           state={this.state}
           removeImg={this.removeImg}
+          publishPost={this.publishPost}
         />
       </div>
     );

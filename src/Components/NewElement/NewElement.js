@@ -78,7 +78,10 @@ export default class NewElement extends Component {
         <div className='showOptions'>
           {showOptions}
         </div>
-        <button className='viewMoreBtn'>Publish</button>
+        <button className='viewMoreBtn'
+          onClick={this.props.publishPost}>
+            Publish
+        </button>
       </div>
     )
   }
