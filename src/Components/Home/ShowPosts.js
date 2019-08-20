@@ -24,7 +24,7 @@ export default function ShowPosts (props) {
       <Link to={`/post/${post.id}`} key={i} style={{textDecoration: 'none'}} className='miniPost'>
         {i % 2 !== 0 ? <div className='miniPhoto' style={{backgroundImage: `url(${post.imageMain})`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div> : <></>}
         <div className='postDiv'>
-          <h3 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{post.title}</h3>
+          <h3 className='postTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end', textAlign: 'right'} : {}}>{post.title}</h3>
           <p className='postSubTitle' style={i % 2 !== 0 ? {alignSelf: 'flex-end'} : {}}>{moment(date).fromNow()}</p>
           <div className='postTextDiv'>
             <p className='postText' style={i % 2 !== 0 ? {textAlign: 'end'} : {}}>{text}</p>
