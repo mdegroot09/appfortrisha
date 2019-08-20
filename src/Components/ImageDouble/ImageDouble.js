@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function ImageDouble (props) {
-  if (props.state[`image${props.i}a`] && !props.element.url1){
-    props.updateURL(props.i, 'url1', props.state[`image${props.i}a`])
+  if (props.state[`image${props.i}a`] && !props.element.url){
+    props.updateURL(props.i, 'url', props.state[`image${props.i}a`])
   } else if (props.state[`image${props.i}b`] && !props.element.url2) {
     props.updateURL(props.i, 'url2', props.state[`image${props.i}b`])
   }
@@ -21,11 +21,11 @@ export default function ImageDouble (props) {
         </div>
       }
       <div style={{width: 'inherit', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-        {props.element.url1 
+        {props.element.url
           ?
           <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
           onClick={props.element.viewDraft ? () => props.editElement(props.i) : () => {}}>
-            <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.element.url1} alt='new post'/> 
+            <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={props.element.url} alt='new post'/> 
             {props.element.viewDraft 
               ?
               <></>

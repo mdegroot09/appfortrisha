@@ -21,8 +21,17 @@ module.exports = {
     const db = req.app.get('db')
     let postsArr = await db.postCtrl.createPost({postTitle, family, makeup, food, date, imageMain, text})
     let post_id = postsArr[0].id
-    console.log('post_id:', post_id)
 
+    elements.map(async (element) => {
+      let {type, text, quote, person, url, url2} = element
+      if (!text) {text = ''} 
+      if (!quote) {quote = ''}
+      if (!person) {person = ''}
+      if (!person) {person = ''}
+      if (!url) {url = ''}
+      if (!url2) {url2 = ''}
+      return await db.postCtrl.createElement({type, text, quote, person, url, url2, post_id})
+    })
     
     res.sendStatus(200)
   }
