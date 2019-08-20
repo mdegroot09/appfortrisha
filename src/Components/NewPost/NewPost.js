@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 import NewPostElements from '../NewPostElements/NewPostElements'
 
 class NewPost extends Component {
@@ -10,7 +11,7 @@ class NewPost extends Component {
       selectedFile: null,
       imageMain: ''
     }
-   }
+  }
 
   updateTitle = (val) => {
     let {postTitle} = this.state
@@ -94,7 +95,11 @@ class NewPost extends Component {
       date: `${date}`
     }
     axios.post('/api/createpost', obj)
-    .then(res => console.log('res:', res))
+    .then(res => {
+      console.log('res:', res)
+      let {post_id} = res.data
+      this.props.history.push(`/`)
+    })
     .catch(err => console.log('err:', err))
   }
 
@@ -177,4 +182,4 @@ class NewPost extends Component {
    }
   }
 
-  export default NewPost;
+  export default withRouter(NewPost);
