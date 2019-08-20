@@ -89,8 +89,8 @@ class NewPostElements extends Component {
   }
 
   publishPost = () => {
-    let {elements} = this.state
-    this.props.publishPost(elements)
+    let {elements, family, makeup, food} = this.state
+    this.props.publishPost(elements, family, makeup, food)
   }
 
   updateTab = (name, id) => {

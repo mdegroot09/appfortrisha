@@ -82,10 +82,13 @@ class NewPost extends Component {
     }
   }
 
-  publishPost = (elements) => {
+  publishPost = (elements, family, makeup, food) => {
     let date = Date.parse(new Date())
     let obj = {
       elements: elements, 
+      family: family,
+      makeup: makeup,
+      food: food,
       postTitle: this.state.postTitle.title, 
       imageMain: this.state.imageMain,
       date: `${date}`
