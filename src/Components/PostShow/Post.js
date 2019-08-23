@@ -7,9 +7,18 @@ import {withRouter} from 'react-router-dom';
 import moment from 'moment'
 
 class Post extends Component {
+  constructor (){
+    super()
+    this.state = {
+      comments: []
+    }
+  }
+
   componentDidMount = () => {
     // Bring the scroll to the top of the page on initial render
     window.scrollTo(0, 0)
+
+    
   }
 
   render(){
@@ -21,13 +30,13 @@ class Post extends Component {
   
     return(
       <div className='homeMainDiv'>
-        <Header/>
+        {/* <Header/> */}
         <div className='postDivider'></div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
-              <h3 className='sectionTitle' style={{margin: '0'}}>{moment(date).fromNow()}</h3>
+              <h3 style={{margin: '0', fontSize: '25px', color: 'black'}}>{moment(date).fromNow()}</h3>
               <div className='showPost'>
                 <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
                   backgroundImage: `url(${post.imageMain})`}}>
@@ -44,7 +53,7 @@ class Post extends Component {
               </div>
             </div>
           </div>
-          <Comments comments={post.comments}/>
+          <Comments comments={this.state.comments}/>
         </div>
       </div>
     )
