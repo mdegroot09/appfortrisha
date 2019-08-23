@@ -6,6 +6,14 @@ module.exports = {
     return res.status(200).send(postsArr)
   },
 
+  getPost: async (req, res) => {
+    let {id} = req.params
+    const db = req.app.get('db')
+    let postsArr = await db.postCtrl.getPost({id})
+
+    return res.status(200).send(postsArr)
+  },
+
   createPost: async (req, res) => {
     let {postTitle, imageMain, date, family, makeup, food, elements} = req.body
     let textArr = elements.map(element => {

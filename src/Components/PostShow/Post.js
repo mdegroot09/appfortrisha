@@ -1,21 +1,19 @@
 import React, {Component} from 'react'
-import {updatePosts} from '../../redux/reducer'
 import {connect} from 'react-redux'
 import Header from '../Header/Header'
 import Comments from '../Comments/Comments';
 import {withRouter} from 'react-router-dom';
 import moment from 'moment'
+import axios from 'axios'
 
 class Post extends Component {
   constructor (){
     super()
     this.state = {
       post: {
-        elements: [],
-        date: `0000000000000`
+        elements: []
       },
-      comments: [],
-      index: 0
+      comments: []
     }
   }
 
@@ -30,39 +28,54 @@ class Post extends Component {
       this.setState({post: this.props.posts[index]})
     } else {
       console.log('not found')
+      axios.get(`/api/getpost/${this.props.match.params.id}`)
+      .then(res => {
+        console.log('res.data:', res.data)
+        let {post} = this.state
+        post.title = res.data[0].title
+        post.imageMain = res.data[0].imagemain
+        post.date = res.data[0].postdatetime
+        post.family = res.data[0].family
+        post.makeup = res.data[0].makeup
+        post.food = res.data[0].food
+        post.elements = res.data.map(element => {
+          return {
+            type: element.elementtype,
+            text: element.elementtext,
+            url: element.elementurl,
+            url2: element.elementurl2,
+            quote: element.elementquote,
+            person: element.elementperson
+          }
+        })
+        this.setState({post})
+      })
     }
   }
 
   render(){
-    let index = this.props.posts.findIndex(post => {
-      return post.id === +this.props.match.params.id
-    })
-    // let post = this.props.posts[index]
     let {post} = this.state
-    // var date = new Date(+post.date)
-    var date = new Date(+this.state.post.date)
+    console.log('state:', this.state)
   
     return(
       <div className='homeMainDiv'>
         {/* <Header/> */}
-        <div className='postDivider'></div>
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
-              <h3 style={{margin: '0', fontSize: '25px', color: 'black'}}>{moment(date).fromNow()}</h3>
+              <h3 style={{margin: '0', fontSize: '20px', color: 'black'}}>
+                {post.date 
+                  ? moment(new Date(+post.date)).fromNow() 
+                  : ''
+                }
+              </h3>
               <div className='showPost'>
                 <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
                   backgroundImage: `url(${post.imageMain})`}}>
                 </div>                
                 <div className='fullPostTextDiv'>
                   <p className='fullPostText'>{post.text}</p>
-                  {/* <div className='reactions'>
-                    <img className='reaction makeGray2' src="https://www.searchpng.com/wp-content/uploads/2019/02/Heart-icon-PNG-715x715.png" alt=""/>
-                    <img className='reaction makeGray1' src="https://png.pngtree.com/svg/20170321/laugh_and_cry_703820.png" alt=""/>
-                    <img className='reaction makeGray1' src="https://static.thenounproject.com/png/2345410-200.png" alt=""/>
-                    <img className='reaction makeGray2' src="http://cdn.onlinewebfonts.com/svg/img_506076.png" alt=""/>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -82,7 +95,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updatePosts
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Post))

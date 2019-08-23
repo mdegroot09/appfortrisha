@@ -101,6 +101,7 @@ app.post('/auth/checkID', authCtrl.isAdmin)
 
 // Posts Controller
 app.get('/api/getposts', postCtrl.getPosts)
+app.get('/api/getpost/:id', postCtrl.getPost)
 app.post('/api/createpost', postCtrl.createPost)
 
 // Comments Controller
