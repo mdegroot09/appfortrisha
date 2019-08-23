@@ -10,7 +10,12 @@ class Post extends Component {
   constructor (){
     super()
     this.state = {
-      comments: []
+      post: {
+        elements: [],
+        date: `0000000000000`
+      },
+      comments: [],
+      index: 0
     }
   }
 
@@ -18,15 +23,24 @@ class Post extends Component {
     // Bring the scroll to the top of the page on initial render
     window.scrollTo(0, 0)
 
-    
+    let index = this.props.posts.findIndex(post => {
+      return post.id === +this.props.match.params.id
+    })
+    if (this.props.posts[index]){
+      this.setState({post: this.props.posts[index]})
+    } else {
+      console.log('not found')
+    }
   }
 
   render(){
     let index = this.props.posts.findIndex(post => {
       return post.id === +this.props.match.params.id
     })
-    let post = this.props.posts[index]
-    var date = new Date(+post.date)
+    // let post = this.props.posts[index]
+    let {post} = this.state
+    // var date = new Date(+post.date)
+    var date = new Date(+this.state.post.date)
   
     return(
       <div className='homeMainDiv'>

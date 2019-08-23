@@ -19,18 +19,13 @@
 
 select 
   posts.datetime as postdatetime, 
-  comments.datetime as commentdatetime, 
   posts.id as postid, 
-  comments.id as commentid, 
-  comments.text as commenttext, 
   posts.text as posttext, 
   posts.imagemain, 
   posts.title, 
   posts.family, 
   posts.makeup, 
   posts.food,
-  users.firstname,
-  users.lastname,
   elements.id as elementid,
   elements.type as elementtype,
   elements.text as elementtext,
@@ -39,7 +34,5 @@ select
   elements.quote as elementquote,
   elements.person as elementperson
 from posts
-left join comments on comments.post_id = posts.id
-left join users on comments.user_id = users.id
 left join elements on elements.post_id = posts.ID
-order by posts.datetime desc, comments.datetime asc, elementid asc;
+order by posts.datetime desc, elementid asc;
