@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Header from '../Header/Header'
 import Comments from '../Comments/Comments';
 import {withRouter} from 'react-router-dom';
 import moment from 'moment'
@@ -45,7 +44,8 @@ class Post extends Component {
             url: element.elementurl,
             url2: element.elementurl2,
             quote: element.elementquote,
-            person: element.elementperson
+            person: element.elementperson,
+            viewDraft: true
           }
         })
         this.setState({post})
@@ -55,11 +55,102 @@ class Post extends Component {
 
   render(){
     let {post} = this.state
-    console.log('state:', this.state)
   
+    let showElements = post.elements.map((element, i) => {
+      if (element.type === 'sectionHeader'){
+        return (
+          <div className='postElement' style={{border: 'none'}} key={i}>
+            <div className='paragraph'>
+              <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0', fontSize: '28px', fontWeight: '100'}}>
+                {element.text}
+              </h3>
+            </div>
+          </div>
+        ) 
+      } else if (element.type === 'paragraph'){
+        return (
+          <div className='postElement' style={{border: 'none'}} key={i}>
+            <div className='paragraph' style={{cursor: 'pointer'}}>
+              <h3 className='newPostHeader' style={{textAlign: 'start', marginLeft: '0'}}>
+                {element.text}
+              </h3>
+            </div>
+          </div>
+        )
+      } else if (element.type === 'quote'){
+        return (
+          <div className='postElement' style={{border: 'none'}} key={i}>
+            <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start', cursor: 'pointer'}}>
+              <h3 className='newPostHeader' style={{fontSize: '30px'}}>
+                "{element.quote}"
+              </h3>
+              <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
+                - {element.person}
+              </h3>
+            </div>
+          </div>
+        )
+      } else if (element.type === 'imageLeft'){
+        return (
+          <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
+              <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <img className='newPostImg' style={{maxWidth: '100%'}} src={element.url} alt='new post'/> 
+              </div>
+              <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}>
+                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
+                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '0'}}>
+                    {element.text}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      } else if (element.type === 'imageRight'){
+        return (
+          <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
+              <div style={{width: '50%', display: 'flex', alignItems: 'center'}}>
+                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
+                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '10px', marginRight: '10px'}}>
+                    {element.text ? element.text : 'Edit me.'}
+                  </h3>
+                </div>
+              </div>
+              <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
+                <img className='newPostImg' style={{maxWidth: '100%'}} src={element.url} alt='new post'/> 
+              </div>
+            </div>
+          </div>
+        )
+      } else if (element.type === 'imageSingle'){
+        return (
+          <div className='postElement' style={{border: 'none'}} key={i}>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <img className='newPostImg' src={element.url} alt='new post'/> 
+            </div>
+          </div>          
+        )
+      } else if (element.type === 'imageDouble'){
+        return (
+          <div className='postElement' style={{border: 'none'}} key={i}>
+            <div style={{width: 'inherit', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
+              <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={element.url} alt='new post'/> 
+              </div>
+              <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={element.url2} alt='new post'/> 
+              </div>
+            </div>
+          </div>
+        )
+      }
+      else {return <></>}
+    })
+
     return(
       <div className='homeMainDiv'>
-        {/* <Header/> */}
         <div className='homeDuoDiv'>
           <div className='homeLeft'>
             <div className='postsList'>
@@ -74,9 +165,7 @@ class Post extends Component {
                 <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
                   backgroundImage: `url(${post.imageMain})`}}>
                 </div>                
-                <div className='fullPostTextDiv'>
-                  <p className='fullPostText'>{post.text}</p>
-                </div>
+                {showElements}
               </div>
             </div>
           </div>
