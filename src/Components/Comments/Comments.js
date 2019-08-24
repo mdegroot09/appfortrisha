@@ -65,16 +65,20 @@ class Comments extends Component {
     try {
       let commentElements = this.state.comments.map((comment, i) => {
         let date = new Date(+comment.date)
-        return (
-          <div key={i} className='comment'>
-            <b className='commentName'>
-              {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
-            </b>
-            <div className='commentText'>
-              {comment.text}
+        if (comment.firstname){
+          return (
+            <div key={i} className='comment'>
+              <b className='commentName'>
+                {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
+              </b>
+              <div className='commentText'>
+                {comment.text}
+              </div>
             </div>
-          </div>
-        )
+          )
+        } else {
+          return <></>
+        }
       })
       this.setState({commentElements})
     }
@@ -86,7 +90,20 @@ class Comments extends Component {
   }
   
   render(){
-    let {commentElements} = this.state
+    // Skip mapping if comments don't exist for a post
+    let commentElements = this.props.comments.map((comment, i) => {
+      let date = new Date(+comment.date)
+      return (
+        <div key={i} className='comment'>
+          <b className='commentName'>
+            {`${comment.firstname} ${comment.lastname} - ${moment(date).fromNow()}`}
+          </b>
+          <div className='commentText'>
+            {comment.text}
+          </div>
+        </div>
+      )
+    })
     console.log('comments state:', this.state)
 
     return (
