@@ -52,6 +52,10 @@ class Comments extends Component {
           <div className='commentText'>
             {comment.text}
           </div>
+          {this.props.isAdmin 
+            ? <button className='viewMoreBtn' style={{alignSelf: 'center', backgroundColor: 'red', margin: '5px 0'}}>Delete</button>
+            : <></>
+          }
         </div>
       )
     })
@@ -83,8 +87,8 @@ class Comments extends Component {
 }
 
 const mapStateToProps = state => {
-  const {userFirstName, userLastName} = state
-  return {userFirstName, userLastName}
+  const {userFirstName, userLastName, isAdmin} = state
+  return {userFirstName, userLastName, isAdmin}
 }
 
 const mapDispatchToProps = {
