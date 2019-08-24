@@ -3,25 +3,13 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {updateShowLogin} from '../../redux/reducer'
 import moment from 'moment'
-import axios from 'axios'
 
 class Comments extends Component {
   constructor(){
     super()
     this.state = {
-      comments: [],
-      commentElements: '',
       newComment: ''
     }
-  }
-
-  componentDidMount = () => {
-    // if (this.props.comments){
-    //   this.setState({comments: this.props.comments})
-    // }
-    // setTimeout(() => {
-    //   this.renderComments()
-    // }, 1);
   }
 
   addComment = () => {
@@ -39,52 +27,14 @@ class Comments extends Component {
     }
     this.props.addComment(comment)
 
-    // comments.push(comment)
-    // this.setState({comments})
-    // this.setState({newComment: ''})
-    // setTimeout(() => {
-      // this.renderComments()
-      let commentInput = document.getElementsByClassName('commentInput')[0]
-      commentInput.value = ''
-      this.setState({newComment: ''})
-    // }, 1);
+    let commentInput = document.getElementsByClassName('commentInput')[0]
+    commentInput.value = ''
+    this.setState({newComment: ''})
   }
-
-  // addCommentToDB = (text, date) => {
-  //   let post_id = this.props.match.params.id
-  //   axios.post('/api/createcomment', {text, date, post_id})
-  //   .then(res => console.log(res))
-  //   .catch(err => console.log(err))
-  // }
 
   updateNewCommentState = (input) => {
     this.setState({newComment: input})
   }
-
-  // renderComments = () => {
-  //   // Skip mapping if comments don't exist for a post
-  //   try {
-  //     let commentElements = this.state.comments.map((comment, i) => {
-  //       let date = new Date(+comment.date)
-  //       if (comment.firstname){
-  //         return (
-  //           <div key={i} className='comment'>
-  //             <b className='commentName'>
-  //               {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
-  //             </b>
-  //             <div className='commentText'>
-  //               {comment.text}
-  //             </div>
-  //           </div>
-  //         )
-  //       } else {
-  //         return <></>
-  //       }
-  //     })
-  //     this.setState({commentElements})
-  //   }
-  //   catch {return}
-  // }
 
   login = () => {
     this.props.updateShowLogin(true)
@@ -105,7 +55,6 @@ class Comments extends Component {
         </div>
       )
     })
-    console.log('comments state:', this.state)
 
     return (
       <div className='homeRight'>
