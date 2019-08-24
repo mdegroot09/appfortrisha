@@ -70,6 +70,19 @@ class Post extends Component {
     .catch(err => console.log(err))
   }
 
+  deleteComment = (id) => {
+    axios.delete(`/api/deletecomment/${id}`)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+    let index = this.state.comments.findIndex(comments => {
+      return comments.id === id
+    })
+    let {comments} = this.state
+    comments.splice(index, 1)
+    this.setState({comments})
+    this.getPost()
+  }
+
   render(){
     let {post} = this.state
   
@@ -192,6 +205,7 @@ class Post extends Component {
           <Comments 
             comments={this.state.comments}
             addComment={this.addComment}
+            deleteComment={this.deleteComment}
           />
         </div>
       </div>

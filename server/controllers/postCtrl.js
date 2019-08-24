@@ -58,5 +58,13 @@ module.exports = {
     createElement(0)
     
     res.status(201).send({post_id})
+  },
+
+  deleteComment: async (req, res) => {
+    let {id} = req.params
+    const db = req.app.get('db')
+    await db.postCtrl.deleteComment({id})
+
+    return res.sendStatus(200)
   }
 }

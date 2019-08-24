@@ -104,6 +104,7 @@ app.get('/api/getposts', postCtrl.getPosts)
 app.get('/api/getpost/:id', postCtrl.getPost)
 app.get('/api/getcomments/:id', postCtrl.getComments)
 app.post('/api/createpost', postCtrl.createPost)
+app.delete('/api/deletecomment/:id', postCtrl.deleteComment)
 
 // Comments Controller
 app.post('/api/createcomment', commentCtrl.createComment)

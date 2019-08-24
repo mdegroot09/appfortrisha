@@ -53,7 +53,10 @@ class Comments extends Component {
             {comment.text}
           </div>
           {this.props.isAdmin 
-            ? <button className='viewMoreBtn' style={{alignSelf: 'center', backgroundColor: 'red', margin: '5px 0'}}>Delete</button>
+            ? <button className='viewMoreBtn' style={{alignSelf: 'center', backgroundColor: 'red', margin: '5px 0 0 0'}}
+              onClick={() => this.props.deleteComment(comment.commentid)}>
+                Delete
+              </button>
             : <></>
           }
         </div>
