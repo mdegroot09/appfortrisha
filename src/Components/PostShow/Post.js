@@ -20,37 +20,29 @@ class Post extends Component {
     // Bring the scroll to the top of the page on initial render
     window.scrollTo(0, 0)
 
-    let index = this.props.posts.findIndex(post => {
-      return post.id === +this.props.match.params.id
-    })
-    if (this.props.posts[index]){
-      this.setState({post: this.props.posts[index]})
-    } else {
-      console.log('not found')
-      axios.get(`/api/getpost/${this.props.match.params.id}`)
-      .then(res => {
-        console.log('res.data:', res.data)
-        let {post} = this.state
-        post.title = res.data[0].title
-        post.imageMain = res.data[0].imagemain
-        post.date = res.data[0].postdatetime
-        post.family = res.data[0].family
-        post.makeup = res.data[0].makeup
-        post.food = res.data[0].food
-        post.elements = res.data.map(element => {
-          return {
-            type: element.elementtype,
-            text: element.elementtext,
-            url: element.elementurl,
-            url2: element.elementurl2,
-            quote: element.elementquote,
-            person: element.elementperson,
-            viewDraft: true
-          }
-        })
-        this.setState({post})
+    axios.get(`/api/getpost/${this.props.match.params.id}`)
+    .then(res => {
+      console.log('res.data:', res.data)
+      let {post} = this.state
+      post.title = res.data[0].title
+      post.imageMain = res.data[0].imagemain
+      post.date = res.data[0].postdatetime
+      post.family = res.data[0].family
+      post.makeup = res.data[0].makeup
+      post.food = res.data[0].food
+      post.elements = res.data.map(element => {
+        return {
+          type: element.elementtype,
+          text: element.elementtext,
+          url: element.elementurl,
+          url2: element.elementurl2,
+          quote: element.elementquote,
+          person: element.elementperson,
+          viewDraft: true
+        }
       })
-    }
+      this.setState({post})
+    })    
   }
 
   render(){
@@ -146,7 +138,10 @@ class Post extends Component {
           </div>
         )
       }
-      else {return <></>}
+      else {
+        return (
+          <div key={i}></div>
+      )}
     })
 
     return(
