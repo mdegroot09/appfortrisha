@@ -16,12 +16,12 @@ class Comments extends Component {
   }
 
   componentDidMount = () => {
-    if (this.props.comments){
-      this.setState({comments: this.props.comments})
-    }
-    setTimeout(() => {
-      this.renderComments()
-    }, 1);
+    // if (this.props.comments){
+    //   this.setState({comments: this.props.comments})
+    // }
+    // setTimeout(() => {
+    //   this.renderComments()
+    // }, 1);
   }
 
   addComment = () => {
