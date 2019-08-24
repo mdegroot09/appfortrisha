@@ -28,8 +28,7 @@ class Comments extends Component {
     // Get the current date and time
     let date = Date.parse(new Date())
 
-    let {comments, newComment} = this.state
-    this.addCommentToDB(newComment, date)
+    let {newComment} = this.state
   
     let comment = {
       id: null,
@@ -38,52 +37,54 @@ class Comments extends Component {
       text: newComment,
       date: date
     }
-    comments.push(comment)
-    this.setState({comments})
-    this.setState({newComment: ''})
-    setTimeout(() => {
-      this.renderComments()
+    this.props.addComment(comment)
+
+    // comments.push(comment)
+    // this.setState({comments})
+    // this.setState({newComment: ''})
+    // setTimeout(() => {
+      // this.renderComments()
       let commentInput = document.getElementsByClassName('commentInput')[0]
       commentInput.value = ''
       this.setState({newComment: ''})
-    }, 1);
+    // }, 1);
   }
 
-  addCommentToDB = (text, date) => {
-    let post_id = this.props.match.params.id
-    axios.post('/api/createcomment', {text, date, post_id})
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  }
+  // addCommentToDB = (text, date) => {
+  //   let post_id = this.props.match.params.id
+  //   axios.post('/api/createcomment', {text, date, post_id})
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log(err))
+  // }
 
   updateNewCommentState = (input) => {
     this.setState({newComment: input})
   }
 
-  renderComments = () => {
-    // Skip mapping if comments don't exist for a post
-    try {
-      let commentElements = this.state.comments.map((comment, i) => {
-        let date = new Date(+comment.date)
-        if (comment.firstname){
-          return (
-            <div key={i} className='comment'>
-              <b className='commentName'>
-                {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
-              </b>
-              <div className='commentText'>
-                {comment.text}
-              </div>
-            </div>
-          )
-        } else {
-          return <></>
-        }
-      })
-      this.setState({commentElements})
-    }
-    catch {return}
-  }
+  // renderComments = () => {
+  //   // Skip mapping if comments don't exist for a post
+  //   try {
+  //     let commentElements = this.state.comments.map((comment, i) => {
+  //       let date = new Date(+comment.date)
+  //       if (comment.firstname){
+  //         return (
+  //           <div key={i} className='comment'>
+  //             <b className='commentName'>
+  //               {`${comment.firstName} ${comment.lastName} - ${moment(date).fromNow()}`}
+  //             </b>
+  //             <div className='commentText'>
+  //               {comment.text}
+  //             </div>
+  //           </div>
+  //         )
+  //       } else {
+  //         return <></>
+  //       }
+  //     })
+  //     this.setState({commentElements})
+  //   }
+  //   catch {return}
+  // }
 
   login = () => {
     this.props.updateShowLogin(true)

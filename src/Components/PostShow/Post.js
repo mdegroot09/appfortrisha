@@ -20,6 +20,10 @@ class Post extends Component {
     // Bring the scroll to the top of the page on initial render
     window.scrollTo(0, 0)
 
+    this.getPost()
+  }
+
+  getPost = () => {
     axios.get(`/api/getpost/${this.props.match.params.id}`)
     .then(res => {
       console.log('res.data:', res.data)
@@ -48,6 +52,22 @@ class Post extends Component {
         this.setState({comments: res.data})
       })
     })    
+  }
+
+  addComment = (comment) => {
+    let {comments} = this.state
+    let {text, date} = comment
+    let post_id = this.props.match.params.id
+
+    comments.push(comment)
+    this.setState({comments})
+
+    axios.post('/api/createcomment', {text, date, post_id})
+    .then(res => {
+      console.log('res.data:', res.data)
+      this.getPost()
+    })
+    .catch(err => console.log(err))
   }
 
   render(){
@@ -169,7 +189,10 @@ class Post extends Component {
               </div>
             </div>
           </div>
-          <Comments comments={this.state.comments}/>
+          <Comments 
+            comments={this.state.comments}
+            addComment={this.addComment}
+          />
         </div>
       </div>
     )
