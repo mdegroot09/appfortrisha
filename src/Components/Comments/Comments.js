@@ -87,6 +87,7 @@ class Comments extends Component {
   
   render(){
     let {commentElements} = this.state
+    console.log('comments state:', this.state)
 
     return (
       <div className='homeRight'>

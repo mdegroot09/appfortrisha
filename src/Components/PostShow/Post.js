@@ -42,6 +42,11 @@ class Post extends Component {
         }
       })
       this.setState({post})
+      axios.get(`/api/getcomments/${this.props.match.params.id}`)
+      .then(res => {
+        console.log('res.data:', res.data)
+        this.setState({comments: res.data})
+      })
     })    
   }
 

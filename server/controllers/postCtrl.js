@@ -14,6 +14,14 @@ module.exports = {
     return res.status(200).send(postsArr)
   },
 
+  getComments: async (req, res) => {
+    let {id} = req.params
+    const db = req.app.get('db')
+    let commentsArr = await db.postCtrl.getComments({id})
+
+    return res.status(200).send(commentsArr)
+  },
+
   createPost: async (req, res) => {
     let {postTitle, imageMain, date, family, makeup, food, elements} = req.body
     let textArr = elements.map(element => {
