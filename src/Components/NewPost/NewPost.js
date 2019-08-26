@@ -126,7 +126,7 @@ class NewPost extends Component {
     let {title} = this.state.postTitle
 
     return(
-      <div className='homeMainDiv'>
+      <div className='homeMainDiv' style={{backgroundColor: 'white'}}>
         <div className='postElement'>
           {!this.state.postTitle.editDraft 
             ?

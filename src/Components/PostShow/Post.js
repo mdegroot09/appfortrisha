@@ -110,13 +110,15 @@ class Post extends Component {
       } else if (element.type === 'quote'){
         return (
           <div className='postElement' style={{border: 'none'}} key={i}>
-            <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start', cursor: 'pointer'}}>
-              <h3 className='newPostHeader' style={{fontSize: '30px'}}>
-                "{element.quote}"
-              </h3>
-              <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
-                - {element.person}
-              </h3>
+            <div className='quoteBackground'>
+              <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'center', cursor: 'pointer', maxWidth: '100%'}}>
+                <h3 className='quote'>
+                  "{element.quote}"
+                </h3>
+                <h3 className='newPostHeader' style={{alignSelf: 'flex-end', margin: '0 10px 0 0'}}>
+                  - {element.person}
+                </h3>
+              </div>
             </div>
           </div>
         )

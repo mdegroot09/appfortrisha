@@ -4,14 +4,16 @@ export default function Quote (props) {
   let {element, i} = props
   if(element.viewDraft){
     return(
-      <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start', cursor: 'pointer'}}
+      <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'center', cursor: 'pointer', maxWidth: '100%'}}
       onClick={() => props.editElement(i)}>
-        <h3 className='newPostHeader' style={{fontSize: '30px'}}>
-          "{element.quote ? element.quote : `Broccoli is the best.`}"
-        </h3>
-        <h3 className='newPostHeader' style={{alignSelf: 'flex-end'}}>
-          - {element.person ? element.person : `No one ever`}
-        </h3>
+        <div className='quoteBackground'>
+          <h3 className='quote'>
+            "{element.quote ? element.quote : `Broccoli is the best.`}"
+          </h3>
+          <h3 className='newPostHeader' style={{alignSelf: 'flex-end', margin: '0 10px 0 0'}}>
+            - {element.person ? element.person : `No one ever`}
+          </h3>
+        </div>
       </div>
     )
   } else {
