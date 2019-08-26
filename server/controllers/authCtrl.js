@@ -6,6 +6,8 @@ module.exports = {
     const db = req.app.get('db')
     let userArr = await db.authCtrl.getUser({email})
     let user = userArr[0]
+
+    return
     
     if (!user) {
       const salt = bcrypt.genSaltSync(10)
