@@ -53,7 +53,7 @@ class Auths extends Component{
       loginSuccess.style.display = 'inline'
       setTimeout(() => {
         loginSuccess.style.display = 'none'
-      }, 4000);
+      }, 5000);
       axios.post('/auth/checkID', user)
       .then(response => {
         console.log('isAdmin TRUE.', response)
@@ -61,7 +61,14 @@ class Auths extends Component{
       })
       .catch(error => console.log('isAdmin FALSE.', error))
     })
-    .catch(err => console.log('err:', err))
+    .catch(err => {
+      let loginFail = document.getElementsByClassName('loginFail')[0]
+      loginFail.style.display = 'inline'
+      setTimeout(() => {
+        loginFail.style.display = 'none'
+      }, 5000);
+      console.log('err:', err)
+    })
   }
   
   render(){
