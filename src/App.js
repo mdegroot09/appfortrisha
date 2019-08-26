@@ -25,6 +25,7 @@ export default function App() {
       <HashRouter>
         <div className="App">
           <Navbar/>
+          <div className='loginSuccess'>Login successful</div>
           <Auth/>
           <div className='App' onClick={() => showHideMenu()} onTouchMove={() => showHideMenu()}>
             {router}

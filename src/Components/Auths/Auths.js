@@ -47,10 +47,13 @@ class Auths extends Component{
     }
     this.props.updateUserImg(user.image)
     this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName, googleID: user.googleID})
-    console.log('user:', user)
     axios.post(`/auth/register`, user)
     .then(res => {
-      console.log('res:', res)
+      let loginSuccess = document.getElementsByClassName('loginSuccess')[0]
+      loginSuccess.style.display = 'inline'
+      setTimeout(() => {
+        loginSuccess.style.display = 'none'
+      }, 4000);
       axios.post('/auth/checkID', user)
       .then(response => {
         console.log('isAdmin TRUE.', response)
