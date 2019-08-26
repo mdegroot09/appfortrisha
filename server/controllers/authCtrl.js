@@ -98,9 +98,9 @@ module.exports = {
   },
 
   isAdmin: async (req, res) => {
-    let {ADMIN_GOOGLEID} = process.env
+    let {ADMIN_GOOGLEID, ADMIN_GOOGLEID2} = process.env
     let {googleID} = req.body
-    if (googleID === ADMIN_GOOGLEID){
+    if (googleID === ADMIN_GOOGLEID || googleID === ADMIN_GOOGLEID2){
       try {
         req.session.user.isAdmin = true
         console.log('match')
