@@ -62,6 +62,8 @@ class Auths extends Component{
       .catch(error => console.log('isAdmin FALSE.', error))
     })
     .catch(err => {
+      this.props.updateUserImg('')
+      this.props.updateUsername({userFirstName: '', userLastName: '', googleID: ''})
       let loginFail = document.getElementsByClassName('loginFail')[0]
       loginFail.style.display = 'inline'
       setTimeout(() => {
