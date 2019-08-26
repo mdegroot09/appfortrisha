@@ -1,6 +1,10 @@
 .newPostImg {
-  max-height: 150px;
+  height: 130px;
+  width: 100%;
   max-width: calc(100vw - 20px);
+  background-position: center center;
+  background-size: cover;
+  border-radius: 5px;
 }
 
 .uploadSuccess {

@@ -127,7 +127,7 @@ class Post extends Component {
           <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
             <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
               <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <img className='newPostImg' style={{maxWidth: '100%'}} src={element.url} alt='new post'/> 
+                <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`}}></div>
               </div>
               <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}>
                 <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
@@ -151,7 +151,7 @@ class Post extends Component {
                 </div>
               </div>
               <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
-                <img className='newPostImg' style={{maxWidth: '100%'}} src={element.url} alt='new post'/> 
+                <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`}}></div>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ class Post extends Component {
         return (
           <div className='postElement' style={{border: 'none'}} key={i}>
             <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <img className='newPostImg' src={element.url} alt='new post'/> 
+              <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`, height: '200px'}}></div>
             </div>
           </div>          
         )
@@ -168,11 +168,11 @@ class Post extends Component {
         return (
           <div className='postElement' style={{border: 'none'}} key={i}>
             <div style={{width: 'inherit', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
-              <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={element.url} alt='new post'/> 
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`}}></div>                
               </div>
-              <div style={{maxWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <img className='newPostImg' style={{maxWidth: 'calc(100% - 15px)'}} src={element.url2} alt='new post'/> 
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5px'}}>
+                <div className='newPostImg' style={{backgroundImage: `url('${element.url2}')`}}></div>
               </div>
             </div>
           </div>
