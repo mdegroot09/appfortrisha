@@ -125,13 +125,13 @@ class Post extends Component {
       } else if (element.type === 'imageLeft'){
         return (
           <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
-              <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <div className='newPostImg' style={{width: 'calc(100% - 20px)', backgroundImage: `url('${element.url}')`}}></div>
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit', justifyContent: 'space-evenly'}} >
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div className='newPostImg' style={{width: '100%', backgroundImage: `url('${element.url}')`}}></div>
               </div>
-              <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}>
-                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '0'}}>
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', alignItems: 'center'}}>
+                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'center'}}>
+                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0'}}>
                     {element.text}
                   </h3>
                 </div>
@@ -142,16 +142,16 @@ class Post extends Component {
       } else if (element.type === 'imageRight'){
         return (
           <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
-            <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
-              <div style={{width: '50%', display: 'flex', alignItems: 'center'}}>
-                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start', marginLeft: '10px'}}>
+            <div style={{display: 'flex', alignItems: 'center', width: 'inherit', justifyContent: 'space-evenly'}} >
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', alignItems: 'center'}}>
+                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'center'}}>
                   <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0'}}>
-                    {element.text ? element.text : 'Edit me.'}
+                    {element.text}
                   </h3>
                 </div>
               </div>
-              <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
-                <div className='newPostImg' style={{width: 'calc(100% - 20px)', backgroundImage: `url('${element.url}')`}}></div>
+              <div style={{width: 'calc(50% - 15px)', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <div className='newPostImg' style={{width: '100%', backgroundImage: `url('${element.url}')`}}></div>
               </div>
             </div>
           </div>
