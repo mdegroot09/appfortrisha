@@ -186,7 +186,7 @@ class Post extends Component {
 
     return(
       <div className='homeMainDiv'>
-        <div className='homeDuoDiv'>
+        <div className='homeDuoDiv' style={{marginTop: '0'}}>
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
