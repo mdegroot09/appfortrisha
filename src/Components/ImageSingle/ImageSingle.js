@@ -24,7 +24,8 @@ export default function ImageSingle (props) {
         ?
         <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}
         onClick={element.viewDraft ? () => props.editElement(i) : () => {}}>
-          <img className='newPostImg' src={props.element.url} alt='new post'/> 
+          <div className='newPostImg' style={{backgroundImage: `url('${props.element.url}')`, height: '200px'}}></div>
+          {/* <img className='newPostImg' src={props.element.url} alt='new post'/>  */}
           {element.viewDraft 
             ?
             <></>

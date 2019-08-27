@@ -44,7 +44,8 @@ export default function ImageRight (props) {
         {props.element.url 
           ?
           <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
-            <img className='newPostImg' style={{maxWidth: '100%'}} src={props.element.url} alt='new post'/> 
+            <div className='newPostImg' style={{backgroundImage: `url('${props.element.url}')`}}></div>
+            {/* <img className='newPostImg' style={{maxWidth: '100%'}} src={props.element.url} alt='new post'/>  */}
             {element.viewDraft 
               ?
               <></>
