@@ -127,7 +127,7 @@ class Post extends Component {
           <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
             <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
               <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`}}></div>
+                <div className='newPostImg' style={{width: 'calc(100% - 20px)', backgroundImage: `url('${element.url}')`}}></div>
               </div>
               <div style={{width: '50%', marginLeft: '10px', display: 'flex', alignItems: 'center'}}>
                 <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
@@ -144,14 +144,14 @@ class Post extends Component {
           <div className='postElement' style={{border: 'none', cursor: 'pointer'}} key={i}>
             <div style={{display: 'flex', alignItems: 'center', width: 'inherit'}} >
               <div style={{width: '50%', display: 'flex', alignItems: 'center'}}>
-                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', marginLeft: '10px', marginRight: '10px'}}>
+                <div className='quoteInput' style={{flexDirection: 'column', alignItems: 'flex-start', marginLeft: '10px'}}>
+                  <h3 className='newPostHeader' style={{width: '100%', textAlign: 'left', margin: '0'}}>
                     {element.text ? element.text : 'Edit me.'}
                   </h3>
                 </div>
               </div>
               <div style={{width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '10px'}}>
-                <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`}}></div>
+                <div className='newPostImg' style={{width: 'calc(100% - 20px)', backgroundImage: `url('${element.url}')`}}></div>
               </div>
             </div>
           </div>
@@ -197,9 +197,9 @@ class Post extends Component {
                 }
               </h3>
               <div className='showPost'>
-                <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', width: '150px', height: '150px',
-                  backgroundImage: `url(${post.imageMain})`}}>
-                </div>                
+                <div style={{width: 'calc(100% - 50px)', maxWidth: '500px'}}>
+                  <div className='mainPhoto' alt="" style={{backgroundPosition: 'center top', backgroundSize: 'cover', backgroundImage: `url(${post.imageMain})`}}></div>                
+                </div>
                 {showElements}
               </div>
             </div>
