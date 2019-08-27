@@ -160,7 +160,7 @@ class Post extends Component {
         return (
           <div className='postElement' style={{border: 'none'}} key={i}>
             <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`, height: '200px'}}></div>
+              <div className='newPostImg' style={{backgroundImage: `url('${element.url}')`, height: '200px', maxWidth: '300px'}}></div>
             </div>
           </div>          
         )
