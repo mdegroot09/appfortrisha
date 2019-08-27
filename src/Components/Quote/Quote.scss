@@ -1,9 +1,9 @@
 .quoteBackground {
-  background: lightgray;
+  background: rgb(231, 231, 231);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 30px);
+  max-width: calc(100% - 30px);
 }
 
 .quote {
