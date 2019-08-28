@@ -190,6 +190,14 @@ class Post extends Component {
           <div className='homeLeft'>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
+              { this.props.isAdmin 
+                ?
+                <div className='editPost'>
+                  <img className='editIcon' src="https://simplejoys.s3.amazonaws.com/icon-edit-1-1567023411509.jpg" alt="edit icon"
+                  onClick={() => this.props.history.push(`/editpost/${this.props.match.params.id}`)}/>
+                </div>
+                : <></>
+              }
               <h3 style={{margin: '0', fontSize: '20px', color: 'black'}}>
                 {post.date 
                   ? moment(new Date(+post.date)).fromNow() 
@@ -216,9 +224,9 @@ class Post extends Component {
 }
 
 const mapStateToProps = state => {
-  const {posts} = state
+  const {posts, isAdmin} = state
   return {
-    posts
+    posts, isAdmin
   }
 }
 
