@@ -56,29 +56,22 @@ class NewPost extends Component {
           // If file size is larger than expected.
           if( response.data.error ) {
             if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
-              // this.ocShowAlert( 'Max size: 2MB', 'red' );
               console.log('File is too large. Must be under 10MB')
             } else {
               console.log( response.data );
               // If not the given file type
-              // this.ocShowAlert( response.data.error, 'red' );
             }
           } else {
             // Success
             let fileName = response.data;
             this.setState({[stateName]: fileName.location})
             console.log( 'fileName', fileName );
-            // this.ocShowAlert( 'File Uploaded', '#3089cf' );
           }
         }
       }).catch( ( error ) => {
-        // If another error
-        // this.ocShowAlert( error, 'red' );
         console.log('error:', error)
       });
     } else {
-      // if file not selected throw error
-      // this.ocShowAlert( 'Please upload file', 'red' );
       console.log('No file uploaded. Please upload a file.')
     }
   }
@@ -106,21 +99,6 @@ class NewPost extends Component {
       .catch(err => console.log('err:', err))
     }
   }
-
-  // ShowAlert Function
-  // ocShowAlert = ( message, background = '#3089cf' ) => {
-  //   let alertContainer = document.querySelector( '#uploadSuccess' )
-  //   let alertEl = document.createElement( 'div' )
-  //   let textNode = document.createTextNode( message );
-  //   alertEl.setAttribute( 'class', 'alert-pop-up' );
-  //   $( alertEl ).css( 'background', background );
-  //   alertEl.appendChild( textNode );
-  //   alertContainer.appendChild( alertEl );
-  //   setTimeout( function () {
-  //     $( alertEl ).fadeOut( 'slow' );
-  //     $( alertEl ).remove();
-  //   }, 3000 );
-  //  };
 
   render() {
     let {title} = this.state.postTitle
@@ -164,7 +142,6 @@ class NewPost extends Component {
           :         
           <div className="postElement">
             {/* Alert box*/}
-            <div id="uploadSuccess"></div>
             <div>
               <h3 className='newPostHeader'>Main Image Upload</h3>
               <p style={{margin: '0 0 5px 0'}}>Upload Size Limit: 10MB</p>

@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import Home from './Components/Home/Home'
 import Post from './Components/PostShow/Post'
 import NewPost from './Components/NewPost/NewPost'
-import EditPost from './Components/EditPost/EditPost.js'
+import EditPost from './Components/EditPost/EditPost'
 
 export default (
   <Switch>

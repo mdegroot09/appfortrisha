@@ -16,7 +16,7 @@ const initialState = {
   userImg: '',
   showLogin: false,
   showRegister: false,
-  isAdmin: true
+  isAdmin: false
 }
 
 const UPDATE_POSTS = 'UPDATE_POSTS';
