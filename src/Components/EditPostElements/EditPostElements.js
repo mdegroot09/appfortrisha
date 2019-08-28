@@ -22,7 +22,6 @@ class EditPostElements extends Component {
   }
   
   componentDidMount = () => {
-    console.log('editPost done')
     document.getElementById('publishBtn').innerHTML = 'Update'
     this.getPost()
   }
@@ -39,9 +38,6 @@ class EditPostElements extends Component {
       this.setState({family: res.data[0].family})
       this.setState({makeup: res.data[0].makeup})
       this.setState({food: res.data[0].food})
-      setTimeout(() => {
-        console.log('state:', this.state)
-      }, 3000);
       this.updateElements(res.data)
     })
     .catch(err => console.log('err:', err))
@@ -134,7 +130,7 @@ class EditPostElements extends Component {
 
   publishPost = () => {
     let {elements, family, makeup, food} = this.state
-    this.props.publishPost(elements, family, makeup, food)
+    this.props.updatePost(elements, family, makeup, food)
   }
 
   updateTab = (name, id) => {
@@ -143,8 +139,6 @@ class EditPostElements extends Component {
   }
 
   render(){
-    console.log('state on render:', this.state)
-
     let displayElements = this.state.elements.map((element, i) => {
       if (element.type === 'paragraph'){
         return(

@@ -66,5 +66,35 @@ module.exports = {
     await db.postCtrl.deleteComment({id})
 
     return res.sendStatus(200)
+  },
+
+  updatePost: async (req, res) => {
+    let {elements, family, makeup, food, postTitle, imageMain, id} = req.body
+    const db = req.app.get('db')
+    await db.postCtrl.updatePost({id, family, makeup, food, postTitle, imageMain})
+    await db.postCtrl.deleteElements({id})
+
+    createElement = (i) => {
+      let {type, text, quote, person, url, url2} = elements[i]
+      let post_id = id
+      if (!text) {text = ''} 
+      if (!quote) {quote = ''}
+      if (!person) {person = ''}
+      if (!url) {url = ''}
+      if (!url2) {url2 = ''}
+      db.postCtrl.createElement({type, text, quote, person, url, url2, post_id})
+      .then(e => {
+        if (i + 1 < elements.length){
+          createElement(i + 1)
+        } else return
+      })
+      .catch(err => {
+        res.sendStatus(err)
+      })
+    }
+
+    createElement(0)
+
+    return res.sendStatus(200)
   }
 }

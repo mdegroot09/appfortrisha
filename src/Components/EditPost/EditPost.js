@@ -80,11 +80,10 @@ class EditPost extends Component {
     }
   }
 
-  publishPost = (elements, family, makeup, food) => {
+  updatePost = (elements, family, makeup, food) => {
     if (!family && !makeup && !food){
       alert('At least one of the tab options must be checked.')
     } else {
-      let date = Date.parse(new Date())
       let obj = {
         elements: elements, 
         family: family,
@@ -92,13 +91,13 @@ class EditPost extends Component {
         food: food,
         postTitle: this.state.postTitle.title, 
         imageMain: this.state.imageMain,
-        date: `${date}`
+        id: this.props.match.params.id
       }
-      axios.post('/api/createpost', obj)
+      axios.put('/api/updatepost', obj)
       .then(res => {
         console.log('res:', res)
         let {post_id} = res.data
-        this.props.history.push(`/`)
+        this.props.history.push(`/post/${this.props.match.params.id}`)
       })
       .catch(err => console.log('err:', err))
     }
@@ -160,7 +159,7 @@ class EditPost extends Component {
           singleFileUploadHandler={this.singleFileUploadHandler}
           state={this.state}
           removeImg={this.removeImg}
-          publishPost={this.publishPost}
+          updatePost={this.updatePost}
           updateTitle={this.updateTitle}
           updateImageMain={this.updateImageMain}
         />
