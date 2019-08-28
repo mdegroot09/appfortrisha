@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
-import NewPostElements from '../NewPostElements/NewPostElements'
+import EditPostElements from '../EditPostElements/EditPostElements'
 
 class EditPost extends Component {
   constructor( props ) {
@@ -13,27 +13,14 @@ class EditPost extends Component {
     }
   }
 
-  componentDidMount = () => {
-    console.log('editPost done')
-    this.getPost()
-  }
-
-  getPost = () => {
-    axios.get(`/api/getpost/${this.props.match.params.id}`)
-    .then(res => {
-      console.log('res.data:', res.data)
-      let postTitle = {title: res.data[0].title}
-      let imageMain = res.data[0].imagemain
-      this.setState({postTitle})
-      this.setState({imageMain})
-    })
-    .catch(err => console.log('err:', err))
-  }
-
   updateTitle = (val) => {
     let {postTitle} = this.state
     postTitle.title = val
     this.setState({postTitle})
+  }
+  
+  updateImageMain = (imageMain) => {
+    this.setState({imageMain})
   }
 
   updateTitleView = (bool) => {
@@ -169,11 +156,13 @@ class EditPost extends Component {
             </div>
           </div>
         }
-        <NewPostElements
+        <EditPostElements
           singleFileUploadHandler={this.singleFileUploadHandler}
           state={this.state}
           removeImg={this.removeImg}
           publishPost={this.publishPost}
+          updateTitle={this.updateTitle}
+          updateImageMain={this.updateImageMain}
         />
       </div>
     );

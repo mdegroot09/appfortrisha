@@ -86,7 +86,7 @@ export default class NewElement extends Component {
           <input type="checkbox" id='foodTab' style={{marginLeft: '20px'}} onChange={() => this.props.updateTab('food', 'foodTab')}/>
           <label htmlFor="foodTab" style={{fontSize: '20px'}}>Food</label>
         </div>
-        <button className='viewMoreBtn'
+        <button className='viewMoreBtn' id='publishBtn'
           onClick={this.props.publishPost}>
             Publish
         </button>
