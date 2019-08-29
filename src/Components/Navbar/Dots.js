@@ -17,7 +17,7 @@ export default class Dots extends Component {
   }
 
   componentDidMount = () => {
-    this.resetNavWidth()
+    // this.resetNavWidth()
   }
 
   // reset navWidth and dots animation anytime window width changes
@@ -135,11 +135,11 @@ export default class Dots extends Component {
     return (
       <>
         {/* Need HidingDots solely for positioning middle sections */}
-        <HidingDots/> 
+        {/* <HidingDots/> 
         <ShowingDots 
           dotsArr={this.state.dotsArr}
           navStraightWidth={this.state.navStraightWidth}
-        />
+        /> */}
       </>
     )
   }
