@@ -71,7 +71,7 @@ class Post extends Component {
   }
 
   deletePost = () => {
-    if (window.confirm('Are you sure you wish to delete this post and any associated comments?')){
+    if (window.confirm('Are you sure you wish to delete this post and its comments?')){
       axios.delete(`/api/deletePost/${this.props.match.params.id}`)
       .then(res => {
         console.log('res:', res)
