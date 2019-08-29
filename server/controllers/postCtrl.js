@@ -96,5 +96,15 @@ module.exports = {
     createElement(0)
 
     return res.sendStatus(200)
+  },
+
+  deletePost: async (req, res) => {
+    let {id} = req.params
+    const db = req.app.get('db')
+    await db.postCtrl.deleteComments({id})
+    await db.postCtrl.deleteElements({id})
+    await db.postCtrl.deletePost({id})
+    
+    return res.sendStatus(200);
   }
 }

@@ -93,7 +93,6 @@ class NewPost extends Component {
       axios.post('/api/createpost', obj)
       .then(res => {
         console.log('res:', res)
-        let {post_id} = res.data
         this.props.history.push(`/`)
       })
       .catch(err => console.log('err:', err))

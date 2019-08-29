@@ -47,6 +47,8 @@ export default class NewElement extends Component {
       case 'imageDouble': 
         obj = {type: 'imageDouble', url: '', url2: ''}
         return this.props.addElement(obj)
+      default:
+        return
     }
   }
 

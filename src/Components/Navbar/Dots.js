@@ -120,7 +120,8 @@ export default class Dots extends Component {
   
   render() {
     // entire width between left round side and right round side
-    let {navStraightWidth} = this.state
+    // let {navStraightWidth} = this.state
+
     // if (navStraightWidth > 0){  // need this to avoid first render error
     //   let navbarInit = document.getElementsByClassName('navbarInit')[0]
     //   let navStraightWidth = +navbarInit.offsetWidth - ((20 * 2) + 6)

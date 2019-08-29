@@ -70,17 +70,30 @@ class Post extends Component {
     .catch(err => console.log(err))
   }
 
+  deletePost = () => {
+    if (window.confirm('Are you sure you wish to delete this post and any associated comments?')){
+      axios.delete(`/api/deletePost/${this.props.match.params.id}`)
+      .then(res => {
+        console.log('res:', res)
+        this.props.history.push('/')
+      })
+      .catch(err => console.log('err:', err))
+    }
+  }
+
   deleteComment = (id) => {
-    axios.delete(`/api/deletecomment/${id}`)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-    let index = this.state.comments.findIndex(comments => {
-      return comments.id === id
-    })
-    let {comments} = this.state
-    comments.splice(index, 1)
-    this.setState({comments})
-    this.getPost()
+    if (window.confirm('Are you sure you wish to delete this comment?')){
+      axios.delete(`/api/deletecomment/${id}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+      let index = this.state.comments.findIndex(comments => {
+        return comments.id === id
+      })
+      let {comments} = this.state
+      comments.splice(index, 1)
+      this.setState({comments})
+      this.getPost()
+    } 
   }
 
   render(){
@@ -187,15 +200,21 @@ class Post extends Component {
     return(
       <div className='homeMainDiv'>
         <div className='homeDuoDiv' style={{marginTop: '0'}}>
-          <div className='homeLeft'>
+          <div className='homeLeft' style={{position: 'relative'}}>
             <div className='postsList'>
               <h2 className='sectionTitle'>{post.title}</h2>
               { this.props.isAdmin 
                 ?
-                <div className='editPost'>
-                  <img className='editIcon' src="https://simplejoys.s3.amazonaws.com/icon-edit-1-1567023411509.jpg" alt="edit icon"
-                  onClick={() => this.props.history.push(`/editpost/${this.props.match.params.id}`)}/>
-                </div>
+                <>
+                  <div className='editPost'>
+                    <img className='editIcon' src="https://simplejoys.s3.amazonaws.com/icon-edit-1-1567023411509.jpg" alt="edit icon"
+                    onClick={() => this.props.history.push(`/editpost/${this.props.match.params.id}`)}/>
+                  </div>
+                  <div className='deletePost'>
+                    <img className='deleteIcon' src="https://simplejoys.s3.amazonaws.com/delete%20icon-1567091786148.png" alt="delete icon"
+                    onClick={() => this.deletePost()}/>
+                  </div>
+                </>
                 : <></>
               }
               <h3 style={{margin: '0', fontSize: '20px', color: 'black'}}>

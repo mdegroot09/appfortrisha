@@ -270,7 +270,7 @@ class EditPostElements extends Component {
         )
       }
       else {
-        return <></>
+        return <div key={i}></div>
       }
     })
  

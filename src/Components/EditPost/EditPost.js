@@ -96,7 +96,6 @@ class EditPost extends Component {
       axios.put('/api/updatepost', obj)
       .then(res => {
         console.log('res:', res)
-        let {post_id} = res.data
         this.props.history.push(`/post/${this.props.match.params.id}`)
       })
       .catch(err => console.log('err:', err))
