@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {updateShowLogin, updateShowRegister, updateUsername, updateIsAdmin} from '../../redux/reducer';
+import {updateShowLogin, updateShowRegister, updateUsername, updateIsAdmin, updateUserImg} from '../../redux/reducer';
 import axios from 'axios'
 
 class Navbar extends Component {
@@ -18,7 +18,16 @@ class Navbar extends Component {
 
   componentDidMount = () => {
     axios.get('/auth/session')
-    .then(res => console.log('session res:', res))
+    .then(res => {
+      console.log('session res:', res)
+      let {user} = res.data
+      if (user.firstName){
+        this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
+        this.props.updateUserImg(user.image)
+        this.props.updateIsAdmin(user.isAdmin)
+      }
+    })
+    .catch(err => console.log('nav mount error:', err))
 
     let {scrollY} = window
     let opacity = 0
@@ -224,7 +233,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-  updateShowLogin, updateShowRegister, updateUsername, updateIsAdmin
+  updateShowLogin, updateShowRegister, updateUsername, updateIsAdmin, updateUserImg
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
