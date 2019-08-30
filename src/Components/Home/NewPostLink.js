@@ -7,10 +7,9 @@ class NewPostLink extends Component {
     return(
       <>
         {this.props.isAdmin ?
-          <Link to='/newpost' className='miniPost' style={{justifyContent: 'center'}}>
-            <div className='miniPhoto' style={{backgroundImage: `url('https://img1.androidappsapk.co/300/f/b/6/com.wPlusTelegramMessenger.png')`, backgroundPosition: 'center center', backgroundSize: 'cover'}} alt=""></div>
-            {/* <h3 className='postTitle' style={{alignSelf: 'center'}}>New Post</h3> */}
-          </Link>
+          <div className='viewMoreBtn' onClick={() => this.props.history.push('/newpost')} style={{backgroundColor: '#2b9fdd', position: 'absolute', top: '20px', right: '15px', margin: '0'}}>
+            New Post
+          </div>
         : <></>
         }
       </>

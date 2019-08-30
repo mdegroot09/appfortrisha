@@ -19,7 +19,6 @@ class Navbar extends Component {
   componentDidMount = () => {
     axios.get('/auth/session')
     .then(res => {
-      console.log('session res:', res)
       let {user} = res.data
       if (user.firstName){
         this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})

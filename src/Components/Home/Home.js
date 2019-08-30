@@ -124,7 +124,7 @@ class Home extends Component {
             onClick={() => this.updateActiveTab('food')}>Food</button>
         </div>
         <div className='homeDuoDiv'>
-          <div className='homeLeft'>
+          <div className='homeLeft' style={{position: 'relative'}}>
             <div className='postsList'>
               <h2 className='sectionTitle'>Posts</h2>
               <input onChange={(e) => this.updateFilter(e.target.value)} className='filter' type="text" placeholder='search'/>
