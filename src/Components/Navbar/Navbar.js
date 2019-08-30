@@ -17,6 +17,9 @@ class Navbar extends Component {
   }
 
   componentDidMount = () => {
+    axios.get('/auth/session')
+    .then(res => console.log('session res:', res))
+
     let {scrollY} = window
     let opacity = 0
     if (scrollY > 0){
