@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Dots from './Dots'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {updateShowLogin, updateShowRegister, updateUsername, updateIsAdmin} from '../../redux/reducer';
@@ -142,8 +141,6 @@ class Navbar extends Component {
       this.updateScroll()
     } 
 
-    console.log('window.scrollY:', window.scrollY)
-
     return(
       <div className='navMainParent'>
         <div className={'navMainInit'}>
@@ -163,10 +160,6 @@ class Navbar extends Component {
                 <img className='hamburger' src="https://cdn.onlinewebfonts.com/svg/img_53100.png" alt=""/>
               </button>
             </div>
-            <Dots 
-              resetSpinImg={this.resetSpinImg}
-              startSpin={this.startSpin}
-            />
             <img className='navLogo' 
               style={{height: '200%', transform: `rotate(${window.scrollY * .30}deg)`}} 
               src="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_spacepict10_1484336621-1.png" alt=""/>
