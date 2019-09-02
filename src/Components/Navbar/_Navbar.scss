@@ -135,7 +135,7 @@
 .hideMenu {
   position: absolute;
   top: -200px;
-  transition: 1s;
+  transition: .5s;
   display: flex;
   z-index: -1;
   background: linear-gradient(#131313, #000077, rgb(15, 15, 170));
@@ -148,7 +148,7 @@
   position: absolute;
   top: 0;
   display: flex;
-  transition: .5s;
+  transition: .3s;
   height: 230px;
   z-index: -1;
   background: navy;
