@@ -20,12 +20,16 @@ class Navbar extends Component {
     axios.get('/auth/session')
     .then(res => {
       let {user} = res.data
-      if (user.firstName){
-        this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
-        this.props.updateUserImg(user.image)
-        this.props.updateIsAdmin(user.isAdmin)
-      }
+      try {
+        if (user.firstName){
+          this.props.updateUsername({userFirstName: user.firstName, userLastName: user.lastName})
+          this.props.updateUserImg(user.image)
+          this.props.updateIsAdmin(user.isAdmin)
+        }
+      } 
+      catch {}
     })
+    .catch(e => console.log('server not working:', e)) // catch is user.firstName doesn't exist
 
     let {scrollY} = window
     let opacity = 0
