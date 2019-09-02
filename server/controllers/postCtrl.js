@@ -71,7 +71,16 @@ module.exports = {
   updatePost: async (req, res) => {
     let {elements, family, makeup, food, postTitle, imageMain, id} = req.body
     const db = req.app.get('db')
-    await db.postCtrl.updatePost({id, family, makeup, food, postTitle, imageMain})
+    let textArr = elements.map(element => {
+      if (element.text){
+        return element.text + ' '
+      } else {
+        return ''
+      }
+    })
+    let text = textArr.join('').trim()
+
+    await db.postCtrl.updatePost({id, family, makeup, food, postTitle, imageMain, text})
     await db.postCtrl.deleteElements({id})
 
     createElement = (i) => {
