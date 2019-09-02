@@ -26,7 +26,6 @@ class Navbar extends Component {
         this.props.updateIsAdmin(user.isAdmin)
       }
     })
-    .catch(err => console.log('nav mount error:', err))
 
     let {scrollY} = window
     let opacity = 0
