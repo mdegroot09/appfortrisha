@@ -26,7 +26,6 @@ class Post extends Component {
   getPost = () => {
     axios.get(`/api/getpost/${this.props.match.params.id}`)
     .then(res => {
-      console.log('res.data:', res.data)
       let {post} = this.state
       post.title = res.data[0].title
       post.imageMain = res.data[0].imagemain
@@ -48,7 +47,6 @@ class Post extends Component {
       this.setState({post})
       axios.get(`/api/getcomments/${this.props.match.params.id}`)
       .then(res => {
-        console.log('res.data:', res.data)
         this.setState({comments: res.data})
       })
     })    
@@ -64,7 +62,6 @@ class Post extends Component {
 
     axios.post('/api/createcomment', {text, date, post_id})
     .then(res => {
-      console.log('res.data:', res.data)
       this.getPost()
     })
     .catch(err => console.log(err))
@@ -74,7 +71,6 @@ class Post extends Component {
     if (window.confirm('Are you sure you wish to delete this post and its comments?')){
       axios.delete(`/api/deletePost/${this.props.match.params.id}`)
       .then(res => {
-        console.log('res:', res)
         this.props.history.push('/')
       })
       .catch(err => console.log('err:', err))

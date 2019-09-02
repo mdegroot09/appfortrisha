@@ -29,7 +29,6 @@ class EditPostElements extends Component {
   getPost = () => {
     axios.get(`/api/getpost/${this.props.match.params.id}`)
     .then(res => {
-      console.log('res.data:', res.data)
       this.props.updateTitle(res.data[0].title)
       this.props.updateImageMain(res.data[0].imagemain)
       document.getElementById('familyTab').checked = res.data[0].family

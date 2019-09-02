@@ -55,11 +55,11 @@ class Auths extends Component{
         loginSuccess.style.display = 'none'
       }, 6000);
       axios.post('/auth/checkID', user)
-      .then(response => {
-        console.log('isAdmin TRUE.', response)
+      .then(r => {
+        console.log('isAdmin: TRUE')
         this.props.updateIsAdmin(true)
       })
-      .catch(error => console.log('isAdmin FALSE.', error))
+      .catch(e => console.log('isAdmin: FALSE'))
     })
     .catch(err => {
       this.props.updateUserImg('')
