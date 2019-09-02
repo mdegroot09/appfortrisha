@@ -40,7 +40,7 @@ body {
 .loginSuccess {
   position: fixed;
   top: 85px;
-  background: green;
+  background: rgba(0, 128, 0, 0.808);
   color: white;
   z-index: 1;
   border-radius: 5px;
@@ -50,6 +50,6 @@ body {
 }
 
 .loginFail {
-  background: red;
+  background: rgba(255, 0, 0, 0.808);
   display: none;
 }
