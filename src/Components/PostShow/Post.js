@@ -10,7 +10,8 @@ class Post extends Component {
     super()
     this.state = {
       post: {
-        elements: []
+        elements: [],
+        imageMain: ''
       },
       comments: []
     }
