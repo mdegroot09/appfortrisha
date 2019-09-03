@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <BrowserRouter history={hist}>
+      <BrowserRouter basename='/' history={hist}>
           <div className="App">
             <Navbar/>
             <div className='loginSuccess'>Login successful</div>
