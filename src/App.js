@@ -4,7 +4,7 @@ import Auth from './Components/Auths/Auths'
 import './App.scss'
 import {Provider} from 'react-redux'
 import store from './redux/store'
-import {HashRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import router from './router'
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <HashRouter>
+      <BrowserRouter>
         <div className="App">
           <Navbar/>
           <div className='loginSuccess'>Login successful</div>
@@ -32,7 +32,7 @@ export default function App() {
             {router}
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   );
 }
