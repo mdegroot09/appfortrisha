@@ -22,16 +22,16 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <HashRouter>
-          <div className="App">
-            <Navbar/>
-            <div className='loginSuccess'>Login successful</div>
-            <div className='loginSuccess loginFail'>Login unsuccessful</div>
-            <Auth/>
-            <div className='App' onClick={() => showHideMenu()} onTouchMove={() => showHideMenu()}>
-              {router}
-            </div>
+      <HashRouter basename='/'>
+        <div className="App">
+          <Navbar/>
+          <div className='loginSuccess'>Login successful</div>
+          <div className='loginSuccess loginFail'>Login unsuccessful</div>
+          <Auth/>
+          <div className='App' onClick={() => showHideMenu()} onTouchMove={() => showHideMenu()}>
+            {router}
           </div>
+        </div>
       </HashRouter>
     </Provider>
   );
